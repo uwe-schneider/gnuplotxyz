@@ -309,11 +309,3 @@ Step4: If you found out how "gnuplot.inp" and/or "gnuplot.dat" should be changed
 
 ([back to top](https://github.com/uwe-schneider/gnuplotxyz/wiki/#gnuplotxyzgms))
  
-# Legal Notice 
-
-
-
-
-
-
-

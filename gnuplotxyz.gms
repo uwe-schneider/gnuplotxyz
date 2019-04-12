@@ -561,7 +561,8 @@ LOOP((%gpxyz_internalrepeatloop%),
 
 
 $label gpxyzlabel_assign_more_variables
-$setglobal gp_name '%1'
+$if not setglobal gp_name                         $setglobal gp_name '%1'
+$if "%gp_name%" == "no"                           $setglobal gp_name '%1'
 
 * 1D names
 $if dimension 1 %1                                $setglobal gp_scen      'uu___1'
@@ -795,11 +796,13 @@ $if not setglobal gp_font                         $setglobal gp_font 'Times New 
 $if     "%gp_font%" == "no"                       $setglobal gp_font 'Times New Roman'
 
 * Font Size
+$if     setglobal gp_fntsize                      $setglobal gp_fontsize %gp_fntsize%
 $if not setglobal gp_fontsize                     $setglobal gp_fontsize '12'
 $if     "%gp_fontsize%" == "no"                   $setglobal gp_fontsize '12'
 
 * Line Width
 $if setglobal gp_linewidth                        $setglobal gp_lwidth  %gp_linewidth%
+$if "%gp_lwidth%" == "no"                         $setglobal gp_lwidth  '1'
 $if not setglobal gp_lwidth                       $setglobal gp_lwidth  '1'
 
 
@@ -835,7 +838,7 @@ $if not setglobal gp_extension                    $setglobal gp_extension "%gp_t
 $if "%gp_extension%" == "no"                      $setglobal gp_extension "%gp_term%"
 
 put "set terminal %gp_term%";
-$if     "%gp_term%" =="emf"                       put " %gp_color% '%gp_font%' %gp_fontsize% linewidth %gp_lwidth% size 871,653";
+put " font '%gp_font%, %gp_fontsize%' linewidth %gp_lwidth% size 871,653";
 put /;
 $if not setglobal gp_termoption                   $goto gpxyzlabel_more_on_terminal
 $if     "%gp_termoption%"=="no"                   $goto gpxyzlabel_more_on_terminal
@@ -1350,8 +1353,17 @@ put 'set ztics nomirror %gp_ztics%' /;
 
 
 
-*       Write options for labels, title, style, border, lines, and key
+*       Write options for color labels, title, style, border, lines, and key
 $label gpxyzlabel_styles
+
+
+$if "%gp_color%" ==  "color"                      $goto gpxyzlabel_after_monochrome
+put 'set monochrome' /;
+$label gpxyzlabel_after_monochrome
+
+
+
+
 $if not setglobal gp_label                        $goto gpxyzlabel_aftermanuallabels
 $if "%gp_label%"  == "no"                         put 'unset label'/;
 $if "%gp_label%"  == "no"                         $goto gpxyzlabel_aftermanuallabels
@@ -1835,6 +1847,58 @@ $if not setglobal gp_samples           $goto gpxyzlabel_aftersampleswriting
 $if "%gp_samples%"=="no"               $goto gpxyzlabel_aftersampleswriting
 put "set samples %gp_samples%" /;
 $label gpxyzlabel_aftersampleswriting
+
+
+$if not setglobal gp_fixcolor_set     $goto gpxyzlabel_after_fixcolorassignment
+$if "%gp_fixcolor_set%" == "no"       $goto gpxyzlabel_after_fixcolorassignment
+gp_count = 0;
+LOOP(%gp_fixcolor_set%,
+ gp_count = gp_count + 1;
+ LOOP(%gp_scen% $SAMEAS(%gp_fixcolor_set%,%gp_scen%),
+
+IF(gp_count eq 1, gp_xyz_fixed_col("%gp_lc_1%",%gp_scen%) = yes;);
+IF(gp_count eq 2, gp_xyz_fixed_col("%gp_lc_2%",%gp_scen%) = yes;);
+IF(gp_count eq 3, gp_xyz_fixed_col("%gp_lc_3%",%gp_scen%) = yes;);
+IF(gp_count eq 4, gp_xyz_fixed_col("%gp_lc_4%",%gp_scen%) = yes;);
+IF(gp_count eq 5, gp_xyz_fixed_col("%gp_lc_5%",%gp_scen%) = yes;);
+IF(gp_count eq 6, gp_xyz_fixed_col("%gp_lc_6%",%gp_scen%) = yes;);
+IF(gp_count eq 7, gp_xyz_fixed_col("%gp_lc_7%",%gp_scen%) = yes;);
+IF(gp_count eq 8, gp_xyz_fixed_col("%gp_lc_8%",%gp_scen%) = yes;);
+IF(gp_count eq 9, gp_xyz_fixed_col("%gp_lc_9%",%gp_scen%) = yes;);
+IF(gp_count eq 10, gp_xyz_fixed_col("%gp_lc_10%",%gp_scen%) = yes;);
+IF(gp_count eq 11, gp_xyz_fixed_col("%gp_lc_11%",%gp_scen%) = yes;);
+IF(gp_count eq 12, gp_xyz_fixed_col("%gp_lc_12%",%gp_scen%) = yes;);
+IF(gp_count eq 13, gp_xyz_fixed_col("%gp_lc_13%",%gp_scen%) = yes;);
+IF(gp_count eq 14, gp_xyz_fixed_col("%gp_lc_14%",%gp_scen%) = yes;);
+IF(gp_count eq 15, gp_xyz_fixed_col("%gp_lc_15%",%gp_scen%) = yes;);
+IF(gp_count eq 16, gp_xyz_fixed_col("%gp_lc_16%",%gp_scen%) = yes;);
+IF(gp_count eq 17, gp_xyz_fixed_col("%gp_lc_17%",%gp_scen%) = yes;);
+IF(gp_count eq 18, gp_xyz_fixed_col("%gp_lc_18%",%gp_scen%) = yes;);
+IF(gp_count eq 19, gp_xyz_fixed_col("%gp_lc_19%",%gp_scen%) = yes;);
+IF(gp_count eq 20, gp_xyz_fixed_col("%gp_lc_20%",%gp_scen%) = yes;);
+IF(gp_count eq 21, gp_xyz_fixed_col("%gp_lc_21%",%gp_scen%) = yes;);
+IF(gp_count eq 22, gp_xyz_fixed_col("%gp_lc_22%",%gp_scen%) = yes;);
+IF(gp_count eq 23, gp_xyz_fixed_col("%gp_lc_23%",%gp_scen%) = yes;);
+IF(gp_count eq 24, gp_xyz_fixed_col("%gp_lc_24%",%gp_scen%) = yes;);
+IF(gp_count eq 25, gp_xyz_fixed_col("%gp_lc_25%",%gp_scen%) = yes;);
+IF(gp_count eq 26, gp_xyz_fixed_col("%gp_lc_26%",%gp_scen%) = yes;);
+IF(gp_count eq 27, gp_xyz_fixed_col("%gp_lc_27%",%gp_scen%) = yes;);
+IF(gp_count eq 28, gp_xyz_fixed_col("%gp_lc_28%",%gp_scen%) = yes;);
+IF(gp_count eq 29, gp_xyz_fixed_col("%gp_lc_29%",%gp_scen%) = yes;);
+IF(gp_count eq 30, gp_xyz_fixed_col("%gp_lc_30%",%gp_scen%) = yes;);
+IF(gp_count eq 31, gp_xyz_fixed_col("%gp_lc_31%",%gp_scen%) = yes;);
+IF(gp_count eq 32, gp_xyz_fixed_col("%gp_lc_32%",%gp_scen%) = yes;);
+IF(gp_count eq 33, gp_xyz_fixed_col("%gp_lc_33%",%gp_scen%) = yes;);
+IF(gp_count eq 34, gp_xyz_fixed_col("%gp_lc_34%",%gp_scen%) = yes;);
+IF(gp_count eq 35, gp_xyz_fixed_col("%gp_lc_35%",%gp_scen%) = yes;);
+IF(gp_count eq 36, gp_xyz_fixed_col("%gp_lc_36%",%gp_scen%) = yes;);
+IF(gp_count eq 37, gp_xyz_fixed_col("%gp_lc_37%",%gp_scen%) = yes;);
+IF(gp_count eq 38, gp_xyz_fixed_col("%gp_lc_38%",%gp_scen%) = yes;);
+IF(gp_count eq 39, gp_xyz_fixed_col("%gp_lc_39%",%gp_scen%) = yes;);
+IF(gp_count eq 40, gp_xyz_fixed_col("%gp_lc_40%",%gp_scen%) = yes;);
+     ););
+$label gpxyzlabel_after_fixcolorassignment
+
 
 
 * Direct to histograms, 2D or 3D plots

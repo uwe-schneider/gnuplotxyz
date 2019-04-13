@@ -1848,7 +1848,7 @@ $if "%gp_samples%"=="no"               $goto gpxyzlabel_aftersampleswriting
 put "set samples %gp_samples%" /;
 $label gpxyzlabel_aftersampleswriting
 
-
+* uwe
 $if not setglobal gp_fixcolor_set     $goto gpxyzlabel_after_fixcolorassignment
 $if "%gp_fixcolor_set%" == "no"       $goto gpxyzlabel_after_fixcolorassignment
 gp_count = 0;
@@ -3096,8 +3096,6 @@ loop(%gp_planes%,
 put /;
 
 $goto gpxyzlabel_write_data_file
-
-
 
 
 
@@ -4488,6 +4486,7 @@ $if not setglobal gp_lc_39       $setglobal gp_lc_39 deepskyblue
 $if not setglobal gp_lc_40       $setglobal gp_lc_40 dimgray
 $label gpxyzlabel_after_colorscale
 
+$ontext
 gp_count = 0;
 LOOP(%gp_fixcolor_set%,
  gp_count = gp_count + 1;
@@ -4534,6 +4533,9 @@ IF(gp_count eq 38, gp_xyz_fixed_col("%gp_lc_38%",%gp_scen%) = yes;);
 IF(gp_count eq 39, gp_xyz_fixed_col("%gp_lc_39%",%gp_scen%) = yes;);
 IF(gp_count eq 40, gp_xyz_fixed_col("%gp_lc_40%",%gp_scen%) = yes;);
      ););
+
+$offtext
+
 
 gp_scencount(%gp_scen%) = 0;
 gp_count = 0;
@@ -5676,7 +5678,7 @@ $label gpxyzlabel_after_multiplot_execute_check
 * Run gnuplot
 * ++++++++++++
 
-$if not setglobal gp_sleep                $setglobal gp_sleep 0
+$if not setglobal gp_sleep                $setglobal gp_sleep 1
 
 * text window for manual reploting and error finding
 $if not setglobal gp_addtextwindow        $setglobal gp_addtextwindow ""
@@ -5706,6 +5708,14 @@ execute 'gnuplot gnuplot.inp';
 $goto gpxyzlabel_finishup
 
 $label gpxyzlabel_finishup
+
+$if not setglobal gp_fixcolor_set $goto gpxyz_after_gp_fixcolor_reset
+$if "%gp_fixcolor_set%" == "no"   $goto gpxyz_after_gp_fixcolor_reset
+gp_fixlinecolormap(gp_hex_color_name,%gp_fixcolor_set%) = no;
+gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%) = no;
+$label gpxyz_after_gp_fixcolor_reset
+
+
 uu___3("%2")=no;
 uu___3("%3")=no;
 uu___2(u__2)=no;

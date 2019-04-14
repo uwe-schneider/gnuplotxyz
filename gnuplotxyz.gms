@@ -249,6 +249,13 @@ $if "%1" == "loop"                                $goto gpxyzlabel_endofgnupltxy
 * exit if not declared
 $label gpxyzlabel_declared1
 gnuplotxyz_dontplot_nodata = 0;
+
+$if not setglobal gp_keepname                     $goto gpxyzlabel_afterkeepname_assignment
+$if "%gp_keepname%" == "no"                       $goto gpxyzlabel_afterkeepname_assignment
+$setglobal gp_name %gp_keepname%
+$label gpxyzlabel_afterkeepname_assignment
+
+
 $if a%3==a                                        $goto gpxyzlabel_afterstylecheck
 $if "%gp_style%" == "histogram"                   $setglobal gp_style linespoints
 $if "%gp_style%" == "newhistogram"                $setglobal gp_style linespoints
@@ -558,7 +565,6 @@ $if "%gpxyz_internalloopactive%" == "no"          $goto  gpxyzlabel_after_intern
 LOOP((%gpxyz_internalrepeatloop%),
 
 * #########################
-
 
 $label gpxyzlabel_assign_more_variables
 $if not setglobal gp_name                         $setglobal gp_name '%1'
@@ -5708,6 +5714,11 @@ execute 'gnuplot gnuplot.inp';
 $goto gpxyzlabel_finishup
 
 $label gpxyzlabel_finishup
+
+$if not setglobal gp_keepname     $setglobal gp_keepname no
+$if not "%gp_keepname%" == "no"   $goto gpxyz_after_keepname_check
+$dropglobal gp_name
+$label gpxyz_after_keepname_check
 
 $if not setglobal gp_fixcolor_set $goto gpxyz_after_gp_fixcolor_reset
 $if "%gp_fixcolor_set%" == "no"   $goto gpxyz_after_gp_fixcolor_reset

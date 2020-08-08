@@ -22,12 +22,10 @@ $setglobal gp_lmargin 8
 $setglobal gp_rmargin 1
 
 $setglobal gp_yrange  "0:8"
-*$setglobal gp_xtics   no
 $setglobal gp_ytics   2
 $setglobal gp_ylabel "Application"
-
-$setglobal gp_font "Arial"
-$setglobal gp_fontsize 14
+$setglobal gp_font "Britannic"
+$setglobal gp_fontsize "14"
 
 $setglobal gp_xlabel no
 $setglobal gp_key top left
@@ -35,10 +33,11 @@ $setglobal gp_key top left
 $libinclude gnuplotxyz FDATA
 
 $setglobal gp_key no
+$setglobal gp_fontsize "10"
 $libinclude gnuplotxyz HDATA
 
 $setglobal gp_xtics   1
-$setglobal gp_xlabel "Year"
+$setglobal gp_xlabel "\n Year"
 $libinclude gnuplotxyz IDATA
 
 $libinclude gnuplotxyz multiplot

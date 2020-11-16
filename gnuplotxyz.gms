@@ -17,6 +17,11 @@
 $onlisting
 $onuni
 
+
+$if "%1" == "multiplot"                           execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
+$if "%1" == "multiplot"                           $goto gpxyzlabel_totalendofgnupltxyz
+
+
 * Execute power point transistion
 $if "%1" == "compileppt"                          $goto gpxyzlabel_endofgnupltxyz
 
@@ -248,6 +253,7 @@ $if "%1" == "loop"                                $goto gpxyzlabel_endofgnupltxy
 
 * exit if not declared
 $label gpxyzlabel_declared1
+
 gnuplotxyz_dontplot_nodata = 0;
 
 $if not setglobal gp_keepname                     $goto gpxyzlabel_afterkeepname_assignment
@@ -303,6 +309,11 @@ $if '%gp_multiplot_count%' == '_mp3'              $setglobal gp_multiplot_count 
 $if '%gp_multiplot_count%' == '_mp2'              $setglobal gp_multiplot_count    _mp3
 $if '%gp_multiplot_count%' == '_mp1'              $setglobal gp_multiplot_count    _mp2
 $if not setglobal gp_multiplot_count              $setglobal gp_multiplot_count    _mp1
+
+display "uuuuuuuu";
+display "gp_multiplot %gp_multiplot%";
+display "gp_multiplot_count %gp_multiplot_count%";
+display "aaaaaaaa";
 
 $label after_gp_multiplot_count_calc
 
@@ -362,7 +373,7 @@ allu3(u__1,u__2,u__3) $(%1(u__1,u__2,u__3))   = yes;
 uu___3(u__3) $sum(allu3(u__1,u__2,u__3),1)    = yes;
 uu___2(u__2) $sum(allu3(u__1,u__2,uu___3),1)  = yes;
 uu___1(u__1) $sum(allu3(u__1,uu___2,uu___3),1)= yes;
-allu3(u__1,u__2,u__3)$(%1(u__1,u__2,u__3)) = no;
+allu3(u__1,u__2,u__3) $(%1(u__1,u__2,u__3)) = no;
 $goto gpxyzlabel_assign_more_variables
 
 
@@ -915,7 +926,8 @@ $label gpxyzlabel_specify_winoptions
 $if not "%gp_multiplot_count%" == "_mp1"           $goto gpxyzlabel_aftermultiplot_write
 PUT 'set multiplot ';
 $if setglobal gp_multiplotlayout                   PUT 'layout %gp_multiplotlayout% ';
-$if setglobal gp_multiplottitle                    PUT 'title "%gp_multiplottitle%"';
+$if setglobal gp_multiplottitle                    PUT 'title "%gp_multiplottitle%" ';
+$if setglobal gp_multiplottitlefont                PUT 'font "%gp_multiplottitlefont%" ';
 PUT /;
 $label gpxyzlabel_aftermultiplot_write
 
@@ -1385,14 +1397,16 @@ $if     setglobal gp_xl_l2                        put ' ',%gp_xl_l2%.tl;
 $if     setglobal gp_xl_l3                        put ' ',%gp_xl_l3%.tl;
 $if     setglobal gp_xl_l4                        put ' ',%gp_xl_l4%.tl;
 PUT '"' /;
-$goto gpxyzlabel_ylable_loop
+$goto gpxyzlabel_ylabel_loop
 
 $label gpxyzlabel_xlabel_noloop
 $if not setglobal gp_xxxvalue                     put 'unset xlabel'/;
+$if not setglobal gp_xxxvalue                     $goto gpxyzlabel_ylabel_loop
 $if "%gp_xxxvalue%"  == "no"                      put 'unset xlabel'/;
+$if "%gp_xxxvalue%"  == "no"                      $goto gpxyzlabel_ylabel_loop
 $if "%gp_xlabel%"  == "no"                        put 'unset xlabel'/;
+$if "%gp_xlabel%"  == "no"                        $goto gpxyzlabel_ylabel_loop
 
-$if "%gp_xlabel%"  == "no"                        $goto gpxyzlabel_ylable_loop
 $if setglobal gp_xxxvalue                         put 'set xlabel  "%gp_xxxvalue%"'/;
 $if setglobal gp_xlabel                           put 'set xlabel  "%gp_xlabel%"';
 $if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_after_xlabeloffset
@@ -1402,7 +1416,7 @@ $label gpxyzlabel_after_xlabeloffset
 $if setglobal gp_xlabel                           put /;
 
 * Y-labels
-$label gpxyzlabel_ylable_loop
+$label gpxyzlabel_ylabel_loop
 $if not setglobal gp_yl_l1                        $goto gpxyzlabel_ylabel_noloop
 $if "%gp_yl_l1%"  == "no"                         $goto gpxyzlabel_ylabel_noloop
 put 'set ylabel  "';
@@ -1411,7 +1425,7 @@ $if     setglobal gp_yl_l2                        put ' ',%gp_yl_l2%.tl;
 $if     setglobal gp_yl_l3                        put ' ',%gp_yl_l3%.tl;
 $if     setglobal gp_yl_l4                        put ' ',%gp_yl_l4%.tl;
 PUT '"' /;
-$goto gpxyzlabel_zlable_loop
+$goto gpxyzlabel_zlabel_loop
 
 $label gpxyzlabel_ylabel_noloop
 $if not setglobal gp_yyyvalue                     put 'unset ylabel'/;
@@ -1425,13 +1439,13 @@ $if setglobal gp_ylabel                           put 'set ylabel  "%gp_ylabel%"
 $label gpxyzlabel_y2label_check
 $if not setglobal gp_y2label                      put 'unset y2label'/;
 $if "%gp_y2label%"  == "no"                       put 'unset y2label'/;
-$if not setglobal gp_y2label                      $goto gpxyzlabel_zlable_loop
-$if "%gp_y2label%"  == "no"                       $goto gpxyzlabel_zlable_loop
+$if not setglobal gp_y2label                      $goto gpxyzlabel_zlabel_loop
+$if "%gp_y2label%"  == "no"                       $goto gpxyzlabel_zlabel_loop
 put 'set y2label  "%gp_y2label%"'/;
 
 
 * Z-labels
-$label gpxyzlabel_zlable_loop
+$label gpxyzlabel_zlabel_loop
 $if not setglobal gp_zl_l1                        $goto gpxyzlabel_zlabel_noloop
 $if "%gp_zl_l1%"  == "no"                         $goto gpxyzlabel_zlabel_noloop
 put 'set zlabel  "';
@@ -3631,6 +3645,13 @@ $if "%gp_xlabel%" == "no"   $goto after_put_newhist_xlabel
   if(gp_count eq 1, put '"%gp_xlabel%"';);
 $label after_put_newhist_xlabel
 
+$if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_after_newhist_xlabeloffset
+$if "%gp_xlabeloffset%" == "no"                   $goto gpxyzlabel_after_newhist_xlabeloffset
+
+if(gp_count eq 1, PUT " offset %gp_xlabeloffset% ";);
+
+$label gpxyzlabel_after_newhist_xlabeloffset
+
 $if not "%gp_hist%" == "columnstacked"  $goto gpxyzlabel_after_xposition
 file.nd = 3;
   if(gp_count eq 1, put ' lt 1 at ', ((gp_count_2-1)*card(%gp_scen%)+(gp_count_2-1)*%gp_newhistogramgap%););
@@ -3642,7 +3663,11 @@ $label gpxyzlabel_after_xposition
   if(gp_count eq 1, put ", 'gnuplot%gp_multiplot_count%.dat' using "; else put " '' u ";);
   put (gp_count+1+(gp_count_2-1)*card(%gp_scen%));
 
+* new Uwe
+$if not setglobal gp_nohistogram_boxlabel            $goto after_xticlabels_histogram
+$if "%setglobal gp_nohistogram_boxlabel%" == "no"    $goto after_xticlabels_histogram
 $if not "%gp_hist%" == "columnstacked"  if (gp_count eq 1, put ':xticlabels(1)';);
+$label after_xticlabels_histogram
 $if     "%gp_hist%" == "columnstacked"  if (gp_count_2 eq 1 and gp_count eq 1, put ':key(1)';);
 
 $if not "%gp_hist%" == "columnstacked"  if(gp_count_2 eq 1, put ' ti col'; else put ' ti "" ';);
@@ -4090,12 +4115,6 @@ $label gpxyzlabel_afterinserthistlinecolors
 
 $label gpxyzlabel_write_data_file
 
-$if not setglobal gp_multiplot                         $goto gpxyzlabel_after_multiplot_unset_check
-$if '%gp_multiplot%' == 'no'                           $goto gpxyzlabel_after_multiplot_unset_check
-$if "%gp_multiplot_count%" == "_mp%gp_multiplot%"      PUT "unset multiplot" /;
-$label gpxyzlabel_after_multiplot_unset_check
-
-
 putclose;
 
 
@@ -4269,7 +4288,23 @@ PUT /;
 
 loop(%gp_obsv_1%,
  gp_count = 0;
- put '"',%gp_obsv_1%.tl,'"'
+
+
+* new
+$if not setglobal gp_nohistogram_sectionlabel   $goto after_no_sectionlabel
+$if "%gp_nohistogram_sectionlabel%" == "no"     $goto after_no_sectionlabel
+
+ put '" "';
+
+$goto after_auto_sectionlabel
+
+$label after_no_sectionlabel
+
+ put '"',%gp_obsv_1%.tl,'"';
+
+$label after_auto_sectionlabel
+* end new
+
   loop(%gp_scen%,
     gp_count = gp_count + 1;
     if(     ((gp_supzer eq 0) and ((gp_count - gp__0(%gp_scen%)) lt 0)
@@ -4283,6 +4318,16 @@ loop(%gp_obsv_1%,
 
        );
      );
+
+* new
+$if not setglobal gp_nohistogram_boxlabel   $goto after_no_boxlabel
+$if "%gp_nohistogram_boxlabel%" == "no"     $goto after_no_boxlabel
+
+ put '  " "';
+
+$goto after_no_boxlabel
+* end new
+
 
  PUT /;
 
@@ -5676,7 +5721,7 @@ $label gpxyzlabel_after_writing_ppt_file
 
 $if not setglobal gp_multiplot                         $goto gpxyzlabel_after_multiplot_execute_check
 $if '%gp_multiplot%' == 'no'                           $goto gpxyzlabel_after_multiplot_execute_check
-$if not "%gp_multiplot_count%" == "_mp%gp_multiplot%"  $goto gpxyzlabel_finishup
+$if setglobal gp_multiplot                             $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_multiplot_execute_check
 
 
@@ -5686,7 +5731,7 @@ $label gpxyzlabel_after_multiplot_execute_check
 
 $if not setglobal gp_sleep                $setglobal gp_sleep 1
 
-* text window for manual reploting and error finding
+* text window for manual replotting and error finding
 $if not setglobal gp_addtextwindow        $setglobal gp_addtextwindow ""
 $if "%gp_addtextwindow%"=="no"            $setglobal gp_addtextwindow ""
 $if "%gp_addtextwindow%"==""              $goto gpxyzlabel_after_addtextwindow
@@ -5775,3 +5820,6 @@ $label gpxyzlabel_endofgnupltxyz
 
 $if not setglobal ppt_filename   $setglobal ppt_filename gams_slides.pptx
 $if "%1"=="compileppt"  execute "%gams.sysdir%inclib\compileppt.exe  %gams.sysdir%inclib\gams_ppt_list.txt %ppt_filename%"
+
+$label gpxyzlabel_totalendofgnupltxyz
+$if "%1" == "multiplot"                           $setglobal gp_multiplot no

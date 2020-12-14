@@ -2982,7 +2982,7 @@ PUT "set spiderplot" /;
 * default spider options
 $if not setglobal gp_fill               $setglobal gp_fill transparent solid 0.2 noborder
 $if not setglobal gp_spider_tics        $setglobal gp_spider_tics axis in scale 1,0.5 nomirror norotate  autojustify norangelimit autofreq  font ",9"
-$if not setglobal gp_spider_range       $setglobal gp_spider_range 0:100
+$if not setglobal gp_spider_range       $setglobal gp_spider_range automax_equ
 $if not setglobal gp_spider_label       $setglobal gp_spider_label   font "" textcolor lt -1 norotate
 
 $if not setglobal gp_spiderplot_style1  $goto gpxyzlabel_after_spiderstyle_op1
@@ -3023,7 +3023,7 @@ Loop(%gp_scen%,
 
 * Write plot statement
 
-$if not setglobal gp_key                         $setglobal gp_key yes
+$if not setglobal gp_key                         $setglobal gp_key top right
 
 $if not setglobal gp_key_style                   $setglobal gp_key_style  spiderplot
 $if "%gp_key_style%" == "no"                     $setglobal gp_key_style  spiderplot

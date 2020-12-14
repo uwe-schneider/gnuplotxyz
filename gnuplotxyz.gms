@@ -1,33 +1,35 @@
-*  ####   #    #  #    #  #####   #        ####    #####  #    #   #   #  ######
-* #    #  ##   #  #    #  #    #  #       #    #     #     #  #     # #       #
-* #       # #  #  #    #  #    #  #       #    #     #      ##       #       #
-* #  ###  #  # #  #    #  #####   #       #    #     #      ##       #      #
-* #    #  #   ##  #    #  #       #       #    #     #     #  #      #     #
-*  ####   #    #   ####   #       ######   ####      #    #    #     #    ######
+$ontext
+      ___           ___           ___           ___           ___       ___           ___           ___           ___           ___
+     /\  \         /\__\         /\__\         /\  \         /\__\     /\  \         /\  \         |\__\         |\__\         /\  \
+    /::\  \       /::|  |       /:/  /        /::\  \       /:/  /    /::\  \        \:\  \        |:|  |        |:|  |        \:\  \
+   /:/\:\  \     /:|:|  |      /:/  /        /:/\:\  \     /:/  /    /:/\:\  \        \:\  \       |:|  |        |:|  |         \:\  \
+  /:/  \:\  \   /:/|:|  |__   /:/  /  ___   /::\~\:\  \   /:/  /    /:/  \:\  \       /::\  \      |:|__|__      |:|__|__        \:\  \
+ /:/__/_\:\__\ /:/ |:| /\__\ /:/__/  /\__\ /:/\:\ \:\__\ /:/__/    /:/__/ \:\__\     /:/\:\__\ ____/::::\__\     /::::\__\ _______\:\__\
+ \:\  /\ \/__/ \/__|:|/:/  / \:\  \ /:/  / \/__\:\/:/  / \:\  \    \:\  \ /:/  /    /:/  \/__/ \::::/~~/~       /:/~~/~    \::::::::/__/
+  \:\ \:\__\       |:/:/  /   \:\  /:/  /       \::/  /   \:\  \    \:\  /:/  /    /:/  /       ~~|:|~~|       /:/  /       \:\~~\~~
+   \:\/:/  /       |::/  /     \:\/:/  /         \/__/     \:\  \    \:\/:/  /     \/__/          |:|  |       \/__/         \:\  \
+    \::/  /        /:/  /       \::/  /                     \:\__\    \::/  /                     |:|  |                      \:\__\
+     \/__/         \/__/         \/__/                       \/__/     \/__/                       \|__|                       \/__/
 
+                                    A GAMS GNUPLOT interface developed by Uwe A. Schneider
 
-* Display info
-*$if not a%1==a              $log -------------------
-*$if not a%1==a              $log
-*$if not a%1==a              $log Now Plotting Parameter %1
-*$if setglobal gp_style      $log %gp_style%
-*$if not a%1==a              $log
-*$if not a%1==a              $log -------------------
-
+                                      https://github.com/uwe-schneider/gnuplotxyz/wiki
+$offtext
 $onlisting
 $onuni
 
-
+* Execute collected multiplots
 $if "%1" == "multiplot"                           execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
 $if "%1" == "multiplot"                           $goto gpxyzlabel_totalendofgnupltxyz
 
-
-* Execute power point transistion
+* Execute direct export to microsoft powerpoint (Neubersch utility)
 $if "%1" == "compileppt"                          $goto gpxyzlabel_endofgnupltxyz
 
+* Declare powerpoint counter and text file for image list (Huck utility)
 $if not declared gpxyzsm_plot_count               scalar gpxyzsm_plot_count /0/;
 $if not declared gams_ppt_list                    file gams_ppt_list /"%gams.sysdir%inclib\gams_ppt_list.txt"/;
 
+* Reset powerpoint
 $if "%1" == "reset"                               execute 'if exist "%gams.sysdir%inclib\gams_ppt_list.txt" del "%gams.sysdir%inclib\gams_ppt_list.txt" >nul';
 $if "%1" == "reset"                               gpxyzsm_plot_count = 0;
 $if "%1" == "reset"                               $goto gpxyzlabel_endofgnupltxyz
@@ -37,6 +39,10 @@ $if "%1" == "reset"                               $goto gpxyzlabel_endofgnupltxy
 $if not errorfree                                 $exit
 
 $if declared u__1                                 $goto gpxyzlabel_declared1
+
+* Delete helper file for powerpoint
+$call if exist "%gams.sysdir%inclib\gams_ppt_list.txt" del "%gams.sysdir%inclib\gams_ppt_list.txt" >nul
+
 * One time declaration of sets parameters and files for graphs in a loop
 alias(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8,u__9,u__10,u__11,u__12,u__13,u__14,u__15,u__16,all_gp_legend,*);
 set uu___1(u__1);
@@ -55,9 +61,9 @@ set uu___13(u__13);
 set uu___14(u__14);
 set uu___15(u__15);
 set uu___16(u__16);
-* may also use fantom set element
+
+* may also use phantom set element
 set no_gp_legend(all_gp_legend); no_gp_legend("nothing_nothing") = no;
-* what is the meaning of the following set
 set gp_hun_100_set /gp_hun_100_set_1*gp_hun_100_set_100/;
 alias(first_index_gpxyzset,second_index_gpxyzset,third_index_gpxyzset,*);
 set gpxyzset_one(first_index_gpxyzset),gpxyzset_two(second_index_gpxyzset),gpxyzset_three(third_index_gpxyzset);
@@ -83,7 +89,6 @@ set allu8(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8);
 set allu9(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8,u__9);
 set allu10(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8,u__9,u__10);
 
-execute 'if exist "%gams.sysdir%inclib\gams_ppt_list.txt" del "%gams.sysdir%inclib\gams_ppt_list.txt" >nul';
 FILES
  gp_screen               /""/
  gp_input                /gnuplot.inp/
@@ -126,15 +131,16 @@ SCALARS
  gp_x2low
  gp_x2up
  gpxyz_stoppvalue /0/
+ gnuplotxyz_ploterror_nodata /0/
+ gnuplotxyz_current_nodata  /0/
 ;
 
 PARAMETERS
+ gp_spider_max(*)
  gp_scencount(*) scenario counter
  gp_00(*) number of zeros at the end
  gp_xy(*) total observations
  gp__0(*) total observations minus end zeros
- gnuplotxyz_dontplot_nodata /0/
- gnuplotxyz_current_nodata  /0/
 ;
 
 SETS
@@ -242,31 +248,37 @@ SETS
  gp_fixlinecolormap(gp_hex_color_name,*)
 ;
 
-
-* Initialize
- gp_scencount("gp_nothing") = 0;
- gp_xyz_fixed_col(gp_line_color_name,"gp_nothing") = no;
-
 * exit if blank invocation
+* the next two lines have to be after all declarations to allow
+* using gnuplotxyz within loops
 $if "%1" == ""                                    $goto gpxyzlabel_endofgnupltxyz
 $if "%1" == "loop"                                $goto gpxyzlabel_endofgnupltxyz
 
-* exit if not declared
+
+* +++++++++++++++++++++++++++++++++++++++++++++++ *
+*              After declararation                *
+* +++++++++++++++++++++++++++++++++++++++++++++++ *
+
 $label gpxyzlabel_declared1
 
-gnuplotxyz_dontplot_nodata = 0;
+* Initialize
+gp_scencount("gp_nothing") = 0;
+gp_xyz_fixed_col(gp_line_color_name,"gp_nothing") = no;
+gnuplotxyz_ploterror_nodata = 0;
 
+* retain name of output file (not relevant for windows terminal)
 $if not setglobal gp_keepname                     $goto gpxyzlabel_afterkeepname_assignment
 $if "%gp_keepname%" == "no"                       $goto gpxyzlabel_afterkeepname_assignment
 $setglobal gp_name %gp_keepname%
 $label gpxyzlabel_afterkeepname_assignment
 
-
+* change plot style from histograms to lines if 3rd argument is provided
 $if a%3==a                                        $goto gpxyzlabel_afterstylecheck
 $if "%gp_style%" == "histogram"                   $setglobal gp_style linespoints
 $if "%gp_style%" == "newhistogram"                $setglobal gp_style linespoints
-$goto gpxyzlabel_afterstylecheck
 $label gpxyzlabel_afterstylecheck
+
+* exit if not declared
 $if a%1==a                                        $exit
 $if declared %1                                   $goto gpxyzlabel_declared2
 $if a%1==afunction                                $goto gpxyzlabel_compile_input_commands
@@ -281,17 +293,15 @@ $if defined %1                                    $goto gpxyzlabel_defined0
 $error GNUPLOT: Identifier %1 is not defined.
 $exit
 
-
-* 2 - Dimensional parameter without 2nd argument -> histogram style
-* 3 - Dimensional parameter without 2nd argument -> newhistogram style
-
 $label gpxyzlabel_defined0
-* New multiplot
+
+* multiplot
 $if not setglobal gp_multiplot                    $setglobal gp_multiplot_count     ""
 $if '%gp_multiplot%' == 'no'                      $setglobal gp_multiplot_count     ""
 $if not setglobal gp_multiplot                    $goto after_gp_multiplot_count_calc
 $if '%gp_multiplot%' == 'no'                      $goto after_gp_multiplot_count_calc
 
+* Update multiplot string
 $if '%gp_multiplot_count%' == '_mp16'             $setglobal gp_multiplot_count    _mp17
 $if '%gp_multiplot_count%' == '_mp15'             $setglobal gp_multiplot_count    _mp16
 $if '%gp_multiplot_count%' == '_mp14'             $setglobal gp_multiplot_count    _mp15
@@ -309,27 +319,23 @@ $if '%gp_multiplot_count%' == '_mp3'              $setglobal gp_multiplot_count 
 $if '%gp_multiplot_count%' == '_mp2'              $setglobal gp_multiplot_count    _mp3
 $if '%gp_multiplot_count%' == '_mp1'              $setglobal gp_multiplot_count    _mp2
 $if not setglobal gp_multiplot_count              $setglobal gp_multiplot_count    _mp1
-
-display "uuuuuuuu";
-display "gp_multiplot %gp_multiplot%";
-display "gp_multiplot_count %gp_multiplot_count%";
-display "aaaaaaaa";
-
 $label after_gp_multiplot_count_calc
 
 $setglobal gp_data_string gp_data
 $if setglobal gp_multiplot                        $setglobal gp_data_string gp_data%gp_multiplot_count%
 $if '%gp_multiplot%' == 'no'                      $setglobal gp_data_string gp_data
-* End multiplot
 
 
-* Direct procedure based on dimensions of plot item
+* Assign and direct procedure based on dimensions of plot item
+* 2 - Dimensional parameter without 2nd argument -> histogram style
+* 3 - Dimensional parameter without 2nd argument -> newhistogram style
 $if dimension 1 %1                                $goto gpxyzlabel_assign1Dsets
 $if dimension 2 %1                                $goto gpxyzlabel_assign2Dsets
 $if dimension 3 %1                                $goto gpxyzlabel_assign3Dsets
 $if dimension 4 %1                                $goto gpxyzlabel_assign4Dsets
-$setglobal gpxyz_internalloopactive yes
-$goto gpxyzlabel_morethan4dimensions
+$error GNUPLOT error: Identifier %1 has more than 4 dimensions
+$exit
+
 
 * 1D Setup
 $label gpxyzlabel_assign1Dsets
@@ -337,9 +343,10 @@ uu___1(u__1) $ %1(u__1)=yes;
 $goto  gpxyzlabel_assign_more_variables
 
 
-* 2D Setup - Histogram
+* 2D Setup - Histograms and Spiderplots
 $label gpxyzlabel_assign2Dsets
-$setglobal gp_style histogram
+$if not setglobal gp_style            $setglobal gp_style histogram
+$if not "%gp_style%" == "spiderplot"  $setglobal gp_style histogram
 allu2(u__1,u__2) $(%1(u__1,u__2)) = yes;
 uu___2(u__2)     $ sum(allu2(u__1,u__2),1)   = yes;
 uu___1(u__1)     $ sum(allu2(u__1,uu___2),1) = yes;
@@ -415,168 +422,6 @@ allu4(u__1,u__2,u__3,u__4)
 $goto gpxyzlabel_assign_more_variables
 
 
-* #########################
-
-* ++++++++++++++++++++++
-* More than 4 dimensions
-* ++++++++++++++++++++++
-
-$label gpxyzlabel_morethan4dimensions
-
-
-* ffffffff
-
-
-$if not dimension 5 %1                            $goto gpxyzlabel_after_5dimension
-
-
-allu5(u__1,u__2,u__3,u__4,u__5) $(%1(u__1,u__2,u__3,u__4,u__5)) = yes;
-uu___5(u__5) $sum(allu5(u__1,u__2,u__3,u__4,u__5),1)            = yes;
-uu___4(u__4) $sum(allu5(u__1,u__2,u__3,u__4,uu___5),1)          = yes;
-uu___3(u__3) $sum(allu5(u__1,u__2,u__3,uu___4,uu___5),1)        = yes;
-uu___2(u__2) $sum(allu5(u__1,u__2,uu___3,uu___4,uu___5),1)      = yes;
-uu___1(u__1) $sum(allu5(u__1,uu___2,uu___3,uu___4,uu___5),1)    = yes;
-allu5(u__1,u__2,u__3,u__4,u__5) $(%1(u__1,u__2,u__3,u__4,u__5)) = no;
-
-display uu___1,uu___2,uu___3,uu___4,uu___5;
-
-
-$gdxout gp_temp_gdx
-$unload %1
-$gdxout
-
-$call gdxdump gp_temp_gdx format=normal output=gp_parfile.txt domaininfo
-$onechov > gp_5awk.awk
-{if($3=="Relaxed") {split($0, gamsinfo, "(");
-                    split($4, gamsin, "(");
-                    split(gamsinfo[2], gams3, ")");
-                    split(gams3[1], gams4, ",");
-                    print "$setglobal gp_pname " gamsin[1];
-                    print "$setglobal gp_dim51 " gams4[1];
-                    print "$setglobal gp_dim52 " gams4[2];
-                    print "$setglobal gp_dim53 " gams4[3];
-                    print "$setglobal gp_dim54 " gams4[4];
-                    print "$setglobal gp_dim55 " gams4[5];
-                    }}
-
-$offecho
-$call awk -f gp_5awk.awk  gp_parfile.txt > gp_par_info.gms
-
-* p(a, b, c, d, e)
-
-*$exit
-
-$include gp_par_info.gms
-
-$Evalglobal gp_set1 card(%gp_dim51%)
-$Evalglobal gp_set2 card(%gp_dim52%)
-$Evalglobal gp_set3 card(%gp_dim53%)
-$Evalglobal gp_set4 card(%gp_dim54%)
-$Evalglobal gp_set5 card(%gp_dim55%)
-
-$onechos >temptemptemp.gms
-SET uset /uu___1*uu___5/,gpset /extern1*extern20,scen,obsv_1,obsv_2,col3/,gpset__newhist_map(gpset,uset),red_uset(uset);
-SET iterate /i1*i20/;
-SCALAR continue_it /1/;
-PARAMETER uvalue(uset)
-/
-uu___1  %gp_set1%
-uu___2  %gp_set2%
-uu___3  %gp_set3%
-uu___4  %gp_set4%
-uu___5  %gp_set5%
-/;
-
-FILE gnuplot_temp /gnuplot_temp.dat/; PUT gnuplot_temp;gnuplot_temp.LW=0;
-
-
-* Histogram
-red_uset(uset) = yes;
-LOOP(iterate,  continue_it = 1;
- LOOP(uset $(red_uset(uset) and continue_it),
-
-  IF(ord(iterate) eq 1 and
-     uvalue(uset) eq SMAX(red_uset,uvalue(red_uset)),
-  gpset__newhist_map("extern1",uset) = yes;
-  red_uset(uset) = no;
-  continue_it = 0;
-  display gpset__newhist_map,red_uset;
-  put "* Iteration ",iterate.tl," ",uset.tl /);
-
-  IF(ord(iterate) eq 2 and
-     uvalue(uset) eq SMAX(red_uset,uvalue(red_uset)),
-  gpset__newhist_map("extern2",uset) = yes;
-  red_uset(uset) = no;
-  continue_it = 0;
-  display gpset__newhist_map,red_uset;
-  put "* Iteration ",iterate.tl," ",uset.tl /);
-
-  IF(ord(iterate) eq 3 and
-     uvalue(uset) eq SMAX(red_uset,uvalue(red_uset)),
-  gpset__newhist_map("scen",uset) = yes;
-  red_uset(uset) = no;
-  continue_it = 0;
-  display gpset__newhist_map,red_uset;
-  put "* Iteration ",iterate.tl," ",uset.tl /);
-
-  IF(ord(iterate) eq 4 and
-     uvalue(uset) eq SMAX(red_uset,uvalue(red_uset)),
-  gpset__newhist_map("obsv_1",uset) = yes;
-  red_uset(uset) = no;
-  continue_it = 0;
-  display gpset__newhist_map,red_uset;
-  put "* Iteration ",iterate.tl," ",uset.tl /);
-
-  IF(ord(iterate) eq 5 and
-     uvalue(uset) eq SMAX(red_uset,uvalue(red_uset)),
-  gpset__newhist_map("col3",uset) = yes;
-  red_uset(uset) = no;
-  continue_it = 0;
-  display gpset__newhist_map,red_uset;
-  put "* Iteration ",iterate.tl," ",uset.tl /);
-
- ););
-
-PUT /;
-
-LOOP(gpset__newhist_map(gpset,uset),
- IF(SAMEAS(gpset,"extern1"),PUT "$setglobal gp_extern1" @35 uset.TL /;);
- IF(SAMEAS(gpset,"extern2"),PUT "$setglobal gp_extern2" @35 uset.TL /;);
- IF(SAMEAS(gpset,"scen"),   PUT "$setglobal gp_scen   " @35 uset.TL /;);
- IF(SAMEAS(gpset,"obsv_1"), PUT "$setglobal gp_obsv_1 " @35 uset.TL /;);
- IF(SAMEAS(gpset,"col3"),   PUT "$setglobal gp__col3  " @35 uset.TL /;);
- );
-
-PUT /;
-
-PUT "$setglobal gpset__newhist_map" @35;
-LOOP(gpset__newhist_map(gpset,uset),
- IF(SAMEAS(gpset,"extern1"),PUT uset.TL,",";);
- IF(SAMEAS(gpset,"extern2"),PUT uset.TL; );
-    );
-$offecho
-
-$call gams temptemptemp.gms
-
-$label gpxyzlabel_after_5dimension
-
-$goto gpxyzlabel_assign_more_variables
-
-
-* +++++++++++++++++++++++++++++
-* End of more than 4 dimensions
-* +++++++++++++++++++++++++++++
-
-
-* #########################
-
-$if not setglobal gpxyz_internalloopactive        $goto  gpxyzlabel_after_internalloop_morevar
-$if "%gpxyz_internalloopactive%" == "no"          $goto  gpxyzlabel_after_internalloop_morevar
-
-LOOP((%gpxyz_internalrepeatloop%),
-
-* #########################
-
 $label gpxyzlabel_assign_more_variables
 $if not setglobal gp_name                         $setglobal gp_name '%1'
 $if "%gp_name%" == "no"                           $setglobal gp_name '%1'
@@ -606,7 +451,6 @@ $if dimension 3 %1                                $setglobal gp__col5     "%6"
 $if dimension 3 %1                                $setglobal gp__col6     "%7"
 $if dimension 3 %1                                $goto gpxyzlabel_abort_3D_plot
 
-
 * 4D names
 $if dimension 4 %1                                $setglobal gp_planes    'uu___1'
 $if dimension 4 %1                                $setglobal gp_obsv_1    'uu___2'
@@ -634,7 +478,7 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* data for ', '%1' ,' are all zero' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 $goto gpxyzlabel_compile_input_commands
 
@@ -653,7 +497,7 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* data for ', '%1' ,' are all zero' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 $goto gpxyzlabel_compile_input_commands
 
@@ -675,7 +519,7 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* %gp_xxxvalue% all zero in ', '%1' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 
 gnuplotxyz_current_nodata = 0;
@@ -693,7 +537,7 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* %gp_yyyvalue% all zero in ', '%1' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 
 
@@ -712,7 +556,7 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* %gp_yyyvalue% and %gp_xxxvalue% all zero in ', '%1' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 
 $goto gpxyzlabel_compile_input_commands
@@ -732,7 +576,7 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* data for ', '%1' ,' are all zero' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 $goto gpxyzlabel_compile_input_commands
 
@@ -751,7 +595,7 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* data for %gp_xxxvalue% column are all zero in ','%1' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 
 gnuplotxyz_current_nodata = 0;
@@ -767,7 +611,7 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* data for %gp_zzzvalue% column are all zero in ','%1' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 
 gnuplotxyz_current_nodata = 0;
@@ -783,23 +627,30 @@ IF(gnuplotxyz_current_nodata gt 0.5,
   '* data for %gp_yyyvalue% column are all zero in ','%1' /
   '*' /
   '*' /;
-gnuplotxyz_dontplot_nodata = 1;
+gnuplotxyz_ploterror_nodata = 1;
  );
 $goto gpxyzlabel_compile_input_commands
 
 
-
-*                                                  *
-*       Loop over excessive dimensions             *
-*______________________________________________    *
-
-$if dimension 5 %1   Loop((u___5,u___4),
-
+* ++++++++++++++++++++++++++++++++++++++++++++++++ *
 *                                                  *
 *       Gnuplot.inp - Contains Gnuplot Commands    *
-*______________________________________________    *
+*                                                  *
+* ++++++++++++++++++++++++++++++++++++++++++++++++ *
 
 $label gpxyzlabel_compile_input_commands
+
+put gp_input;
+gp_input.ap =  0;
+gp_input.lw =  0;
+gp_input.nr =  0;
+gp_input.nd =  0;
+gp_input.nw =  0;
+gp_input.pw =32767;
+
+$if not "%gp_multiplot_count%" == "_mp1"          gp_input.ap =  1;
+$if not setglobal gp_multiplot                    gp_input.ap =  0;
+$if '%gp_multiplot%' == 'no'                      gp_input.ap =  0;
 
 
 * Color
@@ -814,26 +665,15 @@ $if     "%gp_font%" == "no"                       $setglobal gp_font 'Times New 
 
 * Font Size
 $if     setglobal gp_fntsize                      $setglobal gp_fontsize %gp_fntsize%
-$if not setglobal gp_fontsize                     $setglobal gp_fontsize '12'
-$if     "%gp_fontsize%" == "no"                   $setglobal gp_fontsize '12'
+$if not setglobal gp_fontsize                     $setglobal gp_fontsize '14'
+$if     "%gp_fontsize%" == "no"                   $setglobal gp_fontsize '14'
 
 * Line Width
+$if setglobal gp_lw                               $setglobal gp_lwidth  %gp_linewidth%
 $if setglobal gp_linewidth                        $setglobal gp_lwidth  %gp_linewidth%
 $if "%gp_lwidth%" == "no"                         $setglobal gp_lwidth  '1'
 $if not setglobal gp_lwidth                       $setglobal gp_lwidth  '1'
 
-
-put gp_input;
-file.ap =  0;
-file.lw =  0;
-file.nr =  0;
-file.nd =  0;
-file.nw =  0;
-file.pw =32767;
-
-$if not "%gp_multiplot_count%" == "_mp1"           file.ap =  1;
-$if not setglobal gp_multiplot                     file.ap =  0;
-$if '%gp_multiplot%' == 'no'                       file.ap =  0;
 
 $if "%gp_multiplot_count%" == "_mp1"               $goto gpxyzlabel_specify_termoptions
 $if not setglobal gp_multiplot                     $goto gpxyzlabel_specify_termoptions
@@ -1068,8 +908,8 @@ $setglobal gp_l16axes  no
 $label gpxyzlabel_l_reset_done
 
 
-file.nd = 3;
-file.nw = 12;
+gp_input.nd = 3;
+gp_input.nw = 12;
 
 * Mouse
 $if not setglobal gp_mouse                        put "unset mouse" /;
@@ -1116,6 +956,7 @@ $if a%1 == afunction                              $goto gpxyzlabel_functionrange
 $if dimension 1 %1                                $goto gpxyzlabel_det1Drange
 $if dimension 4 %1                                $goto gpxyzlabel_boxwidth
 $if "%gp_style%" == "histogram"                   $goto gpxyzlabel_dethistrange
+$if "%gp_style%" == "spiderplot"                  $goto gpxyzlabel_dethistrange
 $if a%2 == a                                      $goto gpxyzlabel_detnewhistrange
 
 gp_ymin_value  = smin((%gp_scen%,%gp_obsv_1%),%1(%gp_scen%,%gp_obsv_1%,"%gp_yyyvalue%"));
@@ -1138,6 +979,9 @@ $label gpxyzlabel_dethistrange
 $if dimension 3 %1                                $goto gpxyzlabel_detnewhistrange
 gp_ymin_value  = smin((%gp_scen%,%gp_obsv_1%),%1(%gp_scen%,%gp_obsv_1%));
 gp_ymax        = smax((%gp_scen%,%gp_obsv_1%),%1(%gp_scen%,%gp_obsv_1%));
+
+* spider ray max
+gp_spider_max(%gp_obsv_1%) = smax(%gp_scen%,%1(%gp_scen%,%gp_obsv_1%));
 
 $if not setglobal  gp_ymin                        $goto gpxyzlabel_setboundry_gp
 $if    "%gp_ymin%" == "no"                        $goto gpxyzlabel_setboundry_gp
@@ -1301,12 +1145,20 @@ $if %gp_yzeroax%   == no                          $goto gpxyzlabel_grid2
 put 'set yzeroaxis  %gp_zeroaxis_option%' /;
 
 $label gpxyzlabel_grid2
+
+$if "%gp_style%" == "spiderplot"                  $goto gpxyzlabel_spiderplot_grid
 $if not setglobal gp_grid                         $setglobal gp_grid no
 $if "%gp_grid%" == "no"                           put 'unset grid'/;
 $if "%gp_grid%" == "no"                           $goto gpxyzlabel_xgrid
 $if "%gp_grid%" == "yes"                          put 'set grid' /;
 $if "%gp_grid%" == "yes"                          $goto gpxyzlabel_xgrid
 put 'set grid %gp_grid%' /;
+$goto gpxyzlabel_xgrid
+
+$label gpxyzlabel_spiderplot_grid
+$if not setglobal gp_grid                         $setglobal gp_grid spider lt black lc "grey" lw 0.5 back
+put 'set grid %gp_grid%' /;
+$goto gpxyzlabel_formats
 
 $label gpxyzlabel_xgrid
 $if not setglobal gp_xgrid                        $goto gpxyzlabel_ygrid
@@ -1580,6 +1432,7 @@ $if a%1==afunction                                $goto gpxyzlabel_gp_label_nohi
 $if dimension 1 %1                                $goto gpxyzlabel_gp_label_nohistogram
 $if not a%2==a                                    $goto gpxyzlabel_gp_label_nohistogram
 $if not setglobal gp_style                        $setglobal gp_style histogram
+$if     "%gp_style%"=="spiderplot"                $goto gpxyzlabel_gp_label_nohistogram
 $if not "%gp_style%"=="histogram"                 $setglobal gp_style histogram
 $label gpxyzlabel_gp_label_nohistogram
 put 'set style data %gp_style%'/;
@@ -1600,8 +1453,8 @@ put 'set style rectangle %gp_rectangle%'/;
 
 * Border
 $label gpxyzlabel_borderoptions
-file.nd = 0;
-file.nw = 0;
+gp_input.nd = 0;
+gp_input.nw = 0;
 $if not setglobal gp_border                       $setglobal gp_border yes
 $if not setglobal gp_borddim                      $setglobal gp_borddim ''
 $if "%gp_borddim%" == "all"                       $setglobal gp_borddim ''
@@ -1731,8 +1584,8 @@ $if "%gp_l15style%"=="no"                         $setglobal gp_l15style %gp_sty
 $if not setglobal gp_l16style                     $setglobal gp_l16style %gp_style%
 $if "%gp_l16style%"=="no"                         $setglobal gp_l16style %gp_style%
 
-file.nd = 0;
-file.nw = 6;
+gp_input.nd = 0;
+gp_input.nw = 6;
 
 * Insert Auto Code 3 produced by make_4_linestyle.gms - begin
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_fixcolorassignment_2d
@@ -1846,7 +1699,7 @@ functions are not provided for a parametric plot.
 $offtext
 
 
-* Is there any function plot?
+* Test whether there is any function plot?
 $if     setglobal gp_functionplot_1    $setglobal gp_functionplot_any yes
 $if not setglobal gp_functionplot_1    $setglobal gp_functionplot_any no
 $if "%gp_functionplot_1%"=="no"        $setglobal gp_functionplot_any no
@@ -1921,8 +1774,9 @@ $label gpxyzlabel_after_fixcolorassignment
 
 
 
-* Direct to histograms, 2D or 3D plots
+* Direct to histograms, spiderplots, 2D or 3D plots
 $if a%1==afunction                     $goto gpxyzlabel_plotstatement_2dgraph
+$if "%gp_style%" == "spiderplot"       $goto gpxyzlabel_plotstatement_spiderplot
 $if dimension 1 %1                     $goto gpxyzlabel_plotstatement_1dgraph
 $if dimension 2 %1                     $goto gpxyzlabel_plotstatement_histogram
 $if a%2 == a                           $goto gpxyzlabel_plotstatement_newhistogram
@@ -3077,7 +2931,7 @@ $label gpxyzlabel_after_lwidth_general_assign_20
 );
 * Insert Auto Code 7 produced by make_4_linestyle.gms - end
 
- file.nw = 6;
+ gp_input.nw = 6;
  gp_count = gp_count + 1;
    ); put /;
 
@@ -3102,7 +2956,7 @@ put 'splot ';
 
 loop(%gp_planes%,
   if (gp_count gt 1, put ',';);
-  file.nw = 0
+  gp_input.nw = 0
 
   put  '\'/' "gnuplot%gp_multiplot_count%.dat" index ',(gp_count-1):0:0,
         ' using 1:2:3';
@@ -3118,6 +2972,518 @@ put /;
 $goto gpxyzlabel_write_data_file
 
 
+* Segment Spiderplot
+$label gpxyzlabel_plotstatement_spiderplot
+
+*  sssss
+
+PUT "set spiderplot" /;
+
+* default spider options
+$if not setglobal gp_fill               $setglobal gp_fill transparent solid 0.2 noborder
+$if not setglobal gp_spider_tics        $setglobal gp_spider_tics axis in scale 1,0.5 nomirror norotate  autojustify norangelimit autofreq  font ",9"
+$if not setglobal gp_spider_range       $setglobal gp_spider_range 0:100
+$if not setglobal gp_spider_label       $setglobal gp_spider_label   font "" textcolor lt -1 norotate
+
+$if not setglobal gp_spiderplot_style1  $goto gpxyzlabel_after_spiderstyle_op1
+$if "%gp_spiderplot_style1%" == "no"    $goto gpxyzlabel_after_spiderstyle_op1
+PUT "set style spiderplot %gp_spiderplot_style1%" /;
+$label gpxyzlabel_after_spiderstyle_op1
+
+$if not setglobal gp_spiderplot_style2  $goto gpxyzlabel_after_spiderstyle_op2
+$if "%gp_spiderplot_style2%" == "no"    $goto gpxyzlabel_after_spiderstyle_op2
+PUT "set style spiderplot %gp_spiderplot_style2%" /;
+$label gpxyzlabel_after_spiderstyle_op2
+
+$if not setglobal gp_spiderplot_style3  $goto gpxyzlabel_after_spiderstyle_op3
+$if "%gp_spiderplot_style3%" == "no"    $goto gpxyzlabel_after_spiderstyle_op3
+PUT "set style spiderplot %gp_spiderplot_style3%" /;
+$label gpxyzlabel_after_spiderstyle_op3
+
+
+* set paxis <axisno> label <label-options> is relevant to spiderplots but ignored otherwise
+gp_input.nw = 0;
+gp_input.nd = 0;
+gp_count=0;
+
+loop(%gp_obsv_1%,
+ gp_count=gp_count+1;
+
+ PUT 'set paxis ',gp_count,' label "',%gp_obsv_1%.Tl,'" %gp_spider_label%' /;
+ PUT 'set paxis ',gp_count,' tics %gp_spider_tics%' /;
+
+    );
+
+gp_count = 1;
+* Write array to gnuplot.inp
+Loop(%gp_scen%,
+  Put "array Array",gp_count,"[",card(%gp_obsv_1%),"] = ["; gp_count=gp_count+1; gp_count_2 = 1;
+  LOOP(%gp_obsv_1%, Put %1(%gp_scen%,%gp_obsv_1%); If(gp_count_2 lt card(%gp_obsv_1%), put ",";);
+   gp_count_2=gp_count_2+1; ); PUT "]" /; );
+
+* Write plot statement
+
+$if not setglobal gp_key                         $setglobal gp_key yes
+
+$if not setglobal gp_key_style                   $setglobal gp_key_style  spiderplot
+$if "%gp_key_style%" == "no"                     $setglobal gp_key_style  spiderplot
+
+$if "%gp_key_style%" == "boxes"                  $setglobal gp_key_color_adjective  fc
+$if "%gp_key_style%" == "spiderplot"             $setglobal gp_key_color_adjective  lc
+$if not setglobal  gp_key_color_adjective        $setglobal gp_key_color_adjective  lc
+
+
+* Insert Auto Code Spider produced by make_345678_linestyle.gms - begin
+
+$if not setglobal gp_spider_range             $setglobal gp_spider_range automax_ijk
+$if not "%gp_spider_range%" == "automax_ijk"  $goto gpxyzlabel_after_spider_automax_ijk
+
+gp_count=0;
+LOOP(%gp_obsv_1%,
+gp_count=gp_count+1;
+IF(gp_count=1,
+$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+IF(gp_count=2,
+$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+IF(gp_count=3,
+$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+IF(gp_count=4,
+$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+IF(gp_count=5,
+$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+IF(gp_count=6,
+$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+IF(gp_count=7,
+$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+IF(gp_count=8,
+$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+IF(gp_count=9,
+$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+);
+);
+
+$goto gpxyzlabel_after_spider_range_assign
+
+$label gpxyzlabel_after_spider_automax_ijk
+$if not "%gp_spider_range%" == "automax_equ"  $goto gpxyzlabel_after_spider_automax_equ
+
+gp_count=0;
+LOOP(%gp_obsv_1%,
+gp_count=gp_count+1;
+IF(gp_count=1,
+$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+IF(gp_count=2,
+$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+IF(gp_count=3,
+$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+IF(gp_count=4,
+$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+IF(gp_count=5,
+$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+IF(gp_count=6,
+$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+IF(gp_count=7,
+$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+IF(gp_count=8,
+$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+IF(gp_count=9,
+$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+);
+);
+
+$goto gpxyzlabel_after_spider_range_assign
+
+$label gpxyzlabel_after_spider_automax_equ
+
+gp_count=0;
+LOOP(%gp_obsv_1%,
+gp_count=gp_count+1;
+IF(gp_count=1,
+$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [0:%gp_spider_range%]"/;
+);
+IF(gp_count=2,
+$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [0:%gp_spider_range%]"/;
+);
+IF(gp_count=3,
+$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [0:%gp_spider_range%]"/;
+);
+IF(gp_count=4,
+$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [0:%gp_spider_range%]"/;
+);
+IF(gp_count=5,
+$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [0:%gp_spider_range%]"/;
+);
+IF(gp_count=6,
+$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [0:%gp_spider_range%]"/;
+);
+IF(gp_count=7,
+$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [0:%gp_spider_range%]"/;
+);
+IF(gp_count=8,
+$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [0:%gp_spider_range%]"/;
+);
+IF(gp_count=9,
+$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [0:%gp_spider_range%]"/;
+$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [0:%gp_spider_range%]"/;
+);
+);
+
+$label gpxyzlabel_after_spider_range_assign
+
+$if not setglobal gp_lw_1      $setglobal gp_lw_1  %gp_lwidth%
+$if not setglobal gp_lw_2      $setglobal gp_lw_2  %gp_lwidth%
+$if not setglobal gp_lw_3      $setglobal gp_lw_3  %gp_lwidth%
+$if not setglobal gp_lw_4      $setglobal gp_lw_4  %gp_lwidth%
+$if not setglobal gp_lw_5      $setglobal gp_lw_5  %gp_lwidth%
+$if not setglobal gp_lw_6      $setglobal gp_lw_6  %gp_lwidth%
+$if not setglobal gp_lw_7      $setglobal gp_lw_7  %gp_lwidth%
+$if not setglobal gp_lw_8      $setglobal gp_lw_8  %gp_lwidth%
+$if not setglobal gp_lw_9      $setglobal gp_lw_9  %gp_lwidth%
+
+
+gp_count = 0;
+LOOP(%gp_scen%,
+ gp_count=gp_count+1;
+ IF(gp_count eq 1, PUT "plot "; ELSE PUT " newspiderplot , "; );
+
+$if "%gp_key%" == "no"     $goto gpxyzlabel_after_spider_legend
+
+IF(gp_count eq 1,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_spiderkey
+$if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_1%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_1%") = no;
+$label gpxyzlabel_after_lc_1_spiderkey
+   PUT " lw %gp_lw_1% title ",'"',%gp_scen%.tl,'"'; );
+
+IF(gp_count eq 2,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_spiderkey
+$if     "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_2%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_2%") = no;
+$label gpxyzlabel_after_lc_2_spiderkey
+   PUT " lw %gp_lw_2% title ",'"',%gp_scen%.tl,'"'; );
+
+IF(gp_count eq 3,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_spiderkey
+$if     "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_3%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_3%") = no;
+$label gpxyzlabel_after_lc_3_spiderkey
+   PUT " lw %gp_lw_3% title ",'"',%gp_scen%.tl,'"'; );
+
+IF(gp_count eq 4,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_spiderkey
+$if     "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_4%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_4%") = no;
+$label gpxyzlabel_after_lc_4_spiderkey
+   PUT " lw %gp_lw_4% title ",'"',%gp_scen%.tl,'"'; );
+
+IF(gp_count eq 5,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_spiderkey
+$if     "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_5%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_5%") = no;
+$label gpxyzlabel_after_lc_5_spiderkey
+   PUT " lw %gp_lw_5% title ",'"',%gp_scen%.tl,'"'; );
+
+IF(gp_count eq 6,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_spiderkey
+$if     "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_6%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_6%") = no;
+$label gpxyzlabel_after_lc_6_spiderkey
+   PUT " lw %gp_lw_6% title ",'"',%gp_scen%.tl,'"'; );
+
+IF(gp_count eq 7,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_spiderkey
+$if     "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_7%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_7%") = no;
+$label gpxyzlabel_after_lc_7_spiderkey
+   PUT " lw %gp_lw_7% title ",'"',%gp_scen%.tl,'"'; );
+
+IF(gp_count eq 8,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_spiderkey
+$if     "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_8%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_8%") = no;
+$label gpxyzlabel_after_lc_8_spiderkey
+   PUT " lw %gp_lw_8% title ",'"',%gp_scen%.tl,'"'; );
+
+IF(gp_count eq 9,
+  PUT "keyentry with %gp_key_style%";
+$if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_spiderkey
+$if     "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_spiderkey
+PUT " %gp_key_color_adjective% rgb ";
+gp_xyz_ind_col("%gp_lc_9%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_9%") = no;
+$label gpxyzlabel_after_lc_9_spiderkey
+   PUT " lw %gp_lw_9% title ",'"',%gp_scen%.tl,'"'; );
+
+
+PUT " , ";
+
+$label gpxyzlabel_after_spider_legend
+
+IF(gp_count eq 1,
+  PUT " for [i=1:|Array1|] Array1 using (Array1[i])";
+$if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_spiderplot
+$if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_1%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_1%") = no;
+$label gpxyzlabel_after_lc_1_spiderplot
+   PUT " lw %gp_lw_1%"; );
+
+IF(gp_count eq 2,
+  PUT " for [j=1:|Array2|] Array2 using (Array2[j])";
+$if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_spiderplot
+$if     "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_2%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_2%") = no;
+$label gpxyzlabel_after_lc_2_spiderplot
+   PUT " lw %gp_lw_2%"; );
+
+IF(gp_count eq 3,
+  PUT " for [k=1:|Array3|] Array3 using (Array3[k])";
+$if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_spiderplot
+$if     "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_3%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_3%") = no;
+$label gpxyzlabel_after_lc_3_spiderplot
+   PUT " lw %gp_lw_3%"; );
+
+IF(gp_count eq 4,
+  PUT " for [l=1:|Array4|] Array4 using (Array4[l])";
+$if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_spiderplot
+$if     "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_4%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_4%") = no;
+$label gpxyzlabel_after_lc_4_spiderplot
+   PUT " lw %gp_lw_4%"; );
+
+IF(gp_count eq 5,
+  PUT " for [m=1:|Array5|] Array5 using (Array5[m])";
+$if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_spiderplot
+$if     "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_5%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_5%") = no;
+$label gpxyzlabel_after_lc_5_spiderplot
+   PUT " lw %gp_lw_5%"; );
+
+IF(gp_count eq 6,
+  PUT " for [n=1:|Array6|] Array6 using (Array6[n])";
+$if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_spiderplot
+$if     "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_6%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_6%") = no;
+$label gpxyzlabel_after_lc_6_spiderplot
+   PUT " lw %gp_lw_6%"; );
+
+IF(gp_count eq 7,
+  PUT " for [o=1:|Array7|] Array7 using (Array7[o])";
+$if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_spiderplot
+$if     "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_7%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_7%") = no;
+$label gpxyzlabel_after_lc_7_spiderplot
+   PUT " lw %gp_lw_7%"; );
+
+IF(gp_count eq 8,
+  PUT " for [p=1:|Array8|] Array8 using (Array8[p])";
+$if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_spiderplot
+$if     "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_8%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_8%") = no;
+$label gpxyzlabel_after_lc_8_spiderplot
+   PUT " lw %gp_lw_8%"; );
+
+IF(gp_count eq 9,
+  PUT " for [q=1:|Array9|] Array9 using (Array9[q])";
+$if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_spiderplot
+$if     "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_spiderplot
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_9%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_9%") = no;
+$label gpxyzlabel_after_lc_9_spiderplot
+   PUT " lw %gp_lw_9%"; );
+
+
+IF(gp_count gt 1, PUT " notitle";  );
+IF(gp_count lt card(%gp_scen%), put " ,";  );
+
+ );
+
+
+$goto gpxyzlabel_write_data_file
+* Insert Auto Code Spider produced by make_345678_linestyle.gms - end
+
+
+
+
+
+
+
+
+
+
 
 * Segment Normal Histogram Plot
 $label gpxyzlabel_plotstatement_histogram
@@ -3127,8 +3493,8 @@ gp_count=1;
 put 'plot ';
 
 loop(%gp_scen%,
-  file.nw = 0;
-  file.nd = 0;
+  gp_input.nw = 0;
+  gp_input.nd = 0;
 
   if (gp_count gt 1, put ',';);
   if (gp_count eq 1, put " 'gnuplot%gp_multiplot_count%.dat' using "; else put " '' u ";);
@@ -3603,18 +3969,19 @@ $label gpxyzlabel_after_lc_20_hist
 $goto gpxyzlabel_write_data_file
 
 
+
 * Segment New Histogram Plot
 $label gpxyzlabel_plotstatement_newhistogram
 
 *put 'set xtics (';
 *gp_count_2 = 1; loop(%gp__col3%, gp_count=1; loop(%gp_scen%,
-*  file.nw = 0; file.nd = 3; file.lw=0;
+*  gp_input.nw = 0; gp_input.nd = 3; gp_input.lw=0;
 *  put '"',%gp__col3%.TL,'" ',(gp_count+1+(gp_count_2-1)*card(%gp_scen%));
 *  if(...., put ", "; else put ")" /;
 *  gp_count = gp_count + 1; ); gp_count_2 = gp_count_2 + 1; );
 
 
-**** $if     "%gp_hist%" == "columnstacked" ---> need ti col everywhere
+** $if     "%gp_hist%" == "columnstacked" ---> need ti col everywhere
 
 
 $if not setglobal gp_newhistogramgap               $setglobal gp_newhistogramgap 1
@@ -3630,8 +3997,8 @@ gp_count_2 = 1;
 loop(%gp__col3%,
 gp_count=1;
 loop(%gp_scen%,
-  file.nw = 0;
-  file.nd = 0;
+  gp_input.nw = 0;
+  gp_input.nd = 0;
 
   if(gp_count_2 gt 1 and gp_count eq 1, put '     ';);
   if(gp_count eq 1, put ' newhistogram ';);
@@ -3653,9 +4020,9 @@ if(gp_count eq 1, PUT " offset %gp_xlabeloffset% ";);
 $label gpxyzlabel_after_newhist_xlabeloffset
 
 $if not "%gp_hist%" == "columnstacked"  $goto gpxyzlabel_after_xposition
-file.nd = 3;
+gp_input.nd = 3;
   if(gp_count eq 1, put ' lt 1 at ', ((gp_count_2-1)*card(%gp_scen%)+(gp_count_2-1)*%gp_newhistogramgap%););
-file.nd = 0;
+gp_input.nd = 0;
 $label gpxyzlabel_after_xposition
 
 *  if(gp_count_2 gt 1 and gp_count eq 1, put ' lt 1';);
@@ -4145,7 +4512,7 @@ gp__0(%gp_scen%) = inf;
 %gp_data_string%.nr = 2;
 
 $if dimension 1 %1                                 $goto gpxyzlabel_put_1D_data
-$if dimension 2 %1                                 $goto gpxyzlabel_put_histogram_data
+$if dimension 2 %1                                 $goto gpxyzlabel_put_histogram_or_spider_data
 $if a%2==a                                         $goto gpxyzlabel_put_newhistogram_data
 $if dimension 4 %1                                 $goto gpxyzlabel_put_3D_data
 
@@ -4272,8 +4639,54 @@ display "planes",%gp_planes%,"obsv1",%gp_obsv_1%,"obsv2",%gp_obsv_2%;
 
 $goto gpxyzlabel_write_gnuplot_ini
 
-* Put histogram data
-$label gpxyzlabel_put_histogram_data
+* Put histogram or spider data
+
+* a) put spider plot data
+$label gpxyzlabel_put_histogram_or_spider_data
+
+display "gp_style %gp_style%";
+
+$if not "%gp_style%" == "spiderplot"            $goto after_spiderplot_data
+
+* ddddddddd
+
+%gp_data_string%.tw = 0;
+%gp_data_string%.lw = 0;
+%gp_data_string%.nw = 16;
+%gp_data_string%.nj = 2;
+Put %gp_data_string%;
+
+
+loop(%gp_scen%,
+ gp_count = 0;
+
+  loop(%gp_obsv_1%,
+    gp_count = gp_count + 1;
+    if(     ((gp_supzer eq 0) and ((gp_count - gp__0(%gp_scen%)) lt 0)
+          or (       %1(%gp_scen%,%gp_obsv_1%) ne 0 or
+              mapval(%1(%gp_scen%,%gp_obsv_1%)) eq mapval(eps))),
+
+      if (%1(%gp_scen%,%gp_obsv_1%) eq gp_na,
+         put %gp_data_string%, '          ';
+        else
+         put %gp_data_string%, %1(%gp_scen%,%gp_obsv_1%););
+
+       );
+     );
+
+ PUT %gp_scen%.TL;
+
+ PUT /;
+
+
+   );
+
+
+$goto gpxyzlabel_write_gnuplot_ini
+
+
+* b) put 2D histogram data
+$label after_spiderplot_data
 
 %gp_data_string%.tw = 0;
 %gp_data_string%.lw = 0;
@@ -4323,9 +4736,9 @@ $label after_auto_sectionlabel
 $if not setglobal gp_nohistogram_boxlabel   $goto after_no_boxlabel
 $if "%gp_nohistogram_boxlabel%" == "no"     $goto after_no_boxlabel
 
- put '  " "';
+ put '  "%gp_nohistogram_boxlabel%"';
 
-$goto after_no_boxlabel
+$label after_no_boxlabel
 * end new
 
 
@@ -5508,7 +5921,7 @@ PUT "%gp_ppt_fontsize%" /;
   );
 
 gp_count = 0;
-LOOP(ppt_repeat_loop $(gnuplotxyz_dontplot_nodata Lt 0.5),
+LOOP(ppt_repeat_loop $(gnuplotxyz_ploterror_nodata Lt 0.5),
 
 gp_count = gp_count + 1;
 
@@ -5739,20 +6152,20 @@ $if     setglobal gp_addtextwindow        $setglobal gp_addtextwindow "-"
 $label gpxyzlabel_after_addtextwindow
 
 $if not "%gp_term%"=="windows"            $goto gpxyzlabel_after_gpwindows_execution
-IF(gnuplotxyz_dontplot_nodata Lt 0.5,
+IF(gnuplotxyz_ploterror_nodata Lt 0.5,
 execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
 );
 $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_gpwindows_execution
 
 $if not "%gp_term%"=="wxt"                $goto gpxyzlabel_after_gpwxt_execution
-IF(gnuplotxyz_dontplot_nodata Lt 0.5,
+IF(gnuplotxyz_ploterror_nodata Lt 0.5,
 execute 'shellexecute wgnuplot -persist gnuplot.inp %gp_addtextwindow%';
 );
 $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_gpwxt_execution
 
-IF(gnuplotxyz_dontplot_nodata Lt 0.5,
+IF(gnuplotxyz_ploterror_nodata Lt 0.5,
 execute 'gnuplot gnuplot.inp';
 );
 

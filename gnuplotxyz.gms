@@ -3032,8 +3032,43 @@ $if "%gp_key_style%" == "boxes"                  $setglobal gp_key_color_adjecti
 $if "%gp_key_style%" == "spiderplot"             $setglobal gp_key_color_adjective  lc
 $if not setglobal  gp_key_color_adjective        $setglobal gp_key_color_adjective  lc
 
-
 * Insert Auto Code Spider produced by make_345678_linestyle.gms - begin
+$if "%gp_paxis_max_1%" == "no"   $goto gpxyzlabel_after_p_1_manualmax
+$if setglobal gp_paxis_max_1 PUT "set paxis 1 range [0:%gp_paxis_max_1%]"/;
+$label gpxyzlabel_after_p_1_manualmax
+
+$if "%gp_paxis_max_2%" == "no"   $goto gpxyzlabel_after_p_2_manualmax
+$if setglobal gp_paxis_max_2 PUT "set paxis 2 range [0:%gp_paxis_max_2%]"/;
+$label gpxyzlabel_after_p_2_manualmax
+
+$if "%gp_paxis_max_3%" == "no"   $goto gpxyzlabel_after_p_3_manualmax
+$if setglobal gp_paxis_max_3 PUT "set paxis 3 range [0:%gp_paxis_max_3%]"/;
+$label gpxyzlabel_after_p_3_manualmax
+
+$if "%gp_paxis_max_4%" == "no"   $goto gpxyzlabel_after_p_4_manualmax
+$if setglobal gp_paxis_max_4 PUT "set paxis 4 range [0:%gp_paxis_max_4%]"/;
+$label gpxyzlabel_after_p_4_manualmax
+
+$if "%gp_paxis_max_5%" == "no"   $goto gpxyzlabel_after_p_5_manualmax
+$if setglobal gp_paxis_max_5 PUT "set paxis 5 range [0:%gp_paxis_max_5%]"/;
+$label gpxyzlabel_after_p_5_manualmax
+
+$if "%gp_paxis_max_6%" == "no"   $goto gpxyzlabel_after_p_6_manualmax
+$if setglobal gp_paxis_max_6 PUT "set paxis 6 range [0:%gp_paxis_max_6%]"/;
+$label gpxyzlabel_after_p_6_manualmax
+
+$if "%gp_paxis_max_7%" == "no"   $goto gpxyzlabel_after_p_7_manualmax
+$if setglobal gp_paxis_max_7 PUT "set paxis 7 range [0:%gp_paxis_max_7%]"/;
+$label gpxyzlabel_after_p_7_manualmax
+
+$if "%gp_paxis_max_8%" == "no"   $goto gpxyzlabel_after_p_8_manualmax
+$if setglobal gp_paxis_max_8 PUT "set paxis 8 range [0:%gp_paxis_max_8%]"/;
+$label gpxyzlabel_after_p_8_manualmax
+
+$if "%gp_paxis_max_9%" == "no"   $goto gpxyzlabel_after_p_9_manualmax
+$if setglobal gp_paxis_max_9 PUT "set paxis 9 range [0:%gp_paxis_max_9%]"/;
+$label gpxyzlabel_after_p_9_manualmax
+
 
 $if not setglobal gp_spider_range             $setglobal gp_spider_range automax_ijk
 $if not "%gp_spider_range%" == "automax_ijk"  $goto gpxyzlabel_after_spider_automax_ijk
@@ -3474,10 +3509,6 @@ IF(gp_count lt card(%gp_scen%), put " ,";  );
 
 $goto gpxyzlabel_write_data_file
 * Insert Auto Code Spider produced by make_345678_linestyle.gms - end
-
-
-
-
 
 
 

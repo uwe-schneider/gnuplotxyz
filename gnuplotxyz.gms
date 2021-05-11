@@ -19,7 +19,7 @@ $onlisting
 $onuni
 
 * Execute collected multiplots
-$if "%1" == "multiplot"                           execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
+$if "%1" == "multiplot"                           execute 'start /b wgnuplot.exe -persist gnuplot.inp';
 $if "%1" == "multiplot"                           $goto gpxyzlabel_totalendofgnupltxyz
 
 * Execute direct export to microsoft powerpoint (Neubersch utility)
@@ -6184,14 +6184,14 @@ $label gpxyzlabel_after_addtextwindow
 
 $if not "%gp_term%"=="windows"            $goto gpxyzlabel_after_gpwindows_execution
 IF(gnuplotxyz_ploterror_nodata Lt 0.5,
-execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
+execute 'start /b wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
 );
 $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_gpwindows_execution
 
 $if not "%gp_term%"=="wxt"                $goto gpxyzlabel_after_gpwxt_execution
 IF(gnuplotxyz_ploterror_nodata Lt 0.5,
-execute 'shellexecute wgnuplot -persist gnuplot.inp %gp_addtextwindow%';
+execute 'start /b wgnuplot -persist gnuplot.inp %gp_addtextwindow%';
 );
 $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_gpwxt_execution

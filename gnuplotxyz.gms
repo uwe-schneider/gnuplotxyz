@@ -250,60 +250,6 @@ SETS
 ;
 
 
-* +++++++++++++++++++++++++++++++++++++++++++++++ *
-*              write getdomains                   *
-* +++++++++++++++++++++++++++++++++++++++++++++++ *
-
-
-$gdxout u__a__s__1.gdx
-$unload %1 %2 %3 %4 %5 %6 %7 %8 %9
-$gdxout
-$call gdxdump u__a__s__1 DomainInfo > u__a__s__1.txt
-
-* Prepare awk script to extract domain info from gams file with all symbols
-$onecho >u__a__s__1.awk
-{
- if(tolower($2) == "par") {split($0,uashelparray1,"(");split(uashelparray1[2],uashelparray2,")");
-   split(uashelparray1[1],uashelpsymname," ");
-   split(uashelparray2[1],uashelparray3,",");print "* Parameter " uashelpsymname[4];
-   for(i=1;i<=16;i++) {if(uashelparray3[i] != "") print "$setglobal gpxyz_" uashelpsymname[4] "_d" i "  " uashelparray3[i]; }}
- if(tolower($2) == "var") {split($0,uashelparray1,"(");split(uashelparray1[2],uashelparray2,")");
-   split(uashelparray1[1],uashelpsymname," ");
-   split(uashelparray2[1],uashelparray3,",");print "* Variable " uashelpsymname[4];
-   for(i=1;i<=16;i++) {if(uashelparray3[i] != "") print "$setglobal gpxyz_" uashelpsymname[4] "_d" i "  " uashelparray3[i]; }}
- if(tolower($2) == "equ") {split($0,uashelparray1,"(");split(uashelparray1[2],uashelparray2,")");
-   split(uashelparray1[1],uashelpsymname," ");
-   split(uashelparray2[1],uashelparray3,",");print "* Equation " uashelpsymname[4];
-   for(i=1;i<=16;i++) {if(uashelparray3[i] != "") print "$setglobal gpxyz_" uashelpsymname[4] "_d" i "  " uashelparray3[i]; }}
-
-
- if(tolower($2) == "par") {split($0,uashelparray1,"(");split(uashelparray1[2],uashelparray2,")");
-   split(uashelparray1[1],uashelpsymname," ");
-   split(uashelparray2[1],uashelparray3,",");print "* Parameter " uashelpsymname[4];
-   for(i=1;i<=16;i++) {if(uashelparray3[i] != "") print "$setglobal d___" i "  " uashelparray3[i]; }}
- if(tolower($2) == "var") {split($0,uashelparray1,"(");split(uashelparray1[2],uashelparray2,")");
-   split(uashelparray1[1],uashelpsymname," ");
-   split(uashelparray2[1],uashelparray3,",");print "* Variable " uashelpsymname[4];
-   for(i=1;i<=16;i++) {if(uashelparray3[i] != "") print "$setglobal d___" i "  " uashelparray3[i]; }}
- if(tolower($2) == "equ") {split($0,uashelparray1,"(");split(uashelparray1[2],uashelparray2,")");
-   split(uashelparray1[1],uashelpsymname," ");
-   split(uashelparray2[1],uashelparray3,",");print "* Equation " uashelpsymname[4];
-   for(i=1;i<=16;i++) {if(uashelparray3[i] != "") print "$setglobal d___" i "  " uashelparray3[i]; }}
-
-}
-$offecho
-* Make gams file with $setglobal assignments
-$call awk -f u__a__s__1.awk u__a__s__1.txt > gpxyz_domaininfo.gms
-* Show domain info
-$call cat gpxyz_domaininfo.gms
-* Delete helping files
-*$call del u__a__s__1.awk
-*$call del u__a__s__1.txt
-*$call del u__a__s__1.gdx
-
-
-* +++++++++++++++++++++++++++++++++++++++++++++++ *
-
 
 
 * exit if blank invocation
@@ -311,7 +257,6 @@ $call cat gpxyz_domaininfo.gms
 * using gnuplotxyz within loops
 $if "%1" == ""                                    $goto gpxyzlabel_endofgnupltxyz
 $if "%1" == "loop"                                $goto gpxyzlabel_endofgnupltxyz
-
 
 
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
@@ -488,8 +433,8 @@ $label gpxyzlabel_assign_more_variables
 $if not setglobal gp_name                         $setglobal gp_name '%1'
 $if "%gp_name%" == "no"                           $setglobal gp_name '%1'
 
-$libinclude getdomains %1
-$include gpxyz_domaininfo.gms
+*$libinclude getdomains %1
+*$include gpxyz_domaininfo.gms
 
 
 * 1D names
@@ -504,8 +449,8 @@ $label gpxyzlabel_after_dim1_check
 $if not dimension 2 %1                            $goto gpxyzlabel_after_dim2_check
 $setglobal gp_scen      'uu___1'
 $setglobal gp_obsv_1    'uu___2'
-$if a%2==a                                        $setglobal gp_xxxvalue  '%d___2%'
-$if a%2==a                                        $setglobal gp_yyyvalue  '%d___1%'
+*$if a%2==a                                        $setglobal gp_xxxvalue  '%d___2%'
+*$if a%2==a                                        $setglobal gp_yyyvalue  '%d___1%'
 $goto gpxyzlabel_abort_2D_plot
 $label gpxyzlabel_after_dim2_check
 
@@ -1367,11 +1312,15 @@ $if "%gp_heatmap_x% == "no"                       $goto gpxyzlabel_after_heatmap
 $setglobal gp_xxxvalue %gp_heatmap_x%
 $label gpxyzlabel_after_heatmap_xlabel
 
+$if     setglobal gp_xlabel                       $goto gpxyzlabel_after_xlabelpresencecheck
+
 $if not setglobal gp_xxxvalue                     put 'unset xlabel'/;
 $if not setglobal gp_xxxvalue                     $goto gpxyzlabel_ylabel_loop
 
 $if "%gp_xxxvalue%" == "no"                       put 'unset xlabel'/;
 $if "%gp_xxxvalue%" == "no"                       $goto gpxyzlabel_ylabel_loop
+
+$label  gpxyzlabel_after_xlabelpresencecheck
 
 $if not setglobal gp_xlabel                       $setglobal gp_xlabel %gp_xxxvalue%
 put 'set xlabel  "%gp_xlabel%"';
@@ -1411,12 +1360,15 @@ $if "%gp_heatmap_y% == "no"                       $goto gpxyzlabel_after_heatmap
 $setglobal gp_yyyvalue %gp_heatmap_y%
 $label gpxyzlabel_after_heatmap_ylabel
 
+$if     setglobal gp_ylabel                       $goto gpxyzlabel_after_ylabelpresencecheck
 
 $if not setglobal gp_yyyvalue                     put 'unset ylabel'/;
 $if not setglobal gp_yyyvalue                     $goto gpxyzlabel_y2label_check
 
 $if "%gp_yyyvalue%" == "no"                       put 'unset ylabel'/;
 $if "%gp_yyyvalue%" == "no"                       $goto gpxyzlabel_y2label_check
+
+$label  gpxyzlabel_after_ylabelpresencecheck
 
 
 $if not setglobal gp_ylabel                       $setglobal gp_ylabel %gp_yyyvalue%

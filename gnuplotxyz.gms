@@ -1370,9 +1370,17 @@ $if "%gp_yyyvalue%" == "no"                       $goto gpxyzlabel_y2label_check
 
 $label  gpxyzlabel_after_ylabelpresencecheck
 
+$if not setglobal gp_ylabelloop                   $goto gpxyzlabel_after_ylabelloop
+$if "%gp_ylabelloop%" == "no"                     $goto gpxyzlabel_after_ylabelloop
+put 'set ylabel  "',%gp_ylabelloop%.TE(%gp_ylabelloop%),'"';
+$goto gpxyzlabel_after_ylabelassignment
+$label gpxyzlabel_after_ylabelloop
 
 $if not setglobal gp_ylabel                       $setglobal gp_ylabel %gp_yyyvalue%
 put 'set ylabel  "%gp_ylabel%"';
+$label gpxyzlabel_after_ylabelassignment
+
+
 $if not setglobal gp_ylabeloffset                 $goto gpxyzlabel_after_ylabeloffset_noloop
 $if "%gp_ylabeloffset%" == "no"                   $goto gpxyzlabel_after_ylabeloffset_noloop
 put ' offset %gp_ylabeloffset%';

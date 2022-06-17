@@ -194,6 +194,18 @@ SETS
   snow '255 250 250',springgreen '0 255 127',steelblue '70 130 180',tan '210 180 140',teal '0 128 128',thistle '216 191 216',
   tomato '255  99  71',turquoise '64 224 208',violet '238 130 238',wheat '245 222 179',white '255 255 255',whitesmoke '245 245 245',
   yellow '255 255  0',yellowgreen '139 205 50'
+
+  LeaMidnightBlue "25,25,112",     LeaMediumBlue "0,0,205",      LeaRoyalBlue "65,105,225",  LeaSteelBlue "70,130,180"
+  LeaCornflowerBlue "100,149,237", LeaDodgerBlue "30,144,255",   LeaDeepSkyBlue "0,191,255", LeaLightSkyBlue "135,206,250"
+  LeaLavender "230,230,250",       LeaThistle "216,191,216",     LeaPlum "221,160,221",      LeaViolet "238,130,238"
+  LeaOrchid "218,112,214",         LeaMediumOrchid "186,85,211", LeaDarkViolet "148,0,211",  LeaDarkMagenta "139,0,139"
+  LeaMediumVioletRed "199,21,133", LeaCrimson "220,20,60",       LeaFireBrick "178,34,34",   LeaDarkRed "139,0,0"
+
+  brownyellow1   '255,255,128', brownyellow2   '251,245,119', brownyellow3   '248,235,111', brownyellow4   '244,226,103'
+  brownyellow5   '239,216,96',  brownyellow6   '235,206,88',  brownyellow7   '230,197,81',  brownyellow8   '225,187,74'
+  brownyellow9   '219,177,67',  brownyellow10  '214,167,61',  brownyellow11  '207,157,54',  brownyellow12  '200,147,48'
+  brownyellow13  '193,137,42',  brownyellow14  '185,127,35',  brownyellow15  '177,116,29',  brownyellow16  '168,106,23'
+  brownyellow17  '159,95,17',   brownyellow18  '149,85,10',   brownyellow19  '139,74,4',    brownyellow20  '128,64,0'
  /
  gp_hex_color_name
  /
@@ -243,6 +255,18 @@ SETS
   slategray '708090',snow 'FFFAFA',springgreen '00FF7F',steelblue '4682B4',tan 'D2B48C',teal '008080',
   thistle 'D8BFD8',tomato 'FF6347',turquoise '40E0D0',violet 'EE82EE',wheat 'F5DEB3',white 'FFFFFF',
   whitesmoke 'F5F5F5',yellow 'FFFF00',yellowgreen '9ACD32'
+
+  LeaDarkRed '8B0000',      LeaFireBrick 'B22222',   LeaCrimson 'DC143C',      LeaMediumVioletRed 'C71585'
+  LeaDarkMagenta '8B008B',  LeaDarkViolet '9400D3',  LeaMediumOrchid 'BA55D3', LeaOrchid 'DA70D6'
+  LeaViolet 'EE82EE',       LeaPlum 'DDA0DD',        LeaThistle 'D8BFD8',      LeaLavender 'E6E6FA'
+  LeaLightSkyBlue '87CEFA', LeaDeepSkyBlue '00BFFF', LeaDodgerBlue '1E90FF',   LeaCornflowerBlue '6495ED'
+  LeaSteelBlue '4682B4',    LeaRoyalBlue '4169E1',   LeaMediumBlue '0000CD',   LeaMidnightBlue '191970'
+
+  brownyellow1  '804000', brownyellow2  '8b4a04', brownyellow3  '95550a', brownyellow4  '9f5f11'
+  brownyellow5  'a86a17', brownyellow6  'b1741d', brownyellow7  'b97f23', brownyellow8  'c1892a'
+  brownyellow9  'c89330', brownyellow10 'cf9d36', brownyellow11 'd6a73d', brownyellow12 'dbb143'
+  brownyellow13 'e1bb4a', brownyellow14 'e6c551', brownyellow15 'ebce58', brownyellow16 'efd860'
+  brownyellow17 'f4e267', brownyellow18 'f8eb6f', brownyellow19 'fbf577', brownyellow20 'ffff80'
  /
  gp_xyz_ind_col(*)
  gp_xyz_fixed_col(*,*)

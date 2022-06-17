@@ -362,6 +362,7 @@ $goto gpxyzlabel_assign_more_variables
 
 * 3D Setup
 $label gpxyzlabel_assign3Dsets
+$if a%2==a                              $setglobal gp_plottype "newhistorgram"
 $if "%gp_style%" == "histogram"         $goto gpxyzlabel_assign_newhistogram_sets
 $if "%gp_style%" == "heatmap"           $goto gpxyzlabel_assign_newhistogram_sets
 $if a%2==a                              $goto gpxyzlabel_assign_newhistogram_sets
@@ -1119,8 +1120,9 @@ $if  "%gp_size%" == "no"                          $goto gpxyzlabel_gplabel_bmarg
 put 'set size %gp_size%'/;
 
 $label gpxyzlabel_gplabel_bmargin
-$if not setglobal gp_bmargin                      $goto gpxyzlabel_gplabel_tmargin
 $if "%gp_bmargin%" == "no"                        $goto gpxyzlabel_gplabel_tmargin
+$if "%gp_plottype%" == "newhistorgram"            $setglobal gp_bmargin 3
+$if not setglobal gp_bmargin                      $goto gpxyzlabel_gplabel_tmargin
 put "set bmargin %gp_bmargin%" /;
 
 $label gpxyzlabel_gplabel_tmargin
@@ -1243,7 +1245,9 @@ put 'set xtics %gp_xtics%';
 
 *** Uwe if gp_xtics no then scale 0 is not applied!!
 $if not a%2==a                                    $goto gpxyzlabel_label_xticincrement
-put " scale 0";
+$if not setglobal gp_xinc                         put " scale 0";
+$if '%gp_xinc%'   == 'no'                         put " scale 0";
+$if setglobal gp_xinc                             $goto gpxyzlabel_label_xticincrement
 $goto gpxyzlabel_ytics
 
 $label gpxyzlabel_label_xticincrement
@@ -1370,17 +1374,9 @@ $if "%gp_yyyvalue%" == "no"                       $goto gpxyzlabel_y2label_check
 
 $label  gpxyzlabel_after_ylabelpresencecheck
 
-$if not setglobal gp_ylabelloop                   $goto gpxyzlabel_after_ylabelloop
-$if "%gp_ylabelloop%" == "no"                     $goto gpxyzlabel_after_ylabelloop
-put 'set ylabel  "',%gp_ylabelloop%.TE(%gp_ylabelloop%),'"';
-$goto gpxyzlabel_after_ylabelassignment
-$label gpxyzlabel_after_ylabelloop
 
 $if not setglobal gp_ylabel                       $setglobal gp_ylabel %gp_yyyvalue%
 put 'set ylabel  "%gp_ylabel%"';
-$label gpxyzlabel_after_ylabelassignment
-
-
 $if not setglobal gp_ylabeloffset                 $goto gpxyzlabel_after_ylabeloffset_noloop
 $if "%gp_ylabeloffset%" == "no"                   $goto gpxyzlabel_after_ylabeloffset_noloop
 put ' offset %gp_ylabeloffset%';
@@ -4174,30 +4170,14 @@ $label gpxyzlabel_after_lc_20_hist
  );
 * Insert Auto Code 8 produced by make_4_linestyle.gms - end
 
-
-*$if  "%gp_color%" == "monochrome"     put ' ';
-
   gp_count = gp_count + 1;
 
     );
 
 $goto gpxyzlabel_write_data_file
 
-
-
 * Segment New Histogram Plot
 $label gpxyzlabel_plotstatement_newhistogram
-
-*put 'set xtics (';
-*gp_count_2 = 1; loop(%gp__col3%, gp_count=1; loop(%gp_scen%,
-*  gp_input.nw = 0; gp_input.nd = 3; gp_input.lw=0;
-*  put '"',%gp__col3%.TL,'" ',(gp_count+1+(gp_count_2-1)*card(%gp_scen%));
-*  if(...., put ", "; else put ")" /;
-*  gp_count = gp_count + 1; ); gp_count_2 = gp_count_2 + 1; );
-
-
-** $if     "%gp_hist%" == "columnstacked" ---> need ti col everywhere
-
 
 $if not setglobal gp_newhistogramgap               $setglobal gp_newhistogramgap 1
 $if "%gp_newhistogramgap%" == "no"                 $setglobal gp_newhistogramgap 1
@@ -4227,11 +4207,15 @@ $if "%gp_xlabel%" == "no"   $goto after_put_newhist_xlabel
   if(gp_count eq 1, put '"%gp_xlabel%"';);
 $label after_put_newhist_xlabel
 
-$if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_after_newhist_xlabeloffset
+*$if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_after_newhist_xlabeloffset
+$if not setglobal gp_firstxlabeloffset            $setglobal gp_firstxlabeloffset 0,-0.5
+$if "%gp_firstxlabeloffset%" == "no"              $goto gpxyzlabel_after_newhist_firstxlabeloffset
+if(gp_count eq 1 and gp_count_2 eq 1, PUT " offset %gp_firstxlabeloffset% ";);
+$label gpxyzlabel_after_newhist_firstxlabeloffset
+
+$if not setglobal gp_xlabeloffset                 $setglobal gp_xlabeloffset 2,-0.5
 $if "%gp_xlabeloffset%" == "no"                   $goto gpxyzlabel_after_newhist_xlabeloffset
-
-if(gp_count eq 1, PUT " offset %gp_xlabeloffset% ";);
-
+if(gp_count eq 1 and gp_count_2 gt 1, PUT " offset %gp_xlabeloffset% ";);
 $label gpxyzlabel_after_newhist_xlabeloffset
 
 $if not "%gp_hist%" == "columnstacked"  $goto gpxyzlabel_after_xposition
@@ -4244,6 +4228,10 @@ $label gpxyzlabel_after_xposition
   if(gp_count gt 1, put ' ,';);
   if(gp_count eq 1, put ", 'gnuplot%gp_multiplot_count%.dat' using "; else put " '' u ";);
   put (gp_count+1+(gp_count_2-1)*card(%gp_scen%));
+
+* use labels for xtics - uwe june 2022
+  if(gp_count eq 1, put ':xtic(1)'; );
+
 
 * new Uwe
 $if not setglobal gp_nohistogram_boxlabel            $goto after_xticlabels_histogram

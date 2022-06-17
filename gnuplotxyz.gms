@@ -1145,8 +1145,10 @@ put 'set size %gp_size%'/;
 
 $label gpxyzlabel_gplabel_bmargin
 $if "%gp_bmargin%" == "no"                        $goto gpxyzlabel_gplabel_tmargin
+$if setglobal gp_bmargin                          $goto gpxyzlabel_afterautobmargin
 $if "%gp_plottype%" == "newhistorgram"            $setglobal gp_bmargin 3
 $if not setglobal gp_bmargin                      $goto gpxyzlabel_gplabel_tmargin
+$label gpxyzlabel_afterautobmargin
 put "set bmargin %gp_bmargin%" /;
 
 $label gpxyzlabel_gplabel_tmargin

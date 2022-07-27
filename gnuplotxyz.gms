@@ -19,29 +19,35 @@ $onlisting
 $onuni
 
 * Execute collected multiplots
-$if "%1" == "multiplot"                           execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
-$if "%1" == "multiplot"                           $goto gpxyzlabel_totalendofgnupltxyz
+$if '%1' == 'multiplot'                           execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
+$if '%1' == 'multiplot'                           $goto gpxyzlabel_totalendofgnupltxyz
 
 * Execute direct export to microsoft powerpoint (Neubersch utility)
-$if "%1" == "compileppt"                          $goto gpxyzlabel_endofgnupltxyz
+$if '%1' == 'compileppt'                          $goto gpxyzlabel_endofgnupltxyz
 
 * Declare powerpoint counter and text file for image list (Huck utility)
 $if not declared gpxyzsm_plot_count               scalar gpxyzsm_plot_count /0/;
-$if not declared gams_ppt_list                    file gams_ppt_list /"%gams.sysdir%inclib\gams_ppt_list.txt"/;
+$if not declared gams_ppt_list                    file gams_ppt_list /'%gams.sysdir%inclib\gams_ppt_list.txt'/;
 
 * Reset powerpoint
-$if "%1" == "reset"                               execute 'if exist "%gams.sysdir%inclib\gams_ppt_list.txt" del "%gams.sysdir%inclib\gams_ppt_list.txt" >nul';
-$if "%1" == "reset"                               gpxyzsm_plot_count = 0;
-$if "%1" == "reset"                               $goto gpxyzlabel_endofgnupltxyz
+$if '%1' == 'reset'                               execute 'if exist "%gams.sysdir%inclib\gams_ppt_list.txt" del "%gams.sysdir%inclib\gams_ppt_list.txt" >nul';
+$if '%1' == 'reset'                               gpxyzsm_plot_count = 0;
+$if '%1' == 'reset'                               $goto gpxyzlabel_endofgnupltxyz
 
 *       Exit compilation if there is a pre-existing program error:
-*$if not exist "%gams.sysdir%wgnuplot.exe"         $abort "missing wgnuplot.exe in gams system directory"
+*$if not exist '%gams.sysdir%wgnuplot.exe'         $abort 'missing wgnuplot.exe in gams system directory'
 $if not errorfree                                 $exit
 
-$if declared u__1                                 $goto gpxyzlabel_declared1
+
+
+* +++++++++++++++++++++++++++++++++++++++++++++++ *
+* Section 1:   Declaration                        *
+* +++++++++++++++++++++++++++++++++++++++++++++++ *
+
+$if declared u__1                                 $goto gpxyzlabel_afterdeclarations
 
 * Delete helper file for powerpoint
-$call if exist "%gams.sysdir%inclib\gams_ppt_list.txt" del "%gams.sysdir%inclib\gams_ppt_list.txt" >nul
+$call if exist '%gams.sysdir%inclib\gams_ppt_list.txt' del '%gams.sysdir%inclib\gams_ppt_list.txt' >nul
 
 * One time declaration of sets parameters and files for graphs in a loop
 alias(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8,u__9,u__10,u__11,u__12,u__13,u__14,u__15,u__16,all_gp_legend,*);
@@ -63,7 +69,7 @@ set uu___15(u__15);
 set uu___16(u__16);
 
 * may also use phantom set element
-set no_gp_legend(all_gp_legend); no_gp_legend("nothing_nothing") = no;
+set no_gp_legend(all_gp_legend); no_gp_legend('nothing_nothing') = no;
 set gp_hun_100_set /gp_hun_100_set_1*gp_hun_100_set_100/;
 alias(first_index_gpxyzset,second_index_gpxyzset,third_index_gpxyzset,*);
 set gpxyzset_one(first_index_gpxyzset),gpxyzset_two(second_index_gpxyzset),gpxyzset_three(third_index_gpxyzset);
@@ -71,9 +77,9 @@ set ppt_repeat_loop_all /1*9/;
 set ppt_repeat_loop(ppt_repeat_loop_all) This set allows to combine graphs from different restart files in one power point file;
 
 * what is this needed for?
-gpxyzset_one("no")=no;
-gpxyzset_two("no")=no;
-gpxyzset_three("no")=no;
+gpxyzset_one('no')=no;
+gpxyzset_two('no')=no;
+gpxyzset_three('no')=no;
 
 * for more than 4 dimensions
 Set gpxyz_index__set /gpxyz_index__set__1*gpxyz_index__set__20/;
@@ -90,7 +96,7 @@ set allu9(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8,u__9);
 set allu10(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8,u__9,u__10);
 
 FILES
- gp_screen               /""/
+ gp_screen               /''/
  gp_input                /gnuplot.inp/
  gp_data                 /gnuplot.dat/
  gp_data_mp1             /gnuplot_mp1.dat/
@@ -144,30 +150,31 @@ PARAMETERS
  gp__0(*) total observations minus end zeros
 ;
 
+* Uwe Why two color sets
 SETS
  gp_line_color_name
  /
-  grey0  "0,0,0", grey1  "3,3,3", grey2  "5,5,5", grey3  "8,8,8", grey4  "10,10,10", grey5  "13,13,13", grey6  "15,15,15"
-  grey7  "18,18,18", grey8  "20,20,20", grey9  "23,23,23", grey10  "26,26,26", grey11  "28,28,28", grey12  "31,31,31", grey13  "33,33,33"
-  grey14  "36,36,36", grey15  "38,38,38", grey16  "41,41,41", grey17  "43,43,43", grey18  "46,46,46", grey19  "48,48,48", grey20  "51,51,51"
-  grey21  "54,54,54", grey22  "56,56,56", grey23  "59,59,59", grey24  "61,61,61", grey25  "64,64,64", grey26  "66,66,66", grey27  "69,69,69"
-  grey28  "71,71,71", grey29  "74,74,74", grey30  "77,77,77", grey31  "79,79,79", grey32  "82,82,82", grey33  "84,84,84", grey34  "87,87,87"
-  grey35  "89,89,89", grey36  "92,92,92", grey37  "94,94,94", grey38  "97,97,97", grey39  "99,99,99", grey40  "102,102,102", grey41  "105,105,105"
-  grey42  "107,107,107", grey43  "110,110,110", grey44  "112,112,112", grey45  "115,115,115", grey46  "117,117,117", grey47  "120,120,120", grey48  "122,122,122"
-  grey49  "125,125,125", grey50  "127,127,127", grey51  "130,130,130", grey52  "133,133,133", grey53  "135,135,135", grey54  "138,138,138", grey55  "140,140,140"
-  grey56  "143,143,143", grey57  "145,145,145", grey58  "148,148,148", grey59  "150,150,150", grey60  "153,153,153", grey61  "156,156,156", grey62  "158,158,158"
-  grey63  "161,161,161", grey64  "163,163,163", grey65  "166,166,166", grey66  "168,168,168", grey67  "171,171,171", grey68  "173,173,173", grey69  "176,176,176"
-  grey70  "179,179,179", grey71  "181,181,181", grey72  "184,184,184", grey73  "186,186,186", grey74  "189,189,189", grey75  "191,191,191", grey76  "194,194,194"
-  grey77  "196,196,196", grey78  "199,199,199", grey79  "201,201,201", grey80  "204,204,204", grey81  "207,207,207", grey82  "209,209,209", grey83  "212,212,212"
-  grey84  "214,214,214", grey85  "217,217,217", grey86  "219,219,219", grey87  "222,222,222", grey88  "224,224,224", grey89  "227,227,227", grey90  "229,229,229"
-  grey91  "232,232,232", grey92  "235,235,235", grey93  "237,237,237", grey94  "240,240,240", grey95  "242,242,242", grey96  "245,245,245", grey97  "247,247,247"
-  grey98  "250,250,250", grey99  "252,252,252", grey100  "255,255,255", redgreen1  "165,15,21", redgreen2  "222,45,38", redgreen3  "251,106,74", redgreen4  "252,146,114"
-  redgreen5  "252,187,161", redgreen6  "254,229,217", redgreen7  "237,248,233", redgreen8  "199,233,192", redgreen9  "161,217,155", redgreen10  "116,196,118", redgreen11  "49,163,84"
-  redgreen12  "0,109,44", diverging1_1  "84,48,5", diverging1_2  "140,81,10", diverging1_3  "191,129,45", diverging1_4  "223,194,125", diverging1_5  "246,232,195", diverging1_6  "245,245,245"
-  diverging1_7  "199,234,229", diverging1_8  "128,205,193", diverging1_9  "53,151,143", diverging1_10  "1,102,94", diverging1_11  "0,60,48", diverging2_1  "64,0,75", diverging2_2  "118,42,131"
-  diverging2_3  "153,112,171", diverging2_4  "194,165,207", diverging2_5  "231,212,232", diverging2_6  "247,247,247", diverging2_7  "217,240,211", diverging2_8  "166,219,160", diverging2_9  "90,174,97"
-  diverging2_10  "27,120,55", diverging2_11  "0,68,27", qualitative1_1  "166,206,227", qualitative1_2  "31,120,180", qualitative1_3  "178,223,138", qualitative1_4  "51,160,44", qualitative1_5  "251,154,153"
-  qualitative1_6  "227,26,28", qualitative1_7  "253,191,111", qualitative1_8  "255,127,0", qualitative1_9  "202,178,214", qualitative1_10  "106,61,154", qualitative1_11  "255,255,153", qualitative1_12  "177,89,40"
+  grey0  '0,0,0', grey1  '3,3,3', grey2  '5,5,5', grey3  '8,8,8', grey4  '10,10,10', grey5  '13,13,13', grey6  '15,15,15'
+  grey7  '18,18,18', grey8  '20,20,20', grey9  '23,23,23', grey10  '26,26,26', grey11  '28,28,28', grey12  '31,31,31', grey13  '33,33,33'
+  grey14  '36,36,36', grey15  '38,38,38', grey16  '41,41,41', grey17  '43,43,43', grey18  '46,46,46', grey19  '48,48,48', grey20  '51,51,51'
+  grey21  '54,54,54', grey22  '56,56,56', grey23  '59,59,59', grey24  '61,61,61', grey25  '64,64,64', grey26  '66,66,66', grey27  '69,69,69'
+  grey28  '71,71,71', grey29  '74,74,74', grey30  '77,77,77', grey31  '79,79,79', grey32  '82,82,82', grey33  '84,84,84', grey34  '87,87,87'
+  grey35  '89,89,89', grey36  '92,92,92', grey37  '94,94,94', grey38  '97,97,97', grey39  '99,99,99', grey40  '102,102,102', grey41  '105,105,105'
+  grey42  '107,107,107', grey43  '110,110,110', grey44  '112,112,112', grey45  '115,115,115', grey46  '117,117,117', grey47  '120,120,120', grey48  '122,122,122'
+  grey49  '125,125,125', grey50  '127,127,127', grey51  '130,130,130', grey52  '133,133,133', grey53  '135,135,135', grey54  '138,138,138', grey55  '140,140,140'
+  grey56  '143,143,143', grey57  '145,145,145', grey58  '148,148,148', grey59  '150,150,150', grey60  '153,153,153', grey61  '156,156,156', grey62  '158,158,158'
+  grey63  '161,161,161', grey64  '163,163,163', grey65  '166,166,166', grey66  '168,168,168', grey67  '171,171,171', grey68  '173,173,173', grey69  '176,176,176'
+  grey70  '179,179,179', grey71  '181,181,181', grey72  '184,184,184', grey73  '186,186,186', grey74  '189,189,189', grey75  '191,191,191', grey76  '194,194,194'
+  grey77  '196,196,196', grey78  '199,199,199', grey79  '201,201,201', grey80  '204,204,204', grey81  '207,207,207', grey82  '209,209,209', grey83  '212,212,212'
+  grey84  '214,214,214', grey85  '217,217,217', grey86  '219,219,219', grey87  '222,222,222', grey88  '224,224,224', grey89  '227,227,227', grey90  '229,229,229'
+  grey91  '232,232,232', grey92  '235,235,235', grey93  '237,237,237', grey94  '240,240,240', grey95  '242,242,242', grey96  '245,245,245', grey97  '247,247,247'
+  grey98  '250,250,250', grey99  '252,252,252', grey100  '255,255,255', redgreen1  '165,15,21', redgreen2  '222,45,38', redgreen3  '251,106,74', redgreen4  '252,146,114'
+  redgreen5  '252,187,161', redgreen6  '254,229,217', redgreen7  '237,248,233', redgreen8  '199,233,192', redgreen9  '161,217,155', redgreen10  '116,196,118', redgreen11  '49,163,84'
+  redgreen12  '0,109,44', diverging1_1  '84,48,5', diverging1_2  '140,81,10', diverging1_3  '191,129,45', diverging1_4  '223,194,125', diverging1_5  '246,232,195', diverging1_6  '245,245,245'
+  diverging1_7  '199,234,229', diverging1_8  '128,205,193', diverging1_9  '53,151,143', diverging1_10  '1,102,94', diverging1_11  '0,60,48', diverging2_1  '64,0,75', diverging2_2  '118,42,131'
+  diverging2_3  '153,112,171', diverging2_4  '194,165,207', diverging2_5  '231,212,232', diverging2_6  '247,247,247', diverging2_7  '217,240,211', diverging2_8  '166,219,160', diverging2_9  '90,174,97'
+  diverging2_10  '27,120,55', diverging2_11  '0,68,27', qualitative1_1  '166,206,227', qualitative1_2  '31,120,180', qualitative1_3  '178,223,138', qualitative1_4  '51,160,44', qualitative1_5  '251,154,153'
+  qualitative1_6  '227,26,28', qualitative1_7  '253,191,111', qualitative1_8  '255,127,0', qualitative1_9  '202,178,214', qualitative1_10  '106,61,154', qualitative1_11  '255,255,153', qualitative1_12  '177,89,40'
 
   aliceblue '240 248 255',antiquewhite '250 235 215',aqua '0 255 255',aquamarine '127 255 212',azure '240 255 255',beige '245 245 220',
   bisque '255 228 196',black '0 0 0',blanchedalmond '255 235 205',blue '0  0 255',blueviolet '138  43 226',brown '165  42  42',
@@ -195,11 +202,11 @@ SETS
   tomato '255  99  71',turquoise '64 224 208',violet '238 130 238',wheat '245 222 179',white '255 255 255',whitesmoke '245 245 245',
   yellow '255 255  0',yellowgreen '139 205 50'
 
-  LeaMidnightBlue "25,25,112",     LeaMediumBlue "0,0,205",      LeaRoyalBlue "65,105,225",  LeaSteelBlue "70,130,180"
-  LeaCornflowerBlue "100,149,237", LeaDodgerBlue "30,144,255",   LeaDeepSkyBlue "0,191,255", LeaLightSkyBlue "135,206,250"
-  LeaLavender "230,230,250",       LeaThistle "216,191,216",     LeaPlum "221,160,221",      LeaViolet "238,130,238"
-  LeaOrchid "218,112,214",         LeaMediumOrchid "186,85,211", LeaDarkViolet "148,0,211",  LeaDarkMagenta "139,0,139"
-  LeaMediumVioletRed "199,21,133", LeaCrimson "220,20,60",       LeaFireBrick "178,34,34",   LeaDarkRed "139,0,0"
+  LeaMidnightBlue '25,25,112',     LeaMediumBlue '0,0,205',      LeaRoyalBlue '65,105,225',  LeaSteelBlue '70,130,180'
+  LeaCornflowerBlue '100,149,237', LeaDodgerBlue '30,144,255',   LeaDeepSkyBlue '0,191,255', LeaLightSkyBlue '135,206,250'
+  LeaLavender '230,230,250',       LeaThistle '216,191,216',     LeaPlum '221,160,221',      LeaViolet '238,130,238'
+  LeaOrchid '218,112,214',         LeaMediumOrchid '186,85,211', LeaDarkViolet '148,0,211',  LeaDarkMagenta '139,0,139'
+  LeaMediumVioletRed '199,21,133', LeaCrimson '220,20,60',       LeaFireBrick '178,34,34',   LeaDarkRed '139,0,0'
 
   brownyellow1   '255,255,128', brownyellow2   '251,245,119', brownyellow3   '248,235,111', brownyellow4   '244,226,103'
   brownyellow5   '239,216,96',  brownyellow6   '235,206,88',  brownyellow7   '230,197,81',  brownyellow8   '225,187,74'
@@ -209,27 +216,27 @@ SETS
  /
  gp_hex_color_name
  /
-  grey0  "000000", grey1  "030303", grey2  "050505", grey3  "080808", grey4  "0A0A0A", grey5  "0D0D0D", grey6  "0F0F0F"
-  grey7  "121212", grey8  "141414", grey9  "171717", grey10  "1A1A1A", grey11  "1C1C1C", grey12  "1F1F1F", grey13  "212121"
-  grey14  "242424", grey15  "262626", grey16  "292929", grey17  "2B2B2B", grey18  "2E2E2E", grey19  "303030", grey20  "333333"
-  grey21  "363636", grey22  "383838", grey23  "3B3B3B", grey24  "3D3D3D", grey25  "404040", grey26  "424242", grey27  "454545"
-  grey28  "474747", grey29  "4A4A4A", grey30  "4D4D4D", grey31  "4F4F4F", grey32  "525252", grey33  "545454", grey34  "575757"
-  grey35  "595959", grey36  "5C5C5C", grey37  "5E5E5E", grey38  "616161", grey39  "636363", grey40  "666666", grey41  "696969"
-  grey42  "6B6B6B", grey43  "6E6E6E", grey44  "707070", grey45  "737373", grey46  "757575", grey47  "787878", grey48  "7A7A7A"
-  grey49  "7D7D7D", grey50  "7F7F7F", grey51  "828282", grey52  "858585", grey53  "878787", grey54  "8A8A8A", grey55  "8C8C8C"
-  grey56  "8F8F8F", grey57  "919191", grey58  "949494", grey59  "969696", grey60  "999999", grey61  "9C9C9C", grey62  "9E9E9E"
-  grey63  "A1A1A1", grey64  "A3A3A3", grey65  "A6A6A6", grey66  "A8A8A8", grey67  "ABABAB", grey68  "ADADAD", grey69  "B0B0B0"
-  grey70  "B3B3B3", grey71  "B5B5B5", grey72  "B8B8B8", grey73  "BABABA", grey74  "BDBDBD", grey75  "BFBFBF", grey76  "C2C2C2"
-  grey77  "C4C4C4", grey78  "C7C7C7", grey79  "C9C9C9", grey80  "CCCCCC", grey81  "CFCFCF", grey82  "D1D1D1", grey83  "D4D4D4"
-  grey84  "D6D6D6", grey85  "D9D9D9", grey86  "DBDBDB", grey87  "DEDEDE", grey88  "E0E0E0", grey89  "E3E3E3", grey90  "E5E5E5"
-  grey91  "E8E8E8", grey92  "EBEBEB", grey93  "EDEDED", grey94  "F0F0F0", grey95  "F2F2F2", grey96  "F5F5F5", grey97  "F7F7F7"
-  grey98  "FAFAFA", grey99  "FCFCFC", grey100  "FFFFFF", redgreen1  "a50f15", redgreen2  "de2d26", redgreen3  "fb6a4a", redgreen4  "fc9272"
-  redgreen5  "fcbba1", redgreen6  "fee5d9", redgreen7  "edf8e9", redgreen8  "c7e9c0", redgreen9  "a1d99b", redgreen10  "74c476", redgreen11  "31a354"
-  redgreen12  "006d2c", diverging1_1  "543005", diverging1_2  "8c510a", diverging1_3  "bf812d", diverging1_4  "dfc27d", diverging1_5  "f6e8c3", diverging1_6  "F5F5F5"
-  diverging1_7  "c7eae5", diverging1_8  "80cdc1", diverging1_9  "35978f", diverging1_10  "01665e", diverging1_11  "003c30", diverging2_1  "40004b", diverging2_2  "762a83"
-  diverging2_3  "9970ab", diverging2_4  "c2a5cf", diverging2_5  "e7d4e8", diverging2_6  "F7F7F7", diverging2_7  "d9f0d3", diverging2_8  "a6dba0", diverging2_9  "5aae61"
-  diverging2_10  "1b7837", diverging2_11  "00441b", qualitative1_1  "a6cee3", qualitative1_2  "1f78b4", qualitative1_3  "b2df8a", qualitative1_4  "33a02c", qualitative1_5  "fb9a99"
-  qualitative1_6  "e31a1c", qualitative1_7  "fdbf6f", qualitative1_8  "ff7f00", qualitative1_9  "cab2d6", qualitative1_10  "6a3d9a", qualitative1_11  "ffff99", qualitative1_12  "b15928"
+  grey0  '000000', grey1  '030303', grey2  '050505', grey3  '080808', grey4  '0A0A0A', grey5  '0D0D0D', grey6  '0F0F0F'
+  grey7  '121212', grey8  '141414', grey9  '171717', grey10  '1A1A1A', grey11  '1C1C1C', grey12  '1F1F1F', grey13  '212121'
+  grey14  '242424', grey15  '262626', grey16  '292929', grey17  '2B2B2B', grey18  '2E2E2E', grey19  '303030', grey20  '333333'
+  grey21  '363636', grey22  '383838', grey23  '3B3B3B', grey24  '3D3D3D', grey25  '404040', grey26  '424242', grey27  '454545'
+  grey28  '474747', grey29  '4A4A4A', grey30  '4D4D4D', grey31  '4F4F4F', grey32  '525252', grey33  '545454', grey34  '575757'
+  grey35  '595959', grey36  '5C5C5C', grey37  '5E5E5E', grey38  '616161', grey39  '636363', grey40  '666666', grey41  '696969'
+  grey42  '6B6B6B', grey43  '6E6E6E', grey44  '707070', grey45  '737373', grey46  '757575', grey47  '787878', grey48  '7A7A7A'
+  grey49  '7D7D7D', grey50  '7F7F7F', grey51  '828282', grey52  '858585', grey53  '878787', grey54  '8A8A8A', grey55  '8C8C8C'
+  grey56  '8F8F8F', grey57  '919191', grey58  '949494', grey59  '969696', grey60  '999999', grey61  '9C9C9C', grey62  '9E9E9E'
+  grey63  'A1A1A1', grey64  'A3A3A3', grey65  'A6A6A6', grey66  'A8A8A8', grey67  'ABABAB', grey68  'ADADAD', grey69  'B0B0B0'
+  grey70  'B3B3B3', grey71  'B5B5B5', grey72  'B8B8B8', grey73  'BABABA', grey74  'BDBDBD', grey75  'BFBFBF', grey76  'C2C2C2'
+  grey77  'C4C4C4', grey78  'C7C7C7', grey79  'C9C9C9', grey80  'CCCCCC', grey81  'CFCFCF', grey82  'D1D1D1', grey83  'D4D4D4'
+  grey84  'D6D6D6', grey85  'D9D9D9', grey86  'DBDBDB', grey87  'DEDEDE', grey88  'E0E0E0', grey89  'E3E3E3', grey90  'E5E5E5'
+  grey91  'E8E8E8', grey92  'EBEBEB', grey93  'EDEDED', grey94  'F0F0F0', grey95  'F2F2F2', grey96  'F5F5F5', grey97  'F7F7F7'
+  grey98  'FAFAFA', grey99  'FCFCFC', grey100  'FFFFFF', redgreen1  'a50f15', redgreen2  'de2d26', redgreen3  'fb6a4a', redgreen4  'fc9272'
+  redgreen5  'fcbba1', redgreen6  'fee5d9', redgreen7  'edf8e9', redgreen8  'c7e9c0', redgreen9  'a1d99b', redgreen10  '74c476', redgreen11  '31a354'
+  redgreen12  '006d2c', diverging1_1  '543005', diverging1_2  '8c510a', diverging1_3  'bf812d', diverging1_4  'dfc27d', diverging1_5  'f6e8c3', diverging1_6  'F5F5F5'
+  diverging1_7  'c7eae5', diverging1_8  '80cdc1', diverging1_9  '35978f', diverging1_10  '01665e', diverging1_11  '003c30', diverging2_1  '40004b', diverging2_2  '762a83'
+  diverging2_3  '9970ab', diverging2_4  'c2a5cf', diverging2_5  'e7d4e8', diverging2_6  'F7F7F7', diverging2_7  'd9f0d3', diverging2_8  'a6dba0', diverging2_9  '5aae61'
+  diverging2_10  '1b7837', diverging2_11  '00441b', qualitative1_1  'a6cee3', qualitative1_2  '1f78b4', qualitative1_3  'b2df8a', qualitative1_4  '33a02c', qualitative1_5  'fb9a99'
+  qualitative1_6  'e31a1c', qualitative1_7  'fdbf6f', qualitative1_8  'ff7f00', qualitative1_9  'cab2d6', qualitative1_10  '6a3d9a', qualitative1_11  'ffff99', qualitative1_12  'b15928'
 
   aliceblue 'F0F8FF',antiquewhite 'FAEBD7',aqua '00FFFF',aquamarine '7FFFD4',azure 'F0FFFF',beige 'F5F5DC',
   bisque 'FFE4C4',black '000000',blanchedalmond 'FFEBCD',blue '0000FF',blueviolet '8A2BE2',brown 'A52A2A',
@@ -279,32 +286,17 @@ SETS
 * exit if blank invocation
 * the next two lines have to be after all declarations to allow
 * using gnuplotxyz within loops
-$if "%1" == ""                                    $goto gpxyzlabel_endofgnupltxyz
-$if "%1" == "loop"                                $goto gpxyzlabel_endofgnupltxyz
+$if '%1' == ''                                    $goto gpxyzlabel_endofgnupltxyz
+$if '%1' == 'loop'                                $goto gpxyzlabel_endofgnupltxyz
+
+$label gpxyzlabel_afterdeclarations
+
 
 
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
-*              After declararation                *
+* Section 1b:   Basic Checks and Exits            *
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
 
-$label gpxyzlabel_declared1
-
-* Initialize
-gp_scencount("gp_nothing") = 0;
-gp_xyz_fixed_col(gp_line_color_name,"gp_nothing") = no;
-gnuplotxyz_ploterror_nodata = 0;
-
-* retain name of output file (not relevant for windows terminal)
-$if not setglobal gp_keepname                     $goto gpxyzlabel_afterkeepname_assignment
-$if "%gp_keepname%" == "no"                       $goto gpxyzlabel_afterkeepname_assignment
-$setglobal gp_name %gp_keepname%
-$label gpxyzlabel_afterkeepname_assignment
-
-* change plot style from histograms to lines if 3rd argument is provided
-$if a%3==a                                        $goto gpxyzlabel_afterstylecheck
-$if "%gp_style%" == "histogram"                   $setglobal gp_style linespoints
-$if "%gp_style%" == "newhistogram"                $setglobal gp_style linespoints
-$label gpxyzlabel_afterstylecheck
 
 * exit if not declared
 $if a%1==a                                        $exit
@@ -322,6 +314,20 @@ $error GNUPLOT: Identifier %1 is not defined.
 $exit
 
 $label gpxyzlabel_defined0
+
+
+
+
+
+* +++++++++++++++++++++++++++++++++++++++++++++++ *
+* Section 2:   Initialization                     *
+* +++++++++++++++++++++++++++++++++++++++++++++++ *
+
+
+* Initialize
+gp_scencount('gp_nothing') = 0;
+gp_xyz_fixed_col(gp_line_color_name,'gp_nothing') = no;
+gnuplotxyz_ploterror_nodata = 0;
 
 * multiplot
 $if not setglobal gp_multiplot                    $setglobal gp_multiplot_count     ""
@@ -349,53 +355,135 @@ $if '%gp_multiplot_count%' == '_mp1'              $setglobal gp_multiplot_count 
 $if not setglobal gp_multiplot_count              $setglobal gp_multiplot_count    _mp1
 $label after_gp_multiplot_count_calc
 
+*
 $setglobal gp_data_string gp_data
 $if setglobal gp_multiplot                        $setglobal gp_data_string gp_data%gp_multiplot_count%
 $if '%gp_multiplot%' == 'no'                      $setglobal gp_data_string gp_data
 
 
+* change plot style from histograms to lines if 3rd argument is provided
+$if a%3==a                                        $goto gpxyzlabel_afterstylecheck
+$if '%gp_style%' == 'histogram'                   $setglobal gp_style linespoints
+$if '%gp_style%' == 'newhistogram'                $setglobal gp_style linespoints
+$label gpxyzlabel_afterstylecheck
+
+
+* retain name of output file (not relevant for windows terminal)
+$if not setglobal gp_keepname                     $goto gpxyzlabel_afterkeepname_assignment
+$if '%gp_keepname%' == 'no'                       $goto gpxyzlabel_afterkeepname_assignment
+$setglobal gp_name %gp_keepname%
+$label gpxyzlabel_afterkeepname_assignment
+
+$if not setglobal gp_name                         $setglobal gp_name '%1'
+$if "%gp_name%" == "no"                           $setglobal gp_name '%1'
+
+
+
+
+* +++++++++++++++++++++++++++++++++++++++++++++++ *
+* Section 3:   Data Specific Directions           *
+* +++++++++++++++++++++++++++++++++++++++++++++++ *
+
+
 * Assign and direct procedure based on dimensions of plot item
 * 2 - Dimensional parameter without 2nd argument -> histogram style
 * 3 - Dimensional parameter without 2nd argument -> newhistogram style
-$if dimension 1 %1                                $goto gpxyzlabel_assign1Dsets
-$if dimension 2 %1                                $goto gpxyzlabel_assign2Dsets
-$if dimension 3 %1                                $goto gpxyzlabel_assign3Dsets
-$if dimension 4 %1                                $goto gpxyzlabel_assign4Dsets
+$if dimension 1 %1                                $goto gpxyzlabel_prepare_1D
+$if dimension 2 %1                                $goto gpxyzlabel_prepare_2D
+$if dimension 3 %1                                $goto gpxyzlabel_prepare_3D
+$if dimension 4 %1                                $goto gpxyzlabel_prepare_4D
 $error GNUPLOT error: Identifier %1 has more than 4 dimensions
 $exit
 
 
-* 1D Setup
-$label gpxyzlabel_assign1Dsets
-uu___1(u__1) $ %1(u__1)=yes;
-$goto  gpxyzlabel_assign_more_variables
+* +++++++++++++++++ *
+*        1D         *
+* +++++++++++++++++ *
 
+$label gpxyzlabel_prepare_1D
+
+$setglobal gp_scen      'uu___1'
+$setglobal gp_xxxvalue  ""
+$setglobal gp_yyyvalue  "%1"
+
+uu___1(u__1) $%1(u__1) = yes;
+
+gnuplotxyz_current_nodata = 0;
+gnuplotxyz_current_nodata
+ $(sum(%gp_scen% $%1(%gp_scen%),1) eq 0)
+ = 1;
+IF(gnuplotxyz_current_nodata gt 0.5,
+ PUT gpxyz_logscreen_putfile, '*' / '*' / '* gnuplot warning - plot skipped ' / '* data for ', '%1' ,' are all zero' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1; );
+
+$goto gpxyzlabel_compile_input_commands
+
+
+
+* +++++++++++++++++ *
+*        2D         *
+* +++++++++++++++++ *
 
 * 2D Setup - Histograms and Spiderplots
-$label gpxyzlabel_assign2Dsets
-$if not setglobal gp_style            $setglobal gp_style histogram
+$label gpxyzlabel_prepare_2D
+
+$setglobal gp_scen      'uu___1'
+$setglobal gp_obsv_1    'uu___2'
+*$if a%2==a                                        $setglobal gp_xxxvalue  '%d___2%'
+*$if a%2==a                                        $setglobal gp_yyyvalue  '%d___1%'
+
+
+$if "%gp_xdata%" == "time"            $goto afterhistogramassignment
 $if "%gp_style%" == "spiderplot"      $goto afterhistogramassignment
+$if not setglobal gp_style            $setglobal gp_style histogram
 $setglobal gp_style histogram
 $label afterhistogramassignment
+
 allu2(u__1,u__2) $(%1(u__1,u__2)) = yes;
 uu___2(u__2)     $ sum(allu2(u__1,u__2),1)   = yes;
 uu___1(u__1)     $ sum(allu2(u__1,uu___2),1) = yes;
 allu2(u__1,u__2) $(%1(u__1,u__2))=no;
-$goto gpxyzlabel_assign_more_variables
+
+gnuplotxyz_current_nodata = 0;
+gnuplotxyz_current_nodata
+  $(sum((%gp_scen%,%gp_obsv_1%) $ %1(%gp_scen%,%gp_obsv_1%),1) eq 0)
+  = 1;
+IF(gnuplotxyz_current_nodata gt 0.5,
+ PUT gpxyz_logscreen_putfile, '*' / '*' / '* gnuplot warning - plot skipped ' / '* data for ', '%1' ,' are all zero' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1;
+ );
+
+$goto gpxyzlabel_compile_input_commands
 
 
-* 3D Setup
-$label gpxyzlabel_assign3Dsets
+* +++++++++++++++++ *
+*        3D         *
+* +++++++++++++++++ *
+
+$label gpxyzlabel_prepare_3D
 $if a%2==a                              $setglobal gp_plottype "newhistorgram"
-$if "%gp_style%" == "histogram"         $goto gpxyzlabel_assign_newhistogram_sets
-$if "%gp_style%" == "heatmap"           $goto gpxyzlabel_assign_newhistogram_sets
-$if a%2==a                              $goto gpxyzlabel_assign_newhistogram_sets
-$if not a%3==a                          $goto gpxyzlabel_define__2D_2
+$if "%gp_style%" == "histogram"         $goto gpxyzlabel_prepare_3D_NewHistograms
+$if "%gp_style%" == "heatmap"           $goto gpxyzlabel_prepare_3D_NewHistograms
+$if a%2==a                              $goto gpxyzlabel_prepare_3D_NewHistograms
+
+$if not a%3==a                          $goto gpxyzlabel_prepare_3D_LinePlots
 $error GNUPLOT2: Vertical axis to be graphed 3rd argument is not present.
 $exit
 
-* a) line plots
-$label gpxyzlabel_define__2D_2
+
+* a) 3D line plots *
+* -----------------*
+$label gpxyzlabel_prepare_3D_LinePlots
+
+$setglobal gp_scen      'uu___1'
+$setglobal gp_obsv_1    'uu___2'
+$setglobal gp_xxxvalue  "%2"
+$setglobal gp_yyyvalue  "%3"
+$setglobal gp__col3     "%4"
+$setglobal gp__col4     "%5"
+$setglobal gp__col5     "%6"
+$setglobal gp__col6     "%7"
+
 allu3(u__1,u__2,"%2") $ %1(u__1,u__2,"%2")=yes;
 allu3(u__1,u__2,"%3") $ %1(u__1,u__2,"%3")=yes;
 uu___3("%3")=yes;
@@ -403,36 +491,102 @@ uu___3("%2")=yes;
 uu___2(u__2)$sum(allu3(u__1,u__2,uu___3),1) =yes;
 uu___1(u__1)$sum(allu3(u__1,uu___2,uu___3),1)=yes;
 allu3(u__1,u__2,u__3)$(%1(u__1,u__2,"%2") or %1(u__1,u__2,"%3"))=no;
-$goto gpxyzlabel_assign_more_variables
+
+* case 1: x-values all zero
+gnuplotxyz_current_nodata = 0;
+gnuplotxyz_current_nodata
+ $(sum((%gp_scen%,%gp_obsv_1%) $ %1(%gp_scen%,%gp_obsv_1%,'%gp_xxxvalue%'),1) eq 0 and
+   sum((%gp_scen%,%gp_obsv_1%) $ %1(%gp_scen%,%gp_obsv_1%,'%gp_yyyvalue%'),1) ne 0)
+ = 1;
+IF(gnuplotxyz_current_nodata gt 0.5,
+ PUT gpxyz_logscreen_putfile,
+  '*' / '*' / '* gnuplot warning - plot skipped ' / '* %gp_xxxvalue% all zero in ', '%1' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1; );
+* case 2: y-values all zero
+gnuplotxyz_current_nodata = 0;
+gnuplotxyz_current_nodata
+ $(sum((%gp_scen%,%gp_obsv_1%) $ %1(%gp_scen%,%gp_obsv_1%,'%gp_xxxvalue%'),1) ne 0 and
+   sum((%gp_scen%,%gp_obsv_1%) $ %1(%gp_scen%,%gp_obsv_1%,'%gp_yyyvalue%'),1) eq 0)
+ = 1;
+
+IF(gnuplotxyz_current_nodata gt 0.5,
+ PUT gpxyz_logscreen_putfile, '*' / '*' / '* gnuplot warning - plot skipped ' / '* %gp_yyyvalue% all zero in ', '%1' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1; );
+* case 3: xy-values all zero
+gnuplotxyz_current_nodata = 0;
+gnuplotxyz_current_nodata
+ $(sum((%gp_scen%,%gp_obsv_1%) $ %1(%gp_scen%,%gp_obsv_1%,'%gp_xxxvalue%'),1) eq 0 and
+   sum((%gp_scen%,%gp_obsv_1%) $ %1(%gp_scen%,%gp_obsv_1%,'%gp_yyyvalue%'),1) eq 0)
+ = 1;
+IF(gnuplotxyz_current_nodata gt 0.5,
+ PUT gpxyz_logscreen_putfile, '*' / '*' / '* gnuplot warning - plot skipped ' / '* %gp_yyyvalue% and %gp_xxxvalue% all zero in ', '%1' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1; );
+
+$goto gpxyzlabel_compile_input_commands
 
 
-* b) new histogram plots
-$label gpxyzlabel_assign_newhistogram_sets
+
+* b) new histogram plots *
+* -----------------------*
+
+$label gpxyzlabel_prepare_3D_NewHistograms
+
+$setglobal gp_scen      'uu___1'
+$setglobal gp_obsv_1    'uu___2'
+$setglobal gp__col3     'uu___3'
+
 allu3(u__1,u__2,u__3) $(%1(u__1,u__2,u__3))   = yes;
 uu___3(u__3) $sum(allu3(u__1,u__2,u__3),1)    = yes;
 uu___2(u__2) $sum(allu3(u__1,u__2,uu___3),1)  = yes;
 uu___1(u__1) $sum(allu3(u__1,uu___2,uu___3),1)= yes;
 allu3(u__1,u__2,u__3) $(%1(u__1,u__2,u__3)) = no;
-$goto gpxyzlabel_assign_more_variables
 
+gnuplotxyz_current_nodata = 0;
+gnuplotxyz_current_nodata
+ $(sum((%gp_scen%,%gp_obsv_1%,%gp__col3%) $ %1(%gp_scen%,%gp_obsv_1%,%gp__col3%),1) eq 0)
+ = 1;
+IF(gnuplotxyz_current_nodata gt 0.5,
+ PUT gpxyz_logscreen_putfile, '*' / '*' / '* gnuplot warning - plot skipped ' / '* data for ', '%1' ,' are all zero' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1;  );
+
+$goto gpxyzlabel_compile_input_commands
+
+
+
+
+
+* +++++++++++++++++ *
+*        4D         *
+* +++++++++++++++++ *
 
 * 4D Setup - Planes
-$label gpxyzlabel_assign4Dsets
-$if not a%2==a                                    $goto gpxyzlabel_assign4Dsets_1
+
+$label gpxyzlabel_prepare_4D
+
+$if not a%2==a                                    $goto gpxyzlabel_prepare_4D_1
 $error GNUPLOT2: Horizontal axis to be graphed 2nd argument is not present.
 $exit
 
-$label gpxyzlabel_assign4Dsets_1
-$if not a%3==a                                    $goto gpxyzlabel_assign4Dsets_2
+$label gpxyzlabel_prepare_4D_1
+$if not a%3==a                                    $goto gpxyzlabel_prepare_4D_2
 $error GNUPLOT2: Z axis to be graphed 3rd argument is not present.
 $exit
 
-$label gpxyzlabel_assign4Dsets_2
-$if not a%3==a                                    $goto gpxyzlabel_assign4Dsets_3
+$label gpxyzlabel_prepare_4D_2
+$if not a%3==a                                    $goto gpxyzlabel_prepare_4D_3
 $error GNUPLOT2: Vertical axis to be graphed 4th argument is not present.
 $exit
 
-$label gpxyzlabel_assign4Dsets_3
+$label gpxyzlabel_prepare_4D_3
+
+$setglobal gp_planes    'uu___1'
+$setglobal gp_obsv_1    'uu___2'
+$setglobal gp_obsv_2    'uu___3'
+$setglobal gp_scen      'uu___4'
+$setglobal gp_xxxvalue  "%2"
+$setglobal gp_yyyvalue  "%3"
+$setglobal gp_zzzvalue  "%4"
+
 allu4(u__1,u__2,u__3,u__4)
  $(%1(u__1,u__2,u__3,"%2") or
    %1(u__1,u__2,u__3,"%3") or
@@ -451,229 +605,39 @@ allu4(u__1,u__2,u__3,u__4)
    %1(u__1,u__2,u__3,"%3") or
    %1(u__1,u__2,u__3,"%4")   )
  = no;
-$goto gpxyzlabel_assign_more_variables
 
+$include gnuplot_temp.dat
 
-$label gpxyzlabel_assign_more_variables
-$if not setglobal gp_name                         $setglobal gp_name '%1'
-$if "%gp_name%" == "no"                           $setglobal gp_name '%1'
-
-*$libinclude getdomains %1
-*$include gpxyz_domaininfo.gms
-
-
-* 1D names
-$if not dimension 1 %1                            $goto gpxyzlabel_after_dim1_check
-$setglobal gp_scen      'uu___1'
-$setglobal gp_xxxvalue  ""
-$setglobal gp_yyyvalue  "%1"
-$goto gpxyzlabel_abort_1D_plot
-$label gpxyzlabel_after_dim1_check
-
-* 2D names
-$if not dimension 2 %1                            $goto gpxyzlabel_after_dim2_check
-$setglobal gp_scen      'uu___1'
-$setglobal gp_obsv_1    'uu___2'
-*$if a%2==a                                        $setglobal gp_xxxvalue  '%d___2%'
-*$if a%2==a                                        $setglobal gp_yyyvalue  '%d___1%'
-$goto gpxyzlabel_abort_2D_plot
-$label gpxyzlabel_after_dim2_check
-
-* 3D names
-$if not dimension 3 %1                            $goto gpxyzlabel_after_dim3_check
-$setglobal gp_scen      'uu___1'
-$setglobal gp_obsv_1    'uu___2'
-$if a%2==a                                        $setglobal gp__col3     'uu___3'
-$if a%2==a                                        $goto gpxyzlabel_abort_newhistogram
-
-$setglobal gp_xxxvalue  "%2"
-$setglobal gp_yyyvalue  "%3"
-$setglobal gp__col3     "%4"
-$setglobal gp__col4     "%5"
-$setglobal gp__col5     "%6"
-$setglobal gp__col6     "%7"
-$goto gpxyzlabel_abort_3D_plot
-$label gpxyzlabel_after_dim3_check
-
-* 4D names
-$if dimension 4 %1                                $setglobal gp_planes    'uu___1'
-$if dimension 4 %1                                $setglobal gp_obsv_1    'uu___2'
-$if dimension 4 %1                                $setglobal gp_obsv_2    'uu___3'
-$if dimension 4 %1                                $setglobal gp_scen      'uu___4'
-$if dimension 4 %1                                $setglobal gp_xxxvalue  "%2"
-$if dimension 4 %1                                $setglobal gp_yyyvalue  "%3"
-$if dimension 4 %1                                $setglobal gp_zzzvalue  "%4"
-$if dimension 4 %1                                $goto gpxyzlabel_abort_4D_plot
-
-$if dimension 4 %1                                $include gnuplot_temp.dat
-
-
-* 1 D data check
-$label gpxyzlabel_abort_1D_plot
-gnuplotxyz_current_nodata = 0;
-gnuplotxyz_current_nodata
- $(sum(%gp_scen% $%1(%gp_scen%),1) eq 0)
- = 1;
-IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* data for ', '%1' ,' are all zero' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
-$goto gpxyzlabel_compile_input_commands
-
-* 2 D data check
-$label gpxyzlabel_abort_2D_plot
-gnuplotxyz_current_nodata = 0;
-gnuplotxyz_current_nodata
-  $(sum((%gp_scen%,%gp_obsv_1%)
-     $%1(%gp_scen%,%gp_obsv_1%),1) eq 0)
-  = 1;
-IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* data for ', '%1' ,' are all zero' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
-$goto gpxyzlabel_compile_input_commands
-
-
-* 3 D data check
-$label gpxyzlabel_abort_3D_plot
-gnuplotxyz_current_nodata = 0;
-gnuplotxyz_current_nodata
- $(sum((%gp_scen%,%gp_obsv_1%)
-    $%1(%gp_scen%,%gp_obsv_1%,'%gp_xxxvalue%'),1) eq 0 and
-   sum((%gp_scen%,%gp_obsv_1%)
-    $%1(%gp_scen%,%gp_obsv_1%,'%gp_yyyvalue%'),1) ne 0)
- = 1;
-IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* %gp_xxxvalue% all zero in ', '%1' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
-
-gnuplotxyz_current_nodata = 0;
-gnuplotxyz_current_nodata
- $(sum((%gp_scen%,%gp_obsv_1%)
-    $%1(%gp_scen%,%gp_obsv_1%,'%gp_xxxvalue%'),1) ne 0 and
-   sum((%gp_scen%,%gp_obsv_1%)
-    $%1(%gp_scen%,%gp_obsv_1%,'%gp_yyyvalue%'),1) eq 0)
- = 1;
-IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* %gp_yyyvalue% all zero in ', '%1' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
-
-
-gnuplotxyz_current_nodata = 0;
-gnuplotxyz_current_nodata
- $(sum((%gp_scen%,%gp_obsv_1%)
-    $%1(%gp_scen%,%gp_obsv_1%,'%gp_xxxvalue%'),1) eq 0 and
-   sum((%gp_scen%,%gp_obsv_1%)
-    $%1(%gp_scen%,%gp_obsv_1%,'%gp_yyyvalue%'),1) eq 0)
- = 1;
-IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* %gp_yyyvalue% and %gp_xxxvalue% all zero in ', '%1' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
-
-$goto gpxyzlabel_compile_input_commands
-
-* New histogram data check
-$label gpxyzlabel_abort_newhistogram
-gnuplotxyz_current_nodata = 0;
-gnuplotxyz_current_nodata
- $(sum((%gp_scen%,%gp_obsv_1%,%gp__col3%)
-  $%1(%gp_scen%,%gp_obsv_1%,%gp__col3%),1) eq 0)
- = 1;
-IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* data for ', '%1' ,' are all zero' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
-$goto gpxyzlabel_compile_input_commands
 
 * 4 D data check
-$label gpxyzlabel_abort_4D_plot
 gnuplotxyz_current_nodata = 0;
 gnuplotxyz_current_nodata
  $(sum((%gp_planes%,%gp_obsv_1%,%gp_obsv_2%)
   $%1(%gp_planes%,%gp_obsv_1%,%gp_obsv_2%,'%gp_xxxvalue%'),1) eq 0)
  = 1;
 IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* data for %gp_xxxvalue% column are all zero in ','%1' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
+ PUT gpxyz_logscreen_putfile, '*' / '*' / '* gnuplot warning - plot skipped ' / '* data for %gp_xxxvalue% column are all zero in ','%1' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1; );
 
 gnuplotxyz_current_nodata = 0;
 gnuplotxyz_current_nodata
- $(sum((%gp_planes%,%gp_obsv_1%,%gp_obsv_2%)
-  $%1(%gp_planes%,%gp_obsv_1%,%gp_obsv_2%,'%gp_zzzvalue%'),1) eq 0)
+ $(sum((%gp_planes%,%gp_obsv_1%,%gp_obsv_2%) $ %1(%gp_planes%,%gp_obsv_1%,%gp_obsv_2%,'%gp_zzzvalue%'),1) eq 0)
  = 1;
 IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* data for %gp_zzzvalue% column are all zero in ','%1' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
+ PUT gpxyz_logscreen_putfile, '*' / '*' / '* gnuplot warning - plot skipped ' / '* data for %gp_zzzvalue% column are all zero in ','%1' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1; );
 
 gnuplotxyz_current_nodata = 0;
 gnuplotxyz_current_nodata
- $(sum((%gp_planes%,%gp_obsv_1%,%gp_obsv_2%)
-  $%1(%gp_planes%,%gp_obsv_1%,%gp_obsv_2%,'%gp_yyyvalue%'),1) eq 0)
+ $(sum((%gp_planes%,%gp_obsv_1%,%gp_obsv_2%) $ %1(%gp_planes%,%gp_obsv_1%,%gp_obsv_2%,'%gp_yyyvalue%'),1) eq 0)
  = 1;
 IF(gnuplotxyz_current_nodata gt 0.5,
- PUT gpxyz_logscreen_putfile,
-  '*' /
-  '*' /
-  '* gnuplot warning - plot skipped ' /
-  '* data for %gp_yyyvalue% column are all zero in ','%1' /
-  '*' /
-  '*' /;
-gnuplotxyz_ploterror_nodata = 1;
- );
+ PUT gpxyz_logscreen_putfile, '*' / '*' / '* gnuplot warning - plot skipped ' / '* data for %gp_yyyvalue% column are all zero in ','%1' / '*' / '*' /;
+ gnuplotxyz_ploterror_nodata = 1; );
+
 $goto gpxyzlabel_compile_input_commands
+
+
 
 
 * ++++++++++++++++++++++++++++++++++++++++++++++++ *
@@ -692,99 +656,136 @@ gp_input.nd =  0;
 gp_input.nw =  0;
 gp_input.pw =32767;
 
-$if not "%gp_multiplot_count%" == "_mp1"          gp_input.ap =  1;
+$if not '%gp_multiplot_count%' == '_mp1'          gp_input.ap =  1;
 $if not setglobal gp_multiplot                    gp_input.ap =  0;
 $if '%gp_multiplot%' == 'no'                      gp_input.ap =  0;
 
 
 * Color
 $if not setglobal gp_color                        $setglobal gp_color 'color'
-$if     "%gp_color%" =="yes"                      $setglobal gp_color 'color'
-$if     "%gp_color%" =="monochrome"               $setglobal gp_color 'monochrome'
-$if     "%gp_color%" =="no"                       $setglobal gp_color 'monochrome'
+$if     '%gp_color%' =='yes'                      $setglobal gp_color 'color'
+$if     '%gp_color%' =='monochrome'               $setglobal gp_color 'monochrome'
+$if     '%gp_color%' =='no'                       $setglobal gp_color 'monochrome'
 
-$if "%gp_color%" ==  "color"                      $goto gpxyzlabel_after_monochrome
+$if '%gp_color%' ==  'color'                      $goto gpxyzlabel_after_monochrome
 put 'set monochrome' /;
 $label gpxyzlabel_after_monochrome
 
-
 $if not setglobal gp_palette                      $goto gpxyzlabel_afterpalette
-$if "%gp_palette%"=="no"                          $goto gpxyzlabel_afterpalette
+$if '%gp_palette%'=='no'                          $goto gpxyzlabel_afterpalette
 $if setglobal gp_palette                          put 'set palette %gp_palette%'/;
 $label gpxyzlabel_afterpalette
 
 $if not setglobal gp_colorbox                     $goto gpxyzlabel_aftercolorbox
-$if "%gp_colorbox%"=="no"                         put 'unset colorbox'/;
-$if "%gp_colorbox%"=="no"                         $goto gpxyzlabel_aftercolorbox
+$if '%gp_colorbox%'=='no'                         put 'unset colorbox'/;
+$if '%gp_colorbox%'=='no'                         $goto gpxyzlabel_aftercolorbox
 $if setglobal gp_colorbox                         put 'set colorbox %gp_colorbox%'/;
 $label gpxyzlabel_aftercolorbox
 
 $if not setglobal gp_cbrange                      $goto gpxyzlabel_aftercbrange
-$if "%gp_cbrange%"=="no"                          $goto gpxyzlabel_aftercbrange
+$if '%gp_cbrange%'=='no'                          $goto gpxyzlabel_aftercbrange
 $if setglobal gp_cbrange                          put 'set cbrange [%gp_cbrange%]'/;
 $label gpxyzlabel_aftercbrange
 
 $if not setglobal gp_cbtics
 $if not setglobal gp_cbtics                       $goto gpxyzlabel_aftercbtics
-$if "%gp_cbtics%"=="no"                           put 'unset cbtics'/;
-$if "%gp_cbtics%"=="no"                           $goto gpxyzlabel_aftercbtics
+$if '%gp_cbtics%'=='no'                           put 'unset cbtics'/;
+$if '%gp_cbtics%'=='no'                           $goto gpxyzlabel_aftercbtics
 $if setglobal gp_cbtics                           put 'set cbtics %gp_cbtics%'/;
 $label gpxyzlabel_aftercbtics
 
 
+* Set individual line colors if palette is specified
+$if not setglobal gp_palette                      $goto gpxyzlabel_afterpalettelinecolor
+$if '%gp_palette%'=='no'                          $goto gpxyzlabel_afterpalettelinecolor
+
+* UweUweUwe
+*$if not setglobal gp_lc_1                         $goto gpxyzlabel_after_palette_lc_1_assign
+*$if "%gp_lc_1%"=="no"                             $goto gpxyzlabel_after_palette_lc_1_assign
+
+$label gpxyzlabel_afterpalettelinecolor
+
+
+* Axes Data Format
+
+$if not setglobal gp_xdata                        $goto gpxyzlabel_afterxdata
+$if '%gp_xdata%'=='no'                            $goto gpxyzlabel_afterxdata
+$if setglobal gp_xdata                            put 'set xdata %gp_xdata%'/;
+$label gpxyzlabel_afterxdata
+
+$if not setglobal gp_x2data                       $goto gpxyzlabel_afterx2data
+$if '%gp_x2data%'=='no'                           $goto gpxyzlabel_afterx2data
+$if setglobal gp_x2data                           put 'set x2data %gp_x2data%'/;
+$label gpxyzlabel_afterx2data
+
+$if not setglobal gp_ydata                        $goto gpxyzlabel_afterydata
+$if '%gp_ydata%'=='no'                            $goto gpxyzlabel_afterydata
+$if setglobal gp_ydata                            put 'set ydata %gp_ydata%'/;
+$label gpxyzlabel_afterydata
+
+$if not setglobal gp_y2data                       $goto gpxyzlabel_aftery2data
+$if '%gp_y2data%'=='no'                           $goto gpxyzlabel_aftery2data
+$if setglobal gp_y2data                           put 'set y2data %gp_y2data%'/;
+$label gpxyzlabel_aftery2data
+
+$if not setglobal gp_cbdata                       $goto gpxyzlabel_aftercbdata
+$if '%gp_cbdata%'=='no'                           $goto gpxyzlabel_aftercbdata
+$if setglobal gp_cbdata                           put 'set cbdata %gp_cbdata%'/;
+$label gpxyzlabel_aftercbdata
+
 * Font
 $if not setglobal gp_font                         $setglobal gp_font 'Times New Roman'
-$if     "%gp_font%" == "no"                       $setglobal gp_font 'Times New Roman'
+$if     '%gp_font%' == 'no'                       $setglobal gp_font 'Times New Roman'
 
 * Font Size
 $if     setglobal gp_fntsize                      $setglobal gp_fontsize %gp_fntsize%
-$if not setglobal gp_fontsize                     $setglobal gp_fontsize '14'
-$if     "%gp_fontsize%" == "no"                   $setglobal gp_fontsize '14'
+$if not setglobal gp_fontsize                     $setglobal gp_fontsize 14
+$if     '%gp_fontsize%' == 'no'                   $setglobal gp_fontsize 14
 
 * Line Width
 $if setglobal gp_lw                               $setglobal gp_lwidth  %gp_linewidth%
 $if setglobal gp_linewidth                        $setglobal gp_lwidth  %gp_linewidth%
-$if "%gp_lwidth%" == "no"                         $setglobal gp_lwidth  '1'
-$if not setglobal gp_lwidth                       $setglobal gp_lwidth  '1'
+$if '%gp_lwidth%' == 'no'                         $setglobal gp_lwidth  1
+$if not setglobal gp_lwidth                       $setglobal gp_lwidth  1
 
 
-$if "%gp_multiplot_count%" == "_mp1"               $goto gpxyzlabel_specify_termoptions
-$if not setglobal gp_multiplot                     $goto gpxyzlabel_specify_termoptions
-$if '%gp_multiplot%' == 'no'                       $goto gpxyzlabel_specify_termoptions
+$if '%gp_multiplot_count%' == '_mp1'              $goto gpxyzlabel_specify_termoptions
+$if not setglobal gp_multiplot                    $goto gpxyzlabel_specify_termoptions
+$if '%gp_multiplot%' == 'no'                      $goto gpxyzlabel_specify_termoptions
 $goto gpxyzlabel_specify_winoptions
 
 
 * Terminals
 $label gpxyzlabel_specify_termoptions
 
-$if "%gp_ppt%" =="no"                              $goto gpxyzlabel_after_terminal_ppt
-$if     setglobal gp_ppt                           $setglobal gp_term 'emf'
-$if     setglobal gp_ppt                           $setglobal gp_extension 'emf'
+$if '%gp_ppt%' =='no'                             $goto gpxyzlabel_after_terminal_ppt
+$if     setglobal gp_ppt                          $setglobal gp_term 'emf'
+$if     setglobal gp_ppt                          $setglobal gp_extension 'emf'
 $goto gpxyzlabel_after_terminal_ppt
 
 $label gpxyzlabel_after_terminal_ppt
-$if not setglobal gp_term                         $setglobal gp_term "windows"
-$if not setglobal gp_extension                    $setglobal gp_extension "%gp_term%"
-$if "%gp_extension%" == "no"                      $setglobal gp_extension "%gp_term%"
+$if not setglobal gp_term                         $setglobal gp_term windows
+$if not setglobal gp_extension                    $setglobal gp_extension %gp_term%
+$if '%gp_extension%' == 'no'                      $setglobal gp_extension %gp_term%
 
-put "set terminal %gp_term%";
-put " font '%gp_font%, %gp_fontsize%' linewidth %gp_lwidth% size 871,653";
+put 'set terminal %gp_term%';
+put ' font "%gp_font%, %gp_fontsize%" linewidth %gp_lwidth% size 871,653';
 put /;
 $if not setglobal gp_termoption                   $goto gpxyzlabel_more_on_terminal
-$if     "%gp_termoption%"=="no"                   $goto gpxyzlabel_more_on_terminal
-put "set termoption %gp_termoption%" /;
+$if     '%gp_termoption%'=='no'                   $goto gpxyzlabel_more_on_terminal
+put 'set termoption %gp_termoption%' /;
 $goto gpxyzlabel_more_on_terminal
 
 $label gpxyzlabel_more_on_terminal
-*$if     "%gp_term%" =="windows"                   put "set terminal windows" /;
+*$if     '%gp_term%' =='windows'                   put 'set terminal windows' /;
 *$if not setglobal gp_termoption                   $setglobal gp_termoption noenhanced
-*$if     "%gp_termoption%"=="no"                   $setglobal gp_termoption noenhanced
-*put "set termoption %gp_termoption%" /;
+*$if     '%gp_termoption%'=='no'                   $setglobal gp_termoption noenhanced
+*put 'set termoption %gp_termoption%' /;
 gpxyzsm_plot_count = gpxyzsm_plot_count + 1;
 
-$if     "%gp_term%"=="windows"                    $goto gpxyzlabel_specify_winoptions
-$if     "%gp_ppt%" =="no"                         put "set output '%gp_name%.%gp_extension%'"/;
-$if     "%gp_ppt%" =="no"                         $goto gpxyzlabel_specify_winoptions
+$if     '%gp_term%'=='windows'                    $goto gpxyzlabel_specify_winoptions
+$if     '%gp_ppt%' =='no'                         put "set output '%gp_name%.%gp_extension%'"/;
+$if     '%gp_ppt%' =='no'                         $goto gpxyzlabel_specify_winoptions
 $if     setglobal gp_ppt                          $goto gpxyzlabel_determine_ppt_graph_name
 $if not setglobal gp_ppt                          put "set output '%gp_name%_",gpxyzsm_plot_count,".%gp_extension%'"/;
 $goto gpxyzlabel_specify_winoptions
@@ -985,41 +986,49 @@ gp_input.nd = 3;
 gp_input.nw = 12;
 
 * Mouse
-$if not setglobal gp_mouse                        put "unset mouse" /;
-$if     "%gp_mouse%" == "no"                      put "unset mouse" /;
+$if not setglobal gp_mouse                        put 'unset mouse' /;
+$if     '%gp_mouse%' == 'no'                      put 'unset mouse' /;
+
+
+
+$if not setglobal gp_timefmt                      $goto gpxyzlabel_aftertimefmt
+$if '%gp_timefmt%' == 'no'                        $goto gpxyzlabel_aftertimefmt
+put 'set timefmt "%gp_timefmt%"'/;
+$label gpxyzlabel_aftertimefmt
+
 
 * Cancel axes if not needed
-$if  "%gp_y2axis%" == "no"                        $setglobal gp_y2scale "no"
-$if  "%gp_y2axis%" == "no"                        $setglobal gp_y2range "no"
-$if  "%gp_y2axis%" == "no"                        $setglobal gp_y2label "no"
+$if  '%gp_y2axis%' == 'no'                        $setglobal gp_y2scale 'no'
+$if  '%gp_y2axis%' == 'no'                        $setglobal gp_y2range 'no'
+$if  '%gp_y2axis%' == 'no'                        $setglobal gp_y2label 'no'
 
-$if  "%gp_x2axis%" == "no"                        $setglobal gp_x2scale "no"
-$if  "%gp_x2axis%" == "no"                        $setglobal gp_x2range "no"
-$if  "%gp_x2axis%" == "no"                        $setglobal gp_x2label "no"
+$if  '%gp_x2axis%' == 'no'                        $setglobal gp_x2scale 'no'
+$if  '%gp_x2axis%' == 'no'                        $setglobal gp_x2range 'no'
+$if  '%gp_x2axis%' == 'no'                        $setglobal gp_x2label 'no'
 
-$if not setglobal gp_xrange                       $setglobal gp_xrange "no"
-$if  "%gp_xrange%" == "no"                        put 'set auto x'/;
-$if  "%gp_xrange%" == "no"                        $goto gpxyzlabel_yrange
+$if not setglobal gp_xrange                       $setglobal gp_xrange 'no'
+$if  '%gp_xrange%' == 'no'                        put 'set auto x'/;
+$if  '%gp_xrange%' == 'no'                        $goto gpxyzlabel_yrange
 put 'set xrange [%gp_xrange%]'/;
 
 $label gpxyzlabel_yrange
-$if not setglobal gp_yrange                       $setglobal gp_yrange "no"
-$if  "%gp_yrange%" == "no"                        put 'set auto y'/;
-$if  "%gp_yrange%" == "no"                        $goto gpxyzlabel_zrange
+$if not setglobal gp_yrange                       $setglobal gp_yrange 'no'
+$if  '%gp_yrange%' == 'no'                        put 'set auto y'/;
+$if  '%gp_yrange%' == 'no'                        $goto gpxyzlabel_zrange
 put 'set yrange [%gp_yrange%]'/;
 
 
 $label gpxyzlabel_zrange
-$if "%gp_style%" == "heatmap"                     $goto gpxyzlabel_scale_2axes
-$if not setglobal gp_zrange                       $setglobal gp_zrange "no"
-$if  "%gp_zrange%" == "no"                        put 'set auto z'/;
-$if  "%gp_zrange%" == "no"                        $goto gpxyzlabel_trange
+$if '%gp_style%' == 'heatmap'                     $goto gpxyzlabel_scale_2axes
+$if not setglobal gp_zrange                       $setglobal gp_zrange 'no'
+$if  '%gp_zrange%' == 'no'                        put 'set auto z'/;
+$if  '%gp_zrange%' == 'no'                        $goto gpxyzlabel_trange
 put 'set zrange [%gp_zrange%]'/;
 
 $label gpxyzlabel_trange
-$if not setglobal gp_trange                       $setglobal gp_trange "no"
-$if  "%gp_trange%" == "no"                        put 'set auto t'/;
-$if  "%gp_trange%" == "no"                        $goto gpxyzlabel_scale_2axes
+$if not setglobal gp_trange                       $setglobal gp_trange 'no'
+$if  '%gp_trange%' == 'no'                        put 'set auto t'/;
+$if  '%gp_trange%' == 'no'                        $goto gpxyzlabel_scale_2axes
 put 'set trange [%gp_trange%]'/;
 
 
@@ -1030,9 +1039,10 @@ $label gpxyzlabel_scale_2axes
 $if a%1 == afunction                              $goto gpxyzlabel_functionrange
 $if dimension 1 %1                                $goto gpxyzlabel_det1Drange
 $if dimension 4 %1                                $goto gpxyzlabel_boxwidth
-$if "%gp_style%" == "histogram"                   $goto gpxyzlabel_dethistrange
-$if "%gp_style%" == "spiderplot"                  $goto gpxyzlabel_dethistrange
-$if "%gp_style%" == "heatmap"                     $goto gpxyzlabel_dethistrange
+$if '%gp_style%' == 'histogram'                   $goto gpxyzlabel_dethistrange
+$if '%gp_style%' == 'spiderplot'                  $goto gpxyzlabel_dethistrange
+$if '%gp_style%' == 'heatmap'                     $goto gpxyzlabel_dethistrange
+$if '%gp_xdata%' == 'time'                        $goto gpxyzlabel_dethistrange
 $if a%2 == a                                      $goto gpxyzlabel_detnewhistrange
 
 gp_ymin_value  = smin((%gp_scen%,%gp_obsv_1%),%1(%gp_scen%,%gp_obsv_1%,"%gp_yyyvalue%"));
@@ -1246,33 +1256,39 @@ put 'set grid xtics' /;
 *put 'set grid xtics %gp_gline%' /;
 
 $label gpxyzlabel_ygrid
-$if not setglobal gp_ygrid                        $goto gpxyzlabel_formats
-$if "%gp_ygrid%" == "no"                          $goto gpxyzlabel_formats
+$if not setglobal gp_ygrid                        $goto gpxyzlabel_xformat
+$if "%gp_ygrid%" == "no"                          $goto gpxyzlabel_xformat
 put 'set grid ytics' /;
 *put 'set grid ytics %gp_gline%' /;
 
-$label gpxyzlabel_formats
-$if not setglobal gp_xform                        $goto gpxyzlabel_tickers
-$if "%gp_xform%" == "no"                          $goto gpxyzlabel_tickers
-put 'set format x %gp_xform%'/;
+
+$label gpxyzlabel_xformat
+$if not setglobal gp_xformat                      $goto gpxyzlabel_yformat
+$if '%gp_xformat%' == 'no'                        $goto gpxyzlabel_yformat
+put 'set format x "%gp_xformat%"'/;
+
+$label gpxyzlabel_yformat
+$if not setglobal gp_yformat                      $goto gpxyzlabel_tickers
+$if '%gp_yformat%' == 'no'                        $goto gpxyzlabel_tickers
+put 'set format y "%gp_yformat%"'/;
 
 $label gpxyzlabel_tickers
 $if not setglobal gp_tics                         $setglobal gp_tics 'in'
-$if "%gp_tics%" == "no"                           put 'unset tics'/;
-$if "%gp_tics%" == "no"                           $goto gpxyzlabel_gplb_xtics
+$if '%gp_tics%' == 'no'                           put 'unset tics'/;
+$if '%gp_tics%' == 'no'                           $goto gpxyzlabel_gplb_xtics
 put 'set tics %gp_tics%'/;
 $goto gpxyzlabel_gplb_xtics
 
 $label gpxyzlabel_gplb_xtics
-$if not setglobal gp_xtics                        $setglobal gp_xtics "in"
-$if "%gp_xtics%" == "no"                          put 'unset xtics'/;
-$if "%gp_xtics%" == "no"                          $goto gpxyzlabel_ytics
+$if not setglobal gp_xtics                        $setglobal gp_xtics 'in'
+$if '%gp_xtics%' == 'no'                          put 'unset xtics'/;
+$if '%gp_xtics%' == 'no'                          $goto gpxyzlabel_ytics
 put 'set xtics %gp_xtics%';
 
 *** Uwe if gp_xtics no then scale 0 is not applied!!
 $if not a%2==a                                    $goto gpxyzlabel_label_xticincrement
-$if not setglobal gp_xinc                         put " scale 0";
-$if '%gp_xinc%'   == 'no'                         put " scale 0";
+$if not setglobal gp_xinc                         put ' scale 0';
+$if '%gp_xinc%'   == 'no'                         put ' scale 0';
 $if setglobal gp_xinc                             $goto gpxyzlabel_label_xticincrement
 $goto gpxyzlabel_ytics
 
@@ -1283,23 +1299,23 @@ put ' %gp_xinc%';
 
 $label gpxyzlabel_ytics
 put /;
-$if not setglobal gp_ytics                        $setglobal gp_ytics "in"
-$if "%gp_ytics%" == "no"                          put 'unset ytics'/;
-$if "%gp_ytics%" == "no"                          $goto gpxyzlabel_ztics
+$if not setglobal gp_ytics                        $setglobal gp_ytics 'in'
+$if '%gp_ytics%' == 'no'                          put 'unset ytics'/;
+$if '%gp_ytics%' == 'no'                          $goto gpxyzlabel_ztics
 put 'set ytics nomirror %gp_ytics%';
 
 $if not setglobal gp_yinc                         put /;
-$if    "%gp_yinc%"   == "no"                      put /;
+$if    '%gp_yinc%'   == 'no'                      put /;
 $if not setglobal gp_yinc                         $goto gpxyzlabel_ztics
-$if    "%gp_yinc%"   == "no"                      $goto gpxyzlabel_ztics
+$if    '%gp_yinc%'   == 'no'                      $goto gpxyzlabel_ztics
 put ' %gp_yinc%'/;
 
 
 $label gpxyzlabel_ztics
 put /;
-$if not setglobal gp_ztics                        $setglobal gp_ztics "in"
-$if "%gp_ztics%" == "no"                          put 'unset ztics'/;
-$if "%gp_ztics%" == "no"                          $goto gpxyzlabel_styles
+$if not setglobal gp_ztics                        $setglobal gp_ztics 'in'
+$if '%gp_ztics%' == 'no'                          put 'unset ztics'/;
+$if '%gp_ztics%' == 'no'                          $goto gpxyzlabel_styles
 put 'set ztics nomirror %gp_ztics%' /;
 
 
@@ -1308,14 +1324,14 @@ put 'set ztics nomirror %gp_ztics%' /;
 $label gpxyzlabel_styles
 
 $if not setglobal gp_label                        $goto gpxyzlabel_aftermanuallabels
-$if "%gp_label%"  == "no"                         put 'unset label'/;
-$if "%gp_label%"  == "no"                         $goto gpxyzlabel_aftermanuallabels
+$if '%gp_label%'  == 'no'                         put 'unset label'/;
+$if '%gp_label%'  == 'no'                         $goto gpxyzlabel_aftermanuallabels
 put 'set label'/;
 $label gpxyzlabel_aftermanuallabels
 
 * X-labels - loop
 $if not setglobal gp_xl_l1                        $goto gpxyzlabel_xlabel_noloop
-$if "%gp_xl_l1%"  == "no"                         $goto gpxyzlabel_xlabel_noloop
+$if '%gp_xl_l1%'  == 'no'                         $goto gpxyzlabel_xlabel_noloop
 put 'set xlabel  "';
 $if     setglobal gp_xl_l1                        put     %gp_xl_l1%.tl;
 $if     setglobal gp_xl_l2                        put ' ',%gp_xl_l2%.tl;
@@ -1323,7 +1339,7 @@ $if     setglobal gp_xl_l3                        put ' ',%gp_xl_l3%.tl;
 $if     setglobal gp_xl_l4                        put ' ',%gp_xl_l4%.tl;
 
 $if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_afterxlabeloffset_loop
-$if "%gp_xlabeloffset%" == "no"                   $goto gpxyzlabel_afterxlabeloffset_loop
+$if '%gp_xlabeloffset%' == 'no'                   $goto gpxyzlabel_afterxlabeloffset_loop
 put ' offset %gp_xlabeloffset%';
 $label gpxyzlabel_afterxlabeloffset_loop
 PUT '"' /;
@@ -1333,12 +1349,12 @@ $goto gpxyzlabel_ylabel_loop
 * X-labels - no loop
 $label gpxyzlabel_xlabel_noloop
 
-$if "%gp_xlabel%" == "no"                         put 'unset xlabel'/;
-$if "%gp_xlabel%" == "no"                         $goto gpxyzlabel_ylabel_loop
+$if '%gp_xlabel%' == 'no'                         put 'unset xlabel'/;
+$if '%gp_xlabel%' == 'no'                         $goto gpxyzlabel_ylabel_loop
 
-$if not "%gp_style%" == "heatmap"                 $goto gpxyzlabel_after_heatmap_xlabel
+$if not '%gp_style%' == 'heatmap'                 $goto gpxyzlabel_after_heatmap_xlabel
 $if not setglobal gp_heatmap_x                    $goto gpxyzlabel_after_heatmap_xlabel
-$if "%gp_heatmap_x% == "no"                       $goto gpxyzlabel_after_heatmap_xlabel
+$if '%gp_heatmap_x% == 'no'                       $goto gpxyzlabel_after_heatmap_xlabel
 $setglobal gp_xxxvalue %gp_heatmap_x%
 $label gpxyzlabel_after_heatmap_xlabel
 
@@ -1347,15 +1363,15 @@ $if     setglobal gp_xlabel                       $goto gpxyzlabel_after_xlabelp
 $if not setglobal gp_xxxvalue                     put 'unset xlabel'/;
 $if not setglobal gp_xxxvalue                     $goto gpxyzlabel_ylabel_loop
 
-$if "%gp_xxxvalue%" == "no"                       put 'unset xlabel'/;
-$if "%gp_xxxvalue%" == "no"                       $goto gpxyzlabel_ylabel_loop
+$if '%gp_xxxvalue%' == 'no'                       put 'unset xlabel'/;
+$if '%gp_xxxvalue%' == 'no'                       $goto gpxyzlabel_ylabel_loop
 
 $label  gpxyzlabel_after_xlabelpresencecheck
 
 $if not setglobal gp_xlabel                       $setglobal gp_xlabel %gp_xxxvalue%
-put 'set xlabel  "%gp_xlabel%"';
+put 'set xlabel  %gp_xlabel%';
 $if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_after_xlabeloffset_noloop
-$if "%gp_xlabeloffset%" == "no"                   $goto gpxyzlabel_after_xlabeloffset_noloop
+$if '%gp_xlabeloffset%' == 'no'                   $goto gpxyzlabel_after_xlabeloffset_noloop
 put ' offset %gp_xlabeloffset%';
 $label gpxyzlabel_after_xlabeloffset_noloop
 put /;
@@ -1364,14 +1380,14 @@ put /;
 * Y-labels - loop
 $label gpxyzlabel_ylabel_loop
 $if not setglobal gp_yl_l1                        $goto gpxyzlabel_ylabel_noloop
-$if "%gp_yl_l1%"  == "no"                         $goto gpxyzlabel_ylabel_noloop
+$if '%gp_yl_l1%'  == 'no'                         $goto gpxyzlabel_ylabel_noloop
 put 'set ylabel  "';
 $if     setglobal gp_yl_l1                        put     %gp_yl_l1%.tl;
 $if     setglobal gp_yl_l2                        put ' ',%gp_yl_l2%.tl;
 $if     setglobal gp_yl_l3                        put ' ',%gp_yl_l3%.tl;
 $if     setglobal gp_yl_l4                        put ' ',%gp_yl_l4%.tl;
 $if not setglobal gp_ylabeloffset                 $goto gpxyzlabel_afterylabeloffset_loop
-$if "%gp_ylabeloffset%" == "no"                   $goto gpxyzlabel_afterylabeloffset_loop
+$if '%gp_ylabeloffset%' == 'no'                   $goto gpxyzlabel_afterylabeloffset_loop
 put ' offset %gp_ylabeloffset%';
 $label gpxyzlabel_afterylabeloffset_loop
 PUT '"' /;
@@ -1381,12 +1397,12 @@ $goto gpxyzlabel_zlabel_loop
 * Y-labels no loop
 $label gpxyzlabel_ylabel_noloop
 
-$if "%gp_ylabel%" == "no"                         put 'unset ylabel'/;
-$if "%gp_ylabel%" == "no"                         $goto gpxyzlabel_y2label_check
+$if '%gp_ylabel%' == 'no'                         put 'unset ylabel'/;
+$if '%gp_ylabel%' == 'no'                         $goto gpxyzlabel_y2label_check
 
-$if not "%gp_style%" == "heatmap"                 $goto gpxyzlabel_after_heatmap_ylabel
+$if not '%gp_style%' == 'heatmap'                 $goto gpxyzlabel_after_heatmap_ylabel
 $if not setglobal gp_heatmap_y                    $goto gpxyzlabel_after_heatmap_ylabel
-$if "%gp_heatmap_y% == "no"                       $goto gpxyzlabel_after_heatmap_ylabel
+$if '%gp_heatmap_y% == 'no'                       $goto gpxyzlabel_after_heatmap_ylabel
 $setglobal gp_yyyvalue %gp_heatmap_y%
 $label gpxyzlabel_after_heatmap_ylabel
 
@@ -1395,16 +1411,16 @@ $if     setglobal gp_ylabel                       $goto gpxyzlabel_after_ylabelp
 $if not setglobal gp_yyyvalue                     put 'unset ylabel'/;
 $if not setglobal gp_yyyvalue                     $goto gpxyzlabel_y2label_check
 
-$if "%gp_yyyvalue%" == "no"                       put 'unset ylabel'/;
-$if "%gp_yyyvalue%" == "no"                       $goto gpxyzlabel_y2label_check
+$if '%gp_yyyvalue%' == 'no'                       put 'unset ylabel'/;
+$if '%gp_yyyvalue%' == 'no'                       $goto gpxyzlabel_y2label_check
 
 $label  gpxyzlabel_after_ylabelpresencecheck
 
 
 $if not setglobal gp_ylabel                       $setglobal gp_ylabel %gp_yyyvalue%
-put 'set ylabel  "%gp_ylabel%"';
+put 'set ylabel  %gp_ylabel%';
 $if not setglobal gp_ylabeloffset                 $goto gpxyzlabel_after_ylabeloffset_noloop
-$if "%gp_ylabeloffset%" == "no"                   $goto gpxyzlabel_after_ylabeloffset_noloop
+$if '%gp_ylabeloffset%' == 'no'                   $goto gpxyzlabel_after_ylabeloffset_noloop
 put ' offset %gp_ylabeloffset%';
 $label gpxyzlabel_after_ylabeloffset_noloop
 put /;
@@ -1414,10 +1430,10 @@ put /;
 * Y2-Labels
 $label gpxyzlabel_y2label_check
 $if not setglobal gp_y2label                      put 'unset y2label'/;
-$if "%gp_y2label%"  == "no"                       put 'unset y2label'/;
+$if '%gp_y2label%'  == 'no'                       put 'unset y2label'/;
 $if not setglobal gp_y2label                      $goto gpxyzlabel_zlabel_loop
-$if "%gp_y2label%"  == "no"                       $goto gpxyzlabel_zlabel_loop
-put 'set y2label  "%gp_y2label%"'/;
+$if '%gp_y2label%'  == 'no'                       $goto gpxyzlabel_zlabel_loop
+put 'set y2label  %gp_y2label%'/;
 
 
 * Z-labels
@@ -1610,6 +1626,7 @@ $if dimension 1 %1                                $goto gpxyzlabel_gp_label_nohi
 $if not a%2==a                                    $goto gpxyzlabel_gp_label_nohistogram
 $if not setglobal gp_style                        $setglobal gp_style histogram
 $if     "%gp_style%"=="spiderplot"                $goto gpxyzlabel_gp_label_nohistogram
+$if     "%gp_xdata%"=="time"                      $goto gpxyzlabel_gp_label_nohistogram
 $if     "%gp_style%"=="heatmap"                   $goto gpxyzlabel_borderoptions
 $if not "%gp_style%"=="histogram"                 $setglobal gp_style histogram
 $label gpxyzlabel_gp_label_nohistogram
@@ -1680,47 +1697,47 @@ $label gpxyzlabel_after_pointsz
 
 * User defined options
 $if not setglobal gp_option_1                     $goto gpxyzlabel_after_user_option_1
-$if "%gp_option_1%" == "no"                       $goto gpxyzlabel_after_user_option_1
-$if "%gp_option_1%" == ""                         $goto gpxyzlabel_after_user_option_1
-put "%gp_option_1%" /;
+$if '%gp_option_1%' == 'no'                       $goto gpxyzlabel_after_user_option_1
+$if '%gp_option_1%' == ''                         $goto gpxyzlabel_after_user_option_1
+put '%gp_option_1%' /;
 $label gpxyzlabel_after_user_option_1
 
 $if not setglobal gp_option_2                     $goto gpxyzlabel_after_user_option_2
-$if "%gp_option_2%" == "no"                       $goto gpxyzlabel_after_user_option_2
-$if "%gp_option_2%" == ""                         $goto gpxyzlabel_after_user_option_2
-put "%gp_option_2%" /;
+$if '%gp_option_2%' == 'no'                       $goto gpxyzlabel_after_user_option_2
+$if '%gp_option_2%' == ''                         $goto gpxyzlabel_after_user_option_2
+put '%gp_option_2%' /;
 $label gpxyzlabel_after_user_option_2
 
 $if not setglobal gp_option_3                     $goto gpxyzlabel_after_user_option_3
-$if "%gp_option_3%" == "no"                       $goto gpxyzlabel_after_user_option_3
-$if "%gp_option_3%" == ""                         $goto gpxyzlabel_after_user_option_3
-put "%gp_option_3%" /;
+$if '%gp_option_3%' == 'no'                       $goto gpxyzlabel_after_user_option_3
+$if '%gp_option_3%' == ''                         $goto gpxyzlabel_after_user_option_3
+put '%gp_option_3%' /;
 $label gpxyzlabel_after_user_option_3
 
 $if not setglobal gp_option_4                     $goto gpxyzlabel_after_user_option_4
-$if "%gp_option_4%" == "no"                       $goto gpxyzlabel_after_user_option_4
-$if "%gp_option_4%" == ""                         $goto gpxyzlabel_after_user_option_4
-put "%gp_option_4%" /;
+$if '%gp_option_4%' == 'no'                       $goto gpxyzlabel_after_user_option_4
+$if '%gp_option_4%' == ''                         $goto gpxyzlabel_after_user_option_4
+put '%gp_option_4%' /;
 $label gpxyzlabel_after_user_option_4
 
 $if not setglobal gp_option_5                     $goto gpxyzlabel_after_user_option_5
-$if "%gp_option_5%" == "no"                       $goto gpxyzlabel_after_user_option_5
-$if "%gp_option_5%" == ""                         $goto gpxyzlabel_after_user_option_5
-put "%gp_option_5%" /;
+$if '%gp_option_5%' == 'no'                       $goto gpxyzlabel_after_user_option_5
+$if '%gp_option_5%' == ''                         $goto gpxyzlabel_after_user_option_5
+put '%gp_option_5%' /;
 $label gpxyzlabel_after_user_option_5
 
 $if not setglobal gp_option_6                     $goto gpxyzlabel_after_user_option_6
-$if "%gp_option_6%" == "no"                       $goto gpxyzlabel_after_user_option_6
-$if "%gp_option_6%" == ""                         $goto gpxyzlabel_after_user_option_6
-put "%gp_option_6%" /;
+$if '%gp_option_6%' == 'no'                       $goto gpxyzlabel_after_user_option_6
+$if '%gp_option_6%' == ''                         $goto gpxyzlabel_after_user_option_6
+put '%gp_option_6%' /;
 $label gpxyzlabel_after_user_option_6
 
 
 $if not setglobal gp_ppt                          $goto gpxyzlabel_afterpptlinestyle
-$if "%gp_ppt%" == "no"                            $goto gpxyzlabel_afterpptlinestyle
+$if '%gp_ppt%' == 'no'                            $goto gpxyzlabel_afterpptlinestyle
 
 $if not setglobal gp_l1style                      $goto gpxyzlabel_afterpptlinestyle_1
-$if "%gp_l1style%"=="no"                          $goto gpxyzlabel_afterpptlinestyle_1
+$if '%gp_l1style%'=='no'                          $goto gpxyzlabel_afterpptlinestyle_1
 
 put 'set style line 1 %gp_l1style%' /;
 
@@ -1960,6 +1977,8 @@ $if dimension 1 %1                     $goto gpxyzlabel_plotstatement_1dgraph
 $if dimension 2 %1                     $goto gpxyzlabel_plotstatement_histogram
 $if a%2 == a                           $goto gpxyzlabel_plotstatement_newhistogram
 $if dimension 4 %1                     $goto gpxyzlabel_plotstatement_3dgraph
+
+
 $label gpxyzlabel_plotstatement_2dgraph
 
 * 2D plots
@@ -3735,10 +3754,14 @@ loop(%gp_scen%,
 
   if (gp_count gt 1, put ',';);
   if (gp_count eq 1, put " 'gnuplot%gp_multiplot_count%.dat' using "; else put " '' u ";);
+
+$if "%gp_xdata%" == "time" put '1:';
   put (gp_count+1);
 
+$if "%gp_xdata%" == "time"                         $goto gpxyzlabel_afterxdatatime
 $if not "%gp_hist%" == "columnstacked"             if(gp_count eq 1, put ':xtic(1)';);
 $if     "%gp_hist%" == "columnstacked"             if(gp_count eq 1, put ':key(1)';);
+$label gpxyzlabel_afterxdatatime
 
 * Insert Auto Code 7a produced by make_345678_linestyle.gms - begin
 $if not setglobal gp_x1y1                          $goto gpxyzlabel_afterx1y1_hist
@@ -4916,8 +4939,6 @@ display "gp_style %gp_style%";
 
 $if not "%gp_style%" == "spiderplot"            $goto after_spiderplot_data
 
-* ddddddddd
-
 %gp_data_string%.tw = 0;
 %gp_data_string%.lw = 0;
 %gp_data_string%.nw = 16;
@@ -4963,7 +4984,10 @@ Put %gp_data_string%;
 Put '"dummy"   ';
 
 loop(%gp_scen%,
- Put '"',%gp_scen%.tl,'"   ';
+$if not "%gp_ydata%" == "time" Put '"';
+ Put %gp_scen%.tl;
+$if not "%gp_ydata%" == "time" Put'"';
+ Put '   ';
     );
 PUT /;
 
@@ -4971,17 +4995,16 @@ loop(%gp_obsv_1%,
  gp_count = 0;
 
 
-* new
+* new: labels for histogram sections
 $if not setglobal gp_nohistogram_sectionlabel   $goto after_no_sectionlabel
 $if "%gp_nohistogram_sectionlabel%" == "no"     $goto after_no_sectionlabel
-
  put '" "';
-
 $goto after_auto_sectionlabel
 
 $label after_no_sectionlabel
-
- put '"',%gp_obsv_1%.tl,'"';
+$if not "%gp_xdata%" == "time" Put '"';
+ put %gp_obsv_1%.tl;
+$if not "%gp_xdata%" == "time" Put '"';
 
 $label after_auto_sectionlabel
 * end new
@@ -5144,11 +5167,10 @@ $offtext
 
 
 * individual colors
-
 $if "%gp_fixcolor_set%" == "no"                    $goto gpxyzlabel_gp_lc_1_lb
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_gp_lc_1_lb
 
-*
+
 $if not setglobal gp_greyscale   $goto gpxyzlabel_after_greyscale
 $if "%gp_greyscale%" == "no"     $goto gpxyzlabel_after_greyscale
 

@@ -1247,7 +1247,7 @@ $goto gpxyzlabel_xgrid
 $label gpxyzlabel_spiderplot_grid
 $if not setglobal gp_grid                         $setglobal gp_grid spider lt black lc "grey" lw 0.5 back
 put 'set grid %gp_grid%' /;
-$goto gpxyzlabel_formats
+$goto gpxyzlabel_xformat
 
 $label gpxyzlabel_xgrid
 $if not setglobal gp_xgrid                        $goto gpxyzlabel_ygrid
@@ -1369,7 +1369,7 @@ $if '%gp_xxxvalue%' == 'no'                       $goto gpxyzlabel_ylabel_loop
 $label  gpxyzlabel_after_xlabelpresencecheck
 
 $if not setglobal gp_xlabel                       $setglobal gp_xlabel %gp_xxxvalue%
-put 'set xlabel  %gp_xlabel%';
+put 'set xlabel  "%gp_xlabel%"';
 $if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_after_xlabeloffset_noloop
 $if '%gp_xlabeloffset%' == 'no'                   $goto gpxyzlabel_after_xlabeloffset_noloop
 put ' offset %gp_xlabeloffset%';
@@ -1418,7 +1418,7 @@ $label  gpxyzlabel_after_ylabelpresencecheck
 
 
 $if not setglobal gp_ylabel                       $setglobal gp_ylabel %gp_yyyvalue%
-put 'set ylabel  %gp_ylabel%';
+put 'set ylabel  "%gp_ylabel%"';
 $if not setglobal gp_ylabeloffset                 $goto gpxyzlabel_after_ylabeloffset_noloop
 $if '%gp_ylabeloffset%' == 'no'                   $goto gpxyzlabel_after_ylabeloffset_noloop
 put ' offset %gp_ylabeloffset%';
@@ -1433,7 +1433,7 @@ $if not setglobal gp_y2label                      put 'unset y2label'/;
 $if '%gp_y2label%'  == 'no'                       put 'unset y2label'/;
 $if not setglobal gp_y2label                      $goto gpxyzlabel_zlabel_loop
 $if '%gp_y2label%'  == 'no'                       $goto gpxyzlabel_zlabel_loop
-put 'set y2label  %gp_y2label%'/;
+put 'set y2label  "%gp_y2label%"'/;
 
 
 * Z-labels
@@ -1479,21 +1479,21 @@ put 'set y2label "%gp_y2label%"'/;
 * CB Labels
 $label gpxyzlabel_cblabel
 $if not setglobal gp_cblabel                      $goto gpxyzlabel_autocblabel
-$if "%gp_cblabel%"=="no"                          put 'unset cblabel'/;
-$if "%gp_cblabel%"=="no"                          $goto gpxyzlabel_aftercblabel
+$if '%gp_cblabel%'=='no'                          put 'unset cblabel'/;
+$if '%gp_cblabel%'=='no'                          $goto gpxyzlabel_aftercblabel
 $goto gpxyzlabel_assigncblabel
 
 $label gpxyzlabel_autocblabel
 $if not setglobal gp_heatmap_z                    $goto gpxyzlabel_aftercblabel
-$if "%gp_heatmap_z%" == "no"                      $goto gpxyzlabel_aftercblabel
+$if '%gp_heatmap_z%' == 'no'                      $goto gpxyzlabel_aftercblabel
 $setglobal gp_cblabel %gp_heatmap_z%
 $goto gpxyzlabel_assigncblabel
 
 $label gpxyzlabel_assigncblabel
 $if setglobal gp_cblabel                          put 'set cblabel "%gp_cblabel%"';
 $if not setglobal gp_cblabeloffset                $setglobal gp_cblabeloffset 1.5,0
-$if "%gp_cblabeloffset%" == "no"                  $goto gpxyzlabel_aftercblabeloffset
-PUT " offset %gp_cblabeloffset%";
+$if '%gp_cblabeloffset%' == 'no'                  $goto gpxyzlabel_aftercblabeloffset
+PUT ' offset %gp_cblabeloffset%';
 $label gpxyzlabel_aftercblabeloffset
 PUT /;
 $dropglobal gp_cblabel
@@ -1501,16 +1501,14 @@ $label gpxyzlabel_aftercblabel
 
 
 
-
-
 * Heat maps
 $label gpxyzlabel_heatmaps
 
-$if "%gp_pm3d%"=="no"                             $goto gpxyzlabel_afterpm3d
+$if '%gp_pm3d%'=='no'                             $goto gpxyzlabel_afterpm3d
 
 $if setglobal gp_pm3d                             $goto gpxyzlabel_afterautopm3d
-$if not "%gp_style%" == "heatmap"                 $goto gpxyzlabel_afterautopm3d
-$setglobal gp_pm3d "map"
+$if not '%gp_style%' == 'heatmap'                 $goto gpxyzlabel_afterautopm3d
+$setglobal gp_pm3d map
 $goto gpxyzlabel_afterautopm3d
 
 $label gpxyzlabel_afterautopm3d
@@ -1520,51 +1518,51 @@ $if not setglobal gp_pm3d                         $goto gpxyzlabel_afterpm3d
 $label gpxyzlabel_afterpm3d
 
 $if not setglobal gp_view                         $goto gpxyzlabel_autoview
-$if "%gp_view%"=="no"                             $goto gpxyzlabel_autoview
+$if '%gp_view%'=='no'                             $goto gpxyzlabel_autoview
 $if setglobal gp_view                             put 'set view %gp_view%'/;
 $goto gpxyzlabel_plottitle
 
 $label gpxyzlabel_autoview
-$if     "%gp_style%"=="heatmap"                   put 'set view map'/;
-$if not "%gp_style%"=="heatmap"                   put 'set view 60, 30, 1, 1'/;
+$if     '%gp_style%'=='heatmap'                   put 'set view map'/;
+$if not '%gp_style%'=='heatmap'                   put 'set view 60, 30, 1, 1'/;
 $goto gpxyzlabel_plottitle
 
 
 * Title
 $label gpxyzlabel_plottitle
-$if "%gp_keeptitleinppt%"   == "no"               $goto gpxyzlabel_skiptitle
+$if '%gp_keeptitleinppt%'   == 'no'               $goto gpxyzlabel_skiptitle
 $if setglobal gp_keeptitleinppt                   $goto gpxyzlabel_after_unsetppttitle
-$if "%gp_ppt%" == "no"                            $goto gpxyzlabel_after_unsetppttitle
+$if '%gp_ppt%' == 'no'                            $goto gpxyzlabel_after_unsetppttitle
 $if setglobal gp_ppt                              put 'unset title'/;
 $if setglobal gp_ppt                              $goto gpxyzlabel_skiptitle
 $label gpxyzlabel_after_unsetppttitle
-$if "%gp_loop1%"   == "no"                        $goto gpxyzlabel_nolooptitle
+$if '%gp_loop1%'   == 'no'                        $goto gpxyzlabel_nolooptitle
 $if     setglobal gp_loop1                        $goto gpxyzlabel_title_loop1
 
 $label gpxyzlabel_nolooptitle
 $if not setglobal gp_title                        $goto gpxyzlabel_skiptitle
-$if "%gp_title%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_title%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put 'set title  "%gp_title%"'/;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop1
-$if not setglobal gp_title                        $setglobal gp_title " "
+$if not setglobal gp_title                        $setglobal gp_title ' '
 put 'set title  "%gp_title% ',%gp_loop1%.te(%gp_loop1%);
 $if     setglobal gp_loop2                        $goto gpxyzlabel_title_loop2
 put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop2
-$if "%gp_loop2%"   == "no"                        put '"' /;
-$if "%gp_loop2%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_loop2%'   == 'no'                        put '"' /;
+$if '%gp_loop2%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop2%.te(%gp_loop2%);
 $if     setglobal gp_loop3                        $goto gpxyzlabel_title_loop3
 put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop3
-$if "%gp_loop3%"   == "no"                        put '"' /;
-$if "%gp_loop3%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_loop3%'   == 'no'                        put '"' /;
+$if '%gp_loop3%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop3%.te(%gp_loop3%);
 $if     setglobal gp_loop4                        $goto gpxyzlabel_title_loop4
 put '"' /;
@@ -1572,78 +1570,79 @@ $goto gpxyzlabel_skiptitle
 
 *new
 $label gpxyzlabel_title_loop4
-$if "%gp_loop4%"   == "no"                        put '"' /;
-$if "%gp_loop4%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_loop4%'   == 'no'                        put '"' /;
+$if '%gp_loop4%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop4%.te(%gp_loop4%);
 $if     setglobal gp_loop5                        $goto gpxyzlabel_title_loop5
 put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop5
-$if "%gp_loop5%"   == "no"                        put '"' /;
-$if "%gp_loop5%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_loop5%'   == 'no'                        put '"' /;
+$if '%gp_loop5%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop5%.te(%gp_loop5%);
 $if     setglobal gp_loop6                        $goto gpxyzlabel_title_loop6
 put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop6
-$if "%gp_loop6%"   == "no"                        put '"' /;
-$if "%gp_loop6%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_loop6%'   == 'no'                        put '"' /;
+$if '%gp_loop6%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop6%.te(%gp_loop6%);
 $if     setglobal gp_loop7                        $goto gpxyzlabel_title_loop7
 put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop7
-$if "%gp_loop7%"   == "no"                        put '"' /;
-$if "%gp_loop7%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_loop7%'   == 'no'                        put '"' /;
+$if '%gp_loop7%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop7%.te(%gp_loop7%);
 $if     setglobal gp_loop8                        $goto gpxyzlabel_title_loop8
 put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop8
-$if "%gp_loop8%"   == "no"                        put '"' /;
-$if "%gp_loop8%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_loop8%'   == 'no'                        put '"' /;
+$if '%gp_loop8%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop8%.te(%gp_loop8%);
 $if     setglobal gp_loop9                        $goto gpxyzlabel_title_loop9
 put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop9
-$if "%gp_loop9%"   == "no"                        put '"' /;
-$if "%gp_loop9%"   == "no"                        $goto gpxyzlabel_skiptitle
+$if '%gp_loop9%'   == 'no'                        put '"' /;
+$if '%gp_loop9%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop9%.te(%gp_loop9%);
 put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_skiptitle
 $if not setglobal gp_style                        $setglobal gp_style linespoints
-$if "%gp_style%"   == "no"                        $setglobal gp_style linespoints
+$if '%gp_style%'   == 'no'                        $setglobal gp_style linespoints
 $if a%1==afunction                                $goto gpxyzlabel_gp_label_nohistogram
 $if dimension 1 %1                                $goto gpxyzlabel_gp_label_nohistogram
 $if not a%2==a                                    $goto gpxyzlabel_gp_label_nohistogram
 $if not setglobal gp_style                        $setglobal gp_style histogram
-$if     "%gp_style%"=="spiderplot"                $goto gpxyzlabel_gp_label_nohistogram
-$if     "%gp_xdata%"=="time"                      $goto gpxyzlabel_gp_label_nohistogram
-$if     "%gp_style%"=="heatmap"                   $goto gpxyzlabel_borderoptions
-$if not "%gp_style%"=="histogram"                 $setglobal gp_style histogram
+$if     '%gp_style%'=='spiderplot'                $goto gpxyzlabel_gp_label_nohistogram
+$if     '%gp_xdata%'=='time'                      $goto gpxyzlabel_gp_label_nohistogram
+$if     '%gp_style%'=='heatmap'                   $goto gpxyzlabel_borderoptions
+
+$if not '%gp_style%'=='histogram'                 $setglobal gp_style histogram
 $label gpxyzlabel_gp_label_nohistogram
 put 'set style data %gp_style%'/;
 
 $if not setglobal gp_fill                         $setglobal gp_fill 'solid 1'
-$if "%gp_fill%"   == "no"                         $setglobal gp_fill 'empty'
+$if '%gp_fill%'   == 'no'                         $setglobal gp_fill 'empty'
 put 'set style fill %gp_fill%'/;
 
-$if not "%gp_style%"=="histogram"                 $goto gpxyzlabel_rectangle_options
+$if not '%gp_style%'=='histogram'                 $goto gpxyzlabel_rectangle_options
 $if not setglobal gp_hist                         $setglobal gp_hist 'cluster'
-$if "%gp_hist%"   == "no"                         $setglobal gp_hist 'cluster'
+$if '%gp_hist%'   == 'no'                         $setglobal gp_hist 'cluster'
 put 'set style histogram %gp_hist%'/;
 
 $label gpxyzlabel_rectangle_options
 $if not setglobal gp_rectangle                    $goto gpxyzlabel_borderoptions
-$if "%gp_rectangle%"   == "no"                    $goto gpxyzlabel_borderoptions
+$if '%gp_rectangle%'   == 'no'                    $goto gpxyzlabel_borderoptions
 put 'set style rectangle %gp_rectangle%'/;
 
 * Border
@@ -1652,46 +1651,46 @@ gp_input.nd = 0;
 gp_input.nw = 0;
 $if not setglobal gp_border                       $setglobal gp_border yes
 $if not setglobal gp_borddim                      $setglobal gp_borddim ''
-$if "%gp_borddim%" == "all"                       $setglobal gp_borddim ''
-$if "%gp_borddim%" == "four"                      $setglobal gp_borddim ''
-$if "%gp_borddim%" == "two"                       $setglobal gp_borddim '3'
-$if "%gp_borddim%" == "x"                         $setglobal gp_borddim '1'
-$if "%gp_borddim%" == "y"                         $setglobal gp_borddim '2'
-$if "%gp_borddim%" == "zero"                      $setglobal gp_border no
-$if "%gp_borddim%" == "no"                        $setglobal gp_border no
-$if %gp_border%    == "yes"                       put 'set border',' %gp_borddim%'/;
-$if %gp_border%    == "no"                        put 'unset border'/;
-$if %gp_border%    == "0"                         put 'unset border'/;
+$if '%gp_borddim%' == 'all'                       $setglobal gp_borddim ''
+$if '%gp_borddim%' == 'four'                      $setglobal gp_borddim ''
+$if '%gp_borddim%' == 'two'                       $setglobal gp_borddim '3'
+$if '%gp_borddim%' == 'x'                         $setglobal gp_borddim '1'
+$if '%gp_borddim%' == 'y'                         $setglobal gp_borddim '2'
+$if '%gp_borddim%' == 'zero'                      $setglobal gp_border no
+$if '%gp_borddim%' == 'no'                        $setglobal gp_border no
+$if '%gp_border%'  == 'yes'                       put 'set border',' %gp_borddim%'/;
+$if '%gp_border%'  == 'no'                        put 'unset border'/;
+$if '%gp_border%'  == '0'                         put 'unset border'/;
 
 * Key
-$if     "%gp_key%" == "yes"                       $setglobal gp_key 'top left'
+$if     '%gp_key%' == 'yes'                       $setglobal gp_key 'top left'
 $if not setglobal gp_key                          put 'set key top left'/;
-$if     "%gp_key%" == "no"                        put 'unset key'/;
+$if     '%gp_key%' == 'no'                        put 'unset key'/;
 $if not setglobal gp_key                          $goto gpxyzlabel_pointsz
-$if     "%gp_key%" == "no"                        $goto gpxyzlabel_pointsz
+$if     '%gp_key%' == 'no'                        $goto gpxyzlabel_pointsz
 put 'set key %gp_key% ';
 
 $if not setglobal gp_keyoption                    $goto gpxyzlabel_keytitle
-$if "%gp_keyoption%" == "no"                      $goto gpxyzlabel_keytitle
+$if '%gp_keyoption%' == 'no'                      $goto gpxyzlabel_keytitle
 put '%gp_keyoption% ';
 
 $label gpxyzlabel_keytitle
 $if not setglobal gp_keytitle                     $goto gpxyzlabel_key_box
-$if "%gp_keytitle%" == "no"                       $goto gpxyzlabel_key_box
+$if '%gp_keytitle%' == 'no'                       $goto gpxyzlabel_key_box
 put 'title "%gp_keytitle%" '
 
 $label gpxyzlabel_key_box
 $if not setglobal gp_keybox                       put /;
-$if "%gp_keybox%" == "no"                         put /;
+$if '%gp_keybox%' == 'no'                         put /;
 $if not setglobal gp_keybox                       $goto gpxyzlabel_pointsz
-$if "%gp_keybox%" == "no"                         $goto gpxyzlabel_pointsz
+$if '%gp_keybox%' == 'no'                         $goto gpxyzlabel_pointsz
 put 'box' /;
 
 * Point size
 $label gpxyzlabel_pointsz
-$if setglobal gp_pointsz                          $setglobal gp_pointsize "%gp_pointsz%"
+$if setglobal gp_pointsz                          $setglobal gp_pointsize %gp_pointsz%
 $if not setglobal gp_pointsize                    $goto gpxyzlabel_after_pointsz
-$if "%gp_pointsize%" == "no"                      $goto gpxyzlabel_after_pointsz
+$if '%gp_pointsize%' == 'no'                      $goto gpxyzlabel_after_pointsz
 put 'set pointsize %gp_pointsize%' /;
 $label gpxyzlabel_after_pointsz
 
@@ -3755,12 +3754,12 @@ loop(%gp_scen%,
   if (gp_count gt 1, put ',';);
   if (gp_count eq 1, put " 'gnuplot%gp_multiplot_count%.dat' using "; else put " '' u ";);
 
-$if "%gp_xdata%" == "time" put '1:';
+$if '%gp_xdata%' == 'time' put '1:';
   put (gp_count+1);
 
-$if "%gp_xdata%" == "time"                         $goto gpxyzlabel_afterxdatatime
-$if not "%gp_hist%" == "columnstacked"             if(gp_count eq 1, put ':xtic(1)';);
-$if     "%gp_hist%" == "columnstacked"             if(gp_count eq 1, put ':key(1)';);
+$if '%gp_xdata%' == 'time'                         $goto gpxyzlabel_afterxdatatime
+$if not '%gp_hist%' == 'columnstacked'             if(gp_count eq 1, put ':xtic(1)';);
+$if     '%gp_hist%' == 'columnstacked'             if(gp_count eq 1, put ':key(1)';);
 $label gpxyzlabel_afterxdatatime
 
 * Insert Auto Code 7a produced by make_345678_linestyle.gms - begin
@@ -3956,7 +3955,7 @@ $label gpxyzlabel_after_axes_20_hist
   put ' ti col';
 
 
-* Insert Auto Code 8 produced by make_4_linestyle.gms - begin
+* Insert Auto Code 8 produced by make_345678_linestyle.gms - begin
 IF(gp_count eq 1,
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_hist
 $if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_hist
@@ -3969,6 +3968,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_1%") = no;
 $label gpxyzlabel_after_lc_1_hist
+$if not setglobal gp_lw_1                          $goto gpxyzlabel_after_lw_1_hist
+$if "%gp_lw_1%"=="no"                              $goto gpxyzlabel_after_lw_1_hist
+put " lw %gp_lw_1%";
+$goto gpxyzlabel_after_lwidth_general_hist_1
+$label gpxyzlabel_after_lw_1_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_1
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_1
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_1
  );
 IF(gp_count eq 2,
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_hist
@@ -3982,6 +3990,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_2%") = no;
 $label gpxyzlabel_after_lc_2_hist
+$if not setglobal gp_lw_2                          $goto gpxyzlabel_after_lw_2_hist
+$if "%gp_lw_2%"=="no"                              $goto gpxyzlabel_after_lw_2_hist
+put " lw %gp_lw_2%";
+$goto gpxyzlabel_after_lwidth_general_hist_2
+$label gpxyzlabel_after_lw_2_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_2
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_2
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_2
  );
 IF(gp_count eq 3,
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_hist
@@ -3995,6 +4012,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_3%") = no;
 $label gpxyzlabel_after_lc_3_hist
+$if not setglobal gp_lw_3                          $goto gpxyzlabel_after_lw_3_hist
+$if "%gp_lw_3%"=="no"                              $goto gpxyzlabel_after_lw_3_hist
+put " lw %gp_lw_3%";
+$goto gpxyzlabel_after_lwidth_general_hist_3
+$label gpxyzlabel_after_lw_3_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_3
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_3
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_3
  );
 IF(gp_count eq 4,
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_hist
@@ -4008,6 +4034,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_4%") = no;
 $label gpxyzlabel_after_lc_4_hist
+$if not setglobal gp_lw_4                          $goto gpxyzlabel_after_lw_4_hist
+$if "%gp_lw_4%"=="no"                              $goto gpxyzlabel_after_lw_4_hist
+put " lw %gp_lw_4%";
+$goto gpxyzlabel_after_lwidth_general_hist_4
+$label gpxyzlabel_after_lw_4_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_4
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_4
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_4
  );
 IF(gp_count eq 5,
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_hist
@@ -4021,6 +4056,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_5%") = no;
 $label gpxyzlabel_after_lc_5_hist
+$if not setglobal gp_lw_5                          $goto gpxyzlabel_after_lw_5_hist
+$if "%gp_lw_5%"=="no"                              $goto gpxyzlabel_after_lw_5_hist
+put " lw %gp_lw_5%";
+$goto gpxyzlabel_after_lwidth_general_hist_5
+$label gpxyzlabel_after_lw_5_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_5
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_5
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_5
  );
 IF(gp_count eq 6,
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_hist
@@ -4034,6 +4078,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_6%") = no;
 $label gpxyzlabel_after_lc_6_hist
+$if not setglobal gp_lw_6                          $goto gpxyzlabel_after_lw_6_hist
+$if "%gp_lw_6%"=="no"                              $goto gpxyzlabel_after_lw_6_hist
+put " lw %gp_lw_6%";
+$goto gpxyzlabel_after_lwidth_general_hist_6
+$label gpxyzlabel_after_lw_6_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_6
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_6
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_6
  );
 IF(gp_count eq 7,
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_hist
@@ -4047,6 +4100,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_7%") = no;
 $label gpxyzlabel_after_lc_7_hist
+$if not setglobal gp_lw_7                          $goto gpxyzlabel_after_lw_7_hist
+$if "%gp_lw_7%"=="no"                              $goto gpxyzlabel_after_lw_7_hist
+put " lw %gp_lw_7%";
+$goto gpxyzlabel_after_lwidth_general_hist_7
+$label gpxyzlabel_after_lw_7_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_7
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_7
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_7
  );
 IF(gp_count eq 8,
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_hist
@@ -4060,6 +4122,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_8%") = no;
 $label gpxyzlabel_after_lc_8_hist
+$if not setglobal gp_lw_8                          $goto gpxyzlabel_after_lw_8_hist
+$if "%gp_lw_8%"=="no"                              $goto gpxyzlabel_after_lw_8_hist
+put " lw %gp_lw_8%";
+$goto gpxyzlabel_after_lwidth_general_hist_8
+$label gpxyzlabel_after_lw_8_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_8
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_8
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_8
  );
 IF(gp_count eq 9,
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_hist
@@ -4073,6 +4144,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_9%") = no;
 $label gpxyzlabel_after_lc_9_hist
+$if not setglobal gp_lw_9                          $goto gpxyzlabel_after_lw_9_hist
+$if "%gp_lw_9%"=="no"                              $goto gpxyzlabel_after_lw_9_hist
+put " lw %gp_lw_9%";
+$goto gpxyzlabel_after_lwidth_general_hist_9
+$label gpxyzlabel_after_lw_9_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_9
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_9
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_9
  );
 IF(gp_count eq 10,
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_hist
@@ -4086,6 +4166,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_10%") = no;
 $label gpxyzlabel_after_lc_10_hist
+$if not setglobal gp_lw_10                         $goto gpxyzlabel_after_lw_10_hist
+$if "%gp_lw_10%"=="no"                             $goto gpxyzlabel_after_lw_10_hist
+put " lw %gp_lw_10%";
+$goto gpxyzlabel_after_lwidth_general_hist_10
+$label gpxyzlabel_after_lw_10_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_10
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_10
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_10
  );
 IF(gp_count eq 11,
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_hist
@@ -4099,6 +4188,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_11%") = no;
 $label gpxyzlabel_after_lc_11_hist
+$if not setglobal gp_lw_11                         $goto gpxyzlabel_after_lw_11_hist
+$if "%gp_lw_11%"=="no"                             $goto gpxyzlabel_after_lw_11_hist
+put " lw %gp_lw_11%";
+$goto gpxyzlabel_after_lwidth_general_hist_11
+$label gpxyzlabel_after_lw_11_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_11
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_11
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_11
  );
 IF(gp_count eq 12,
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_hist
@@ -4112,6 +4210,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_12%") = no;
 $label gpxyzlabel_after_lc_12_hist
+$if not setglobal gp_lw_12                         $goto gpxyzlabel_after_lw_12_hist
+$if "%gp_lw_12%"=="no"                             $goto gpxyzlabel_after_lw_12_hist
+put " lw %gp_lw_12%";
+$goto gpxyzlabel_after_lwidth_general_hist_12
+$label gpxyzlabel_after_lw_12_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_12
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_12
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_12
  );
 IF(gp_count eq 13,
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_hist
@@ -4125,6 +4232,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_13%") = no;
 $label gpxyzlabel_after_lc_13_hist
+$if not setglobal gp_lw_13                         $goto gpxyzlabel_after_lw_13_hist
+$if "%gp_lw_13%"=="no"                             $goto gpxyzlabel_after_lw_13_hist
+put " lw %gp_lw_13%";
+$goto gpxyzlabel_after_lwidth_general_hist_13
+$label gpxyzlabel_after_lw_13_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_13
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_13
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_13
  );
 IF(gp_count eq 14,
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_hist
@@ -4138,6 +4254,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_14%") = no;
 $label gpxyzlabel_after_lc_14_hist
+$if not setglobal gp_lw_14                         $goto gpxyzlabel_after_lw_14_hist
+$if "%gp_lw_14%"=="no"                             $goto gpxyzlabel_after_lw_14_hist
+put " lw %gp_lw_14%";
+$goto gpxyzlabel_after_lwidth_general_hist_14
+$label gpxyzlabel_after_lw_14_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_14
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_14
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_14
  );
 IF(gp_count eq 15,
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_hist
@@ -4151,6 +4276,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_15%") = no;
 $label gpxyzlabel_after_lc_15_hist
+$if not setglobal gp_lw_15                         $goto gpxyzlabel_after_lw_15_hist
+$if "%gp_lw_15%"=="no"                             $goto gpxyzlabel_after_lw_15_hist
+put " lw %gp_lw_15%";
+$goto gpxyzlabel_after_lwidth_general_hist_15
+$label gpxyzlabel_after_lw_15_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_15
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_15
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_15
  );
 IF(gp_count eq 16,
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_hist
@@ -4164,6 +4298,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_16%") = no;
 $label gpxyzlabel_after_lc_16_hist
+$if not setglobal gp_lw_16                         $goto gpxyzlabel_after_lw_16_hist
+$if "%gp_lw_16%"=="no"                             $goto gpxyzlabel_after_lw_16_hist
+put " lw %gp_lw_16%";
+$goto gpxyzlabel_after_lwidth_general_hist_16
+$label gpxyzlabel_after_lw_16_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_16
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_16
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_16
  );
 IF(gp_count eq 17,
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_hist
@@ -4177,6 +4320,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_17%") = no;
 $label gpxyzlabel_after_lc_17_hist
+$if not setglobal gp_lw_17                         $goto gpxyzlabel_after_lw_17_hist
+$if "%gp_lw_17%"=="no"                             $goto gpxyzlabel_after_lw_17_hist
+put " lw %gp_lw_17%";
+$goto gpxyzlabel_after_lwidth_general_hist_17
+$label gpxyzlabel_after_lw_17_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_17
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_17
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_17
  );
 IF(gp_count eq 18,
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_hist
@@ -4190,6 +4342,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_18%") = no;
 $label gpxyzlabel_after_lc_18_hist
+$if not setglobal gp_lw_18                         $goto gpxyzlabel_after_lw_18_hist
+$if "%gp_lw_18%"=="no"                             $goto gpxyzlabel_after_lw_18_hist
+put " lw %gp_lw_18%";
+$goto gpxyzlabel_after_lwidth_general_hist_18
+$label gpxyzlabel_after_lw_18_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_18
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_18
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_18
  );
 IF(gp_count eq 19,
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_hist
@@ -4203,6 +4364,15 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_19%") = no;
 $label gpxyzlabel_after_lc_19_hist
+$if not setglobal gp_lw_19                         $goto gpxyzlabel_after_lw_19_hist
+$if "%gp_lw_19%"=="no"                             $goto gpxyzlabel_after_lw_19_hist
+put " lw %gp_lw_19%";
+$goto gpxyzlabel_after_lwidth_general_hist_19
+$label gpxyzlabel_after_lw_19_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_19
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_19
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_19
  );
 IF(gp_count eq 20,
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_hist
@@ -4216,8 +4386,17 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_lc_20%") = no;
 $label gpxyzlabel_after_lc_20_hist
+$if not setglobal gp_lw_20                         $goto gpxyzlabel_after_lw_20_hist
+$if "%gp_lw_20%"=="no"                             $goto gpxyzlabel_after_lw_20_hist
+put " lw %gp_lw_20%";
+$goto gpxyzlabel_after_lwidth_general_hist_20
+$label gpxyzlabel_after_lw_20_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_20
+$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_20
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_20
  );
-* Insert Auto Code 8 produced by make_4_linestyle.gms - end
+* Insert Auto Code 8 produced by make_345678_linestyle.gms - end
 
   gp_count = gp_count + 1;
 

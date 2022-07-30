@@ -2586,14 +2586,14 @@ $label gpxyzlabel_l_20_style
 
 
 * Insert Auto Code 7 produced by make_345678_linestyle.gms - begin
+If(gp_count eq 1,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_1_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_1_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_1_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_1_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_1_assign
 $label gpxyzlabel_after_lc_1_paletteassign
-If(gp_count eq 1,
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_assign
 $if "%gp_lc_1%"=="no"                              $goto gpxyzlabel_after_lc_1_assign
 put " lc rgb ";
@@ -2620,14 +2620,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_1
 );
 
+If(gp_count eq 2,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_2_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_2_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_2_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_2_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_2_assign
 $label gpxyzlabel_after_lc_2_paletteassign
-If(gp_count eq 2,
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_assign
 $if "%gp_lc_2%"=="no"                              $goto gpxyzlabel_after_lc_2_assign
 put " lc rgb ";
@@ -2654,14 +2654,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_2
 );
 
+If(gp_count eq 3,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_3_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_3_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_3_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_3_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_3_assign
 $label gpxyzlabel_after_lc_3_paletteassign
-If(gp_count eq 3,
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_assign
 $if "%gp_lc_3%"=="no"                              $goto gpxyzlabel_after_lc_3_assign
 put " lc rgb ";
@@ -2688,14 +2688,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_3
 );
 
+If(gp_count eq 4,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_4_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_4_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_4_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_4_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_4_assign
 $label gpxyzlabel_after_lc_4_paletteassign
-If(gp_count eq 4,
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_assign
 $if "%gp_lc_4%"=="no"                              $goto gpxyzlabel_after_lc_4_assign
 put " lc rgb ";
@@ -2722,14 +2722,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_4
 );
 
+If(gp_count eq 5,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_5_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_5_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_5_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_5_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_5_assign
 $label gpxyzlabel_after_lc_5_paletteassign
-If(gp_count eq 5,
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_assign
 $if "%gp_lc_5%"=="no"                              $goto gpxyzlabel_after_lc_5_assign
 put " lc rgb ";
@@ -2756,14 +2756,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_5
 );
 
+If(gp_count eq 6,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_6_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_6_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_6_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_6_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_6_assign
 $label gpxyzlabel_after_lc_6_paletteassign
-If(gp_count eq 6,
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_assign
 $if "%gp_lc_6%"=="no"                              $goto gpxyzlabel_after_lc_6_assign
 put " lc rgb ";
@@ -2790,14 +2790,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_6
 );
 
+If(gp_count eq 7,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_7_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_7_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_7_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_7_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_7_assign
 $label gpxyzlabel_after_lc_7_paletteassign
-If(gp_count eq 7,
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_assign
 $if "%gp_lc_7%"=="no"                              $goto gpxyzlabel_after_lc_7_assign
 put " lc rgb ";
@@ -2824,14 +2824,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_7
 );
 
+If(gp_count eq 8,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_8_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_8_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_8_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_8_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_8_assign
 $label gpxyzlabel_after_lc_8_paletteassign
-If(gp_count eq 8,
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_assign
 $if "%gp_lc_8%"=="no"                              $goto gpxyzlabel_after_lc_8_assign
 put " lc rgb ";
@@ -2858,14 +2858,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_8
 );
 
+If(gp_count eq 9,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_9_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_9_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_9_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_9_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_9_assign
 $label gpxyzlabel_after_lc_9_paletteassign
-If(gp_count eq 9,
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_assign
 $if "%gp_lc_9%"=="no"                              $goto gpxyzlabel_after_lc_9_assign
 put " lc rgb ";
@@ -2892,14 +2892,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_9
 );
 
+If(gp_count eq 10,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_10_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_10_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_10_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_10_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_10_assign
 $label gpxyzlabel_after_lc_10_paletteassign
-If(gp_count eq 10,
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_assign
 $if "%gp_lc_10%"=="no"                             $goto gpxyzlabel_after_lc_10_assign
 put " lc rgb ";
@@ -2926,14 +2926,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_10
 );
 
+If(gp_count eq 11,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_11_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_11_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_11_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_11_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_11_assign
 $label gpxyzlabel_after_lc_11_paletteassign
-If(gp_count eq 11,
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_assign
 $if "%gp_lc_11%"=="no"                             $goto gpxyzlabel_after_lc_11_assign
 put " lc rgb ";
@@ -2960,14 +2960,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_11
 );
 
+If(gp_count eq 12,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_12_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_12_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_12_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_12_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_12_assign
 $label gpxyzlabel_after_lc_12_paletteassign
-If(gp_count eq 12,
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_assign
 $if "%gp_lc_12%"=="no"                             $goto gpxyzlabel_after_lc_12_assign
 put " lc rgb ";
@@ -2994,14 +2994,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_12
 );
 
+If(gp_count eq 13,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_13_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_13_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_13_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_13_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_13_assign
 $label gpxyzlabel_after_lc_13_paletteassign
-If(gp_count eq 13,
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_assign
 $if "%gp_lc_13%"=="no"                             $goto gpxyzlabel_after_lc_13_assign
 put " lc rgb ";
@@ -3028,14 +3028,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_13
 );
 
+If(gp_count eq 14,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_14_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_14_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_14_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_14_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_14_assign
 $label gpxyzlabel_after_lc_14_paletteassign
-If(gp_count eq 14,
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_assign
 $if "%gp_lc_14%"=="no"                             $goto gpxyzlabel_after_lc_14_assign
 put " lc rgb ";
@@ -3062,14 +3062,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_14
 );
 
+If(gp_count eq 15,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_15_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_15_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_15_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_15_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_15_assign
 $label gpxyzlabel_after_lc_15_paletteassign
-If(gp_count eq 15,
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_assign
 $if "%gp_lc_15%"=="no"                             $goto gpxyzlabel_after_lc_15_assign
 put " lc rgb ";
@@ -3096,14 +3096,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_15
 );
 
+If(gp_count eq 16,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_16_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_16_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_16_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_16_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_16_assign
 $label gpxyzlabel_after_lc_16_paletteassign
-If(gp_count eq 16,
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_assign
 $if "%gp_lc_16%"=="no"                             $goto gpxyzlabel_after_lc_16_assign
 put " lc rgb ";
@@ -3130,14 +3130,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_16
 );
 
+If(gp_count eq 17,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_17_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_17_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_17_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_17_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_17_assign
 $label gpxyzlabel_after_lc_17_paletteassign
-If(gp_count eq 17,
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_assign
 $if "%gp_lc_17%"=="no"                             $goto gpxyzlabel_after_lc_17_assign
 put " lc rgb ";
@@ -3164,14 +3164,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_17
 );
 
+If(gp_count eq 18,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_18_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_18_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_18_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_18_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_18_assign
 $label gpxyzlabel_after_lc_18_paletteassign
-If(gp_count eq 18,
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_assign
 $if "%gp_lc_18%"=="no"                             $goto gpxyzlabel_after_lc_18_assign
 put " lc rgb ";
@@ -3198,14 +3198,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_18
 );
 
+If(gp_count eq 19,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_19_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_19_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_19_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_19_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_19_assign
 $label gpxyzlabel_after_lc_19_paletteassign
-If(gp_count eq 19,
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_assign
 $if "%gp_lc_19%"=="no"                             $goto gpxyzlabel_after_lc_19_assign
 put " lc rgb ";
@@ -3232,14 +3232,14 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_19
 );
 
+If(gp_count eq 20,
 $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_20_paletteassign
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_20_paletteassign
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_20_paletteassign
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_20_paletteassign
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_20_assign
 $label gpxyzlabel_after_lc_20_paletteassign
-If(gp_count eq 20,
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_assign
 $if "%gp_lc_20%"=="no"                             $goto gpxyzlabel_after_lc_20_assign
 put " lc rgb ";
@@ -4102,7 +4102,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_1_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_1_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_1_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_1_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_1_hist
 $label gpxyzlabel_after_lc_1_palettehist
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_hist
@@ -4131,7 +4131,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_2_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_2_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_2_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_2_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_2_hist
 $label gpxyzlabel_after_lc_2_palettehist
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_hist
@@ -4160,7 +4160,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_3_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_3_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_3_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_3_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_3_hist
 $label gpxyzlabel_after_lc_3_palettehist
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_hist
@@ -4189,7 +4189,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_4_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_4_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_4_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_4_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_4_hist
 $label gpxyzlabel_after_lc_4_palettehist
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_hist
@@ -4218,7 +4218,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_5_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_5_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_5_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_5_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_5_hist
 $label gpxyzlabel_after_lc_5_palettehist
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_hist
@@ -4247,7 +4247,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_6_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_6_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_6_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_6_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_6_hist
 $label gpxyzlabel_after_lc_6_palettehist
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_hist
@@ -4276,7 +4276,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_7_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_7_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_7_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_7_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_7_hist
 $label gpxyzlabel_after_lc_7_palettehist
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_hist
@@ -4305,7 +4305,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_8_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_8_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_8_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_8_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_8_hist
 $label gpxyzlabel_after_lc_8_palettehist
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_hist
@@ -4334,7 +4334,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_9_p
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_9_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_9_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_9_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_9_hist
 $label gpxyzlabel_after_lc_9_palettehist
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_hist
@@ -4363,7 +4363,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_10_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_10_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_10_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_10_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_10_hist
 $label gpxyzlabel_after_lc_10_palettehist
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_hist
@@ -4392,7 +4392,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_11_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_11_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_11_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_11_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_11_hist
 $label gpxyzlabel_after_lc_11_palettehist
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_hist
@@ -4421,7 +4421,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_12_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_12_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_12_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_12_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_12_hist
 $label gpxyzlabel_after_lc_12_palettehist
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_hist
@@ -4450,7 +4450,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_13_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_13_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_13_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_13_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_13_hist
 $label gpxyzlabel_after_lc_13_palettehist
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_hist
@@ -4479,7 +4479,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_14_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_14_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_14_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_14_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_14_hist
 $label gpxyzlabel_after_lc_14_palettehist
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_hist
@@ -4508,7 +4508,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_15_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_15_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_15_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_15_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_15_hist
 $label gpxyzlabel_after_lc_15_palettehist
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_hist
@@ -4537,7 +4537,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_16_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_16_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_16_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_16_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_16_hist
 $label gpxyzlabel_after_lc_16_palettehist
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_hist
@@ -4566,7 +4566,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_17_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_17_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_17_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_17_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_17_hist
 $label gpxyzlabel_after_lc_17_palettehist
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_hist
@@ -4595,7 +4595,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_18_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_18_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_18_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_18_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_18_hist
 $label gpxyzlabel_after_lc_18_palettehist
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_hist
@@ -4624,7 +4624,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_19_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_19_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_19_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_19_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_19_hist
 $label gpxyzlabel_after_lc_19_palettehist
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_hist
@@ -4653,7 +4653,7 @@ $if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_20_
 $if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_20_palettehist
 $ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_20_palettehist
 $ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_20_palettehist
-put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+put " lc palette frac ",round(gp_count/%gp_palette_fractions%,1);
 $goto gpxyzlabel_after_lc_20_hist
 $label gpxyzlabel_after_lc_20_palettehist
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_hist

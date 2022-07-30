@@ -2585,8 +2585,14 @@ $label gpxyzlabel_l_20_style
 * Insert Auto Code 6 produced by make_4_linestyle.gms - end
 
 
-
-* Insert Auto Code 7 produced by make_4_linestyle.gms - begin
+* Insert Auto Code 7 produced by make_345678_linestyle.gms - begin
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_1_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_1_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_1_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_1_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_1_assign
+$label gpxyzlabel_after_lc_1_paletteassign
 If(gp_count eq 1,
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_assign
 $if "%gp_lc_1%"=="no"                              $goto gpxyzlabel_after_lc_1_assign
@@ -2614,6 +2620,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_1
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_2_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_2_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_2_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_2_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_2_assign
+$label gpxyzlabel_after_lc_2_paletteassign
 If(gp_count eq 2,
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_assign
 $if "%gp_lc_2%"=="no"                              $goto gpxyzlabel_after_lc_2_assign
@@ -2641,6 +2654,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_2
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_3_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_3_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_3_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_3_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_3_assign
+$label gpxyzlabel_after_lc_3_paletteassign
 If(gp_count eq 3,
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_assign
 $if "%gp_lc_3%"=="no"                              $goto gpxyzlabel_after_lc_3_assign
@@ -2668,6 +2688,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_3
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_4_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_4_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_4_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_4_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_4_assign
+$label gpxyzlabel_after_lc_4_paletteassign
 If(gp_count eq 4,
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_assign
 $if "%gp_lc_4%"=="no"                              $goto gpxyzlabel_after_lc_4_assign
@@ -2695,6 +2722,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_4
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_5_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_5_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_5_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_5_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_5_assign
+$label gpxyzlabel_after_lc_5_paletteassign
 If(gp_count eq 5,
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_assign
 $if "%gp_lc_5%"=="no"                              $goto gpxyzlabel_after_lc_5_assign
@@ -2722,6 +2756,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_5
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_6_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_6_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_6_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_6_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_6_assign
+$label gpxyzlabel_after_lc_6_paletteassign
 If(gp_count eq 6,
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_assign
 $if "%gp_lc_6%"=="no"                              $goto gpxyzlabel_after_lc_6_assign
@@ -2749,6 +2790,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_6
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_7_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_7_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_7_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_7_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_7_assign
+$label gpxyzlabel_after_lc_7_paletteassign
 If(gp_count eq 7,
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_assign
 $if "%gp_lc_7%"=="no"                              $goto gpxyzlabel_after_lc_7_assign
@@ -2776,6 +2824,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_7
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_8_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_8_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_8_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_8_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_8_assign
+$label gpxyzlabel_after_lc_8_paletteassign
 If(gp_count eq 8,
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_assign
 $if "%gp_lc_8%"=="no"                              $goto gpxyzlabel_after_lc_8_assign
@@ -2803,6 +2858,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_8
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_9_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_9_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_9_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_9_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_9_assign
+$label gpxyzlabel_after_lc_9_paletteassign
 If(gp_count eq 9,
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_assign
 $if "%gp_lc_9%"=="no"                              $goto gpxyzlabel_after_lc_9_assign
@@ -2830,6 +2892,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_9
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_10_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_10_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_10_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_10_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_10_assign
+$label gpxyzlabel_after_lc_10_paletteassign
 If(gp_count eq 10,
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_assign
 $if "%gp_lc_10%"=="no"                             $goto gpxyzlabel_after_lc_10_assign
@@ -2857,6 +2926,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_10
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_11_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_11_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_11_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_11_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_11_assign
+$label gpxyzlabel_after_lc_11_paletteassign
 If(gp_count eq 11,
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_assign
 $if "%gp_lc_11%"=="no"                             $goto gpxyzlabel_after_lc_11_assign
@@ -2884,6 +2960,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_11
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_12_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_12_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_12_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_12_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_12_assign
+$label gpxyzlabel_after_lc_12_paletteassign
 If(gp_count eq 12,
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_assign
 $if "%gp_lc_12%"=="no"                             $goto gpxyzlabel_after_lc_12_assign
@@ -2911,6 +2994,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_12
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_13_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_13_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_13_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_13_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_13_assign
+$label gpxyzlabel_after_lc_13_paletteassign
 If(gp_count eq 13,
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_assign
 $if "%gp_lc_13%"=="no"                             $goto gpxyzlabel_after_lc_13_assign
@@ -2938,6 +3028,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_13
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_14_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_14_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_14_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_14_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_14_assign
+$label gpxyzlabel_after_lc_14_paletteassign
 If(gp_count eq 14,
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_assign
 $if "%gp_lc_14%"=="no"                             $goto gpxyzlabel_after_lc_14_assign
@@ -2965,6 +3062,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_14
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_15_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_15_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_15_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_15_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_15_assign
+$label gpxyzlabel_after_lc_15_paletteassign
 If(gp_count eq 15,
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_assign
 $if "%gp_lc_15%"=="no"                             $goto gpxyzlabel_after_lc_15_assign
@@ -2992,6 +3096,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_15
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_16_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_16_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_16_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_16_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_16_assign
+$label gpxyzlabel_after_lc_16_paletteassign
 If(gp_count eq 16,
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_assign
 $if "%gp_lc_16%"=="no"                             $goto gpxyzlabel_after_lc_16_assign
@@ -3019,6 +3130,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_16
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_17_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_17_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_17_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_17_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_17_assign
+$label gpxyzlabel_after_lc_17_paletteassign
 If(gp_count eq 17,
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_assign
 $if "%gp_lc_17%"=="no"                             $goto gpxyzlabel_after_lc_17_assign
@@ -3046,6 +3164,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_17
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_18_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_18_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_18_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_18_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_18_assign
+$label gpxyzlabel_after_lc_18_paletteassign
 If(gp_count eq 18,
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_assign
 $if "%gp_lc_18%"=="no"                             $goto gpxyzlabel_after_lc_18_assign
@@ -3073,6 +3198,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_18
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_19_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_19_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_19_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_19_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_19_assign
+$label gpxyzlabel_after_lc_19_paletteassign
 If(gp_count eq 19,
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_assign
 $if "%gp_lc_19%"=="no"                             $goto gpxyzlabel_after_lc_19_assign
@@ -3100,6 +3232,13 @@ put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_19
 );
 
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_20_paletteassign
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_20_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_20_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_20_paletteassign
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_20_assign
+$label gpxyzlabel_after_lc_20_paletteassign
 If(gp_count eq 20,
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_assign
 $if "%gp_lc_20%"=="no"                             $goto gpxyzlabel_after_lc_20_assign
@@ -3126,7 +3265,10 @@ $if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_20
 );
-* Insert Auto Code 7 produced by make_4_linestyle.gms - end
+
+* Insert Auto Code 7 produced by make_345678_linestyle.gms - end
+
+
 
  gp_input.nw = 6;
  gp_count = gp_count + 1;
@@ -3954,11 +4096,17 @@ $label gpxyzlabel_after_axes_20_hist
 
   put ' ti col';
 
-
 * Insert Auto Code 8 produced by make_345678_linestyle.gms - begin
 IF(gp_count eq 1,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_1_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_1_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_1_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_1_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_1_hist
+$label gpxyzlabel_after_lc_1_palettehist
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_hist
-$if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_hist
+$ifi    "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_1%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -3969,18 +4117,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_1%") = no;
 $label gpxyzlabel_after_lc_1_hist
 $if not setglobal gp_lw_1                          $goto gpxyzlabel_after_lw_1_hist
-$if "%gp_lw_1%"=="no"                              $goto gpxyzlabel_after_lw_1_hist
+$ifi "%gp_lw_1%"=="no"                             $goto gpxyzlabel_after_lw_1_hist
 put " lw %gp_lw_1%";
 $goto gpxyzlabel_after_lwidth_general_hist_1
 $label gpxyzlabel_after_lw_1_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_1
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_1
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_1
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_1
  );
 IF(gp_count eq 2,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_2_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_2_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_2_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_2_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_2_hist
+$label gpxyzlabel_after_lc_2_palettehist
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_hist
-$if     "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_hist
+$ifi    "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_2%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -3991,18 +4146,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_2%") = no;
 $label gpxyzlabel_after_lc_2_hist
 $if not setglobal gp_lw_2                          $goto gpxyzlabel_after_lw_2_hist
-$if "%gp_lw_2%"=="no"                              $goto gpxyzlabel_after_lw_2_hist
+$ifi "%gp_lw_2%"=="no"                             $goto gpxyzlabel_after_lw_2_hist
 put " lw %gp_lw_2%";
 $goto gpxyzlabel_after_lwidth_general_hist_2
 $label gpxyzlabel_after_lw_2_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_2
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_2
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_2
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_2
  );
 IF(gp_count eq 3,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_3_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_3_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_3_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_3_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_3_hist
+$label gpxyzlabel_after_lc_3_palettehist
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_hist
-$if     "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_hist
+$ifi    "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_3%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4013,18 +4175,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_3%") = no;
 $label gpxyzlabel_after_lc_3_hist
 $if not setglobal gp_lw_3                          $goto gpxyzlabel_after_lw_3_hist
-$if "%gp_lw_3%"=="no"                              $goto gpxyzlabel_after_lw_3_hist
+$ifi "%gp_lw_3%"=="no"                             $goto gpxyzlabel_after_lw_3_hist
 put " lw %gp_lw_3%";
 $goto gpxyzlabel_after_lwidth_general_hist_3
 $label gpxyzlabel_after_lw_3_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_3
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_3
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_3
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_3
  );
 IF(gp_count eq 4,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_4_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_4_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_4_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_4_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_4_hist
+$label gpxyzlabel_after_lc_4_palettehist
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_hist
-$if     "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_hist
+$ifi    "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_4%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4035,18 +4204,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_4%") = no;
 $label gpxyzlabel_after_lc_4_hist
 $if not setglobal gp_lw_4                          $goto gpxyzlabel_after_lw_4_hist
-$if "%gp_lw_4%"=="no"                              $goto gpxyzlabel_after_lw_4_hist
+$ifi "%gp_lw_4%"=="no"                             $goto gpxyzlabel_after_lw_4_hist
 put " lw %gp_lw_4%";
 $goto gpxyzlabel_after_lwidth_general_hist_4
 $label gpxyzlabel_after_lw_4_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_4
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_4
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_4
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_4
  );
 IF(gp_count eq 5,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_5_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_5_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_5_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_5_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_5_hist
+$label gpxyzlabel_after_lc_5_palettehist
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_hist
-$if     "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_hist
+$ifi    "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_5%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4057,18 +4233,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_5%") = no;
 $label gpxyzlabel_after_lc_5_hist
 $if not setglobal gp_lw_5                          $goto gpxyzlabel_after_lw_5_hist
-$if "%gp_lw_5%"=="no"                              $goto gpxyzlabel_after_lw_5_hist
+$ifi "%gp_lw_5%"=="no"                             $goto gpxyzlabel_after_lw_5_hist
 put " lw %gp_lw_5%";
 $goto gpxyzlabel_after_lwidth_general_hist_5
 $label gpxyzlabel_after_lw_5_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_5
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_5
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_5
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_5
  );
 IF(gp_count eq 6,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_6_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_6_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_6_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_6_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_6_hist
+$label gpxyzlabel_after_lc_6_palettehist
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_hist
-$if     "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_hist
+$ifi    "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_6%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4079,18 +4262,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_6%") = no;
 $label gpxyzlabel_after_lc_6_hist
 $if not setglobal gp_lw_6                          $goto gpxyzlabel_after_lw_6_hist
-$if "%gp_lw_6%"=="no"                              $goto gpxyzlabel_after_lw_6_hist
+$ifi "%gp_lw_6%"=="no"                             $goto gpxyzlabel_after_lw_6_hist
 put " lw %gp_lw_6%";
 $goto gpxyzlabel_after_lwidth_general_hist_6
 $label gpxyzlabel_after_lw_6_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_6
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_6
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_6
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_6
  );
 IF(gp_count eq 7,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_7_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_7_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_7_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_7_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_7_hist
+$label gpxyzlabel_after_lc_7_palettehist
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_hist
-$if     "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_hist
+$ifi    "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_7%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4101,18 +4291,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_7%") = no;
 $label gpxyzlabel_after_lc_7_hist
 $if not setglobal gp_lw_7                          $goto gpxyzlabel_after_lw_7_hist
-$if "%gp_lw_7%"=="no"                              $goto gpxyzlabel_after_lw_7_hist
+$ifi "%gp_lw_7%"=="no"                             $goto gpxyzlabel_after_lw_7_hist
 put " lw %gp_lw_7%";
 $goto gpxyzlabel_after_lwidth_general_hist_7
 $label gpxyzlabel_after_lw_7_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_7
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_7
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_7
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_7
  );
 IF(gp_count eq 8,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_8_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_8_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_8_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_8_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_8_hist
+$label gpxyzlabel_after_lc_8_palettehist
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_hist
-$if     "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_hist
+$ifi    "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_8%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4123,18 +4320,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_8%") = no;
 $label gpxyzlabel_after_lc_8_hist
 $if not setglobal gp_lw_8                          $goto gpxyzlabel_after_lw_8_hist
-$if "%gp_lw_8%"=="no"                              $goto gpxyzlabel_after_lw_8_hist
+$ifi "%gp_lw_8%"=="no"                             $goto gpxyzlabel_after_lw_8_hist
 put " lw %gp_lw_8%";
 $goto gpxyzlabel_after_lwidth_general_hist_8
 $label gpxyzlabel_after_lw_8_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_8
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_8
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_8
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_8
  );
 IF(gp_count eq 9,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_9_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_9_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_9_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_9_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_9_hist
+$label gpxyzlabel_after_lc_9_palettehist
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_hist
-$if     "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_hist
+$ifi    "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_9%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4145,18 +4349,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_9%") = no;
 $label gpxyzlabel_after_lc_9_hist
 $if not setglobal gp_lw_9                          $goto gpxyzlabel_after_lw_9_hist
-$if "%gp_lw_9%"=="no"                              $goto gpxyzlabel_after_lw_9_hist
+$ifi "%gp_lw_9%"=="no"                             $goto gpxyzlabel_after_lw_9_hist
 put " lw %gp_lw_9%";
 $goto gpxyzlabel_after_lwidth_general_hist_9
 $label gpxyzlabel_after_lw_9_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_9
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_9
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_9
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_9
  );
 IF(gp_count eq 10,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_10_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_10_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_10_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_10_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_10_hist
+$label gpxyzlabel_after_lc_10_palettehist
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_hist
-$if     "%gp_lc_10%" == "no"                       $goto gpxyzlabel_after_lc_10_hist
+$ifi    "%gp_lc_10%" == "no"                       $goto gpxyzlabel_after_lc_10_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_10%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4167,18 +4378,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_10%") = no;
 $label gpxyzlabel_after_lc_10_hist
 $if not setglobal gp_lw_10                         $goto gpxyzlabel_after_lw_10_hist
-$if "%gp_lw_10%"=="no"                             $goto gpxyzlabel_after_lw_10_hist
+$ifi "%gp_lw_10%"=="no"                            $goto gpxyzlabel_after_lw_10_hist
 put " lw %gp_lw_10%";
 $goto gpxyzlabel_after_lwidth_general_hist_10
 $label gpxyzlabel_after_lw_10_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_10
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_10
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_10
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_10
  );
 IF(gp_count eq 11,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_11_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_11_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_11_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_11_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_11_hist
+$label gpxyzlabel_after_lc_11_palettehist
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_hist
-$if     "%gp_lc_11%" == "no"                       $goto gpxyzlabel_after_lc_11_hist
+$ifi    "%gp_lc_11%" == "no"                       $goto gpxyzlabel_after_lc_11_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_11%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4189,18 +4407,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_11%") = no;
 $label gpxyzlabel_after_lc_11_hist
 $if not setglobal gp_lw_11                         $goto gpxyzlabel_after_lw_11_hist
-$if "%gp_lw_11%"=="no"                             $goto gpxyzlabel_after_lw_11_hist
+$ifi "%gp_lw_11%"=="no"                            $goto gpxyzlabel_after_lw_11_hist
 put " lw %gp_lw_11%";
 $goto gpxyzlabel_after_lwidth_general_hist_11
 $label gpxyzlabel_after_lw_11_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_11
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_11
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_11
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_11
  );
 IF(gp_count eq 12,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_12_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_12_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_12_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_12_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_12_hist
+$label gpxyzlabel_after_lc_12_palettehist
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_hist
-$if     "%gp_lc_12%" == "no"                       $goto gpxyzlabel_after_lc_12_hist
+$ifi    "%gp_lc_12%" == "no"                       $goto gpxyzlabel_after_lc_12_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_12%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4211,18 +4436,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_12%") = no;
 $label gpxyzlabel_after_lc_12_hist
 $if not setglobal gp_lw_12                         $goto gpxyzlabel_after_lw_12_hist
-$if "%gp_lw_12%"=="no"                             $goto gpxyzlabel_after_lw_12_hist
+$ifi "%gp_lw_12%"=="no"                            $goto gpxyzlabel_after_lw_12_hist
 put " lw %gp_lw_12%";
 $goto gpxyzlabel_after_lwidth_general_hist_12
 $label gpxyzlabel_after_lw_12_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_12
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_12
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_12
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_12
  );
 IF(gp_count eq 13,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_13_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_13_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_13_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_13_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_13_hist
+$label gpxyzlabel_after_lc_13_palettehist
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_hist
-$if     "%gp_lc_13%" == "no"                       $goto gpxyzlabel_after_lc_13_hist
+$ifi    "%gp_lc_13%" == "no"                       $goto gpxyzlabel_after_lc_13_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_13%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4233,18 +4465,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_13%") = no;
 $label gpxyzlabel_after_lc_13_hist
 $if not setglobal gp_lw_13                         $goto gpxyzlabel_after_lw_13_hist
-$if "%gp_lw_13%"=="no"                             $goto gpxyzlabel_after_lw_13_hist
+$ifi "%gp_lw_13%"=="no"                            $goto gpxyzlabel_after_lw_13_hist
 put " lw %gp_lw_13%";
 $goto gpxyzlabel_after_lwidth_general_hist_13
 $label gpxyzlabel_after_lw_13_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_13
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_13
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_13
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_13
  );
 IF(gp_count eq 14,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_14_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_14_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_14_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_14_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_14_hist
+$label gpxyzlabel_after_lc_14_palettehist
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_hist
-$if     "%gp_lc_14%" == "no"                       $goto gpxyzlabel_after_lc_14_hist
+$ifi    "%gp_lc_14%" == "no"                       $goto gpxyzlabel_after_lc_14_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_14%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4255,18 +4494,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_14%") = no;
 $label gpxyzlabel_after_lc_14_hist
 $if not setglobal gp_lw_14                         $goto gpxyzlabel_after_lw_14_hist
-$if "%gp_lw_14%"=="no"                             $goto gpxyzlabel_after_lw_14_hist
+$ifi "%gp_lw_14%"=="no"                            $goto gpxyzlabel_after_lw_14_hist
 put " lw %gp_lw_14%";
 $goto gpxyzlabel_after_lwidth_general_hist_14
 $label gpxyzlabel_after_lw_14_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_14
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_14
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_14
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_14
  );
 IF(gp_count eq 15,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_15_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_15_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_15_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_15_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_15_hist
+$label gpxyzlabel_after_lc_15_palettehist
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_hist
-$if     "%gp_lc_15%" == "no"                       $goto gpxyzlabel_after_lc_15_hist
+$ifi    "%gp_lc_15%" == "no"                       $goto gpxyzlabel_after_lc_15_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_15%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4277,18 +4523,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_15%") = no;
 $label gpxyzlabel_after_lc_15_hist
 $if not setglobal gp_lw_15                         $goto gpxyzlabel_after_lw_15_hist
-$if "%gp_lw_15%"=="no"                             $goto gpxyzlabel_after_lw_15_hist
+$ifi "%gp_lw_15%"=="no"                            $goto gpxyzlabel_after_lw_15_hist
 put " lw %gp_lw_15%";
 $goto gpxyzlabel_after_lwidth_general_hist_15
 $label gpxyzlabel_after_lw_15_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_15
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_15
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_15
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_15
  );
 IF(gp_count eq 16,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_16_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_16_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_16_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_16_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_16_hist
+$label gpxyzlabel_after_lc_16_palettehist
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_hist
-$if     "%gp_lc_16%" == "no"                       $goto gpxyzlabel_after_lc_16_hist
+$ifi    "%gp_lc_16%" == "no"                       $goto gpxyzlabel_after_lc_16_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_16%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4299,18 +4552,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_16%") = no;
 $label gpxyzlabel_after_lc_16_hist
 $if not setglobal gp_lw_16                         $goto gpxyzlabel_after_lw_16_hist
-$if "%gp_lw_16%"=="no"                             $goto gpxyzlabel_after_lw_16_hist
+$ifi "%gp_lw_16%"=="no"                            $goto gpxyzlabel_after_lw_16_hist
 put " lw %gp_lw_16%";
 $goto gpxyzlabel_after_lwidth_general_hist_16
 $label gpxyzlabel_after_lw_16_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_16
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_16
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_16
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_16
  );
 IF(gp_count eq 17,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_17_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_17_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_17_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_17_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_17_hist
+$label gpxyzlabel_after_lc_17_palettehist
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_hist
-$if     "%gp_lc_17%" == "no"                       $goto gpxyzlabel_after_lc_17_hist
+$ifi    "%gp_lc_17%" == "no"                       $goto gpxyzlabel_after_lc_17_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_17%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4321,18 +4581,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_17%") = no;
 $label gpxyzlabel_after_lc_17_hist
 $if not setglobal gp_lw_17                         $goto gpxyzlabel_after_lw_17_hist
-$if "%gp_lw_17%"=="no"                             $goto gpxyzlabel_after_lw_17_hist
+$ifi "%gp_lw_17%"=="no"                            $goto gpxyzlabel_after_lw_17_hist
 put " lw %gp_lw_17%";
 $goto gpxyzlabel_after_lwidth_general_hist_17
 $label gpxyzlabel_after_lw_17_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_17
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_17
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_17
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_17
  );
 IF(gp_count eq 18,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_18_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_18_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_18_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_18_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_18_hist
+$label gpxyzlabel_after_lc_18_palettehist
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_hist
-$if     "%gp_lc_18%" == "no"                       $goto gpxyzlabel_after_lc_18_hist
+$ifi    "%gp_lc_18%" == "no"                       $goto gpxyzlabel_after_lc_18_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_18%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4343,18 +4610,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_18%") = no;
 $label gpxyzlabel_after_lc_18_hist
 $if not setglobal gp_lw_18                         $goto gpxyzlabel_after_lw_18_hist
-$if "%gp_lw_18%"=="no"                             $goto gpxyzlabel_after_lw_18_hist
+$ifi "%gp_lw_18%"=="no"                            $goto gpxyzlabel_after_lw_18_hist
 put " lw %gp_lw_18%";
 $goto gpxyzlabel_after_lwidth_general_hist_18
 $label gpxyzlabel_after_lw_18_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_18
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_18
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_18
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_18
  );
 IF(gp_count eq 19,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_19_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_19_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_19_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_19_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_19_hist
+$label gpxyzlabel_after_lc_19_palettehist
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_hist
-$if     "%gp_lc_19%" == "no"                       $goto gpxyzlabel_after_lc_19_hist
+$ifi    "%gp_lc_19%" == "no"                       $goto gpxyzlabel_after_lc_19_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_19%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4365,18 +4639,25 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_19%") = no;
 $label gpxyzlabel_after_lc_19_hist
 $if not setglobal gp_lw_19                         $goto gpxyzlabel_after_lw_19_hist
-$if "%gp_lw_19%"=="no"                             $goto gpxyzlabel_after_lw_19_hist
+$ifi "%gp_lw_19%"=="no"                            $goto gpxyzlabel_after_lw_19_hist
 put " lw %gp_lw_19%";
 $goto gpxyzlabel_after_lwidth_general_hist_19
 $label gpxyzlabel_after_lw_19_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_19
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_19
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_19
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_19
  );
 IF(gp_count eq 20,
+$if not setglobal gp_palette                       $goto gpxyzlabel_after_lc_20_palettehist
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_20_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_20_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_20_palettehist
+put " lc palette frac ",round((gp_count-1)/(%gp_palette_fractions%-1),1);
+$goto gpxyzlabel_after_lc_20_hist
+$label gpxyzlabel_after_lc_20_palettehist
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_hist
-$if     "%gp_lc_20%" == "no"                       $goto gpxyzlabel_after_lc_20_hist
+$ifi    "%gp_lc_20%" == "no"                       $goto gpxyzlabel_after_lc_20_hist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_20%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4387,16 +4668,17 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_20%") = no;
 $label gpxyzlabel_after_lc_20_hist
 $if not setglobal gp_lw_20                         $goto gpxyzlabel_after_lw_20_hist
-$if "%gp_lw_20%"=="no"                             $goto gpxyzlabel_after_lw_20_hist
+$ifi "%gp_lw_20%"=="no"                            $goto gpxyzlabel_after_lw_20_hist
 put " lw %gp_lw_20%";
 $goto gpxyzlabel_after_lwidth_general_hist_20
 $label gpxyzlabel_after_lw_20_hist
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_20
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_hist_20
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_20
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_20
  );
 * Insert Auto Code 8 produced by make_345678_linestyle.gms - end
+
 
   gp_count = gp_count + 1;
 

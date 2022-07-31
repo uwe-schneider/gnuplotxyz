@@ -738,8 +738,8 @@ $ifi    '%gp_term%'=='windows'                    $goto gpxyzlabel_specify_winop
 $ifi    '%gp_ppt%' =='no'                         put "set output '%gp_name%.%gp_extension%'"/;
 $ifi    '%gp_ppt%' =='no'                         $goto gpxyzlabel_specify_winoptions
 $if     setglobal gp_ppt                          $goto gpxyzlabel_determine_ppt_graph_name
-$if not setglobal gp_ppt                          put "set output '%gp_name%_",gpxyzsm_plot_count,".%gp_extension%'"/;
-
+put "set output '%gp_name%_",gpxyzsm_plot_count,".%gp_extension%'"/;
+$goto gpxyzlabel_specify_winoptions
 
 * Insert Auto Code 2 produced by make_2_pptplots.gms Sub Section 1 - Begin
 $label gpxyzlabel_determine_ppt_graph_name

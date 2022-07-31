@@ -874,14 +874,6 @@ $label gpxyzlabel_aftercbdata
 
 
 
-
-
-
-
-
-
-
-
 * Insert Auto Code 1 produced by make_1_label_code.gms - Begin
 $if not setglobal gp_label_1                       $goto gpxyzlabel_afterlabel_1
 $if '%gp_label_1%' == 'no'                         put 'unset label 1' /;

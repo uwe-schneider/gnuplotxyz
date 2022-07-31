@@ -1476,50 +1476,50 @@ PUT '"' /;
 $goto gpxyzlabel_heatmaps
 
 $label gpxyzlabel_zlabel_noloop
-$if a%1==afunction                                $goto gpxyzlabel_check_x2_label
-$if not dimension 4 %1                            $goto gpxyzlabel_check_x2_label
-$if not setglobal gp_zlabel                       put 'set zlabel  "%gp_zzzvalue%" rotate by 90'/;
-$if "%gp_zlabel%"  == "no"                        put 'unset zlabel'/;
-$if not setglobal gp_zlabel                       $goto gpxyzlabel_check_x2_label
-$if "%gp_zlabel%"  == "no"                        $goto gpxyzlabel_check_x2_label
+$ifi a%1==afunction                               $goto gpxyzlabel_check_x2_label
+$if  not dimension 4 %1                           $goto gpxyzlabel_check_x2_label
+$if  not setglobal gp_zlabel                      put 'set zlabel  "%gp_zzzvalue%" rotate by 90'/;
+$ifi "%gp_zlabel%"  == "no"                       put 'unset zlabel'/;
+$if  not setglobal gp_zlabel                      $goto gpxyzlabel_check_x2_label
+$ifi "%gp_zlabel%"  == "no"                       $goto gpxyzlabel_check_x2_label
 put 'set zlabel  "%gp_zlabel%"';
-$if not setglobal gp_zlabelrotate                 $goto  gpxyzlabel_afterzlabelrotate
-$if "%gp_zlabelrotate%"  == "no"                  $goto  gpxyzlabel_afterzlabelrotate
+$if  not setglobal gp_zlabelrotate                $goto  gpxyzlabel_afterzlabelrotate
+$ifi "%gp_zlabelrotate%"  == "no"                 $goto  gpxyzlabel_afterzlabelrotate
 put ' rotate by %gp_zlabelrotate%';
 $label gpxyzlabel_afterzlabelrotate
 put /;
 
 * X2-labels
 $label gpxyzlabel_check_x2_label
-$if not setglobal gp_x2label                      $goto gpxyzlabel_y2label
-$if "%gp_x2label%" == "no"                        $goto gpxyzlabel_y2label
+$if  not setglobal gp_x2label                     $goto gpxyzlabel_y2label
+$ifi "%gp_x2label%" == "no"                       $goto gpxyzlabel_y2label
 put 'set x2label "%gp_x2label%"'/;
 
 
 * Y2-labels
 $label gpxyzlabel_y2label
-$if not setglobal gp_y2label                      $goto gpxyzlabel_cblabel
-$if "%gp_y2label%" == "no"                        $goto gpxyzlabel_cblabel
+$if  not setglobal gp_y2label                     $goto gpxyzlabel_cblabel
+$ifi "%gp_y2label%" == "no"                       $goto gpxyzlabel_cblabel
 put 'set y2label "%gp_y2label%"'/;
 
 
 * CB Labels
 $label gpxyzlabel_cblabel
-$if not setglobal gp_cblabel                      $goto gpxyzlabel_autocblabel
-$if '%gp_cblabel%'=='no'                          put 'unset cblabel'/;
-$if '%gp_cblabel%'=='no'                          $goto gpxyzlabel_aftercblabel
+$if  not setglobal gp_cblabel                     $goto gpxyzlabel_autocblabel
+$ifi '%gp_cblabel%'=='no'                         put 'unset cblabel'/;
+$ifi '%gp_cblabel%'=='no'                         $goto gpxyzlabel_aftercblabel
 $goto gpxyzlabel_assigncblabel
 
 $label gpxyzlabel_autocblabel
-$if not setglobal gp_heatmap_z                    $goto gpxyzlabel_aftercblabel
-$if '%gp_heatmap_z%' == 'no'                      $goto gpxyzlabel_aftercblabel
+$if  not setglobal gp_heatmap_z                   $goto gpxyzlabel_aftercblabel
+$ifi '%gp_heatmap_z%' == 'no'                     $goto gpxyzlabel_aftercblabel
 $setglobal gp_cblabel %gp_heatmap_z%
 $goto gpxyzlabel_assigncblabel
 
 $label gpxyzlabel_assigncblabel
-$if setglobal gp_cblabel                          put 'set cblabel "%gp_cblabel%"';
-$if not setglobal gp_cblabeloffset                $setglobal gp_cblabeloffset 1.5,0
-$if '%gp_cblabeloffset%' == 'no'                  $goto gpxyzlabel_aftercblabeloffset
+$if  setglobal gp_cblabel                         put 'set cblabel "%gp_cblabel%"';
+$if  not setglobal gp_cblabeloffset               $setglobal gp_cblabeloffset 1.5,0
+$ifi '%gp_cblabeloffset%' == 'no'                 $goto gpxyzlabel_aftercblabeloffset
 PUT ' offset %gp_cblabeloffset%';
 $label gpxyzlabel_aftercblabeloffset
 PUT /;
@@ -1527,14 +1527,13 @@ $dropglobal gp_cblabel
 $label gpxyzlabel_aftercblabel
 
 
-
 * Heat maps
 $label gpxyzlabel_heatmaps
 
-$if '%gp_pm3d%'=='no'                             $goto gpxyzlabel_afterpm3d
+$ifi '%gp_pm3d%'=='no'                            $goto gpxyzlabel_afterpm3d
 
-$if setglobal gp_pm3d                             $goto gpxyzlabel_afterautopm3d
-$if not '%gp_style%' == 'heatmap'                 $goto gpxyzlabel_afterautopm3d
+$if  setglobal gp_pm3d                            $goto gpxyzlabel_afterautopm3d
+$ifi not '%gp_style%' == 'heatmap'                $goto gpxyzlabel_afterautopm3d
 $setglobal gp_pm3d map
 $goto gpxyzlabel_afterautopm3d
 
@@ -1544,31 +1543,32 @@ $if setglobal gp_pm3d                             put 'set pm3d %gp_pm3d%'/;
 $if not setglobal gp_pm3d                         $goto gpxyzlabel_afterpm3d
 $label gpxyzlabel_afterpm3d
 
-$if not setglobal gp_view                         $goto gpxyzlabel_autoview
-$if '%gp_view%'=='no'                             $goto gpxyzlabel_autoview
+$if  not setglobal gp_view                        $goto gpxyzlabel_autoview
+$ifi '%gp_view%'=='no'                            $goto gpxyzlabel_autoview
 $if setglobal gp_view                             put 'set view %gp_view%'/;
 $goto gpxyzlabel_plottitle
 
 $label gpxyzlabel_autoview
-$if     '%gp_style%'=='heatmap'                   put 'set view map'/;
-$if not '%gp_style%'=='heatmap'                   put 'set view 60, 30, 1, 1'/;
+$ifi     '%gp_style%'=='heatmap'                  put 'set view map'/;
+$ifi not '%gp_style%'=='heatmap'                  put 'set view 60, 30, 1, 1'/;
 $goto gpxyzlabel_plottitle
 
 
+**** Uwe make aotomatic?
 * Title
 $label gpxyzlabel_plottitle
-$if '%gp_keeptitleinppt%'   == 'no'               $goto gpxyzlabel_skiptitle
-$if setglobal gp_keeptitleinppt                   $goto gpxyzlabel_after_unsetppttitle
-$if '%gp_ppt%' == 'no'                            $goto gpxyzlabel_after_unsetppttitle
-$if setglobal gp_ppt                              put 'unset title'/;
-$if setglobal gp_ppt                              $goto gpxyzlabel_skiptitle
+$ifi '%gp_keeptitleinppt%'   == 'no'              $goto gpxyzlabel_skiptitle
+$if  setglobal gp_keeptitleinppt                  $goto gpxyzlabel_after_unsetppttitle
+$ifi '%gp_ppt%' == 'no'                           $goto gpxyzlabel_after_unsetppttitle
+$if  setglobal gp_ppt                             put 'unset title'/;
+$if  setglobal gp_ppt                             $goto gpxyzlabel_skiptitle
 $label gpxyzlabel_after_unsetppttitle
-$if '%gp_loop1%'   == 'no'                        $goto gpxyzlabel_nolooptitle
-$if     setglobal gp_loop1                        $goto gpxyzlabel_title_loop1
+$ifi '%gp_loop1%'   == 'no'                       $goto gpxyzlabel_nolooptitle
+$if  setglobal gp_loop1                           $goto gpxyzlabel_title_loop1
 
 $label gpxyzlabel_nolooptitle
-$if not setglobal gp_title                        $goto gpxyzlabel_skiptitle
-$if '%gp_title%'   == 'no'                        $goto gpxyzlabel_skiptitle
+$if  not setglobal gp_title                       $goto gpxyzlabel_skiptitle
+$ifi '%gp_title%'   == 'no'                       $goto gpxyzlabel_skiptitle
 put 'set title  "%gp_title%"'/;
 $goto gpxyzlabel_skiptitle
 
@@ -1644,15 +1644,15 @@ put '"' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_skiptitle
-$if not setglobal gp_style                        $setglobal gp_style linespoints
-$if '%gp_style%'   == 'no'                        $setglobal gp_style linespoints
-$if a%1==afunction                                $goto gpxyzlabel_gp_label_nohistogram
+$if  not setglobal gp_style                       $setglobal gp_style linespoints
+$ifi '%gp_style%'   == 'no'                       $setglobal gp_style linespoints
+$ifi a%1==afunction                               $goto gpxyzlabel_gp_label_nohistogram
 $if dimension 1 %1                                $goto gpxyzlabel_gp_label_nohistogram
 $if not a%2==a                                    $goto gpxyzlabel_gp_label_nohistogram
 $if not setglobal gp_style                        $setglobal gp_style histogram
-$if     '%gp_style%'=='spiderplot'                $goto gpxyzlabel_gp_label_nohistogram
-$if     '%gp_xdata%'=='time'                      $goto gpxyzlabel_gp_label_nohistogram
-$if     '%gp_style%'=='heatmap'                   $goto gpxyzlabel_borderoptions
+$ifi    '%gp_style%'=='spiderplot'                $goto gpxyzlabel_gp_label_nohistogram
+$ifi    '%gp_xdata%'=='time'                      $goto gpxyzlabel_gp_label_nohistogram
+$ifi    '%gp_style%'=='heatmap'                   $goto gpxyzlabel_borderoptions
 
 $if not '%gp_style%'=='histogram'                 $setglobal gp_style histogram
 $label gpxyzlabel_gp_label_nohistogram
@@ -1678,27 +1678,27 @@ gp_input.nd = 0;
 gp_input.nw = 0;
 $if not setglobal gp_border                       $setglobal gp_border yes
 $if not setglobal gp_borddim                      $setglobal gp_borddim ''
-$if '%gp_borddim%' == 'all'                       $setglobal gp_borddim ''
-$if '%gp_borddim%' == 'four'                      $setglobal gp_borddim ''
-$if '%gp_borddim%' == 'two'                       $setglobal gp_borddim '3'
-$if '%gp_borddim%' == 'x'                         $setglobal gp_borddim '1'
-$if '%gp_borddim%' == 'y'                         $setglobal gp_borddim '2'
-$if '%gp_borddim%' == 'zero'                      $setglobal gp_border no
-$if '%gp_borddim%' == 'no'                        $setglobal gp_border no
-$if '%gp_border%'  == 'yes'                       put 'set border',' %gp_borddim%'/;
-$if '%gp_border%'  == 'no'                        put 'unset border'/;
-$if '%gp_border%'  == '0'                         put 'unset border'/;
+$ifi '%gp_borddim%' == 'all'                      $setglobal gp_borddim ''
+$ifi '%gp_borddim%' == 'four'                     $setglobal gp_borddim ''
+$ifi '%gp_borddim%' == 'two'                      $setglobal gp_borddim '3'
+$ifi '%gp_borddim%' == 'x'                        $setglobal gp_borddim '1'
+$ifi '%gp_borddim%' == 'y'                        $setglobal gp_borddim '2'
+$ifi '%gp_borddim%' == 'zero'                     $setglobal gp_border no
+$ifi '%gp_borddim%' == 'no'                       $setglobal gp_border no
+$ifi '%gp_border%'  == 'yes'                      put 'set border',' %gp_borddim%'/;
+$ifi '%gp_border%'  == 'no'                       put 'unset border'/;
+$ifi '%gp_border%'  == '0'                        put 'unset border'/;
 
 * Key
-$if     '%gp_key%' == 'yes'                       $setglobal gp_key 'top left'
+$ifi    '%gp_key%' == 'yes'                       $setglobal gp_key 'top left'
 $if not setglobal gp_key                          put 'set key top left'/;
-$if     '%gp_key%' == 'no'                        put 'unset key'/;
+$ifi    '%gp_key%' == 'no'                        put 'unset key'/;
 $if not setglobal gp_key                          $goto gpxyzlabel_pointsz
-$if     '%gp_key%' == 'no'                        $goto gpxyzlabel_pointsz
+$ifi    '%gp_key%' == 'no'                        $goto gpxyzlabel_pointsz
 put 'set key %gp_key% ';
 
 $if not setglobal gp_keyoption                    $goto gpxyzlabel_keytitle
-$if '%gp_keyoption%' == 'no'                      $goto gpxyzlabel_keytitle
+$ifi '%gp_keyoption%' == 'no'                     $goto gpxyzlabel_keytitle
 put '%gp_keyoption% ';
 
 $label gpxyzlabel_keytitle
@@ -1708,62 +1708,62 @@ put 'title "%gp_keytitle%" '
 
 $label gpxyzlabel_key_box
 $if not setglobal gp_keybox                       put /;
-$if '%gp_keybox%' == 'no'                         put /;
+$ifi '%gp_keybox%' == 'no'                        put /;
 $if not setglobal gp_keybox                       $goto gpxyzlabel_pointsz
-$if '%gp_keybox%' == 'no'                         $goto gpxyzlabel_pointsz
+$ifi '%gp_keybox%' == 'no'                        $goto gpxyzlabel_pointsz
 put 'box' /;
 
 * Point size
 $label gpxyzlabel_pointsz
 $if setglobal gp_pointsz                          $setglobal gp_pointsize %gp_pointsz%
 $if not setglobal gp_pointsize                    $goto gpxyzlabel_after_pointsz
-$if '%gp_pointsize%' == 'no'                      $goto gpxyzlabel_after_pointsz
+$ifi '%gp_pointsize%' == 'no'                     $goto gpxyzlabel_after_pointsz
 put 'set pointsize %gp_pointsize%' /;
 $label gpxyzlabel_after_pointsz
 
 * User defined options
 $if not setglobal gp_option_1                     $goto gpxyzlabel_after_user_option_1
-$if '%gp_option_1%' == 'no'                       $goto gpxyzlabel_after_user_option_1
-$if '%gp_option_1%' == ''                         $goto gpxyzlabel_after_user_option_1
+$ifi '%gp_option_1%' == 'no'                      $goto gpxyzlabel_after_user_option_1
+$ifi '%gp_option_1%' == ''                        $goto gpxyzlabel_after_user_option_1
 put '%gp_option_1%' /;
 $label gpxyzlabel_after_user_option_1
 
 $if not setglobal gp_option_2                     $goto gpxyzlabel_after_user_option_2
-$if '%gp_option_2%' == 'no'                       $goto gpxyzlabel_after_user_option_2
-$if '%gp_option_2%' == ''                         $goto gpxyzlabel_after_user_option_2
+$ifi '%gp_option_2%' == 'no'                      $goto gpxyzlabel_after_user_option_2
+$ifi '%gp_option_2%' == ''                        $goto gpxyzlabel_after_user_option_2
 put '%gp_option_2%' /;
 $label gpxyzlabel_after_user_option_2
 
 $if not setglobal gp_option_3                     $goto gpxyzlabel_after_user_option_3
-$if '%gp_option_3%' == 'no'                       $goto gpxyzlabel_after_user_option_3
-$if '%gp_option_3%' == ''                         $goto gpxyzlabel_after_user_option_3
+$ifi '%gp_option_3%' == 'no'                      $goto gpxyzlabel_after_user_option_3
+$ifi '%gp_option_3%' == ''                        $goto gpxyzlabel_after_user_option_3
 put '%gp_option_3%' /;
 $label gpxyzlabel_after_user_option_3
 
 $if not setglobal gp_option_4                     $goto gpxyzlabel_after_user_option_4
-$if '%gp_option_4%' == 'no'                       $goto gpxyzlabel_after_user_option_4
-$if '%gp_option_4%' == ''                         $goto gpxyzlabel_after_user_option_4
+$ifi '%gp_option_4%' == 'no'                      $goto gpxyzlabel_after_user_option_4
+$ifi '%gp_option_4%' == ''                        $goto gpxyzlabel_after_user_option_4
 put '%gp_option_4%' /;
 $label gpxyzlabel_after_user_option_4
 
 $if not setglobal gp_option_5                     $goto gpxyzlabel_after_user_option_5
-$if '%gp_option_5%' == 'no'                       $goto gpxyzlabel_after_user_option_5
-$if '%gp_option_5%' == ''                         $goto gpxyzlabel_after_user_option_5
+$ifi '%gp_option_5%' == 'no'                      $goto gpxyzlabel_after_user_option_5
+$ifi '%gp_option_5%' == ''                        $goto gpxyzlabel_after_user_option_5
 put '%gp_option_5%' /;
 $label gpxyzlabel_after_user_option_5
 
 $if not setglobal gp_option_6                     $goto gpxyzlabel_after_user_option_6
-$if '%gp_option_6%' == 'no'                       $goto gpxyzlabel_after_user_option_6
-$if '%gp_option_6%' == ''                         $goto gpxyzlabel_after_user_option_6
+$ifi '%gp_option_6%' == 'no'                      $goto gpxyzlabel_after_user_option_6
+$ifi '%gp_option_6%' == ''                        $goto gpxyzlabel_after_user_option_6
 put '%gp_option_6%' /;
 $label gpxyzlabel_after_user_option_6
 
 
 $if not setglobal gp_ppt                          $goto gpxyzlabel_afterpptlinestyle
-$if '%gp_ppt%' == 'no'                            $goto gpxyzlabel_afterpptlinestyle
+$ifi '%gp_ppt%' == 'no'                           $goto gpxyzlabel_afterpptlinestyle
 
 $if not setglobal gp_l1style                      $goto gpxyzlabel_afterpptlinestyle_1
-$if '%gp_l1style%'=='no'                          $goto gpxyzlabel_afterpptlinestyle_1
+$ifi '%gp_l1style%'=='no'                         $goto gpxyzlabel_afterpptlinestyle_1
 
 put 'set style line 1 %gp_l1style%' /;
 
@@ -1771,39 +1771,48 @@ $label gpxyzlabel_afterpptlinestyle_1
 
 $label gpxyzlabel_afterpptlinestyle
 
-* Use up to 16 different styles
+* Use up to 20 different styles
 $if not setglobal gp_l1style                      $setglobal gp_l1style %gp_style%
-$if "%gp_l1style%"=="no"                          $setglobal gp_l1style %gp_style%
+$ifi "%gp_l1style%"=="no"                          $setglobal gp_l1style %gp_style%
 $if not setglobal gp_l2style                      $setglobal gp_l2style %gp_style%
-$if "%gp_l2style%"=="no"                          $setglobal gp_l2style %gp_style%
+$ifi "%gp_l2style%"=="no"                          $setglobal gp_l2style %gp_style%
 $if not setglobal gp_l3style                      $setglobal gp_l3style %gp_style%
-$if "%gp_l3style%"=="no"                          $setglobal gp_l3style %gp_style%
+$ifi "%gp_l3style%"=="no"                          $setglobal gp_l3style %gp_style%
 $if not setglobal gp_l4style                      $setglobal gp_l4style %gp_style%
-$if "%gp_l4style%"=="no"                          $setglobal gp_l4style %gp_style%
+$ifi "%gp_l4style%"=="no"                          $setglobal gp_l4style %gp_style%
 $if not setglobal gp_l5style                      $setglobal gp_l5style %gp_style%
-$if "%gp_l5style%"=="no"                          $setglobal gp_l5style %gp_style%
+$ifi "%gp_l5style%"=="no"                          $setglobal gp_l5style %gp_style%
 $if not setglobal gp_l6style                      $setglobal gp_l6style %gp_style%
-$if "%gp_l6style%"=="no"                          $setglobal gp_l6style %gp_style%
+$ifi "%gp_l6style%"=="no"                          $setglobal gp_l6style %gp_style%
 $if not setglobal gp_l7style                      $setglobal gp_l7style %gp_style%
-$if "%gp_l7style%"=="no"                          $setglobal gp_l7style %gp_style%
+$ifi "%gp_l7style%"=="no"                          $setglobal gp_l7style %gp_style%
 $if not setglobal gp_l8style                      $setglobal gp_l8style %gp_style%
-$if "%gp_l8style%"=="no"                          $setglobal gp_l8style %gp_style%
+$ifi "%gp_l8style%"=="no"                          $setglobal gp_l8style %gp_style%
 $if not setglobal gp_l9style                      $setglobal gp_l9style %gp_style%
-$if "%gp_l9style%"=="no"                          $setglobal gp_l9style %gp_style%
+$ifi "%gp_l9style%"=="no"                          $setglobal gp_l9style %gp_style%
 $if not setglobal gp_l10style                     $setglobal gp_l10style %gp_style%
-$if "%gp_l10style%"=="no"                         $setglobal gp_l10style %gp_style%
+$ifi "%gp_l10style%"=="no"                         $setglobal gp_l10style %gp_style%
 $if not setglobal gp_l11style                     $setglobal gp_l11style %gp_style%
-$if "%gp_l11style%"=="no"                         $setglobal gp_l11style %gp_style%
+$ifi "%gp_l11style%"=="no"                         $setglobal gp_l11style %gp_style%
 $if not setglobal gp_l12style                     $setglobal gp_l12style %gp_style%
-$if "%gp_l12style%"=="no"                         $setglobal gp_l12style %gp_style%
+$ifi "%gp_l12style%"=="no"                         $setglobal gp_l12style %gp_style%
 $if not setglobal gp_l13style                     $setglobal gp_l13style %gp_style%
-$if "%gp_l13style%"=="no"                         $setglobal gp_l13style %gp_style%
+$ifi "%gp_l13style%"=="no"                         $setglobal gp_l13style %gp_style%
 $if not setglobal gp_l14style                     $setglobal gp_l14style %gp_style%
-$if "%gp_l14style%"=="no"                         $setglobal gp_l14style %gp_style%
+$ifi "%gp_l14style%"=="no"                         $setglobal gp_l14style %gp_style%
 $if not setglobal gp_l15style                     $setglobal gp_l15style %gp_style%
-$if "%gp_l15style%"=="no"                         $setglobal gp_l15style %gp_style%
+$ifi "%gp_l15style%"=="no"                         $setglobal gp_l15style %gp_style%
 $if not setglobal gp_l16style                     $setglobal gp_l16style %gp_style%
-$if "%gp_l16style%"=="no"                         $setglobal gp_l16style %gp_style%
+$ifi "%gp_l16style%"=="no"                         $setglobal gp_l16style %gp_style%
+$if not setglobal gp_l17style                     $setglobal gp_l17style %gp_style%
+$ifi "%gp_l17style%"=="no"                         $setglobal gp_l17style %gp_style%
+$if not setglobal gp_l18style                     $setglobal gp_l18style %gp_style%
+$ifi "%gp_l18style%"=="no"                         $setglobal gp_l18style %gp_style%
+$if not setglobal gp_l19style                     $setglobal gp_l19style %gp_style%
+$ifi "%gp_l19style%"=="no"                         $setglobal gp_l19style %gp_style%
+$if not setglobal gp_l20style                     $setglobal gp_l20style %gp_style%
+$ifi "%gp_l20style%"=="no"                         $setglobal gp_l20style %gp_style%
+
 
 gp_input.nd = 0;
 gp_input.nw = 6;

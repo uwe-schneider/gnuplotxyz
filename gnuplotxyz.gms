@@ -303,7 +303,8 @@ SETS
  /
  gp_xyz_ind_col(*)
  gp_xyz_fixed_col(*,*)
- gp_fixlinecolormap(gp_hex_color_name,*)
+ gp_fixcolorset(*)
+ gp_fixlinecolormap(*,*)
 ;
 
 
@@ -1817,7 +1818,7 @@ $ifi "%gp_l20style%"=="no"                         $setglobal gp_l20style %gp_st
 gp_input.nd = 0;
 gp_input.nw = 6;
 
-* Insert Auto Code 3 produced by make_4_linestyle.gms - begin
+* Insert Auto Code 3 produced by make_345678_linestyle.gms - begin
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_fixcolorassignment_2d
 $if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_fixcolorassignment_2d
 
@@ -1826,87 +1827,127 @@ gp_count=0;
 LOOP(%gp_fixcolor_set%, gp_count=gp_count+1;
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_fixed_lc_1_assign
 $if "%gp_lc_1%"=="no"                              $goto gpxyzlabel_after_fixed_lc_1_assign
-gp_fixlinecolormap("%gp_lc_1%",%gp_fixcolor_set%) $(gp_count eq 1) = yes;
+IF(gp_count eq 1,
+ gp_fixcolorset("%gp_lc_1%") = yes;
+ gp_fixlinecolormap("%gp_lc_1%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_1_assign
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_fixed_lc_2_assign
 $if "%gp_lc_2%"=="no"                              $goto gpxyzlabel_after_fixed_lc_2_assign
-gp_fixlinecolormap("%gp_lc_2%",%gp_fixcolor_set%) $(gp_count eq 2) = yes;
+IF(gp_count eq 2,
+ gp_fixcolorset("%gp_lc_2%") = yes;
+ gp_fixlinecolormap("%gp_lc_2%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_2_assign
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_fixed_lc_3_assign
 $if "%gp_lc_3%"=="no"                              $goto gpxyzlabel_after_fixed_lc_3_assign
-gp_fixlinecolormap("%gp_lc_3%",%gp_fixcolor_set%) $(gp_count eq 3) = yes;
+IF(gp_count eq 3,
+ gp_fixcolorset("%gp_lc_3%") = yes;
+ gp_fixlinecolormap("%gp_lc_3%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_3_assign
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_fixed_lc_4_assign
 $if "%gp_lc_4%"=="no"                              $goto gpxyzlabel_after_fixed_lc_4_assign
-gp_fixlinecolormap("%gp_lc_4%",%gp_fixcolor_set%) $(gp_count eq 4) = yes;
+IF(gp_count eq 4,
+ gp_fixcolorset("%gp_lc_4%") = yes;
+ gp_fixlinecolormap("%gp_lc_4%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_4_assign
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_fixed_lc_5_assign
 $if "%gp_lc_5%"=="no"                              $goto gpxyzlabel_after_fixed_lc_5_assign
-gp_fixlinecolormap("%gp_lc_5%",%gp_fixcolor_set%) $(gp_count eq 5) = yes;
+IF(gp_count eq 5,
+ gp_fixcolorset("%gp_lc_5%") = yes;
+ gp_fixlinecolormap("%gp_lc_5%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_5_assign
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_fixed_lc_6_assign
 $if "%gp_lc_6%"=="no"                              $goto gpxyzlabel_after_fixed_lc_6_assign
-gp_fixlinecolormap("%gp_lc_6%",%gp_fixcolor_set%) $(gp_count eq 6) = yes;
+IF(gp_count eq 6,
+ gp_fixcolorset("%gp_lc_6%") = yes;
+ gp_fixlinecolormap("%gp_lc_6%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_6_assign
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_fixed_lc_7_assign
 $if "%gp_lc_7%"=="no"                              $goto gpxyzlabel_after_fixed_lc_7_assign
-gp_fixlinecolormap("%gp_lc_7%",%gp_fixcolor_set%) $(gp_count eq 7) = yes;
+IF(gp_count eq 7,
+ gp_fixcolorset("%gp_lc_7%") = yes;
+ gp_fixlinecolormap("%gp_lc_7%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_7_assign
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_fixed_lc_8_assign
 $if "%gp_lc_8%"=="no"                              $goto gpxyzlabel_after_fixed_lc_8_assign
-gp_fixlinecolormap("%gp_lc_8%",%gp_fixcolor_set%) $(gp_count eq 8) = yes;
+IF(gp_count eq 8,
+ gp_fixcolorset("%gp_lc_8%") = yes;
+ gp_fixlinecolormap("%gp_lc_8%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_8_assign
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_fixed_lc_9_assign
 $if "%gp_lc_9%"=="no"                              $goto gpxyzlabel_after_fixed_lc_9_assign
-gp_fixlinecolormap("%gp_lc_9%",%gp_fixcolor_set%) $(gp_count eq 9) = yes;
+IF(gp_count eq 9,
+ gp_fixcolorset("%gp_lc_9%") = yes;
+ gp_fixlinecolormap("%gp_lc_9%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_9_assign
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_fixed_lc_10_assign
 $if "%gp_lc_10%"=="no"                             $goto gpxyzlabel_after_fixed_lc_10_assign
-gp_fixlinecolormap("%gp_lc_10%",%gp_fixcolor_set%) $(gp_count eq 10) = yes;
+IF(gp_count eq 10,
+ gp_fixcolorset("%gp_lc_10%") = yes;
+ gp_fixlinecolormap("%gp_lc_10%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_10_assign
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_fixed_lc_11_assign
 $if "%gp_lc_11%"=="no"                             $goto gpxyzlabel_after_fixed_lc_11_assign
-gp_fixlinecolormap("%gp_lc_11%",%gp_fixcolor_set%) $(gp_count eq 11) = yes;
+IF(gp_count eq 11,
+ gp_fixcolorset("%gp_lc_11%") = yes;
+ gp_fixlinecolormap("%gp_lc_11%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_11_assign
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_fixed_lc_12_assign
 $if "%gp_lc_12%"=="no"                             $goto gpxyzlabel_after_fixed_lc_12_assign
-gp_fixlinecolormap("%gp_lc_12%",%gp_fixcolor_set%) $(gp_count eq 12) = yes;
+IF(gp_count eq 12,
+ gp_fixcolorset("%gp_lc_12%") = yes;
+ gp_fixlinecolormap("%gp_lc_12%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_12_assign
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_fixed_lc_13_assign
 $if "%gp_lc_13%"=="no"                             $goto gpxyzlabel_after_fixed_lc_13_assign
-gp_fixlinecolormap("%gp_lc_13%",%gp_fixcolor_set%) $(gp_count eq 13) = yes;
+IF(gp_count eq 13,
+ gp_fixcolorset("%gp_lc_13%") = yes;
+ gp_fixlinecolormap("%gp_lc_13%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_13_assign
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_fixed_lc_14_assign
 $if "%gp_lc_14%"=="no"                             $goto gpxyzlabel_after_fixed_lc_14_assign
-gp_fixlinecolormap("%gp_lc_14%",%gp_fixcolor_set%) $(gp_count eq 14) = yes;
+IF(gp_count eq 14,
+ gp_fixcolorset("%gp_lc_14%") = yes;
+ gp_fixlinecolormap("%gp_lc_14%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_14_assign
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_fixed_lc_15_assign
 $if "%gp_lc_15%"=="no"                             $goto gpxyzlabel_after_fixed_lc_15_assign
-gp_fixlinecolormap("%gp_lc_15%",%gp_fixcolor_set%) $(gp_count eq 15) = yes;
+IF(gp_count eq 15,
+ gp_fixcolorset("%gp_lc_15%") = yes;
+ gp_fixlinecolormap("%gp_lc_15%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_15_assign
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_fixed_lc_16_assign
 $if "%gp_lc_16%"=="no"                             $goto gpxyzlabel_after_fixed_lc_16_assign
-gp_fixlinecolormap("%gp_lc_16%",%gp_fixcolor_set%) $(gp_count eq 16) = yes;
+IF(gp_count eq 16,
+ gp_fixcolorset("%gp_lc_16%") = yes;
+ gp_fixlinecolormap("%gp_lc_16%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_16_assign
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_fixed_lc_17_assign
 $if "%gp_lc_17%"=="no"                             $goto gpxyzlabel_after_fixed_lc_17_assign
-gp_fixlinecolormap("%gp_lc_17%",%gp_fixcolor_set%) $(gp_count eq 17) = yes;
+IF(gp_count eq 17,
+ gp_fixcolorset("%gp_lc_17%") = yes;
+ gp_fixlinecolormap("%gp_lc_17%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_17_assign
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_fixed_lc_18_assign
 $if "%gp_lc_18%"=="no"                             $goto gpxyzlabel_after_fixed_lc_18_assign
-gp_fixlinecolormap("%gp_lc_18%",%gp_fixcolor_set%) $(gp_count eq 18) = yes;
+IF(gp_count eq 18,
+ gp_fixcolorset("%gp_lc_18%") = yes;
+ gp_fixlinecolormap("%gp_lc_18%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_18_assign
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_fixed_lc_19_assign
 $if "%gp_lc_19%"=="no"                             $goto gpxyzlabel_after_fixed_lc_19_assign
-gp_fixlinecolormap("%gp_lc_19%",%gp_fixcolor_set%) $(gp_count eq 19) = yes;
+IF(gp_count eq 19,
+ gp_fixcolorset("%gp_lc_19%") = yes;
+ gp_fixlinecolormap("%gp_lc_19%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_19_assign
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_fixed_lc_20_assign
 $if "%gp_lc_20%"=="no"                             $goto gpxyzlabel_after_fixed_lc_20_assign
-gp_fixlinecolormap("%gp_lc_20%",%gp_fixcolor_set%) $(gp_count eq 20) = yes;
+IF(gp_count eq 20,
+ gp_fixcolorset("%gp_lc_20%") = yes;
+ gp_fixlinecolormap("%gp_lc_20%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_20_assign
 );
 $label gpxyzlabel_after_fixcolorassignment_2d
-* Insert Auto Code 3 produced by make_4_linestyle.gms - end
+* Insert Auto Code 3 produced by make_345678_linestyle.gms - end
 
 
 

@@ -29,6 +29,9 @@ $if '%1' == 'compileppt'              $goto gpxyzlabel_endofgnupltxyz
 $if not declared gpxyzsm_plot_count   scalar gpxyzsm_plot_count /0/;
 $if not declared gams_ppt_list        file gams_ppt_list /'%gams.sysdir%inclib\gams_ppt_list.txt'/;
 
+* Delete helper file for powerpoint
+$call if exist '%gams.sysdir%inclib\gams_ppt_list.txt' del '%gams.sysdir%inclib\gams_ppt_list.txt' >nul
+
 * Reset powerpoint
 $if '%1' == 'reset'                   execute 'if exist "%gams.sysdir%inclib\gams_ppt_list.txt" del "%gams.sysdir%inclib\gams_ppt_list.txt" >nul';
 $if '%1' == 'reset'                   gpxyzsm_plot_count = 0;
@@ -45,9 +48,6 @@ $if not errorfree                     $exit
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
 
 $if declared u__1                     $goto gpxyzlabel_afterdeclarations
-
-* Delete helper file for powerpoint
-$call if exist '%gams.sysdir%inclib\gams_ppt_list.txt' del '%gams.sysdir%inclib\gams_ppt_list.txt' >nul
 
 * One time declaration of sets parameters and files for graphs in a loop
 alias(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8,u__9,u__10,u__11,u__12,u__13,u__14,u__15,u__16,all_gp_legend,*);
@@ -1716,7 +1716,7 @@ put '%gp_keyoption% ';
 $label gpxyzlabel_keytitle
 $if not setglobal gp_keytitle                     $goto gpxyzlabel_key_box
 $if '%gp_keytitle%' == 'no'                       $goto gpxyzlabel_key_box
-put 'title "%gp_keytitle%" '
+put 'title %gp_keytitle% '
 
 $label gpxyzlabel_key_box
 $if not setglobal gp_keybox                       put /;
@@ -4162,7 +4162,189 @@ $label gpxyzlabel_after_axes_20_hist
 );
 * Insert Auto Code 7b produced by make_345678_linestyle.gms - end
 
-  put ' ti col';
+* Insert Auto Code 7c produced by make_345678_linestyle.gms - begin
+IF(gp_count eq 1,
+$if not setglobal gp_title_l1                      put ' ti col';
+$if not setglobal gp_title_l1                      $goto gpxyzlabel_after_line1_title
+$ifi '%gp_title_l1%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l1%' == 'no'                       $goto gpxyzlabel_after_line1_title
+  put ' ti %gp_title_l1%';
+$label gpxyzlabel_after_line1_title
+
+);
+IF(gp_count eq 2,
+$if not setglobal gp_title_l2                      put ' ti col';
+$if not setglobal gp_title_l2                      $goto gpxyzlabel_after_line2_title
+$ifi '%gp_title_l2%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l2%' == 'no'                       $goto gpxyzlabel_after_line2_title
+  put ' ti %gp_title_l2%';
+$label gpxyzlabel_after_line2_title
+
+);
+IF(gp_count eq 3,
+$if not setglobal gp_title_l3                      put ' ti col';
+$if not setglobal gp_title_l3                      $goto gpxyzlabel_after_line3_title
+$ifi '%gp_title_l3%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l3%' == 'no'                       $goto gpxyzlabel_after_line3_title
+  put ' ti %gp_title_l3%';
+$label gpxyzlabel_after_line3_title
+
+);
+IF(gp_count eq 4,
+$if not setglobal gp_title_l4                      put ' ti col';
+$if not setglobal gp_title_l4                      $goto gpxyzlabel_after_line4_title
+$ifi '%gp_title_l4%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l4%' == 'no'                       $goto gpxyzlabel_after_line4_title
+  put ' ti %gp_title_l4%';
+$label gpxyzlabel_after_line4_title
+
+);
+IF(gp_count eq 5,
+$if not setglobal gp_title_l5                      put ' ti col';
+$if not setglobal gp_title_l5                      $goto gpxyzlabel_after_line5_title
+$ifi '%gp_title_l5%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l5%' == 'no'                       $goto gpxyzlabel_after_line5_title
+  put ' ti %gp_title_l5%';
+$label gpxyzlabel_after_line5_title
+
+);
+IF(gp_count eq 6,
+$if not setglobal gp_title_l6                      put ' ti col';
+$if not setglobal gp_title_l6                      $goto gpxyzlabel_after_line6_title
+$ifi '%gp_title_l6%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l6%' == 'no'                       $goto gpxyzlabel_after_line6_title
+  put ' ti %gp_title_l6%';
+$label gpxyzlabel_after_line6_title
+
+);
+IF(gp_count eq 7,
+$if not setglobal gp_title_l7                      put ' ti col';
+$if not setglobal gp_title_l7                      $goto gpxyzlabel_after_line7_title
+$ifi '%gp_title_l7%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l7%' == 'no'                       $goto gpxyzlabel_after_line7_title
+  put ' ti %gp_title_l7%';
+$label gpxyzlabel_after_line7_title
+
+);
+IF(gp_count eq 8,
+$if not setglobal gp_title_l8                      put ' ti col';
+$if not setglobal gp_title_l8                      $goto gpxyzlabel_after_line8_title
+$ifi '%gp_title_l8%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l8%' == 'no'                       $goto gpxyzlabel_after_line8_title
+  put ' ti %gp_title_l8%';
+$label gpxyzlabel_after_line8_title
+
+);
+IF(gp_count eq 9,
+$if not setglobal gp_title_l9                      put ' ti col';
+$if not setglobal gp_title_l9                      $goto gpxyzlabel_after_line9_title
+$ifi '%gp_title_l9%' == 'no'                       put ' notitle';
+$ifi '%gp_title_l9%' == 'no'                       $goto gpxyzlabel_after_line9_title
+  put ' ti %gp_title_l9%';
+$label gpxyzlabel_after_line9_title
+
+);
+IF(gp_count eq 10,
+$if not setglobal gp_title_l10                     put ' ti col';
+$if not setglobal gp_title_l10                     $goto gpxyzlabel_after_line10_title
+$ifi '%gp_title_l10%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l10%' == 'no'                      $goto gpxyzlabel_after_line10_title
+  put ' ti %gp_title_l10%';
+$label gpxyzlabel_after_line10_title
+
+);
+IF(gp_count eq 11,
+$if not setglobal gp_title_l11                     put ' ti col';
+$if not setglobal gp_title_l11                     $goto gpxyzlabel_after_line11_title
+$ifi '%gp_title_l11%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l11%' == 'no'                      $goto gpxyzlabel_after_line11_title
+  put ' ti %gp_title_l11%';
+$label gpxyzlabel_after_line11_title
+
+);
+IF(gp_count eq 12,
+$if not setglobal gp_title_l12                     put ' ti col';
+$if not setglobal gp_title_l12                     $goto gpxyzlabel_after_line12_title
+$ifi '%gp_title_l12%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l12%' == 'no'                      $goto gpxyzlabel_after_line12_title
+  put ' ti %gp_title_l12%';
+$label gpxyzlabel_after_line12_title
+
+);
+IF(gp_count eq 13,
+$if not setglobal gp_title_l13                     put ' ti col';
+$if not setglobal gp_title_l13                     $goto gpxyzlabel_after_line13_title
+$ifi '%gp_title_l13%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l13%' == 'no'                      $goto gpxyzlabel_after_line13_title
+  put ' ti %gp_title_l13%';
+$label gpxyzlabel_after_line13_title
+
+);
+IF(gp_count eq 14,
+$if not setglobal gp_title_l14                     put ' ti col';
+$if not setglobal gp_title_l14                     $goto gpxyzlabel_after_line14_title
+$ifi '%gp_title_l14%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l14%' == 'no'                      $goto gpxyzlabel_after_line14_title
+  put ' ti %gp_title_l14%';
+$label gpxyzlabel_after_line14_title
+
+);
+IF(gp_count eq 15,
+$if not setglobal gp_title_l15                     put ' ti col';
+$if not setglobal gp_title_l15                     $goto gpxyzlabel_after_line15_title
+$ifi '%gp_title_l15%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l15%' == 'no'                      $goto gpxyzlabel_after_line15_title
+  put ' ti %gp_title_l15%';
+$label gpxyzlabel_after_line15_title
+
+);
+IF(gp_count eq 16,
+$if not setglobal gp_title_l16                     put ' ti col';
+$if not setglobal gp_title_l16                     $goto gpxyzlabel_after_line16_title
+$ifi '%gp_title_l16%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l16%' == 'no'                      $goto gpxyzlabel_after_line16_title
+  put ' ti %gp_title_l16%';
+$label gpxyzlabel_after_line16_title
+
+);
+IF(gp_count eq 17,
+$if not setglobal gp_title_l17                     put ' ti col';
+$if not setglobal gp_title_l17                     $goto gpxyzlabel_after_line17_title
+$ifi '%gp_title_l17%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l17%' == 'no'                      $goto gpxyzlabel_after_line17_title
+  put ' ti %gp_title_l17%';
+$label gpxyzlabel_after_line17_title
+
+);
+IF(gp_count eq 18,
+$if not setglobal gp_title_l18                     put ' ti col';
+$if not setglobal gp_title_l18                     $goto gpxyzlabel_after_line18_title
+$ifi '%gp_title_l18%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l18%' == 'no'                      $goto gpxyzlabel_after_line18_title
+  put ' ti %gp_title_l18%';
+$label gpxyzlabel_after_line18_title
+
+);
+IF(gp_count eq 19,
+$if not setglobal gp_title_l19                     put ' ti col';
+$if not setglobal gp_title_l19                     $goto gpxyzlabel_after_line19_title
+$ifi '%gp_title_l19%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l19%' == 'no'                      $goto gpxyzlabel_after_line19_title
+  put ' ti %gp_title_l19%';
+$label gpxyzlabel_after_line19_title
+
+);
+IF(gp_count eq 20,
+$if not setglobal gp_title_l20                     put ' ti col';
+$if not setglobal gp_title_l20                     $goto gpxyzlabel_after_line20_title
+$ifi '%gp_title_l20%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l20%' == 'no'                      $goto gpxyzlabel_after_line20_title
+  put ' ti %gp_title_l20%';
+$label gpxyzlabel_after_line20_title
+
+);
+* Insert Auto Code 7c produced by make_345678_linestyle.gms - end
+
 
 * Insert Auto Code 8 produced by make_345678_linestyle.gms - begin
 IF(gp_count eq 1,

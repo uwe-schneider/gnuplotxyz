@@ -1274,12 +1274,12 @@ put 'set yzeroaxis  %gp_zeroaxis_option%' /;
 
 $label gpxyzlabel_grid2
 
-$if "%gp_style%" == "spiderplot"                  $goto gpxyzlabel_spiderplot_grid
+$ifi "%gp_style%" == "spiderplot"                  $goto gpxyzlabel_spiderplot_grid
 $if not setglobal gp_grid                         $setglobal gp_grid no
-$if "%gp_grid%" == "no"                           put 'unset grid'/;
-$if "%gp_grid%" == "no"                           $goto gpxyzlabel_xgrid
-$if "%gp_grid%" == "yes"                          put 'set grid' /;
-$if "%gp_grid%" == "yes"                          $goto gpxyzlabel_xgrid
+$ifi "%gp_grid%" == "no"                           put 'unset grid'/;
+$ifi "%gp_grid%" == "no"                           $goto gpxyzlabel_xgrid
+$ifi "%gp_grid%" == "yes"                          put 'set grid' /;
+$ifi "%gp_grid%" == "yes"                          $goto gpxyzlabel_xgrid
 put 'set grid %gp_grid%' /;
 $goto gpxyzlabel_xgrid
 
@@ -1303,50 +1303,50 @@ put 'set grid ytics' /;
 
 $label gpxyzlabel_xformat
 $if not setglobal gp_xformat                      $goto gpxyzlabel_yformat
-$if '%gp_xformat%' == 'no'                        $goto gpxyzlabel_yformat
+$ifi '%gp_xformat%' == 'no'                        $goto gpxyzlabel_yformat
 put 'set format x "%gp_xformat%"'/;
 
 $label gpxyzlabel_yformat
 $if not setglobal gp_yformat                      $goto gpxyzlabel_tickers
-$if '%gp_yformat%' == 'no'                        $goto gpxyzlabel_tickers
+$ifi '%gp_yformat%' == 'no'                        $goto gpxyzlabel_tickers
 put 'set format y "%gp_yformat%"'/;
 
 $label gpxyzlabel_tickers
 $if not setglobal gp_tics                         $setglobal gp_tics 'in'
-$if '%gp_tics%' == 'no'                           put 'unset tics'/;
-$if '%gp_tics%' == 'no'                           $goto gpxyzlabel_gplb_xtics
+$ifi '%gp_tics%' == 'no'                           put 'unset tics'/;
+$ifi '%gp_tics%' == 'no'                           $goto gpxyzlabel_gplb_xtics
 put 'set tics %gp_tics%'/;
 $goto gpxyzlabel_gplb_xtics
 
 $label gpxyzlabel_gplb_xtics
 $if not setglobal gp_xtics                        $setglobal gp_xtics 'in'
-$if '%gp_xtics%' == 'no'                          put 'unset xtics'/;
-$if '%gp_xtics%' == 'no'                          $goto gpxyzlabel_ytics
+$ifi '%gp_xtics%' == 'no'                          put 'unset xtics'/;
+$ifi '%gp_xtics%' == 'no'                          $goto gpxyzlabel_ytics
 put 'set xtics %gp_xtics%';
 
 *** Uwe if gp_xtics no then scale 0 is not applied!!
 $if not a%2==a                                    $goto gpxyzlabel_label_xticincrement
 $if not setglobal gp_xinc                         put ' scale 0';
-$if '%gp_xinc%'   == 'no'                         put ' scale 0';
-$if setglobal gp_xinc                             $goto gpxyzlabel_label_xticincrement
-$goto gpxyzlabel_ytics
+$if not setglobal gp_xinc                         $goto gpxyzlabel_ytics
+$ifi '%gp_xinc%'   == 'no'                         $goto gpxyzlabel_ytics
+$ifi '%gp_xinc%'   == 'skip'                       $goto gpxyzlabel_ytics
 
 $label gpxyzlabel_label_xticincrement
 $if not setglobal gp_xinc                         $goto gpxyzlabel_ytics
-$if    '%gp_xinc%'   == 'no'                      $goto gpxyzlabel_ytics
+$ifi    '%gp_xinc%'   == 'no'                      $goto gpxyzlabel_ytics
 put ' %gp_xinc%';
 
 $label gpxyzlabel_ytics
 put /;
 $if not setglobal gp_ytics                        $setglobal gp_ytics 'in'
-$if '%gp_ytics%' == 'no'                          put 'unset ytics'/;
-$if '%gp_ytics%' == 'no'                          $goto gpxyzlabel_ztics
+$ifi '%gp_ytics%' == 'no'                          put 'unset ytics'/;
+$ifi '%gp_ytics%' == 'no'                          $goto gpxyzlabel_ztics
 put 'set ytics nomirror %gp_ytics%';
 
 $if not setglobal gp_yinc                         put /;
-$if    '%gp_yinc%'   == 'no'                      put /;
+$ifi    '%gp_yinc%'   == 'no'                      put /;
 $if not setglobal gp_yinc                         $goto gpxyzlabel_ztics
-$if    '%gp_yinc%'   == 'no'                      $goto gpxyzlabel_ztics
+$ifi    '%gp_yinc%'   == 'no'                      $goto gpxyzlabel_ztics
 put ' %gp_yinc%'/;
 
 

@@ -1544,15 +1544,52 @@ $ifi '%gp_contour%'=='no'                         $goto gpxyzlabel_aftercontour
 put 'set contour %gp_contour%'/;
 $label gpxyzlabel_aftercontour
 
-$if  not setglobal gp_cntrparam                     $goto gpxyzlabel_aftercntrparam
-$ifi '%gp_cntrparam%'=='no'                         $goto gpxyzlabel_aftercntrparam
+$if  not setglobal gp_cntrparam                   $goto gpxyzlabel_aftercntrparam
+$ifi '%gp_cntrparam%'=='no'                       $goto gpxyzlabel_aftercntrparam
 put 'set cntrparam %gp_cntrparam%'/;
 $label gpxyzlabel_aftercntrparam
 
-$if  not setglobal gp_cntrlabel                     $goto gpxyzlabel_aftercntrlabel
-$ifi '%gp_cntrlabel%'=='no'                         $goto gpxyzlabel_aftercntrlabel
+$if  not setglobal gp_cntrlabel                   $goto gpxyzlabel_aftercntrlabel
+$ifi '%gp_cntrlabel%'=='no'                       $goto gpxyzlabel_aftercntrlabel
 put 'set cntrlabel %gp_cntrlabel%'/;
 $label gpxyzlabel_aftercntrlabel
+
+
+$if  not setglobal gp_contourline_1               $goto gpxyzlabel_aftercontourline_1
+$ifi '%gp_contourline_1%'=='no'                   $goto gpxyzlabel_aftercontourline_1
+put 'set linetype 101 %gp_contourline_1%'/;
+$label gpxyzlabel_aftercontourline_1
+
+$if  not setglobal gp_contourline_2               $goto gpxyzlabel_aftercontourline_2
+$ifi '%gp_contourline_2%'=='no'                   $goto gpxyzlabel_aftercontourline_2
+put 'set linetype 102 %gp_contourline_2%'/;
+$label gpxyzlabel_aftercontourline_2
+
+$if  not setglobal gp_contourline_3               $goto gpxyzlabel_aftercontourline_3
+$ifi '%gp_contourline_3%'=='no'                   $goto gpxyzlabel_aftercontourline_3
+put 'set linetype 103 %gp_contourline_3%'/;
+$label gpxyzlabel_aftercontourline_3
+
+$if  not setglobal gp_contourline_4               $goto gpxyzlabel_aftercontourline_4
+$ifi '%gp_contourline_4%'=='no'                   $goto gpxyzlabel_aftercontourline_4
+put 'set linetype 104 %gp_contourline_4%'/;
+$label gpxyzlabel_aftercontourline_4
+
+$if  not setglobal gp_contourline_5               $goto gpxyzlabel_aftercontourline_5
+$ifi '%gp_contourline_5%'=='no'                   $goto gpxyzlabel_aftercontourline_5
+put 'set linetype 105 %gp_contourline_5%'/;
+$label gpxyzlabel_aftercontourline_5
+
+$if  not setglobal gp_contourline_6               $goto gpxyzlabel_aftercontourline_6
+$ifi '%gp_contourline_6%'=='no'                   $goto gpxyzlabel_aftercontourline_6
+put 'set linetype 106 %gp_contourline_6%'/;
+$label gpxyzlabel_aftercontourline_6
+
+$if  not setglobal gp_contourline_7               $goto gpxyzlabel_aftercontourline_7
+$ifi '%gp_contourline_7%'=='no'                   $goto gpxyzlabel_aftercontourline_7
+put 'set linetype 107 %gp_contourline_7%'/;
+$label gpxyzlabel_aftercontourline_7
+
 
 
 

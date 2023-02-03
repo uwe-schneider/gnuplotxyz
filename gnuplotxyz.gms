@@ -1056,7 +1056,6 @@ $if  '%gp_yrange%' == 'no'                        put 'set auto y'/;
 $if  '%gp_yrange%' == 'no'                        $goto gpxyzlabel_zrange
 put 'set yrange [%gp_yrange%]'/;
 
-
 $label gpxyzlabel_zrange
 $if '%gp_style%' == 'heatmap'                     $goto gpxyzlabel_scale_2axes
 $if not setglobal gp_zrange                       $setglobal gp_zrange 'no'
@@ -1539,6 +1538,24 @@ $dropglobal gp_cblabel
 $label gpxyzlabel_aftercblabel
 
 
+* Contour Labels
+$if  not setglobal gp_contour                     $goto gpxyzlabel_aftercontour
+$ifi '%gp_contour%'=='no'                         $goto gpxyzlabel_aftercontour
+put 'set contour %gp_contour%'/;
+$label gpxyzlabel_aftercontour
+
+$if  not setglobal gp_cntrparam                     $goto gpxyzlabel_aftercntrparam
+$ifi '%gp_cntrparam%'=='no'                         $goto gpxyzlabel_aftercntrparam
+put 'set cntrparam %gp_cntrparam%'/;
+$label gpxyzlabel_aftercntrparam
+
+$if  not setglobal gp_cntrlabel                     $goto gpxyzlabel_aftercntrlabel
+$ifi '%gp_cntrlabel%'=='no'                         $goto gpxyzlabel_aftercntrlabel
+put 'set cntrlabel %gp_cntrlabel%'/;
+$label gpxyzlabel_aftercntrlabel
+
+
+
 * Heat maps
 $label gpxyzlabel_heatmaps
 
@@ -1566,7 +1583,7 @@ $ifi not '%gp_style%'=='heatmap'                  put 'set view 60, 30, 1, 1'/;
 $goto gpxyzlabel_plottitle
 
 
-**** Uwe make aotomatic?
+**** Uwe make automatic?
 * Title
 $label gpxyzlabel_plottitle
 $ifi '%gp_keeptitleinppt%'   == 'no'              $goto gpxyzlabel_skiptitle

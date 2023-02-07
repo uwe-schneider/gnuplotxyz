@@ -736,7 +736,12 @@ $if not setglobal gp_extension                    $setglobal gp_extension %gp_te
 $ifi '%gp_extension%' == 'no'                     $setglobal gp_extension %gp_term%
 
 put 'set terminal %gp_term%';
-put ' font "%gp_font%, %gp_fontsize%" linewidth %gp_lwidth% size 871,653';
+put ' font "%gp_font%, %gp_fontsize%" linewidth %gp_lwidth%';
+$if not setglobal gp_wsize                        $goto gpxyzlabel_after_wsize
+$ifi '%gp_wsize%' == 'no'                         $goto gpxyzlabel_after_wsize
+put ' wsize %gp_wsize%';
+$label gpxyzlabel_after_wsize
+
 put /;
 $if not setglobal gp_termoption                   $goto gpxyzlabel_afterterminal_option
 $ifi    '%gp_termoption%'=='no'                   $goto gpxyzlabel_afterterminal_option

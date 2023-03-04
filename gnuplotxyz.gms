@@ -25,15 +25,18 @@ $if '%1' == 'multiplot'               $goto gpxyzlabel_totalendofgnupltxyz
 * Execute direct export to microsoft powerpoint (Neubersch utility)
 $if '%1' == 'compileppt'              $goto gpxyzlabel_endofgnupltxyz
 
+* Create directory for powerpoint stuff
+$if not exist %gams.sysdir%pptlib     $call mkdir %gams.sysdir%pptlib
+
 * Declare powerpoint counter and text file for image list (Huck utility)
 $if not declared gpxyzsm_plot_count   scalar gpxyzsm_plot_count /0/;
-$if not declared gams_ppt_list        file gams_ppt_list /'%gams.sysdir%inclib\gams_ppt_list.txt'/;
+$if not declared gams_ppt_list        file gams_ppt_list /'%gams.sysdir%pptlib\gams_ppt_list.txt'/;
 
 * Delete helper file for powerpoint
-$call if exist '%gams.sysdir%inclib\gams_ppt_list.txt' del '%gams.sysdir%inclib\gams_ppt_list.txt' >nul
+$call if exist '%gams.sysdir%inclib\gams_ppt_list.txt' del '%gams.sysdir%pptlib\gams_ppt_list.txt' >nul
 
 * Reset powerpoint
-$if '%1' == 'reset'                   execute 'if exist "%gams.sysdir%inclib\gams_ppt_list.txt" del "%gams.sysdir%inclib\gams_ppt_list.txt" >nul';
+$if '%1' == 'reset'                   execute 'if exist "%gams.sysdir%pptlib\gams_ppt_list.txt" del "%gams.sysdir%pptlib\gams_ppt_list.txt" >nul';
 $if '%1' == 'reset'                   gpxyzsm_plot_count = 0;
 $if '%1' == 'reset'                   $goto gpxyzlabel_endofgnupltxyz
 
@@ -7274,7 +7277,7 @@ uu___4(u__4)=no;
 $label gpxyzlabel_endofgnupltxyz
 
 $if not setglobal ppt_filename   $setglobal ppt_filename gams_slides.pptx
-$if "%1"=="compileppt"  execute "%gams.sysdir%inclib\compileppt.exe  %gams.sysdir%inclib\gams_ppt_list.txt %ppt_filename%"
+$if "%1"=="compileppt"  execute "%gams.sysdir%inclib\compileppt.exe  %gams.sysdir%pptlib\gams_ppt_list.txt %ppt_filename%"
 
 $label gpxyzlabel_totalendofgnupltxyz
 $if "%1" == "multiplot"                           $setglobal gp_multiplot no

@@ -1462,9 +1462,17 @@ $if '%gp_yyyvalue%' == 'no'                       $goto gpxyzlabel_y2label_check
 
 $label  gpxyzlabel_after_ylabelpresencecheck
 
+$if not setglobal gp_ylabelloop                   $goto gpxyzlabel_after_ylabelloop
+$if "%gp_ylabelloop%" == "no"                     $goto gpxyzlabel_after_ylabelloop
+put 'set ylabel  "',%gp_ylabelloop%.TE(%gp_ylabelloop%),'"';
+$goto gpxyzlabel_after_ylabelassignment
+$label gpxyzlabel_after_ylabelloop
 
 $if not setglobal gp_ylabel                       $setglobal gp_ylabel %gp_yyyvalue%
 put 'set ylabel  "%gp_ylabel%"';
+$label gpxyzlabel_after_ylabelassignment
+
+
 $if not setglobal gp_ylabeloffset                 $goto gpxyzlabel_after_ylabeloffset_noloop
 $if '%gp_ylabeloffset%' == 'no'                   $goto gpxyzlabel_after_ylabeloffset_noloop
 put ' offset %gp_ylabeloffset%';
@@ -3505,12 +3513,57 @@ gp_input.nw = 0;
 gp_input.nd = 0;
 gp_count=0;
 
+$if not setglobal gp_paxis_1            $setglobal gp_paxis_1 tics %gp_spider_tics%
+$if not setglobal gp_paxis_2            $setglobal gp_paxis_2 tics %gp_spider_tics%
+$if not setglobal gp_paxis_3            $setglobal gp_paxis_3 tics %gp_spider_tics%
+$if not setglobal gp_paxis_4            $setglobal gp_paxis_4 tics %gp_spider_tics%
+$if not setglobal gp_paxis_5            $setglobal gp_paxis_5 tics %gp_spider_tics%
+$if not setglobal gp_paxis_6            $setglobal gp_paxis_6 tics %gp_spider_tics%
+$if not setglobal gp_paxis_7            $setglobal gp_paxis_7 tics %gp_spider_tics%
+$if not setglobal gp_paxis_8            $setglobal gp_paxis_8 tics %gp_spider_tics%
+$if not setglobal gp_paxis_9            $setglobal gp_paxis_9 tics %gp_spider_tics%
+
 loop(%gp_obsv_1%,
  gp_count=gp_count+1;
 
- PUT 'set paxis ',gp_count,' label "',%gp_obsv_1%.Tl,'" %gp_spider_label%' /;
- PUT 'set paxis ',gp_count,' tics %gp_spider_tics%' /;
+PUT 'set paxis ',gp_count,' label "',%gp_obsv_1%.Tl,'" %gp_spider_label%' /;
+$if "%gp_paxis_1%" == "no"  $goto after_paxis_1
+IF(gp_count eq 1, PUT 'set paxis 1 %gp_paxis_1%' /; );
+$label after_paxis_1
 
+$if "%gp_paxis_2%" == "no"  $goto after_paxis_2
+IF(gp_count eq 2, PUT 'set paxis 2 %gp_paxis_2%' /; );
+$label after_paxis_2
+
+$if "%gp_paxis_3%" == "no"  $goto after_paxis_3
+IF(gp_count eq 3, PUT 'set paxis 3 %gp_paxis_3%' /; );
+$label after_paxis_3
+
+$if "%gp_paxis_4%" == "no"  $goto after_paxis_4
+IF(gp_count eq 4, PUT 'set paxis 4 %gp_paxis_4%' /; );
+$label after_paxis_4
+
+$if "%gp_paxis_5%" == "no"  $goto after_paxis_5
+IF(gp_count eq 5, PUT 'set paxis 5 %gp_paxis_5%' /; );
+$label after_paxis_5
+
+$if "%gp_paxis_6%" == "no"  $goto after_paxis_6
+IF(gp_count eq 6, PUT 'set paxis 6 %gp_paxis_6%' /; );
+$label after_paxis_6
+
+$if "%gp_paxis_7%" == "no"  $goto after_paxis_7
+IF(gp_count eq 7, PUT 'set paxis 7 %gp_paxis_7%' /; );
+$label after_paxis_7
+
+$if "%gp_paxis_8%" == "no"  $goto after_paxis_8
+IF(gp_count eq 8, PUT 'set paxis 8 %gp_paxis_8%' /; );
+$label after_paxis_8
+
+$if "%gp_paxis_9%" == "no"  $goto after_paxis_9
+IF(gp_count eq 9, PUT 'set paxis 9 %gp_paxis_9%' /; );
+$label after_paxis_9
+
+*PUT 'set paxis ',gp_count,' tics %gp_spider_tics%' /;
     );
 
 gp_count = 1;

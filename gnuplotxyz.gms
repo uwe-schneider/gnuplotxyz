@@ -1639,6 +1639,10 @@ $goto gpxyzlabel_plottitle
 **** Uwe make automatic?
 * Title
 $label gpxyzlabel_plottitle
+
+$if not setglobal gp_titleoption                  $setglobal gp_titleoption ' '
+$if '%gp_titleoption%' == 'no'                    $setglobal gp_titleoption ' '
+
 $ifi '%gp_keeptitleinppt%'   == 'no'              $goto gpxyzlabel_skiptitle
 $if  setglobal gp_keeptitleinppt                  $goto gpxyzlabel_after_unsetppttitle
 $ifi '%gp_ppt%' == 'no'                           $goto gpxyzlabel_after_unsetppttitle
@@ -1651,14 +1655,14 @@ $if  setglobal gp_loop1                           $goto gpxyzlabel_title_loop1
 $label gpxyzlabel_nolooptitle
 $if  not setglobal gp_title                       $goto gpxyzlabel_skiptitle
 $ifi '%gp_title%'   == 'no'                       $goto gpxyzlabel_skiptitle
-put 'set title  "%gp_title%"'/;
+put 'set title  "%gp_title%" %gp_titleoption%'/;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop1
 $if not setglobal gp_title                        $setglobal gp_title ' '
 put 'set title  "%gp_title% ',%gp_loop1%.te(%gp_loop1%);
 $if     setglobal gp_loop2                        $goto gpxyzlabel_title_loop2
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop2
@@ -1666,7 +1670,7 @@ $if '%gp_loop2%'   == 'no'                        put '"' /;
 $if '%gp_loop2%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop2%.te(%gp_loop2%);
 $if     setglobal gp_loop3                        $goto gpxyzlabel_title_loop3
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop3
@@ -1674,7 +1678,7 @@ $if '%gp_loop3%'   == 'no'                        put '"' /;
 $if '%gp_loop3%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop3%.te(%gp_loop3%);
 $if     setglobal gp_loop4                        $goto gpxyzlabel_title_loop4
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 *new
@@ -1683,7 +1687,7 @@ $if '%gp_loop4%'   == 'no'                        put '"' /;
 $if '%gp_loop4%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop4%.te(%gp_loop4%);
 $if     setglobal gp_loop5                        $goto gpxyzlabel_title_loop5
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop5
@@ -1691,7 +1695,7 @@ $if '%gp_loop5%'   == 'no'                        put '"' /;
 $if '%gp_loop5%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop5%.te(%gp_loop5%);
 $if     setglobal gp_loop6                        $goto gpxyzlabel_title_loop6
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop6
@@ -1699,7 +1703,7 @@ $if '%gp_loop6%'   == 'no'                        put '"' /;
 $if '%gp_loop6%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop6%.te(%gp_loop6%);
 $if     setglobal gp_loop7                        $goto gpxyzlabel_title_loop7
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop7
@@ -1707,7 +1711,7 @@ $if '%gp_loop7%'   == 'no'                        put '"' /;
 $if '%gp_loop7%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop7%.te(%gp_loop7%);
 $if     setglobal gp_loop8                        $goto gpxyzlabel_title_loop8
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop8
@@ -1715,14 +1719,14 @@ $if '%gp_loop8%'   == 'no'                        put '"' /;
 $if '%gp_loop8%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop8%.te(%gp_loop8%);
 $if     setglobal gp_loop9                        $goto gpxyzlabel_title_loop9
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop9
 $if '%gp_loop9%'   == 'no'                        put '"' /;
 $if '%gp_loop9%'   == 'no'                        $goto gpxyzlabel_skiptitle
 put ' ',%gp_loop9%.te(%gp_loop9%);
-put '"' /;
+put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_skiptitle
@@ -3584,41 +3588,79 @@ $if "%gp_key_style%" == "boxes"                  $setglobal gp_key_color_adjecti
 $if "%gp_key_style%" == "spiderplot"             $setglobal gp_key_color_adjective  lc
 $if not setglobal  gp_key_color_adjective        $setglobal gp_key_color_adjective  lc
 
+
+
 * Insert Auto Code Spider produced by make_345678_linestyle.gms - begin
 $if "%gp_paxis_max_1%" == "no"   $goto gpxyzlabel_after_p_1_manualmax
-$if setglobal gp_paxis_max_1 PUT "set paxis 1 range [0:%gp_paxis_max_1%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_1
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_1 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_1
+$if not setglobal gp_paxis_min_1 $setglobal %gp_paxis_min_1 0
+$if setglobal gp_paxis_max_1 PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_paxis_max_1%]"/;
 $label gpxyzlabel_after_p_1_manualmax
 
 $if "%gp_paxis_max_2%" == "no"   $goto gpxyzlabel_after_p_2_manualmax
-$if setglobal gp_paxis_max_2 PUT "set paxis 2 range [0:%gp_paxis_max_2%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_2
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_2 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_2
+$if not setglobal gp_paxis_min_2 $setglobal %gp_paxis_min_2 0
+$if setglobal gp_paxis_max_2 PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_paxis_max_2%]"/;
 $label gpxyzlabel_after_p_2_manualmax
 
 $if "%gp_paxis_max_3%" == "no"   $goto gpxyzlabel_after_p_3_manualmax
-$if setglobal gp_paxis_max_3 PUT "set paxis 3 range [0:%gp_paxis_max_3%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_3
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_3 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_3
+$if not setglobal gp_paxis_min_3 $setglobal %gp_paxis_min_3 0
+$if setglobal gp_paxis_max_3 PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_paxis_max_3%]"/;
 $label gpxyzlabel_after_p_3_manualmax
 
 $if "%gp_paxis_max_4%" == "no"   $goto gpxyzlabel_after_p_4_manualmax
-$if setglobal gp_paxis_max_4 PUT "set paxis 4 range [0:%gp_paxis_max_4%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_4
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_4 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_4
+$if not setglobal gp_paxis_min_4 $setglobal %gp_paxis_min_4 0
+$if setglobal gp_paxis_max_4 PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_paxis_max_4%]"/;
 $label gpxyzlabel_after_p_4_manualmax
 
 $if "%gp_paxis_max_5%" == "no"   $goto gpxyzlabel_after_p_5_manualmax
-$if setglobal gp_paxis_max_5 PUT "set paxis 5 range [0:%gp_paxis_max_5%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_5
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_5 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_5
+$if not setglobal gp_paxis_min_5 $setglobal %gp_paxis_min_5 0
+$if setglobal gp_paxis_max_5 PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_paxis_max_5%]"/;
 $label gpxyzlabel_after_p_5_manualmax
 
 $if "%gp_paxis_max_6%" == "no"   $goto gpxyzlabel_after_p_6_manualmax
-$if setglobal gp_paxis_max_6 PUT "set paxis 6 range [0:%gp_paxis_max_6%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_6
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_6 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_6
+$if not setglobal gp_paxis_min_6 $setglobal %gp_paxis_min_6 0
+$if setglobal gp_paxis_max_6 PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_paxis_max_6%]"/;
 $label gpxyzlabel_after_p_6_manualmax
 
 $if "%gp_paxis_max_7%" == "no"   $goto gpxyzlabel_after_p_7_manualmax
-$if setglobal gp_paxis_max_7 PUT "set paxis 7 range [0:%gp_paxis_max_7%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_7
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_7 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_7
+$if not setglobal gp_paxis_min_7 $setglobal %gp_paxis_min_7 0
+$if setglobal gp_paxis_max_7 PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_paxis_max_7%]"/;
 $label gpxyzlabel_after_p_7_manualmax
 
 $if "%gp_paxis_max_8%" == "no"   $goto gpxyzlabel_after_p_8_manualmax
-$if setglobal gp_paxis_max_8 PUT "set paxis 8 range [0:%gp_paxis_max_8%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_8
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_8 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_8
+$if not setglobal gp_paxis_min_8 $setglobal %gp_paxis_min_8 0
+$if setglobal gp_paxis_max_8 PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_paxis_max_8%]"/;
 $label gpxyzlabel_after_p_8_manualmax
 
 $if "%gp_paxis_max_9%" == "no"   $goto gpxyzlabel_after_p_9_manualmax
-$if setglobal gp_paxis_max_9 PUT "set paxis 9 range [0:%gp_paxis_max_9%]"/;
+$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_9
+$if setglobal gp_paxis_min  $setglobal gp_paxis_min_9 %gp_paxis_min%
+$label gpxyzlabel_after_paxis_min_9
+$if not setglobal gp_paxis_min_9 $setglobal %gp_paxis_min_9 0
+$if setglobal gp_paxis_max_9 PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_paxis_max_9%]"/;
 $label gpxyzlabel_after_p_9_manualmax
 
 
@@ -4061,6 +4103,9 @@ IF(gp_count lt card(%gp_scen%), put " ,";  );
 
 $goto gpxyzlabel_write_data_file
 * Insert Auto Code Spider produced by make_345678_linestyle.gms - end
+
+
+
 
 
 

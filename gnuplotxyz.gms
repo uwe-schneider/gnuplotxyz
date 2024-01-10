@@ -3589,78 +3589,55 @@ $if "%gp_key_style%" == "spiderplot"             $setglobal gp_key_color_adjecti
 $if not setglobal  gp_key_color_adjective        $setglobal gp_key_color_adjective  lc
 
 
-
 * Insert Auto Code Spider produced by make_345678_linestyle.gms - begin
-$if "%gp_paxis_max_1%" == "no"   $goto gpxyzlabel_after_p_1_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_1
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_1 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_1
-$if not setglobal gp_paxis_min_1 $setglobal %gp_paxis_min_1 0
-$if setglobal gp_paxis_max_1 PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_paxis_max_1%]"/;
+$if not setglobal gp_paxis_min              $setglobal  gp_paxis_min '0'
+$if "%gp_paxis_min%" == "no"                $setglobal  gp_paxis_min '0'
+
+$if not setglobal gp_paxis_min_1            $setglobal gp_paxis_min_1 %gp_paxis_min%
+$if not setglobal gp_paxis_min_2            $setglobal gp_paxis_min_2 %gp_paxis_min%
+$if not setglobal gp_paxis_min_3            $setglobal gp_paxis_min_3 %gp_paxis_min%
+$if not setglobal gp_paxis_min_4            $setglobal gp_paxis_min_4 %gp_paxis_min%
+$if not setglobal gp_paxis_min_5            $setglobal gp_paxis_min_5 %gp_paxis_min%
+$if not setglobal gp_paxis_min_6            $setglobal gp_paxis_min_6 %gp_paxis_min%
+$if not setglobal gp_paxis_min_7            $setglobal gp_paxis_min_7 %gp_paxis_min%
+$if not setglobal gp_paxis_min_8            $setglobal gp_paxis_min_8 %gp_paxis_min%
+$if not setglobal gp_paxis_min_9            $setglobal gp_paxis_min_9 %gp_paxis_min%
+
+
+$if "%gp_paxis_max_1%" == "no"              $goto gpxyzlabel_after_p_1_manualmax
+$if setglobal gp_paxis_max_1                PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_paxis_max_1%]"/;
 $label gpxyzlabel_after_p_1_manualmax
 
-$if "%gp_paxis_max_2%" == "no"   $goto gpxyzlabel_after_p_2_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_2
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_2 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_2
-$if not setglobal gp_paxis_min_2 $setglobal %gp_paxis_min_2 0
-$if setglobal gp_paxis_max_2 PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_paxis_max_2%]"/;
+$if "%gp_paxis_max_2%" == "no"              $goto gpxyzlabel_after_p_2_manualmax
+$if setglobal gp_paxis_max_2                PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_paxis_max_2%]"/;
 $label gpxyzlabel_after_p_2_manualmax
 
-$if "%gp_paxis_max_3%" == "no"   $goto gpxyzlabel_after_p_3_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_3
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_3 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_3
-$if not setglobal gp_paxis_min_3 $setglobal %gp_paxis_min_3 0
-$if setglobal gp_paxis_max_3 PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_paxis_max_3%]"/;
+$if "%gp_paxis_max_3%" == "no"              $goto gpxyzlabel_after_p_3_manualmax
+$if setglobal gp_paxis_max_3                PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_paxis_max_3%]"/;
 $label gpxyzlabel_after_p_3_manualmax
 
-$if "%gp_paxis_max_4%" == "no"   $goto gpxyzlabel_after_p_4_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_4
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_4 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_4
-$if not setglobal gp_paxis_min_4 $setglobal %gp_paxis_min_4 0
-$if setglobal gp_paxis_max_4 PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_paxis_max_4%]"/;
+$if "%gp_paxis_max_4%" == "no"              $goto gpxyzlabel_after_p_4_manualmax
+$if setglobal gp_paxis_max_4                PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_paxis_max_4%]"/;
 $label gpxyzlabel_after_p_4_manualmax
 
-$if "%gp_paxis_max_5%" == "no"   $goto gpxyzlabel_after_p_5_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_5
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_5 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_5
-$if not setglobal gp_paxis_min_5 $setglobal %gp_paxis_min_5 0
-$if setglobal gp_paxis_max_5 PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_paxis_max_5%]"/;
+$if "%gp_paxis_max_5%" == "no"              $goto gpxyzlabel_after_p_5_manualmax
+$if setglobal gp_paxis_max_5                PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_paxis_max_5%]"/;
 $label gpxyzlabel_after_p_5_manualmax
 
-$if "%gp_paxis_max_6%" == "no"   $goto gpxyzlabel_after_p_6_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_6
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_6 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_6
-$if not setglobal gp_paxis_min_6 $setglobal %gp_paxis_min_6 0
-$if setglobal gp_paxis_max_6 PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_paxis_max_6%]"/;
+$if "%gp_paxis_max_6%" == "no"              $goto gpxyzlabel_after_p_6_manualmax
+$if setglobal gp_paxis_max_6                PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_paxis_max_6%]"/;
 $label gpxyzlabel_after_p_6_manualmax
 
-$if "%gp_paxis_max_7%" == "no"   $goto gpxyzlabel_after_p_7_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_7
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_7 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_7
-$if not setglobal gp_paxis_min_7 $setglobal %gp_paxis_min_7 0
-$if setglobal gp_paxis_max_7 PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_paxis_max_7%]"/;
+$if "%gp_paxis_max_7%" == "no"              $goto gpxyzlabel_after_p_7_manualmax
+$if setglobal gp_paxis_max_7                PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_paxis_max_7%]"/;
 $label gpxyzlabel_after_p_7_manualmax
 
-$if "%gp_paxis_max_8%" == "no"   $goto gpxyzlabel_after_p_8_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_8
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_8 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_8
-$if not setglobal gp_paxis_min_8 $setglobal %gp_paxis_min_8 0
-$if setglobal gp_paxis_max_8 PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_paxis_max_8%]"/;
+$if "%gp_paxis_max_8%" == "no"              $goto gpxyzlabel_after_p_8_manualmax
+$if setglobal gp_paxis_max_8                PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_paxis_max_8%]"/;
 $label gpxyzlabel_after_p_8_manualmax
 
-$if "%gp_paxis_max_9%" == "no"   $goto gpxyzlabel_after_p_9_manualmax
-$if "%gp_paxis_min%" == "no"   $goto gpxyzlabel_after_paxis_min_9
-$if setglobal gp_paxis_min  $setglobal gp_paxis_min_9 %gp_paxis_min%
-$label gpxyzlabel_after_paxis_min_9
-$if not setglobal gp_paxis_min_9 $setglobal %gp_paxis_min_9 0
-$if setglobal gp_paxis_max_9 PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_paxis_max_9%]"/;
+$if "%gp_paxis_max_9%" == "no"              $goto gpxyzlabel_after_p_9_manualmax
+$if setglobal gp_paxis_max_9                PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_paxis_max_9%]"/;
 $label gpxyzlabel_after_p_9_manualmax
 
 
@@ -3671,40 +3648,40 @@ gp_count=0;
 LOOP(%gp_obsv_1%,
 gp_count=gp_count+1;
 IF(gp_count=1,
-$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=2,
-$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=3,
-$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=4,
-$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=5,
-$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=6,
-$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=7,
-$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=8,
-$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=9,
-$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [0:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 );
 
@@ -3717,40 +3694,40 @@ gp_count=0;
 LOOP(%gp_obsv_1%,
 gp_count=gp_count+1;
 IF(gp_count=1,
-$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=2,
-$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=3,
-$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=4,
-$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=5,
-$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=6,
-$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=7,
-$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=8,
-$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=9,
-$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [0:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 );
 
@@ -3762,40 +3739,40 @@ gp_count=0;
 LOOP(%gp_obsv_1%,
 gp_count=gp_count+1;
 IF(gp_count=1,
-$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_spider_range%]"/;
 );
 IF(gp_count=2,
-$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_spider_range%]"/;
 );
 IF(gp_count=3,
-$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_spider_range%]"/;
 );
 IF(gp_count=4,
-$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_spider_range%]"/;
 );
 IF(gp_count=5,
-$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_spider_range%]"/;
 );
 IF(gp_count=6,
-$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_spider_range%]"/;
 );
 IF(gp_count=7,
-$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_spider_range%]"/;
 );
 IF(gp_count=8,
-$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_spider_range%]"/;
 );
 IF(gp_count=9,
-$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [0:%gp_spider_range%]"/;
-$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [0:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_spider_range%]"/;
+$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_spider_range%]"/;
 );
 );
 
@@ -4103,8 +4080,6 @@ IF(gp_count lt card(%gp_scen%), put " ,";  );
 
 $goto gpxyzlabel_write_data_file
 * Insert Auto Code Spider produced by make_345678_linestyle.gms - end
-
-
 
 
 

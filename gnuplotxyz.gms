@@ -32,13 +32,26 @@ $if not exist %gams.sysdir%pptlib     $call mkdir %gams.sysdir%pptlib
 $if not declared gpxyzsm_plot_count   scalar gpxyzsm_plot_count /0/;
 $if not declared gams_ppt_list        file gams_ppt_list /'%gams.sysdir%pptlib\gams_ppt_list.txt'/;
 
-* Delete helper file for powerpoint
-$call if exist '%gams.sysdir%inclib\gams_ppt_list.txt' del '%gams.sysdir%pptlib\gams_ppt_list.txt' >nul
-
 * Reset powerpoint
 $if '%1' == 'reset'                   execute 'if exist "%gams.sysdir%pptlib\gams_ppt_list.txt" del "%gams.sysdir%pptlib\gams_ppt_list.txt" >nul';
 $if '%1' == 'reset'                   gpxyzsm_plot_count = 0;
 $if '%1' == 'reset'                   $goto gpxyzlabel_endofgnupltxyz
+
+* Determine restart file
+$if setglobal gpxyzsm_restartfile                 $setglobal gpxyzsm_orgrestartfile "%gpxyzsm_restartfile%"
+$setglobal gpxyzsm_restartfile %system.rfile%
+$if not setglobal gpxyzsm_restartfile             $goto gpxyzlabel_no_new_restart_file
+$if "%gpxyzsm_restartfile%" ==""                  $goto gpxyzlabel_no_new_restart_file
+$if "%gpxyzsm_restartfile%" =="%gpxyzsm_orgrestartfile%"    $goto gpxyzlabel_no_new_restart_file
+
+* delete powerpoint file if this is the first execution of gnuplot or shademap after a gams restart
+* note some variables are jointly used in the gnuplot and shademap interface
+execute 'if exist "%gams.sysdir%pptlib\gams_ppt_list.txt" del "%gams.sysdir%pptlib\gams_ppt_list.txt" >nul';
+gpxyzsm_plot_count = 0;
+$label gpxyzlabel_no_new_restart_file
+
+
+
 
 *       Exit compilation if there is a pre-existing program error:
 *$if not exist '%gams.sysdir%wgnuplot.exe'         $abort 'missing wgnuplot.exe in gams system directory'
@@ -47,7 +60,7 @@ $if not errorfree                     $exit
 
 
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
-* Section 1:   Declaration                        *
+* Section 1:   Declarations                       *
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
 
 $if declared u__1                     $goto gpxyzlabel_afterdeclarations
@@ -80,6 +93,7 @@ set ppt_repeat_loop_all /1*9/;
 set ppt_repeat_loop(ppt_repeat_loop_all) This set allows to combine graphs from different restart files in one power point file;
 
 * what is this needed for?
+* probably to prevent issues with empty sets
 gpxyzset_one('no')=no;
 gpxyzset_two('no')=no;
 gpxyzset_three('no')=no;
@@ -153,7 +167,14 @@ PARAMETERS
  gp__0(*) total observations minus end zeros
 ;
 
-* Uwe Why two color sets
+* Color assignment has different option:
+*  a) defined color names
+*  b) directly specified rgb colors
+*  c) directly specified hexadecimal colors
+*  d) predefined color palettes
+
+
+* Defined color names
 SETS
  gp_line_color_name
  /
@@ -385,17 +406,10 @@ $if '%gp_multiplot_count%' == '_mp1'              $setglobal gp_multiplot_count 
 $if not setglobal gp_multiplot_count              $setglobal gp_multiplot_count    _mp1
 $label after_gp_multiplot_count_calc
 
-*
+* Assign name for data file
 $setglobal gp_data_string gp_data
 $if setglobal gp_multiplot                        $setglobal gp_data_string gp_data%gp_multiplot_count%
 $if '%gp_multiplot%' == 'no'                      $setglobal gp_data_string gp_data
-
-
-* change plot style from histograms to lines if 3rd argument is provided
-$if a%3==a                                        $goto gpxyzlabel_afterstylecheck
-$if '%gp_style%' == 'histogram'                   $setglobal gp_style linespoints
-$if '%gp_style%' == 'newhistogram'                $setglobal gp_style linespoints
-$label gpxyzlabel_afterstylecheck
 
 
 * retain name of output file (not relevant for windows terminal)
@@ -409,10 +423,17 @@ $if "%gp_name%" == "no"                           $setglobal gp_name '%1'
 
 
 
-
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
 * Section 3:   Data Specific Directions           *
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
+
+
+* change plot style from histograms to lines if 3rd argument is provided
+$if a%3==a                                        $goto gpxyzlabel_afterstylecheck
+$if '%gp_style%' == 'histogram'                   $setglobal gp_style linespoints
+$if '%gp_style%' == 'newhistogram'                $setglobal gp_style linespoints
+$label gpxyzlabel_afterstylecheck
+
 
 
 * Assign and direct procedure based on dimensions of plot item
@@ -450,9 +471,9 @@ $goto gpxyzlabel_compile_input_commands
 
 
 
-* +++++++++++++++++ *
-*        2D         *
-* +++++++++++++++++ *
+* +++++++++++++++++++++++++++++++ *
+*  Parameter has two dimensions   *
+* +++++++++++++++++++++++++++++++ *
 
 * 2D Setup - Histograms and Spiderplots
 $label gpxyzlabel_prepare_2D
@@ -486,24 +507,28 @@ IF(gnuplotxyz_current_nodata gt 0.5,
 $goto gpxyzlabel_compile_input_commands
 
 
-* +++++++++++++++++ *
-*        3D         *
-* +++++++++++++++++ *
+* +++++++++++++++++++++++++++++++ *
+*  Parameter has three dimensions *
+* +++++++++++++++++++++++++++++++ *
 
 $label gpxyzlabel_prepare_3D
+* Second argument missing -> Histogram
 $if a%2==a                              $setglobal gp_plottype "newhistorgram"
-$if "%gp_style%" == "histogram"         $goto gpxyzlabel_prepare_3D_NewHistograms
-$if "%gp_style%" == "heatmap"           $goto gpxyzlabel_prepare_3D_NewHistograms
-$if a%2==a                              $goto gpxyzlabel_prepare_3D_NewHistograms
+$if "%gp_style%" == "histogram"         $goto gpxyzlabel_prepare_2D_NewHistograms
+$if "%gp_style%" == "heatmap"           $goto gpxyzlabel_prepare_2D_NewHistograms
+$if a%2==a                              $goto gpxyzlabel_prepare_2D_NewHistograms
 
-$if not a%3==a                          $goto gpxyzlabel_prepare_3D_LinePlots
+* Fourth argument present -> 3D plots
+$if not a%4==a                          $goto gpxyzlabel_prepare_3D_LinePlots
+* Third argument present -> 2D plots
+$if not a%3==a                          $goto gpxyzlabel_prepare_2D_LinePlots
 $error GNUPLOT2: Vertical axis to be graphed 3rd argument is not present.
 $exit
 
 
-* a) 3D line plots *
-* -----------------*
-$label gpxyzlabel_prepare_3D_LinePlots
+* a) 2D line plots *
+* ---------------- *
+$label gpxyzlabel_prepare_2D_LinePlots
 
 $setglobal gp_scen      'uu___1'
 $setglobal gp_obsv_1    'uu___2'
@@ -557,9 +582,9 @@ $goto gpxyzlabel_compile_input_commands
 
 
 * b) new histogram plots *
-* -----------------------*
+* ---------------------- *
 
-$label gpxyzlabel_prepare_3D_NewHistograms
+$label gpxyzlabel_prepare_2D_NewHistograms
 
 $setglobal gp_scen      'uu___1'
 $setglobal gp_obsv_1    'uu___2'
@@ -583,13 +608,42 @@ $goto gpxyzlabel_compile_input_commands
 
 
 
+* c) three-dimensional plots with three-dimensional parameter *
+* ----------------------------------------------------------- *
+
+$label gpxyzlabel_prepare_3D_LinePlots
 
 
-* +++++++++++++++++ *
-*        4D         *
-* +++++++++++++++++ *
+$setglobal gp_scen      'uu___1'
+$setglobal gp_obsv_1    'uu___2'
+$setglobal gp_xxxvalue  "%2"
+$setglobal gp_yyyvalue  "%3"
+$setglobal gp_zzzvalue  "%4"
+$setglobal gp__col4     "%5"
+$setglobal gp__col5     "%6"
+$setglobal gp__col6     "%7"
 
-* 4D Setup - Planes
+allu3(u__1,u__2,"%2") $ %1(u__1,u__2,"%2")=yes;
+allu3(u__1,u__2,"%3") $ %1(u__1,u__2,"%3")=yes;
+allu3(u__1,u__2,"%4") $ %1(u__1,u__2,"%4")=yes;
+uu___4("%4")=yes;
+uu___3("%3")=yes;
+uu___3("%2")=yes;
+uu___2(u__2)$sum(allu3(u__1,u__2,uu___3),1) =yes;
+uu___1(u__1)$sum(allu3(u__1,uu___2,uu___3),1)=yes;
+allu3(u__1,u__2,u__3)$(%1(u__1,u__2,"%2") or %1(u__1,u__2,"%3") or %1(u__1,u__2,"%4"))=no;
+
+
+$goto gpxyzlabel_compile_input_commands
+
+
+
+
+* +++++++++++++++++++++++++++++++ *
+*  Parameter has three dimensions *
+* +++++++++++++++++++++++++++++++ *
+
+* 3D Setup - Planes
 
 $label gpxyzlabel_prepare_4D
 
@@ -691,6 +745,49 @@ $if not setglobal gp_multiplot                    gp_input.ap =  0;
 $if '%gp_multiplot%' == 'no'                      gp_input.ap =  0;
 
 
+* resetting of individual styles
+$if "%gp_resetstyle%"=="no"                       $goto gpxyzlabel_l_reset_axes
+$if not setglobal gp_resetstyle                   $goto gpxyzlabel_l_reset_axes
+$setglobal gp_l1style  no
+$setglobal gp_l2style  no
+$setglobal gp_l3style  no
+$setglobal gp_l4style  no
+$setglobal gp_l5style  no
+$setglobal gp_l6style  no
+$setglobal gp_l7style  no
+$setglobal gp_l8style  no
+$setglobal gp_l9style  no
+$setglobal gp_l10style no
+$setglobal gp_l11style no
+$setglobal gp_l12style no
+$setglobal gp_l13style no
+$setglobal gp_l14style no
+$setglobal gp_l15style no
+$setglobal gp_l16style no
+
+* resetting of individual axes
+$label gpxyzlabel_l_reset_axes
+$if "%gp_resetaxes%"=="no"                        $goto gpxyzlabel_l_reset_done
+$if not setglobal gp_resetstyle                   $goto gpxyzlabel_l_reset_done
+$setglobal gp_l1axes   no
+$setglobal gp_l2axes   no
+$setglobal gp_l3axes   no
+$setglobal gp_l4axes   no
+$setglobal gp_l5axes   no
+$setglobal gp_l6axes   no
+$setglobal gp_l7axes   no
+$setglobal gp_l8axes   no
+$setglobal gp_l9axes   no
+$setglobal gp_l10axes  no
+$setglobal gp_l11axes  no
+$setglobal gp_l12axes  no
+$setglobal gp_l13axes  no
+$setglobal gp_l14axes  no
+$setglobal gp_l15axes  no
+$setglobal gp_l16axes  no
+$label gpxyzlabel_l_reset_done
+
+
 * Font
 $if not setglobal gp_font                         $setglobal gp_font 'Times New Roman'
 $ifi    '%gp_font%' == 'no'                       $setglobal gp_font 'Times New Roman'
@@ -716,8 +813,6 @@ $ifi '%gp_palette_min%' == 'no'                   $setglobal gp_palette_min 0
 $ifi '%gp_palette_max%' == 'no'                   $setglobal gp_palette_max 1.0
 $if  not setglobal gp_palette_min                 $setglobal gp_palette_min 0
 $if  not setglobal gp_palette_max                 $setglobal gp_palette_max 1.0
-
-
 
 * Terminals
 * Need font, fontsize, linewidth
@@ -846,7 +941,6 @@ $if '%gp_cbrange%'=='no'                          $goto gpxyzlabel_aftercbrange
 $if setglobal gp_cbrange                          put 'set cbrange [%gp_cbrange%]'/;
 $label gpxyzlabel_aftercbrange
 
-$if not setglobal gp_cbtics
 $if not setglobal gp_cbtics                       $goto gpxyzlabel_aftercbtics
 $if '%gp_cbtics%'=='no'                           put 'unset cbtics'/;
 $if '%gp_cbtics%'=='no'                           $goto gpxyzlabel_aftercbtics
@@ -986,47 +1080,6 @@ PUT "set style %gp_morestyle3%" /;
 $label gpxyzlabel_after_morestyle3_assign
 
 
-* resetting of individual styles
-$if "%gp_resetstyle%"=="no"                       $goto gpxyzlabel_l_reset_axes
-$if not setglobal gp_resetstyle                   $goto gpxyzlabel_l_reset_axes
-$setglobal gp_l1style  no
-$setglobal gp_l2style  no
-$setglobal gp_l3style  no
-$setglobal gp_l4style  no
-$setglobal gp_l5style  no
-$setglobal gp_l6style  no
-$setglobal gp_l7style  no
-$setglobal gp_l8style  no
-$setglobal gp_l9style  no
-$setglobal gp_l10style no
-$setglobal gp_l11style no
-$setglobal gp_l12style no
-$setglobal gp_l13style no
-$setglobal gp_l14style no
-$setglobal gp_l15style no
-$setglobal gp_l16style no
-
-* resetting of individual axes
-$label gpxyzlabel_l_reset_axes
-$if "%gp_resetaxes%"=="no"                        $goto gpxyzlabel_l_reset_done
-$if not setglobal gp_resetstyle                   $goto gpxyzlabel_l_reset_done
-$setglobal gp_l1axes   no
-$setglobal gp_l2axes   no
-$setglobal gp_l3axes   no
-$setglobal gp_l4axes   no
-$setglobal gp_l5axes   no
-$setglobal gp_l6axes   no
-$setglobal gp_l7axes   no
-$setglobal gp_l8axes   no
-$setglobal gp_l9axes   no
-$setglobal gp_l10axes  no
-$setglobal gp_l11axes  no
-$setglobal gp_l12axes  no
-$setglobal gp_l13axes  no
-$setglobal gp_l14axes  no
-$setglobal gp_l15axes  no
-$setglobal gp_l16axes  no
-$label gpxyzlabel_l_reset_done
 
 
 gp_input.nd = 3;
@@ -1042,6 +1095,24 @@ $if not setglobal gp_timefmt                      $goto gpxyzlabel_aftertimefmt
 $if '%gp_timefmt%' == 'no'                        $goto gpxyzlabel_aftertimefmt
 put 'set timefmt "%gp_timefmt%"'/;
 $label gpxyzlabel_aftertimefmt
+
+
+
+* XY plane
+$if not setglobal gp_xyplane                      $goto gpxyzlabel_after_xyplane
+$if  '%gp_xyplane%' == 'no'                       $goto gpxyzlabel_after_xyplane
+put 'set xyplane  %gp_xyplane%'/;
+$label gpxyzlabel_after_xyplane
+
+
+* Wall
+$if not setglobal gp_wall                      $goto gpxyzlabel_after_gp_wall
+$if  '%gp_wall%' == 'no'                       $goto gpxyzlabel_after_gp_wall
+put 'set wall  %gp_wall%'/;
+$label gpxyzlabel_after_gp_wall
+
+
+
 
 
 * Cancel axes if not needed
@@ -1189,10 +1260,16 @@ put 'set y2range [%gp_y2range%]'/;
 
 $label gpxyzlabel_boxwidth
 $if setglobal gp_boxwid                           $setglobal gp_boxwidth %gp_boxwid%
-$if not setglobal gp_boxwidth                     $goto gpxyzlabel_figsize
-$if  "%gp_boxwidth%" == "no"                      $goto gpxyzlabel_figsize
-$if  "%gp_boxwidth%" == "0"                       $goto gpxyzlabel_figsize
+$if not setglobal gp_boxwidth                     $goto gpxyzlabel_boxdepth
+$if  "%gp_boxwidth%" == "no"                      $goto gpxyzlabel_boxdepth
+$if  "%gp_boxwidth%" == "0"                       $goto gpxyzlabel_boxdepth
 put 'set boxwidth %gp_boxwidth%'/;
+
+$label gpxyzlabel_boxdepth
+$if not setglobal gp_boxdepth                     $goto gpxyzlabel_figsize
+$if  "%gp_boxdepth%" == "no"                      $goto gpxyzlabel_figsize
+$if  "%gp_boxdepth%" == "0"                       $goto gpxyzlabel_figsize
+put 'set boxdepth %gp_boxdepth%'/;
 
 $label gpxyzlabel_figsize
 $if not setglobal gp_size                         $goto gpxyzlabel_gplabel_bmargin
@@ -1375,7 +1452,7 @@ $if '%gp_label%'  == 'no'                         $goto gpxyzlabel_aftermanualla
 put 'set label'/;
 $label gpxyzlabel_aftermanuallabels
 
-* X-labels - loop
+* X labels - loop
 $if not setglobal gp_xl_l1                        $goto gpxyzlabel_xlabel_noloop
 $if '%gp_xl_l1%'  == 'no'                         $goto gpxyzlabel_xlabel_noloop
 put 'set xlabel  "';
@@ -1392,7 +1469,7 @@ PUT '"' /;
 $goto gpxyzlabel_ylabel_loop
 
 
-* X-labels - no loop
+* X labels - no loop
 $label gpxyzlabel_xlabel_noloop
 
 $if '%gp_xlabel%' == 'no'                         put 'unset xlabel'/;
@@ -1423,7 +1500,7 @@ $label gpxyzlabel_after_xlabeloffset_noloop
 put /;
 
 
-* Y-labels - loop
+* Y labels - loop
 $label gpxyzlabel_ylabel_loop
 $if not setglobal gp_yl_l1                        $goto gpxyzlabel_ylabel_noloop
 $if '%gp_yl_l1%'  == 'no'                         $goto gpxyzlabel_ylabel_noloop
@@ -1440,7 +1517,7 @@ PUT '"' /;
 $goto gpxyzlabel_zlabel_loop
 
 
-* Y-labels no loop
+* Y labels no loop
 $label gpxyzlabel_ylabel_noloop
 
 $if '%gp_ylabel%' == 'no'                         put 'unset ylabel'/;
@@ -1481,7 +1558,7 @@ put /;
 
 
 
-* Y2-Labels
+* Y2 Labels
 $label gpxyzlabel_y2label_check
 $if not setglobal gp_y2label                      put 'unset y2label'/;
 $if '%gp_y2label%'  == 'no'                       put 'unset y2label'/;
@@ -1490,7 +1567,7 @@ $if '%gp_y2label%'  == 'no'                       $goto gpxyzlabel_zlabel_loop
 put 'set y2label  "%gp_y2label%"'/;
 
 
-* Z-labels
+* Z labels
 $label gpxyzlabel_zlabel_loop
 $if not setglobal gp_zl_l1                        $goto gpxyzlabel_zlabel_noloop
 $if "%gp_zl_l1%"  == "no"                         $goto gpxyzlabel_zlabel_noloop
@@ -1504,7 +1581,7 @@ $goto gpxyzlabel_heatmaps
 
 $label gpxyzlabel_zlabel_noloop
 $ifi a%1==afunction                               $goto gpxyzlabel_check_x2_label
-$if  not dimension 4 %1                           $goto gpxyzlabel_check_x2_label
+*$if  not dimension 4 %1                           $goto gpxyzlabel_check_x2_label
 $if  not setglobal gp_zlabel                      put 'set zlabel  "%gp_zzzvalue%" rotate by 90'/;
 $ifi "%gp_zlabel%"  == "no"                       put 'unset zlabel'/;
 $if  not setglobal gp_zlabel                      $goto gpxyzlabel_check_x2_label
@@ -1516,14 +1593,16 @@ put ' rotate by %gp_zlabelrotate%';
 $label gpxyzlabel_afterzlabelrotate
 put /;
 
-* X2-labels
+
+
+* X2 labels
 $label gpxyzlabel_check_x2_label
 $if  not setglobal gp_x2label                     $goto gpxyzlabel_y2label
 $ifi "%gp_x2label%" == "no"                       $goto gpxyzlabel_y2label
 put 'set x2label "%gp_x2label%"'/;
 
 
-* Y2-labels
+* Y2 labels
 $label gpxyzlabel_y2label
 $if  not setglobal gp_y2label                     $goto gpxyzlabel_cblabel
 $ifi "%gp_y2label%" == "no"                       $goto gpxyzlabel_cblabel
@@ -1613,17 +1692,29 @@ $label gpxyzlabel_aftercontourline_7
 $label gpxyzlabel_heatmaps
 
 $ifi '%gp_pm3d%'=='no'                            $goto gpxyzlabel_afterpm3d
-
 $if  setglobal gp_pm3d                            $goto gpxyzlabel_afterautopm3d
 $ifi not '%gp_style%' == 'heatmap'                $goto gpxyzlabel_afterautopm3d
 $setglobal gp_pm3d map
-$goto gpxyzlabel_afterautopm3d
-
 $label gpxyzlabel_afterautopm3d
-$if setglobal gp_pm3d                             put 'set pm3d %gp_pm3d%'/;
 
 $if not setglobal gp_pm3d                         $goto gpxyzlabel_afterpm3d
+$if setglobal gp_pm3d                             put 'set pm3d %gp_pm3d%'/;
 $label gpxyzlabel_afterpm3d
+
+$if not setglobal gp_pm3d_2                       $goto gpxyzlabel_afterpm3d_2
+$if setglobal gp_pm3d_2                           put 'set pm3d %gp_pm3d_2%'/;
+$label gpxyzlabel_afterpm3d_2
+
+$if not setglobal gp_pm3d_3                       $goto gpxyzlabel_afterpm3d_3
+$if setglobal gp_pm3d_3                           put 'set pm3d %gp_pm3d_3%'/;
+$label gpxyzlabel_afterpm3d_3
+
+$if not setglobal gp_pm3d_4                       $goto gpxyzlabel_afterpm3d_4
+$if setglobal gp_pm3d_4                           put 'set pm3d %gp_pm3d_4%'/;
+$label gpxyzlabel_afterpm3d_4
+
+
+
 
 $if  not setglobal gp_view                        $goto gpxyzlabel_autoview
 $ifi '%gp_view%'=='no'                            $goto gpxyzlabel_autoview
@@ -2138,6 +2229,7 @@ $if dimension 1 %1                     $goto gpxyzlabel_plotstatement_1dgraph
 $if dimension 2 %1                     $goto gpxyzlabel_plotstatement_histogram
 $if a%2 == a                           $goto gpxyzlabel_plotstatement_newhistogram
 $if dimension 4 %1                     $goto gpxyzlabel_plotstatement_3dgraph
+$if not a%4==a                         $goto gpxyzlabel_plotstatement_3dlinegraph
 
 
 $label gpxyzlabel_plotstatement_2dgraph
@@ -3428,8 +3520,570 @@ put 'plot \' / '   "gnuplot%gp_multiplot_count%.dat" index 0 using 1:2 notitle w
 $goto  gpxyzlabel_write_data_file
 
 
-* Segment 3D plots
+* Segment 3D plots from ---uuuu
 
+$label gpxyzlabel_plotstatement_3dlinegraph
+
+gp_count=1;
+put 'splot ';
+
+loop(%gp_scen%,
+  if (gp_count gt 1, put ',';);
+  gp_input.nw = 0
+
+  put  '\'/' "gnuplot%gp_multiplot_count%.dat" index ',(gp_count-1):0:0,
+        ' using 2:3:4';
+
+*
+$if not setglobal gp_xticlabels     $goto gpxyzlabel_afterxticlabels_3Dgraph
+$if '%gp_xticlabels%'=='no'         $goto gpxyzlabel_afterxticlabels_3Dgraph
+  IF(gp_count eq 1, put ':xtic(1)'; );
+
+
+* Insert Auto Code 9b produced by make_345678_linestyle.gms - begin
+IF(gp_count eq 1,
+$if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_3Dbox
+$if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_1%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_1%") = no;
+$label gpxyzlabel_after_lc_1_3Dbox
+ );
+IF(gp_count eq 1,
+$if not setglobal gp_fc_1                          $goto gpxyzlabel_after_fc_1_3Dbox
+$if     "%gp_fc_1%" == "no"                        $goto gpxyzlabel_after_fc_1_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_1%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_1%") = no;
+$label gpxyzlabel_after_fc_1_3Dbox
+ );
+IF(gp_count eq 2,
+$if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_3Dbox
+$if     "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_2%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_2%") = no;
+$label gpxyzlabel_after_lc_2_3Dbox
+ );
+IF(gp_count eq 2,
+$if not setglobal gp_fc_2                          $goto gpxyzlabel_after_fc_2_3Dbox
+$if     "%gp_fc_2%" == "no"                        $goto gpxyzlabel_after_fc_2_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_2%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_2%") = no;
+$label gpxyzlabel_after_fc_2_3Dbox
+ );
+IF(gp_count eq 3,
+$if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_3Dbox
+$if     "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_3%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_3%") = no;
+$label gpxyzlabel_after_lc_3_3Dbox
+ );
+IF(gp_count eq 3,
+$if not setglobal gp_fc_3                          $goto gpxyzlabel_after_fc_3_3Dbox
+$if     "%gp_fc_3%" == "no"                        $goto gpxyzlabel_after_fc_3_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_3%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_3%") = no;
+$label gpxyzlabel_after_fc_3_3Dbox
+ );
+IF(gp_count eq 4,
+$if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_3Dbox
+$if     "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_4%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_4%") = no;
+$label gpxyzlabel_after_lc_4_3Dbox
+ );
+IF(gp_count eq 4,
+$if not setglobal gp_fc_4                          $goto gpxyzlabel_after_fc_4_3Dbox
+$if     "%gp_fc_4%" == "no"                        $goto gpxyzlabel_after_fc_4_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_4%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_4%") = no;
+$label gpxyzlabel_after_fc_4_3Dbox
+ );
+IF(gp_count eq 5,
+$if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_3Dbox
+$if     "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_5%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_5%") = no;
+$label gpxyzlabel_after_lc_5_3Dbox
+ );
+IF(gp_count eq 5,
+$if not setglobal gp_fc_5                          $goto gpxyzlabel_after_fc_5_3Dbox
+$if     "%gp_fc_5%" == "no"                        $goto gpxyzlabel_after_fc_5_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_5%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_5%") = no;
+$label gpxyzlabel_after_fc_5_3Dbox
+ );
+IF(gp_count eq 6,
+$if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_3Dbox
+$if     "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_6%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_6%") = no;
+$label gpxyzlabel_after_lc_6_3Dbox
+ );
+IF(gp_count eq 6,
+$if not setglobal gp_fc_6                          $goto gpxyzlabel_after_fc_6_3Dbox
+$if     "%gp_fc_6%" == "no"                        $goto gpxyzlabel_after_fc_6_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_6%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_6%") = no;
+$label gpxyzlabel_after_fc_6_3Dbox
+ );
+IF(gp_count eq 7,
+$if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_3Dbox
+$if     "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_7%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_7%") = no;
+$label gpxyzlabel_after_lc_7_3Dbox
+ );
+IF(gp_count eq 7,
+$if not setglobal gp_fc_7                          $goto gpxyzlabel_after_fc_7_3Dbox
+$if     "%gp_fc_7%" == "no"                        $goto gpxyzlabel_after_fc_7_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_7%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_7%") = no;
+$label gpxyzlabel_after_fc_7_3Dbox
+ );
+IF(gp_count eq 8,
+$if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_3Dbox
+$if     "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_8%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_8%") = no;
+$label gpxyzlabel_after_lc_8_3Dbox
+ );
+IF(gp_count eq 8,
+$if not setglobal gp_fc_8                          $goto gpxyzlabel_after_fc_8_3Dbox
+$if     "%gp_fc_8%" == "no"                        $goto gpxyzlabel_after_fc_8_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_8%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_8%") = no;
+$label gpxyzlabel_after_fc_8_3Dbox
+ );
+IF(gp_count eq 9,
+$if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_3Dbox
+$if     "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_9%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_9%") = no;
+$label gpxyzlabel_after_lc_9_3Dbox
+ );
+IF(gp_count eq 9,
+$if not setglobal gp_fc_9                          $goto gpxyzlabel_after_fc_9_3Dbox
+$if     "%gp_fc_9%" == "no"                        $goto gpxyzlabel_after_fc_9_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_9%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_9%") = no;
+$label gpxyzlabel_after_fc_9_3Dbox
+ );
+IF(gp_count eq 10,
+$if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_3Dbox
+$if     "%gp_lc_10%" == "no"                       $goto gpxyzlabel_after_lc_10_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_10%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_10%") = no;
+$label gpxyzlabel_after_lc_10_3Dbox
+ );
+IF(gp_count eq 10,
+$if not setglobal gp_fc_10                         $goto gpxyzlabel_after_fc_10_3Dbox
+$if     "%gp_fc_10%" == "no"                       $goto gpxyzlabel_after_fc_10_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_10%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_10%") = no;
+$label gpxyzlabel_after_fc_10_3Dbox
+ );
+IF(gp_count eq 11,
+$if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_3Dbox
+$if     "%gp_lc_11%" == "no"                       $goto gpxyzlabel_after_lc_11_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_11%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_11%") = no;
+$label gpxyzlabel_after_lc_11_3Dbox
+ );
+IF(gp_count eq 11,
+$if not setglobal gp_fc_11                         $goto gpxyzlabel_after_fc_11_3Dbox
+$if     "%gp_fc_11%" == "no"                       $goto gpxyzlabel_after_fc_11_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_11%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_11%") = no;
+$label gpxyzlabel_after_fc_11_3Dbox
+ );
+IF(gp_count eq 12,
+$if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_3Dbox
+$if     "%gp_lc_12%" == "no"                       $goto gpxyzlabel_after_lc_12_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_12%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_12%") = no;
+$label gpxyzlabel_after_lc_12_3Dbox
+ );
+IF(gp_count eq 12,
+$if not setglobal gp_fc_12                         $goto gpxyzlabel_after_fc_12_3Dbox
+$if     "%gp_fc_12%" == "no"                       $goto gpxyzlabel_after_fc_12_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_12%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_12%") = no;
+$label gpxyzlabel_after_fc_12_3Dbox
+ );
+IF(gp_count eq 13,
+$if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_3Dbox
+$if     "%gp_lc_13%" == "no"                       $goto gpxyzlabel_after_lc_13_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_13%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_13%") = no;
+$label gpxyzlabel_after_lc_13_3Dbox
+ );
+IF(gp_count eq 13,
+$if not setglobal gp_fc_13                         $goto gpxyzlabel_after_fc_13_3Dbox
+$if     "%gp_fc_13%" == "no"                       $goto gpxyzlabel_after_fc_13_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_13%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_13%") = no;
+$label gpxyzlabel_after_fc_13_3Dbox
+ );
+IF(gp_count eq 14,
+$if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_3Dbox
+$if     "%gp_lc_14%" == "no"                       $goto gpxyzlabel_after_lc_14_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_14%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_14%") = no;
+$label gpxyzlabel_after_lc_14_3Dbox
+ );
+IF(gp_count eq 14,
+$if not setglobal gp_fc_14                         $goto gpxyzlabel_after_fc_14_3Dbox
+$if     "%gp_fc_14%" == "no"                       $goto gpxyzlabel_after_fc_14_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_14%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_14%") = no;
+$label gpxyzlabel_after_fc_14_3Dbox
+ );
+IF(gp_count eq 15,
+$if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_3Dbox
+$if     "%gp_lc_15%" == "no"                       $goto gpxyzlabel_after_lc_15_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_15%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_15%") = no;
+$label gpxyzlabel_after_lc_15_3Dbox
+ );
+IF(gp_count eq 15,
+$if not setglobal gp_fc_15                         $goto gpxyzlabel_after_fc_15_3Dbox
+$if     "%gp_fc_15%" == "no"                       $goto gpxyzlabel_after_fc_15_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_15%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_15%") = no;
+$label gpxyzlabel_after_fc_15_3Dbox
+ );
+IF(gp_count eq 16,
+$if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_3Dbox
+$if     "%gp_lc_16%" == "no"                       $goto gpxyzlabel_after_lc_16_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_16%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_16%") = no;
+$label gpxyzlabel_after_lc_16_3Dbox
+ );
+IF(gp_count eq 16,
+$if not setglobal gp_fc_16                         $goto gpxyzlabel_after_fc_16_3Dbox
+$if     "%gp_fc_16%" == "no"                       $goto gpxyzlabel_after_fc_16_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_16%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_16%") = no;
+$label gpxyzlabel_after_fc_16_3Dbox
+ );
+IF(gp_count eq 17,
+$if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_3Dbox
+$if     "%gp_lc_17%" == "no"                       $goto gpxyzlabel_after_lc_17_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_17%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_17%") = no;
+$label gpxyzlabel_after_lc_17_3Dbox
+ );
+IF(gp_count eq 17,
+$if not setglobal gp_fc_17                         $goto gpxyzlabel_after_fc_17_3Dbox
+$if     "%gp_fc_17%" == "no"                       $goto gpxyzlabel_after_fc_17_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_17%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_17%") = no;
+$label gpxyzlabel_after_fc_17_3Dbox
+ );
+IF(gp_count eq 18,
+$if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_3Dbox
+$if     "%gp_lc_18%" == "no"                       $goto gpxyzlabel_after_lc_18_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_18%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_18%") = no;
+$label gpxyzlabel_after_lc_18_3Dbox
+ );
+IF(gp_count eq 18,
+$if not setglobal gp_fc_18                         $goto gpxyzlabel_after_fc_18_3Dbox
+$if     "%gp_fc_18%" == "no"                       $goto gpxyzlabel_after_fc_18_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_18%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_18%") = no;
+$label gpxyzlabel_after_fc_18_3Dbox
+ );
+IF(gp_count eq 19,
+$if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_3Dbox
+$if     "%gp_lc_19%" == "no"                       $goto gpxyzlabel_after_lc_19_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_19%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_19%") = no;
+$label gpxyzlabel_after_lc_19_3Dbox
+ );
+IF(gp_count eq 19,
+$if not setglobal gp_fc_19                         $goto gpxyzlabel_after_fc_19_3Dbox
+$if     "%gp_fc_19%" == "no"                       $goto gpxyzlabel_after_fc_19_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_19%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_19%") = no;
+$label gpxyzlabel_after_fc_19_3Dbox
+ );
+IF(gp_count eq 20,
+$if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_3Dbox
+$if     "%gp_lc_20%" == "no"                       $goto gpxyzlabel_after_lc_20_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_20%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_20%") = no;
+$label gpxyzlabel_after_lc_20_3Dbox
+ );
+IF(gp_count eq 20,
+$if not setglobal gp_fc_20                         $goto gpxyzlabel_after_fc_20_3Dbox
+$if     "%gp_fc_20%" == "no"                       $goto gpxyzlabel_after_fc_20_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_20%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_20%") = no;
+$label gpxyzlabel_after_fc_20_3Dbox
+ );
+* Insert Auto Code 9b produced by make_345678_linestyle.gms - end
+
+
+
+
+
+$label gpxyzlabel_afterxticlabels_3Dgraph
+
+
+  put ' title "',%gp_scen%.tl,'"';
+
+
+  gp_count = gp_count + 1;
+
+);
+put /;
+
+
+$goto  gpxyzlabel_write_data_file
+
+
+
+* Segment 3D plots
 $label gpxyzlabel_plotstatement_3dgraph
 
 gp_count=1;
@@ -3441,7 +4095,6 @@ loop(%gp_planes%,
 
   put  '\'/' "gnuplot%gp_multiplot_count%.dat" index ',(gp_count-1):0:0,
         ' using 1:2:3';
-
   put ' title "',%gp_planes%.tl,'"';
 
 
@@ -5565,11 +6218,11 @@ $label gpxyzlabel_write_data_file
 putclose;
 
 
-*__________________________________________
-*
-*       Gnuplot.dat - Contains Gnuplot Data
-*__________________________________________
-*
+* __________________________________________ *
+*                                            *
+*    Gnuplot.dat - Contains Gnuplot Data     *
+* __________________________________________ *
+*                                            *
 
 *       permit user to specify an alternative value for NA:
 $if     setglobal gp_na                            gp_na = %gp_na%;
@@ -5587,6 +6240,8 @@ gp__0(%gp_scen%) = inf;
 
 %gp_data_string%.pw = 32767;
 %gp_data_string%.nw = 16;
+%gp_data_string%.lw = 16;
+%gp_data_string%.tw = 16;
 %gp_data_string%.nd = 8;
 %gp_data_string%.nr = 1;
 %gp_data_string%.nr = 2;
@@ -5595,6 +6250,7 @@ $if dimension 1 %1                                 $goto gpxyzlabel_put_1D_data
 $if "%gp_style%"=="heatmap"                        $goto gpxyzlabel_put_heatmap_data
 $if dimension 2 %1                                 $goto gpxyzlabel_put_histogram_or_spider_data
 $if a%2==a                                         $goto gpxyzlabel_put_newhistogram_data
+$if not a%4==a                                     $goto gpxyzlabel_put_3Dgraph_data
 $if dimension 4 %1                                 $goto gpxyzlabel_put_3D_data
 
 
@@ -5695,6 +6351,25 @@ loop(%gp_scen%,
     );
 );
 
+
+$goto  gpxyzlabel_write_gnuplot_ini
+
+
+
+* Segment new 3D graph data
+$label gpxyzlabel_put_3Dgraph_data
+
+loop(%gp_scen%,
+  loop(%gp_obsv_1%,
+
+      put %gp_data_string%, %gp_obsv_1%.TL, "  ";
+      put %gp_data_string%, %1(%gp_scen%,%gp_obsv_1%,"%gp_xxxvalue%"),"  ";
+      put %gp_data_string%, %1(%gp_scen%,%gp_obsv_1%,"%gp_yyyvalue%"),"  ";
+      put %gp_data_string%, %1(%gp_scen%,%gp_obsv_1%,"%gp_zzzvalue%"),"  ";
+      put /;
+    );
+  put / /;
+);
 
 $goto  gpxyzlabel_write_gnuplot_ini
 

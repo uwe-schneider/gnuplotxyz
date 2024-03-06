@@ -517,9 +517,11 @@ $if a%2==a                              $setglobal gp_plottype "newhistorgram"
 $if "%gp_style%" == "histogram"         $goto gpxyzlabel_prepare_2D_NewHistograms
 $if "%gp_style%" == "heatmap"           $goto gpxyzlabel_prepare_2D_NewHistograms
 $if a%2==a                              $goto gpxyzlabel_prepare_2D_NewHistograms
+$if "%gp_style%" == "filledcurves"      $goto gpxyzlabel_prepare_2D_LinePlots
 
 * Fourth argument present -> 3D plots
 $if not a%4==a                          $goto gpxyzlabel_prepare_3D_LinePlots
+
 * Third argument present -> 2D plots
 $if not a%3==a                          $goto gpxyzlabel_prepare_2D_LinePlots
 $error GNUPLOT2: Vertical axis to be graphed 3rd argument is not present.
@@ -2225,6 +2227,7 @@ $label gpxyzlabel_after_fixcolorassignment
 $if a%1==afunction                     $goto gpxyzlabel_plotstatement_2dgraph
 $if "%gp_style%" == "spiderplot"       $goto gpxyzlabel_plotstatement_spiderplot
 $if "%gp_style%" == "heatmap"          $goto gpxyzlabel_plotstatement_heatmap
+$if "%gp_style%"=="filledcurves"       $goto gpxyzlabel_plotstatement_2dgraph
 $if dimension 1 %1                     $goto gpxyzlabel_plotstatement_1dgraph
 $if dimension 2 %1                     $goto gpxyzlabel_plotstatement_histogram
 $if a%2 == a                           $goto gpxyzlabel_plotstatement_newhistogram
@@ -6248,10 +6251,13 @@ gp__0(%gp_scen%) = inf;
 
 $if dimension 1 %1                                 $goto gpxyzlabel_put_1D_data
 $if "%gp_style%"=="heatmap"                        $goto gpxyzlabel_put_heatmap_data
+$if "%gp_style%"=="filledcurves"                   $goto gpxyzlabel_put_2D_data
 $if dimension 2 %1                                 $goto gpxyzlabel_put_histogram_or_spider_data
 $if a%2==a                                         $goto gpxyzlabel_put_newhistogram_data
 $if not a%4==a                                     $goto gpxyzlabel_put_3Dgraph_data
 $if dimension 4 %1                                 $goto gpxyzlabel_put_3D_data
+
+$label gpxyzlabel_put_2D_data
 
 
 * Segment Put 2D Plot data

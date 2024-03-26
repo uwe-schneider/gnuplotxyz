@@ -1129,26 +1129,46 @@ $if  '%gp_x2axis%' == 'no'                        $setglobal gp_x2label 'no'
 $if not setglobal gp_xrange                       $setglobal gp_xrange 'no'
 $if  '%gp_xrange%' == 'no'                        put 'set auto x'/;
 $if  '%gp_xrange%' == 'no'                        $goto gpxyzlabel_yrange
-put 'set xrange [%gp_xrange%]'/;
+put 'set xrange [%gp_xrange%]';
+$if not setglobal gp_xrange_options               put /;
+$if '%gp_xrange_options%' == 'no'                 put /;
+$if not setglobal gp_xrange_options               $goto gpxyzlabel_yrange
+$if '%gp_xrange_options%' == 'no'                 $goto gpxyzlabel_yrange
+put ' gp_xrange_options' /;
 
 $label gpxyzlabel_yrange
 $if not setglobal gp_yrange                       $setglobal gp_yrange 'no'
 $if  '%gp_yrange%' == 'no'                        put 'set auto y'/;
 $if  '%gp_yrange%' == 'no'                        $goto gpxyzlabel_zrange
-put 'set yrange [%gp_yrange%]'/;
+put 'set yrange [%gp_yrange%]';
+$if not setglobal gp_yrange_options               put /;
+$if '%gp_yrange_options%' == 'no'                 put /;
+$if not setglobal gp_yrange_options               $goto gpxyzlabel_zrange
+$if '%gp_yrange_options%' == 'no'                 $goto gpxyzlabel_zrange
+put ' gp_yrange_options' /;
 
 $label gpxyzlabel_zrange
 $if '%gp_style%' == 'heatmap'                     $goto gpxyzlabel_scale_2axes
 $if not setglobal gp_zrange                       $setglobal gp_zrange 'no'
 $if  '%gp_zrange%' == 'no'                        put 'set auto z'/;
 $if  '%gp_zrange%' == 'no'                        $goto gpxyzlabel_trange
-put 'set zrange [%gp_zrange%]'/;
+put 'set zrange [%gp_zrange%]';
+$if not setglobal gp_zrange_options               put /;
+$if '%gp_zrange_options%' == 'no'                 put /;
+$if not setglobal gp_zrange_options               $goto gpxyzlabel_trange
+$if '%gp_zrange_options%' == 'no'                 $goto gpxyzlabel_trange
+put ' gp_zrange_options' /;
 
 $label gpxyzlabel_trange
 $if not setglobal gp_trange                       $setglobal gp_trange 'no'
 $if  '%gp_trange%' == 'no'                        put 'set auto t'/;
 $if  '%gp_trange%' == 'no'                        $goto gpxyzlabel_scale_2axes
-put 'set trange [%gp_trange%]'/;
+put 'set trange [%gp_trange%]';
+$if not setglobal gp_trange_options               put /;
+$if '%gp_trange_options%' == 'no'                 put /;
+$if not setglobal gp_trange_options               $goto gpxyzlabel_scale_2axes
+$if '%gp_trange_options%' == 'no'                 $goto gpxyzlabel_scale_2axes
+put ' gp_trange_options' /;
 
 
 * Calculate scalars to automatically scale the Y2 axis

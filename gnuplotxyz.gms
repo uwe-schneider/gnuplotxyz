@@ -18,9 +18,13 @@ $offtext
 $onlisting
 $onuni
 
+
 * Execute collected multiplots
-$if '%1' == 'multiplot'               execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
+$if not '%1' == 'multiplot'           $goto gpxyzlabel_aftermultiplot
+$ife %system.GamsRelease%<45.9        execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
+$ife %system.GamsRelease%>45.9        executetool 'shellexecute wgnuplot.exe \"-persist\" gnuplot.inp';
 $if '%1' == 'multiplot'               $goto gpxyzlabel_totalendofgnupltxyz
+$label gpxyzlabel_aftermultiplot
 
 * Execute direct export to microsoft powerpoint (Neubersch utility)
 $if '%1' == 'compileppt'              $goto gpxyzlabel_endofgnupltxyz
@@ -7972,14 +7976,16 @@ $label gpxyzlabel_after_addtextwindow
 
 $if not "%gp_term%"=="windows"            $goto gpxyzlabel_after_gpwindows_execution
 IF(gnuplotxyz_ploterror_nodata Lt 0.5,
-execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
+$ife %system.GamsRelease%<45.9            execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
+$ife %system.GamsRelease%>45.9            executetool 'shellexecute wgnuplot.exe \"-persist\" gnuplot.inp %gp_addtextwindow%';
 );
 $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_gpwindows_execution
 
 $if not "%gp_term%"=="wxt"                $goto gpxyzlabel_after_gpwxt_execution
 IF(gnuplotxyz_ploterror_nodata Lt 0.5,
-execute 'shellexecute wgnuplot -persist gnuplot.inp %gp_addtextwindow%';
+$ife %system.GamsRelease%<45.9            execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
+$ife %system.GamsRelease%>45.9            executetool 'shellexecute wgnuplot.exe \"-persist\" gnuplot.inp %gp_addtextwindow%';
 );
 $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_gpwxt_execution

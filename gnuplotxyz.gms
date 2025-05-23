@@ -19,27 +19,33 @@ $onlisting
 $onuni
 
 
-* Execute collected multiplots
-$if not '%1' == 'multiplot'           $goto gpxyzlabel_aftermultiplot
-$ife %system.GamsRelease%<45.9        execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
-$ife %system.GamsRelease%>45.9        executetool 'shellexecute wgnuplot.exe \"-persist\" gnuplot.inp';
-$if '%1' == 'multiplot'               $goto gpxyzlabel_totalendofgnupltxyz
+* Execute collected multiplots (starting in GAMS version 46, shellexecute has to be called via the executetool)
+$if not '%1' == 'multiplot'                       $goto gpxyzlabel_aftermultiplot
+$ife %system.GamsRelease%>47.5                    executetool 'shellexecute "wgnuplot.exe -persist gnuplot.inp"';
+$ife %system.GamsRelease%>47.5                    $goto gpxyzlabel_aftermultiplot_shell
+$ife %system.GamsRelease%>45.9                    executetool 'shellexecute wgnuplot.exe \"-persist\" gnuplot.inp';
+$ife %system.GamsRelease%>45.9                    $goto gpxyzlabel_aftermultiplot_shell
+$ife %system.GamsRelease%<45.9                    execute 'shellexecute wgnuplot.exe -persist gnuplot.inp';
+$ife %system.GamsRelease%<45.9                    $goto gpxyzlabel_aftermultiplot_shell
+$label gpxyzlabel_aftermultiplot_shell
+
+$if '%1' == 'multiplot'                           $goto gpxyzlabel_totalendofgnupltxyz
 $label gpxyzlabel_aftermultiplot
 
 * Execute direct export to microsoft powerpoint (Neubersch utility)
-$if '%1' == 'compileppt'              $goto gpxyzlabel_endofgnupltxyz
+$if '%1' == 'compileppt'                          $goto gpxyzlabel_endofgnupltxyz
 
 * Create directory for powerpoint stuff
-$if not exist %gams.sysdir%pptlib     $call mkdir %gams.sysdir%pptlib
+$if not exist %gams.sysdir%pptlib                 $call mkdir %gams.sysdir%pptlib
 
 * Declare powerpoint counter and text file for image list (Huck utility)
-$if not declared gpxyzsm_plot_count   scalar gpxyzsm_plot_count /0/;
-$if not declared gams_ppt_list        file gams_ppt_list /'%gams.sysdir%pptlib\gams_ppt_list.txt'/;
+$if not declared gpxyzsm_plot_count               scalar gpxyzsm_plot_count /0/;
+$if not declared gams_ppt_list                    file gams_ppt_list /'%gams.sysdir%pptlib\gams_ppt_list.txt'/;
 
 * Reset powerpoint
-$if '%1' == 'reset'                   execute 'if exist "%gams.sysdir%pptlib\gams_ppt_list.txt" del "%gams.sysdir%pptlib\gams_ppt_list.txt" >nul';
-$if '%1' == 'reset'                   gpxyzsm_plot_count = 0;
-$if '%1' == 'reset'                   $goto gpxyzlabel_endofgnupltxyz
+$if '%1' == 'reset'                               execute 'if exist "%gams.sysdir%pptlib\gams_ppt_list.txt" del "%gams.sysdir%pptlib\gams_ppt_list.txt" >nul';
+$if '%1' == 'reset'                               gpxyzsm_plot_count = 0;
+$if '%1' == 'reset'                               $goto gpxyzlabel_endofgnupltxyz
 
 * Determine restart file
 $if setglobal gpxyzsm_restartfile                 $setglobal gpxyzsm_orgrestartfile "%gpxyzsm_restartfile%"
@@ -59,7 +65,7 @@ $label gpxyzlabel_no_new_restart_file
 
 *       Exit compilation if there is a pre-existing program error:
 *$if not exist '%gams.sysdir%wgnuplot.exe'         $abort 'missing wgnuplot.exe in gams system directory'
-$if not errorfree                     $exit
+$if not errorfree                                 $exit
 
 
 
@@ -67,7 +73,7 @@ $if not errorfree                     $exit
 * Section 1:   Declarations                       *
 * +++++++++++++++++++++++++++++++++++++++++++++++ *
 
-$if declared u__1                     $goto gpxyzlabel_afterdeclarations
+$if declared u__1                                 $goto gpxyzlabel_afterdeclarations
 
 * One time declaration of sets parameters and files for graphs in a loop
 alias(u__1,u__2,u__3,u__4,u__5,u__6,u__7,u__8,u__9,u__10,u__11,u__12,u__13,u__14,u__15,u__16,all_gp_legend,*);
@@ -96,8 +102,7 @@ set gpxyzset_one(first_index_gpxyzset),gpxyzset_two(second_index_gpxyzset),gpxyz
 set ppt_repeat_loop_all /1*9/;
 set ppt_repeat_loop(ppt_repeat_loop_all) This set allows to combine graphs from different restart files in one power point file;
 
-* what is this needed for?
-* probably to prevent issues with empty sets
+* prevent issues with empty unassigned sets
 gpxyzset_one('no')=no;
 gpxyzset_two('no')=no;
 gpxyzset_three('no')=no;
@@ -7961,9 +7966,9 @@ $if setglobal gp_multiplot                             $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_multiplot_execute_check
 
 
-* ++++++++++++
-* Run gnuplot
-* ++++++++++++
+* ++++++++++++ *
+* Run gnuplot  *
+* ++++++++++++ *
 
 $if not setglobal gp_sleep                $setglobal gp_sleep 1
 
@@ -7976,17 +7981,39 @@ $label gpxyzlabel_after_addtextwindow
 
 $if not "%gp_term%"=="windows"            $goto gpxyzlabel_after_gpwindows_execution
 IF(gnuplotxyz_ploterror_nodata Lt 0.5,
-$ife %system.GamsRelease%<45.9            execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
+
+$ife %system.GamsRelease%>47.5            executetool 'shellexecute "wgnuplot.exe -persist gnuplot.inp"';
+$ife %system.GamsRelease%>47.5            $goto gpxyzlabel_aftershellexecute
+
 $ife %system.GamsRelease%>45.9            executetool 'shellexecute wgnuplot.exe \"-persist\" gnuplot.inp %gp_addtextwindow%';
+$ife %system.GamsRelease%>45.9            $goto gpxyzlabel_aftershellexecute
+
+$ife %system.GamsRelease%<45.9            execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
+$ife %system.GamsRelease%<45.9            $goto gpxyzlabel_aftershellexecute
+
+$label gpxyzlabel_aftershellexecute
+
 );
+
 $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_gpwindows_execution
 
 $if not "%gp_term%"=="wxt"                $goto gpxyzlabel_after_gpwxt_execution
 IF(gnuplotxyz_ploterror_nodata Lt 0.5,
-$ife %system.GamsRelease%<45.9            execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
+
+$ife %system.GamsRelease%>47.5            executetool 'shellexecute "wgnuplot.exe -persist gnuplot.inp"';
+$ife %system.GamsRelease%>47.5            $goto gpxyzlabel_aftershellexecute222
+
 $ife %system.GamsRelease%>45.9            executetool 'shellexecute wgnuplot.exe \"-persist\" gnuplot.inp %gp_addtextwindow%';
+$ife %system.GamsRelease%>45.9            $goto gpxyzlabel_aftershellexecute222
+
+$ife %system.GamsRelease%<45.9            execute 'shellexecute wgnuplot.exe -persist gnuplot.inp %gp_addtextwindow%';
+$ife %system.GamsRelease%<45.9            $goto gpxyzlabel_aftershellexecute222
+
+$label gpxyzlabel_aftershellexecute222
+
 );
+
 $goto gpxyzlabel_finishup
 $label gpxyzlabel_after_gpwxt_execution
 

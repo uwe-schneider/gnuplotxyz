@@ -3897,9 +3897,17 @@ $goto gpxyzlabel_write_data_file
 $label gpxyzlabel_plotstatement_1dgraph
 
 $ifi not "%gp_style%" == "piechart"       $goto gpxyzlabel_after_piechartplot
-$ifi not setglobal gp_piechart_colormode  $setglobal gp_piechart_colormode "lc palette notitle"
+$ifi not setglobal gp_piechart_colormode  $setglobal gp_piechart_colormode "lc palette "
 
-put 'plot \' / '   "gnuplot%gp_multiplot_count%.dat" using 1:2:3:4:5:6 with circles %gp_piechart_colormode% '  ;
+put 'plot \' /;
+gp_count=0;
+loop(%gp_scen%,
+ put '   "gnuplot%gp_multiplot_count%.dat" index ', gp_count:2:0, ' using 1:2:3:4:5:6 with circles %gp_piechart_colormode% ';
+$ifi not "%gp_key%" == "no" put 'title "', %gp_scen%.tl, '"';
+ if(gp_count + 1 lt card(%gp_scen%), put ', \'; );
+ put /;
+ gp_count=gp_count+1
+);
 
 $goto  gpxyzlabel_write_data_file
 
@@ -6776,7 +6784,7 @@ loop(%gp_scen%,
        put %gp_data_string%, gp_piechartdata(%gp_scen%,"lowerangle"):8:3;
        put %gp_data_string%, gp_piechartdata(%gp_scen%,"upperangle"):9:3;
        put %gp_data_string%, gp_count:5:0;
-       put /;
+       put / / /;
       );
    );
 

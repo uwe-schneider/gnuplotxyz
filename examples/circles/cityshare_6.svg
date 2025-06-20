@@ -45,13 +45,17 @@
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
-	<g id="gnuplot_plot_1"  fill="none"><title>gnuplot_plot_1</title>
+	<g id="gnuplot_plot_1" ><title>"gnuplot.dat" index  0 using 1:2:3:4:5:6</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g stroke='none' shape-rendering='crispEdges'>
 		<polygon fill = 'rgb(143, 188, 143)' points = '458.19,261.71 457.96,253.31 457.30,244.92 456.21,236.59 454.67,228.32 452.71,220.14 450.32,212.07 447.52,204.15 443.00,193.53 297.55,261.71 '/>
 	</g>
 	<path stroke='rgb(143, 188, 143)'  d='M458.19,261.71 L457.96,253.31 L457.30,244.92 L456.21,236.59 L454.67,228.32 L452.71,220.14 L450.32,212.07 L447.52,204.15
-		L443.00,193.53 L297.55,261.71 L458.19,261.71 Z  '/>	<g stroke='none' shape-rendering='crispEdges'>
+		L443.00,193.53 L297.55,261.71 L458.19,261.71 Z  '/></g>
+	</g>
+	<g id="gnuplot_plot_2" ><title>"gnuplot.dat" index  1 using 1:2:3:4:5:6</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
 		<polygon fill = 'rgb(240, 128, 128)' points = '443.00,193.53 439.23,186.01 435.07,178.70 430.54,171.62 425.64,164.78 420.39,158.21 414.81,151.92 408.90,145.93 402.69,140.27 396.19,134.93 389.42,129.94 382.40,125.31 375.14,121.06 367.67,117.19 360.01,113.72 352.18,110.65
 344.20,108.00 336.09,105.77 327.88,103.96 319.58,102.59 311.22,101.66 302.83,101.16 294.42,101.11 286.01,101.49 277.65,102.31 269.33,103.57 261.09,105.27 252.95,107.39 244.94,109.93 237.07,112.89 229.36,116.26 221.84,120.03
 214.53,124.19 207.45,128.72 200.61,133.62 194.04,138.87 187.75,144.45 181.76,150.36 176.10,156.57 170.76,163.07 165.77,169.84 161.14,176.86 156.89,184.12 153.02,191.59 149.55,199.25 146.48,207.08 143.83,215.06 141.60,223.17
@@ -63,20 +67,32 @@
 		L277.65,102.31 L269.33,103.57 L261.09,105.27 L252.95,107.39 L244.94,109.93 L237.07,112.89 L229.36,116.26 L221.84,120.03
 		L214.53,124.19 L207.45,128.72 L200.61,133.62 L194.04,138.87 L187.75,144.45 L181.76,150.36 L176.10,156.57 L170.76,163.07
 		L165.77,169.84 L161.14,176.86 L156.89,184.12 L153.02,191.59 L149.55,199.25 L146.48,207.08 L143.83,215.06 L141.60,223.17
-		L139.79,231.38 L138.42,239.68 L137.33,249.99 L297.55,261.71 L443.00,193.53 Z  '/>	<g stroke='none' shape-rendering='crispEdges'>
+		L139.79,231.38 L138.42,239.68 L137.33,249.99 L297.55,261.71 L443.00,193.53 Z  '/></g>
+	</g>
+	<g id="gnuplot_plot_3" ><title>"gnuplot.dat" index  2 using 1:2:3:4:5:6</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
 		<polygon fill = 'rgb(255,   0, 255)' points = '137.33,249.99 136.94,258.39 136.99,266.80 137.47,275.20 138.40,283.56 139.76,291.85 141.55,300.07 143.77,308.18 146.42,316.17 149.47,324.00 152.93,331.67 156.79,339.14 161.04,346.40 165.66,353.43 170.64,360.20 175.97,366.71
 181.63,372.93 187.61,378.84 193.89,384.44 200.45,389.69 207.28,394.60 214.36,399.14 221.67,403.31 229.18,407.08 236.88,410.46 250.14,415.20 297.55,261.71 '/>
 	</g>
 	<path stroke='rgb(255,   0, 255)'  d='M137.33,249.99 L136.94,258.39 L136.99,266.80 L137.47,275.20 L138.40,283.56 L139.76,291.85 L141.55,300.07 L143.77,308.18
 		L146.42,316.17 L149.47,324.00 L152.93,331.67 L156.79,339.14 L161.04,346.40 L165.66,353.43 L170.64,360.20 L175.97,366.71
 		L181.63,372.93 L187.61,378.84 L193.89,384.44 L200.45,389.69 L207.28,394.60 L214.36,399.14 L221.67,403.31 L229.18,407.08
-		L236.88,410.46 L250.14,415.20 L297.55,261.71 L137.33,249.99 Z  '/>	<g stroke='none' shape-rendering='crispEdges'>
+		L236.88,410.46 L250.14,415.20 L297.55,261.71 L137.33,249.99 Z  '/></g>
+	</g>
+	<g id="gnuplot_plot_4" ><title>"gnuplot.dat" index  3 using 1:2:3:4:5:6</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
 		<polygon fill = 'rgb(255, 140,   0)' points = '250.14,415.20 258.24,417.47 266.44,419.32 274.74,420.73 283.09,421.70 291.48,422.24 299.89,422.34 308.29,421.99 316.67,421.21 324.99,419.99 333.24,418.34 341.38,416.26 349.41,413.75 357.30,410.83 365.02,407.50 372.56,403.77
 379.89,399.65 386.99,395.15 393.86,390.28 403.87,382.13 297.55,261.71 '/>
 	</g>
 	<path stroke='rgb(255, 140,   0)'  d='M250.14,415.20 L258.24,417.47 L266.44,419.32 L274.74,420.73 L283.09,421.70 L291.48,422.24 L299.89,422.34 L308.29,421.99
 		L316.67,421.21 L324.99,419.99 L333.24,418.34 L341.38,416.26 L349.41,413.75 L357.30,410.83 L365.02,407.50 L372.56,403.77
-		L379.89,399.65 L386.99,395.15 L393.86,390.28 L403.87,382.13 L297.55,261.71 L250.14,415.20 Z  '/>	<g stroke='none' shape-rendering='crispEdges'>
+		L379.89,399.65 L386.99,395.15 L393.86,390.28 L403.87,382.13 L297.55,261.71 L250.14,415.20 Z  '/></g>
+	</g>
+	<g id="gnuplot_plot_5" ><title>"gnuplot.dat" index  4 using 1:2:3:4:5:6</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
 		<polygon fill = 'rgb(100, 149, 237)' points = '403.87,382.13 410.02,376.41 415.87,370.36 421.40,364.02 426.58,357.40 431.41,350.51 435.87,343.39 439.96,336.03 443.65,328.48 446.95,320.74 449.83,312.84 452.30,304.80 454.34,296.64 455.95,288.39 457.13,280.06 457.88,271.68
 458.19,261.72 297.55,261.71 '/>
 	</g>
@@ -87,13 +103,13 @@
 <g fill="none" color="white" stroke="rgb(100, 149, 237)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(297.55,151.33)" stroke="none" fill="rgb(0,0,0)" font-family="Times New Roman" font-size="20.00"  text-anchor="middle">
+	<g transform="translate(297.55,151.33)" stroke="none" fill="rgb(0,255,0)" font-family="Times New Roman" font-size="20.00"  text-anchor="middle">
 		<text><tspan font-family="Times New Roman" >Cottages</tspan></text>
 	</g>
 	<g transform="translate(397.94,247.76)" stroke="none" fill="rgb(0,0,0)" font-family="Times New Roman" font-size="20.00"  text-anchor="middle">
 		<text><tspan font-family="Times New Roman" >Castles</tspan></text>
 	</g>
-	<g transform="translate(217.23,326.66)" stroke="none" fill="rgb(0,0,0)" font-family="Times New Roman" font-size="20.00"  text-anchor="middle">
+	<g transform="translate(219.45,326.27) rotate(-20.00)" stroke="none" fill="rgb(0,0,0)" font-family="Times New Roman" font-size="20.00"  text-anchor="middle">
 		<text><tspan font-family="Times New Roman" >Schools</tspan></text>
 	</g>
 	<g transform="translate(321.64,396.79)" stroke="none" fill="rgb(0,0,0)" font-family="Times New Roman" font-size="20.00"  text-anchor="middle">

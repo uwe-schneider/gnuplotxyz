@@ -943,10 +943,12 @@ $if '%gp_palette%'=='no'                          $goto gpxyzlabel_afterpalette
 $if setglobal gp_palette                          put 'set palette %gp_palette%'/;
 $label gpxyzlabel_afterpalette
 
+$ifi '%gp_style%'=='piechart'                     put 'unset colorbox'/;
 $if not setglobal gp_colorbox                     $goto gpxyzlabel_aftercolorbox
-$if '%gp_colorbox%'=='no'                         put 'unset colorbox'/;
-$if '%gp_colorbox%'=='no'                         $goto gpxyzlabel_aftercolorbox
+$ifi '%gp_colorbox%'=='no'                        put 'unset colorbox'/;
+$ifi '%gp_colorbox%'=='no'                        $goto gpxyzlabel_aftercolorbox
 $if setglobal gp_colorbox                         put 'set colorbox %gp_colorbox%'/;
+$goto gpxyzlabel_aftercolorbox
 $label gpxyzlabel_aftercolorbox
 
 $if not setglobal gp_cbrange                      $goto gpxyzlabel_aftercbrange

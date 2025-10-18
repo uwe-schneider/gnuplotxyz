@@ -216,7 +216,7 @@ SETS
   chocolate '210 105  30',coral '255 127  80',cornflowerblue '100 149 237',cornsilk '255 248 220',crimson '220 20 60',cyan '0 255 255',
   darkblue '0 0 139',darkcyan '0 139 139',darkgoldenrod '184 134  11',darkgray '169 169 169',darkgreen '0 100  0',DarkGrey '128 128 128',
   darkkhaki '189 183 107',darkmagenta '139  0 139',darkolivegreen '85 107  47',darkorange '255 140  0',darkorchid '153  50 204',darkred '139  0  0',
-  darksalmon '233 150 122',darkseagreen '143 188 143',darkslateblue '72  61 139',darkslategray '47  79  79',darkturquoise '0 206 209',darkviolet '148  0 211',
+  darksalmon '233 150 122',darkseagreen '143 188 143',darkslateblue '72  61 139',darkslategray '47  79  79',darkturquoise '0 206 209', darkturqoise '0 206 209', darkviolet '148  0 211',
   deeppink '255  20 147',deepskyblue '0 191 255',dimgray '105 105 105',dodgerblue '30 144 255',firebrick '178  34  34',floralwhite '255 250 240',
   forestgreen '34 139  34',fuchsia '255 0 255',gainsboro '220 220 220',ghostwhite '248 248 255',gold '255 215  0',goldenrod '218 165  32',
   gray '127 127 127',green '0 128 0',greenyellow '173 255  47',honeydew '240 255 240',hotpink '255 105 180',indianred '205  92  92',
@@ -235,6 +235,46 @@ SETS
   snow '255 250 250',springgreen '0 255 127',steelblue '70 130 180',tan '210 180 140',teal '0 128 128',thistle '216 191 216',
   tomato '255  99  71',turquoise '64 224 208',violet '238 130 238',wheat '245 222 179',white '255 255 255',whitesmoke '245 245 245',
   yellow '255 255  0',yellowgreen '139 205 50'
+
+  LightBlue2    '102 204 238'
+  MediumBlue2   '0 119 187'
+  DarkBlue2     '51 34 136'
+
+
+  LightOrange2  '255 191 127'
+  MediumOrange2 '238 119 51'
+  DarkOrange2   '171 85 0'
+
+  DarkOrange3   '252 80 28'
+  MediumOrange3 '252 166 78'
+  LightOrange3  '250 209 87'
+
+  DarkOrange4   '255 102 13'
+  DarkOrange5   '255 118 13'
+
+  PoorDark      '252 86 3'
+  PoorMedium    '252 132 3'
+  PoorLight     '255 165 38'
+
+  PoorDark2     '179 73 0'
+  PoorMedium2   '230 159 0'
+  PoorLight2    '254 193 96'
+
+  PoorMedium3   '230 140 55'
+  PoorDark3     '204 65 15'
+
+  LeaBlue        '102 28 252'
+
+  WildernessColor '28 148 122'
+  NoModifiedColor '203 233 146'
+
+  SpiderGreen     '0 142 91'
+  SpiderViolet    '109 57 139'
+  SpiderOrange    '241 142 28'
+
+  SpiderLightGreen  '192 208 19'
+  SpiderLightRed    '234 98 31'
+  SpiderMediumBlue  '55 95 164'
 
   LeaMidnightBlue '25,25,112',     LeaMediumBlue '0,0,205',      LeaRoyalBlue '65,105,225',  LeaSteelBlue '70,130,180'
   LeaCornflowerBlue '100,149,237', LeaDodgerBlue '30,144,255',   LeaDeepSkyBlue '0,191,255', LeaLightSkyBlue '135,206,250'
@@ -291,7 +331,7 @@ SETS
   cornsilk 'FFF8DC',crimson 'DC143C',cyan '00FFFF',darkblue '00008B',darkcyan '008B8B',darkgoldenrod 'B8860B',
   darkgray 'A9A9A9',darkgreen '006400',darkkhaki 'BDB76B',darkmagenta '8B008B',darkolivegreen '556B2F',darkorange 'FF8C00',
   darkorchid '9932CC',darkred '8B0000',darksalmon 'E9967A',darkseagreen '8FBC8F',darkslateblue '483D8B',darkslategray '2F4F4F',
-  darkturquoise '00CED1',darkviolet '9400D3',deeppink 'FF1493',deepskyblue '00BFFF',dimgray '696969',dodgerblue '1E90FF',
+  darkturquoise '00CED1', darkturqoise '00CED1', darkviolet '9400D3',deeppink 'FF1493',deepskyblue '00BFFF',dimgray '696969',dodgerblue '1E90FF',
   firebrick 'B22222',floralwhite 'FFFAF0',forestgreen '228B22',fuchsia 'FF00FF',gainsboro 'DCDCDC',ghostwhite 'F8F8FF',
   gold 'FFD700',goldenrod 'DAA520',gray '7F7F7F',green '008000',greenyellow 'ADFF2F',honeydew 'F0FFF0',
   hotpink 'FF69B4',indianred 'CD5C5C',indigo '4B0082',ivory 'FFFFF0',khaki 'F0E68C',lavender 'E6E6FA',
@@ -309,6 +349,44 @@ SETS
   slategray '708090',snow 'FFFAFA',springgreen '00FF7F',steelblue '4682B4',tan 'D2B48C',teal '008080',
   thistle 'D8BFD8',tomato 'FF6347',turquoise '40E0D0',violet 'EE82EE',wheat 'F5DEB3',white 'FFFFFF',
   whitesmoke 'F5F5F5',yellow 'FFFF00',yellowgreen '9ACD32'
+
+  LightBlue2     '66CCEE'
+  MediumBlue2    '0077BB'
+  DarkBlue2      '332288'
+  LightOrange2   'FFBF7F'
+  MediumOrange2  'EE7733'
+  DarkOrange2    'AB5500'
+
+  DarkOrange3   'FC501C'
+  MediumOrange3 'FCA64E'
+  LightOrange3  'FAD157'
+
+  DarkOrange4   'FF660D'
+  DarkOrange5   'FF760D'
+
+  PoorDark      'FC5603'
+  PoorMedium    'FC8403'
+  PoorLight     'FFA526'
+
+  PoorDark2     'B34900'
+  PoorMedium2   'E69F00'
+  PoorLight2    'FEC160'
+
+  PoorMedium3   'E68C37'
+  PoorDark3     'CC4110'
+
+  LeaBlue       '661CFC'
+
+  WildernessColor '1C947A'
+  NoModifiedColor 'CBE992'
+
+  SpiderGreen   '008E5B'
+  SpiderViolet  '6D398B'
+  SpiderOrange  'F18E1C'
+
+  SpiderLightGreen  'C0D01B'
+  SpiderLightRed    'EA621F'
+  SpiderMediumBlue  '375FA4'
 
   LeaDarkRed '8B0000',      LeaFireBrick 'B22222',   LeaCrimson 'DC143C',      LeaMediumVioletRed 'C71585'
   LeaDarkMagenta '8B008B',  LeaDarkViolet '9400D3',  LeaMediumOrchid 'BA55D3', LeaOrchid 'DA70D6'
@@ -486,7 +564,7 @@ $goto gpxyzlabel_compile_input_commands
 *  Parameter has two dimensions   *
 * +++++++++++++++++++++++++++++++ *
 
-* 2D Setup - Histograms and Spiderplots
+* 2D Setup - Histograms Spiderplots and Sector Plots
 $label gpxyzlabel_prepare_2D
 
 $setglobal gp_scen      'uu___1'
@@ -497,6 +575,7 @@ $setglobal gp_obsv_1    'uu___2'
 
 $if "%gp_xdata%" == "time"            $goto afterhistogramassignment
 $if "%gp_style%" == "spiderplot"      $goto afterhistogramassignment
+$if "%gp_style%" == "sectorplot"      $goto afterhistogramassignment
 $if not setglobal gp_style            $setglobal gp_style histogram
 $setglobal gp_style histogram
 $label afterhistogramassignment
@@ -777,28 +856,59 @@ $setglobal gp_l13style no
 $setglobal gp_l14style no
 $setglobal gp_l15style no
 $setglobal gp_l16style no
+$setglobal gp_l17style no
+$setglobal gp_l18style no
+$setglobal gp_l19style no
+$setglobal gp_l20style no
+$setglobal gp_l21style no
+$setglobal gp_l22style no
+$setglobal gp_l23style no
+$setglobal gp_l24style no
+$setglobal gp_l25style no
+$setglobal gp_l26style no
+$setglobal gp_l27style no
+$setglobal gp_l28style no
+$setglobal gp_l29style no
+$setglobal gp_l30style no
 
 * resetting of individual axes
 $label gpxyzlabel_l_reset_axes
-$if "%gp_resetaxes%"=="no"                        $goto gpxyzlabel_l_reset_done
-$if not setglobal gp_resetstyle                   $goto gpxyzlabel_l_reset_done
-$setglobal gp_l1axes   no
-$setglobal gp_l2axes   no
-$setglobal gp_l3axes   no
-$setglobal gp_l4axes   no
-$setglobal gp_l5axes   no
-$setglobal gp_l6axes   no
-$setglobal gp_l7axes   no
-$setglobal gp_l8axes   no
-$setglobal gp_l9axes   no
-$setglobal gp_l10axes  no
-$setglobal gp_l11axes  no
-$setglobal gp_l12axes  no
-$setglobal gp_l13axes  no
-$setglobal gp_l14axes  no
-$setglobal gp_l15axes  no
-$setglobal gp_l16axes  no
+$ifi "%gp_resetaxes%"=="no"        $goto gpxyzlabel_l_reset_done
+$if not setglobal gp_resetstyle    $goto gpxyzlabel_l_reset_done
+$setglobal gp_l1axes  "no"
+$setglobal gp_l2axes  "no"
+$setglobal gp_l3axes  "no"
+$setglobal gp_l4axes  "no"
+$setglobal gp_l5axes  "no"
+$setglobal gp_l6axes  "no"
+$setglobal gp_l7axes  "no"
+$setglobal gp_l8axes  "no"
+$setglobal gp_l9axes  "no"
+$setglobal gp_l10axes  "no"
+$setglobal gp_l11axes  "no"
+$setglobal gp_l12axes  "no"
+$setglobal gp_l13axes  "no"
+$setglobal gp_l14axes  "no"
+$setglobal gp_l15axes  "no"
+$setglobal gp_l16axes  "no"
+$setglobal gp_l17axes  "no"
+$setglobal gp_l18axes  "no"
+$setglobal gp_l19axes  "no"
+$setglobal gp_l20axes  "no"
+$setglobal gp_l21axes  "no"
+$setglobal gp_l22axes  "no"
+$setglobal gp_l23axes  "no"
+$setglobal gp_l24axes  "no"
+$setglobal gp_l25axes  "no"
+$setglobal gp_l26axes  "no"
+$setglobal gp_l27axes  "no"
+$setglobal gp_l28axes  "no"
+$setglobal gp_l29axes  "no"
+$setglobal gp_l30axes  "no"
+$goto gpxyzlabel_l_reset_done
 $label gpxyzlabel_l_reset_done
+
+
 
 
 * Font
@@ -1227,6 +1337,7 @@ $if dimension 1 %1                                $goto gpxyzlabel_det1Drange
 $if dimension 4 %1                                $goto gpxyzlabel_boxwidth
 $if '%gp_style%' == 'histogram'                   $goto gpxyzlabel_dethistrange
 $if '%gp_style%' == 'spiderplot'                  $goto gpxyzlabel_dethistrange
+$if '%gp_style%' == 'sectorplot'                  $goto gpxyzlabel_dethistrange
 $if '%gp_style%' == 'heatmap'                     $goto gpxyzlabel_dethistrange
 $if '%gp_xdata%' == 'time'                        $goto gpxyzlabel_dethistrange
 $if a%2 == a                                      $goto gpxyzlabel_detnewhistrange
@@ -1456,58 +1567,58 @@ put 'set grid ytics' /;
 
 $label gpxyzlabel_xformat
 $if not setglobal gp_xformat                      $goto gpxyzlabel_yformat
-$ifi '%gp_xformat%' == 'no'                        $goto gpxyzlabel_yformat
+$ifi '%gp_xformat%' == 'no'                       $goto gpxyzlabel_yformat
 put 'set format x "%gp_xformat%"'/;
 
 $label gpxyzlabel_yformat
 $if not setglobal gp_yformat                      $goto gpxyzlabel_tickers
-$ifi '%gp_yformat%' == 'no'                        $goto gpxyzlabel_tickers
+$ifi '%gp_yformat%' == 'no'                       $goto gpxyzlabel_tickers
 put 'set format y "%gp_yformat%"'/;
 
 $label gpxyzlabel_tickers
 $if not setglobal gp_tics                         $setglobal gp_tics 'in'
-$ifi '%gp_tics%' == 'no'                           put 'unset tics'/;
-$ifi '%gp_tics%' == 'no'                           $goto gpxyzlabel_gplb_xtics
+$ifi '%gp_tics%' == 'no'                          put 'unset tics'/;
+$ifi '%gp_tics%' == 'no'                          $goto gpxyzlabel_gplb_xtics
 put 'set tics %gp_tics%'/;
 $goto gpxyzlabel_gplb_xtics
 
 $label gpxyzlabel_gplb_xtics
 $if not setglobal gp_xtics                        $setglobal gp_xtics 'in'
-$ifi '%gp_xtics%' == 'no'                          put 'unset xtics'/;
-$ifi '%gp_xtics%' == 'no'                          $goto gpxyzlabel_ytics
+$ifi '%gp_xtics%' == 'no'                         put 'unset xtics'/;
+$ifi '%gp_xtics%' == 'no'                         $goto gpxyzlabel_ytics
 put 'set xtics %gp_xtics%';
 
 *** Uwe if gp_xtics no then scale 0 is not applied!!
 $if not a%2==a                                    $goto gpxyzlabel_label_xticincrement
 $if not setglobal gp_xinc                         put ' scale 0';
 $if not setglobal gp_xinc                         $goto gpxyzlabel_ytics
-$ifi '%gp_xinc%'   == 'no'                         $goto gpxyzlabel_ytics
-$ifi '%gp_xinc%'   == 'skip'                       $goto gpxyzlabel_ytics
+$ifi '%gp_xinc%'   == 'no'                        $goto gpxyzlabel_ytics
+$ifi '%gp_xinc%'   == 'skip'                      $goto gpxyzlabel_ytics
 
 $label gpxyzlabel_label_xticincrement
 $if not setglobal gp_xinc                         $goto gpxyzlabel_ytics
-$ifi    '%gp_xinc%'   == 'no'                      $goto gpxyzlabel_ytics
+$ifi    '%gp_xinc%'   == 'no'                     $goto gpxyzlabel_ytics
 put ' %gp_xinc%';
 
 $label gpxyzlabel_ytics
 put /;
 $if not setglobal gp_ytics                        $setglobal gp_ytics 'in'
-$ifi '%gp_ytics%' == 'no'                          put 'unset ytics'/;
-$ifi '%gp_ytics%' == 'no'                          $goto gpxyzlabel_ztics
+$ifi '%gp_ytics%' == 'no'                         put 'unset ytics'/;
+$ifi '%gp_ytics%' == 'no'                         $goto gpxyzlabel_ztics
 put 'set ytics nomirror %gp_ytics%';
 
 $if not setglobal gp_yinc                         put /;
-$ifi    '%gp_yinc%'   == 'no'                      put /;
+$ifi    '%gp_yinc%'   == 'no'                     put /;
 $if not setglobal gp_yinc                         $goto gpxyzlabel_ztics
-$ifi    '%gp_yinc%'   == 'no'                      $goto gpxyzlabel_ztics
+$ifi    '%gp_yinc%'   == 'no'                     $goto gpxyzlabel_ztics
 put ' %gp_yinc%'/;
 
 
 $label gpxyzlabel_ztics
 put /;
 $if not setglobal gp_ztics                        $setglobal gp_ztics 'in'
-$if '%gp_ztics%' == 'no'                          put 'unset ztics'/;
-$if '%gp_ztics%' == 'no'                          $goto gpxyzlabel_styles
+$ifi '%gp_ztics%' == 'no'                         put 'unset ztics'/;
+$ifi '%gp_ztics%' == 'no'                         $goto gpxyzlabel_styles
 put 'set ztics nomirror %gp_ztics%' /;
 
 
@@ -1516,14 +1627,14 @@ put 'set ztics nomirror %gp_ztics%' /;
 $label gpxyzlabel_styles
 
 $if not setglobal gp_label                        $goto gpxyzlabel_aftermanuallabels
-$if '%gp_label%'  == 'no'                         put 'unset label'/;
-$if '%gp_label%'  == 'no'                         $goto gpxyzlabel_aftermanuallabels
+$ifi '%gp_label%'  == 'no'                        put 'unset label'/;
+$ifi '%gp_label%'  == 'no'                        $goto gpxyzlabel_aftermanuallabels
 put 'set label'/;
 $label gpxyzlabel_aftermanuallabels
 
 * X labels - loop
 $if not setglobal gp_xl_l1                        $goto gpxyzlabel_xlabel_noloop
-$if '%gp_xl_l1%'  == 'no'                         $goto gpxyzlabel_xlabel_noloop
+$ifi '%gp_xl_l1%'  == 'no'                        $goto gpxyzlabel_xlabel_noloop
 put 'set xlabel  "';
 $if     setglobal gp_xl_l1                        put     %gp_xl_l1%.tl;
 $if     setglobal gp_xl_l2                        put ' ',%gp_xl_l2%.tl;
@@ -1531,7 +1642,7 @@ $if     setglobal gp_xl_l3                        put ' ',%gp_xl_l3%.tl;
 $if     setglobal gp_xl_l4                        put ' ',%gp_xl_l4%.tl;
 
 $if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_afterxlabeloffset_loop
-$if '%gp_xlabeloffset%' == 'no'                   $goto gpxyzlabel_afterxlabeloffset_loop
+$ifi '%gp_xlabeloffset%' == 'no'                  $goto gpxyzlabel_afterxlabeloffset_loop
 put ' offset %gp_xlabeloffset%';
 $label gpxyzlabel_afterxlabeloffset_loop
 PUT '"' /;
@@ -1541,12 +1652,12 @@ $goto gpxyzlabel_ylabel_loop
 * X labels - no loop
 $label gpxyzlabel_xlabel_noloop
 
-$if '%gp_xlabel%' == 'no'                         put 'unset xlabel'/;
-$if '%gp_xlabel%' == 'no'                         $goto gpxyzlabel_ylabel_loop
+$ifi '%gp_xlabel%' == 'no'                        put 'unset xlabel'/;
+$ifi '%gp_xlabel%' == 'no'                        $goto gpxyzlabel_ylabel_loop
 
-$if not '%gp_style%' == 'heatmap'                 $goto gpxyzlabel_after_heatmap_xlabel
-$if not setglobal gp_heatmap_x                    $goto gpxyzlabel_after_heatmap_xlabel
-$if '%gp_heatmap_x% == 'no'                       $goto gpxyzlabel_after_heatmap_xlabel
+$ifi not '%gp_style%' == 'heatmap'                $goto gpxyzlabel_after_heatmap_xlabel
+$ifi not setglobal gp_heatmap_x                   $goto gpxyzlabel_after_heatmap_xlabel
+$ifi '%gp_heatmap_x% == 'no'                      $goto gpxyzlabel_after_heatmap_xlabel
 $setglobal gp_xxxvalue %gp_heatmap_x%
 $label gpxyzlabel_after_heatmap_xlabel
 
@@ -1555,15 +1666,15 @@ $if     setglobal gp_xlabel                       $goto gpxyzlabel_after_xlabelp
 $if not setglobal gp_xxxvalue                     put 'unset xlabel'/;
 $if not setglobal gp_xxxvalue                     $goto gpxyzlabel_ylabel_loop
 
-$if '%gp_xxxvalue%' == 'no'                       put 'unset xlabel'/;
-$if '%gp_xxxvalue%' == 'no'                       $goto gpxyzlabel_ylabel_loop
+$ifi '%gp_xxxvalue%' == 'no'                      put 'unset xlabel'/;
+$ifi '%gp_xxxvalue%' == 'no'                      $goto gpxyzlabel_ylabel_loop
 
 $label  gpxyzlabel_after_xlabelpresencecheck
 
 $if not setglobal gp_xlabel                       $setglobal gp_xlabel %gp_xxxvalue%
 put 'set xlabel  "%gp_xlabel%"';
 $if not setglobal gp_xlabeloffset                 $goto gpxyzlabel_after_xlabeloffset_noloop
-$if '%gp_xlabeloffset%' == 'no'                   $goto gpxyzlabel_after_xlabeloffset_noloop
+$ifi '%gp_xlabeloffset%' == 'no'                  $goto gpxyzlabel_after_xlabeloffset_noloop
 put ' offset %gp_xlabeloffset%';
 $label gpxyzlabel_after_xlabeloffset_noloop
 put /;
@@ -1572,14 +1683,14 @@ put /;
 * Y labels - loop
 $label gpxyzlabel_ylabel_loop
 $if not setglobal gp_yl_l1                        $goto gpxyzlabel_ylabel_noloop
-$if '%gp_yl_l1%'  == 'no'                         $goto gpxyzlabel_ylabel_noloop
+$ifi '%gp_yl_l1%'  == 'no'                        $goto gpxyzlabel_ylabel_noloop
 put 'set ylabel  "';
 $if     setglobal gp_yl_l1                        put     %gp_yl_l1%.tl;
 $if     setglobal gp_yl_l2                        put ' ',%gp_yl_l2%.tl;
 $if     setglobal gp_yl_l3                        put ' ',%gp_yl_l3%.tl;
 $if     setglobal gp_yl_l4                        put ' ',%gp_yl_l4%.tl;
 $if not setglobal gp_ylabeloffset                 $goto gpxyzlabel_afterylabeloffset_loop
-$if '%gp_ylabeloffset%' == 'no'                   $goto gpxyzlabel_afterylabeloffset_loop
+$ifi '%gp_ylabeloffset%' == 'no'                  $goto gpxyzlabel_afterylabeloffset_loop
 put ' offset %gp_ylabeloffset%';
 $label gpxyzlabel_afterylabeloffset_loop
 PUT '"' /;
@@ -1589,12 +1700,12 @@ $goto gpxyzlabel_zlabel_loop
 * Y labels no loop
 $label gpxyzlabel_ylabel_noloop
 
-$if '%gp_ylabel%' == 'no'                         put 'unset ylabel'/;
-$if '%gp_ylabel%' == 'no'                         $goto gpxyzlabel_y2label_check
+$ifi '%gp_ylabel%' == 'no'                        put 'unset ylabel'/;
+$ifi '%gp_ylabel%' == 'no'                        $goto gpxyzlabel_y2label_check
 
-$if not '%gp_style%' == 'heatmap'                 $goto gpxyzlabel_after_heatmap_ylabel
+$ifi not '%gp_style%' == 'heatmap'                $goto gpxyzlabel_after_heatmap_ylabel
 $if not setglobal gp_heatmap_y                    $goto gpxyzlabel_after_heatmap_ylabel
-$if '%gp_heatmap_y% == 'no'                       $goto gpxyzlabel_after_heatmap_ylabel
+$ifi '%gp_heatmap_y% == 'no'                      $goto gpxyzlabel_after_heatmap_ylabel
 $setglobal gp_yyyvalue %gp_heatmap_y%
 $label gpxyzlabel_after_heatmap_ylabel
 
@@ -1603,13 +1714,13 @@ $if     setglobal gp_ylabel                       $goto gpxyzlabel_after_ylabelp
 $if not setglobal gp_yyyvalue                     put 'unset ylabel'/;
 $if not setglobal gp_yyyvalue                     $goto gpxyzlabel_y2label_check
 
-$if '%gp_yyyvalue%' == 'no'                       put 'unset ylabel'/;
-$if '%gp_yyyvalue%' == 'no'                       $goto gpxyzlabel_y2label_check
+$ifi '%gp_yyyvalue%' == 'no'                      put 'unset ylabel'/;
+$ifi '%gp_yyyvalue%' == 'no'                      $goto gpxyzlabel_y2label_check
 
 $label  gpxyzlabel_after_ylabelpresencecheck
 
 $if not setglobal gp_ylabelloop                   $goto gpxyzlabel_after_ylabelloop
-$if "%gp_ylabelloop%" == "no"                     $goto gpxyzlabel_after_ylabelloop
+$ifi "%gp_ylabelloop%" == "no"                    $goto gpxyzlabel_after_ylabelloop
 put 'set ylabel  "',%gp_ylabelloop%.TE(%gp_ylabelloop%),'"';
 $goto gpxyzlabel_after_ylabelassignment
 $label gpxyzlabel_after_ylabelloop
@@ -1620,7 +1731,7 @@ $label gpxyzlabel_after_ylabelassignment
 
 
 $if not setglobal gp_ylabeloffset                 $goto gpxyzlabel_after_ylabeloffset_noloop
-$if '%gp_ylabeloffset%' == 'no'                   $goto gpxyzlabel_after_ylabeloffset_noloop
+$ifi '%gp_ylabeloffset%' == 'no'                  $goto gpxyzlabel_after_ylabeloffset_noloop
 put ' offset %gp_ylabeloffset%';
 $label gpxyzlabel_after_ylabeloffset_noloop
 put /;
@@ -1820,72 +1931,72 @@ $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop1
 $if not setglobal gp_title                        $setglobal gp_title ' '
-put 'set title  "%gp_title% ',%gp_loop1%.te(%gp_loop1%);
+put 'set title  "%gp_title% ',%gp_loop1%.tl;
 $if     setglobal gp_loop2                        $goto gpxyzlabel_title_loop2
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop2
-$if '%gp_loop2%'   == 'no'                        put '"' /;
-$if '%gp_loop2%'   == 'no'                        $goto gpxyzlabel_skiptitle
-put ' ',%gp_loop2%.te(%gp_loop2%);
+$ifi '%gp_loop2%'   == 'no'                        put '"' /;
+$ifi '%gp_loop2%'   == 'no'                        $goto gpxyzlabel_skiptitle
+put ' ',%gp_loop2%.tl;
 $if     setglobal gp_loop3                        $goto gpxyzlabel_title_loop3
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop3
-$if '%gp_loop3%'   == 'no'                        put '"' /;
-$if '%gp_loop3%'   == 'no'                        $goto gpxyzlabel_skiptitle
-put ' ',%gp_loop3%.te(%gp_loop3%);
+$ifi '%gp_loop3%'   == 'no'                        put '"' /;
+$ifi '%gp_loop3%'   == 'no'                        $goto gpxyzlabel_skiptitle
+put ' ',%gp_loop3%.tl;
 $if     setglobal gp_loop4                        $goto gpxyzlabel_title_loop4
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 *new
 $label gpxyzlabel_title_loop4
-$if '%gp_loop4%'   == 'no'                        put '"' /;
-$if '%gp_loop4%'   == 'no'                        $goto gpxyzlabel_skiptitle
-put ' ',%gp_loop4%.te(%gp_loop4%);
+$ifi '%gp_loop4%'   == 'no'                        put '"' /;
+$ifi '%gp_loop4%'   == 'no'                        $goto gpxyzlabel_skiptitle
+put ' ',%gp_loop4%.tl;
 $if     setglobal gp_loop5                        $goto gpxyzlabel_title_loop5
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop5
-$if '%gp_loop5%'   == 'no'                        put '"' /;
-$if '%gp_loop5%'   == 'no'                        $goto gpxyzlabel_skiptitle
-put ' ',%gp_loop5%.te(%gp_loop5%);
+$ifi '%gp_loop5%'   == 'no'                        put '"' /;
+$ifi '%gp_loop5%'   == 'no'                        $goto gpxyzlabel_skiptitle
+put ' ',%gp_loop5%.tl;
 $if     setglobal gp_loop6                        $goto gpxyzlabel_title_loop6
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop6
-$if '%gp_loop6%'   == 'no'                        put '"' /;
-$if '%gp_loop6%'   == 'no'                        $goto gpxyzlabel_skiptitle
-put ' ',%gp_loop6%.te(%gp_loop6%);
+$ifi '%gp_loop6%'   == 'no'                        put '"' /;
+$ifi '%gp_loop6%'   == 'no'                        $goto gpxyzlabel_skiptitle
+put ' ',%gp_loop6%.tl;
 $if     setglobal gp_loop7                        $goto gpxyzlabel_title_loop7
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop7
-$if '%gp_loop7%'   == 'no'                        put '"' /;
-$if '%gp_loop7%'   == 'no'                        $goto gpxyzlabel_skiptitle
-put ' ',%gp_loop7%.te(%gp_loop7%);
+$ifi '%gp_loop7%'   == 'no'                        put '"' /;
+$ifi '%gp_loop7%'   == 'no'                        $goto gpxyzlabel_skiptitle
+put ' ',%gp_loop7%.tl;
 $if     setglobal gp_loop8                        $goto gpxyzlabel_title_loop8
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop8
-$if '%gp_loop8%'   == 'no'                        put '"' /;
-$if '%gp_loop8%'   == 'no'                        $goto gpxyzlabel_skiptitle
-put ' ',%gp_loop8%.te(%gp_loop8%);
+$ifi '%gp_loop8%'   == 'no'                        put '"' /;
+$ifi '%gp_loop8%'   == 'no'                        $goto gpxyzlabel_skiptitle
+put ' ',%gp_loop8%.tl;
 $if     setglobal gp_loop9                        $goto gpxyzlabel_title_loop9
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
 $label gpxyzlabel_title_loop9
-$if '%gp_loop9%'   == 'no'                        put '"' /;
-$if '%gp_loop9%'   == 'no'                        $goto gpxyzlabel_skiptitle
-put ' ',%gp_loop9%.te(%gp_loop9%);
+$ifi '%gp_loop9%'   == 'no'                        put '"' /;
+$ifi '%gp_loop9%'   == 'no'                        $goto gpxyzlabel_skiptitle
+put ' ',%gp_loop9%.tl;
 put '" %gp_titleoption%' /;
 $goto gpxyzlabel_skiptitle
 
@@ -1897,17 +2008,19 @@ $if dimension 1 %1                                $goto gpxyzlabel_gp_label_nohi
 $if not a%2==a                                    $goto gpxyzlabel_gp_label_nohistogram
 $if not setglobal gp_style                        $setglobal gp_style histogram
 $ifi     '%gp_style%'=='spiderplot'               $goto gpxyzlabel_gp_label_nohistogram
+$ifi     '%gp_style%'=='sectorplot'               $goto gpxyzlabel_gp_label_nohistogram
 $ifi     '%gp_xdata%'=='time'                     $goto gpxyzlabel_gp_label_nohistogram
 $ifi     '%gp_style%'=='heatmap'                  $goto gpxyzlabel_borderoptions
 
 $ifi not '%gp_style%'=='histogram'                $setglobal gp_style histogram
 
 $label gpxyzlabel_gp_label_nohistogram
-$ifi     '%gp_style%'=='piechart'                 $goto gpxyzlabel_piechartstyle
+$ifi     '%gp_style%'=='piechart'                 $goto gpxyzlabel_circlesegmentstyle
+$ifi     '%gp_style%'=='sectorplot'               $goto gpxyzlabel_circlesegmentstyle
 put 'set style data %gp_style%'/;
+$goto gpxyzlabel_afterpiechartstyle
 
-$label gpxyzlabel_piechartstyle
-$ifi not '%gp_style%'=='piechart'                 $goto gpxyzlabel_afterpiechartstyle
+$label gpxyzlabel_circlesegmentstyle
 put 'set angles degrees'/;
 $label gpxyzlabel_afterpiechartstyle
 
@@ -2079,125 +2192,185 @@ gp_fixlinecolormap(gp_hex_color_name,%gp_fixcolor_set%) = no;
 gp_count=0;
 LOOP(%gp_fixcolor_set%, gp_count=gp_count+1;
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_fixed_lc_1_assign
-$if "%gp_lc_1%"=="no"                              $goto gpxyzlabel_after_fixed_lc_1_assign
+$ifi "%gp_lc_1%"=="no"                             $goto gpxyzlabel_after_fixed_lc_1_assign
 IF(gp_count eq 1,
  gp_fixcolorset("%gp_lc_1%") = yes;
  gp_fixlinecolormap("%gp_lc_1%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_1_assign
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_fixed_lc_2_assign
-$if "%gp_lc_2%"=="no"                              $goto gpxyzlabel_after_fixed_lc_2_assign
+$ifi "%gp_lc_2%"=="no"                             $goto gpxyzlabel_after_fixed_lc_2_assign
 IF(gp_count eq 2,
  gp_fixcolorset("%gp_lc_2%") = yes;
  gp_fixlinecolormap("%gp_lc_2%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_2_assign
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_fixed_lc_3_assign
-$if "%gp_lc_3%"=="no"                              $goto gpxyzlabel_after_fixed_lc_3_assign
+$ifi "%gp_lc_3%"=="no"                             $goto gpxyzlabel_after_fixed_lc_3_assign
 IF(gp_count eq 3,
  gp_fixcolorset("%gp_lc_3%") = yes;
  gp_fixlinecolormap("%gp_lc_3%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_3_assign
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_fixed_lc_4_assign
-$if "%gp_lc_4%"=="no"                              $goto gpxyzlabel_after_fixed_lc_4_assign
+$ifi "%gp_lc_4%"=="no"                             $goto gpxyzlabel_after_fixed_lc_4_assign
 IF(gp_count eq 4,
  gp_fixcolorset("%gp_lc_4%") = yes;
  gp_fixlinecolormap("%gp_lc_4%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_4_assign
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_fixed_lc_5_assign
-$if "%gp_lc_5%"=="no"                              $goto gpxyzlabel_after_fixed_lc_5_assign
+$ifi "%gp_lc_5%"=="no"                             $goto gpxyzlabel_after_fixed_lc_5_assign
 IF(gp_count eq 5,
  gp_fixcolorset("%gp_lc_5%") = yes;
  gp_fixlinecolormap("%gp_lc_5%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_5_assign
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_fixed_lc_6_assign
-$if "%gp_lc_6%"=="no"                              $goto gpxyzlabel_after_fixed_lc_6_assign
+$ifi "%gp_lc_6%"=="no"                             $goto gpxyzlabel_after_fixed_lc_6_assign
 IF(gp_count eq 6,
  gp_fixcolorset("%gp_lc_6%") = yes;
  gp_fixlinecolormap("%gp_lc_6%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_6_assign
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_fixed_lc_7_assign
-$if "%gp_lc_7%"=="no"                              $goto gpxyzlabel_after_fixed_lc_7_assign
+$ifi "%gp_lc_7%"=="no"                             $goto gpxyzlabel_after_fixed_lc_7_assign
 IF(gp_count eq 7,
  gp_fixcolorset("%gp_lc_7%") = yes;
  gp_fixlinecolormap("%gp_lc_7%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_7_assign
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_fixed_lc_8_assign
-$if "%gp_lc_8%"=="no"                              $goto gpxyzlabel_after_fixed_lc_8_assign
+$ifi "%gp_lc_8%"=="no"                             $goto gpxyzlabel_after_fixed_lc_8_assign
 IF(gp_count eq 8,
  gp_fixcolorset("%gp_lc_8%") = yes;
  gp_fixlinecolormap("%gp_lc_8%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_8_assign
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_fixed_lc_9_assign
-$if "%gp_lc_9%"=="no"                              $goto gpxyzlabel_after_fixed_lc_9_assign
+$ifi "%gp_lc_9%"=="no"                             $goto gpxyzlabel_after_fixed_lc_9_assign
 IF(gp_count eq 9,
  gp_fixcolorset("%gp_lc_9%") = yes;
  gp_fixlinecolormap("%gp_lc_9%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_9_assign
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_fixed_lc_10_assign
-$if "%gp_lc_10%"=="no"                             $goto gpxyzlabel_after_fixed_lc_10_assign
+$ifi "%gp_lc_10%"=="no"                            $goto gpxyzlabel_after_fixed_lc_10_assign
 IF(gp_count eq 10,
  gp_fixcolorset("%gp_lc_10%") = yes;
  gp_fixlinecolormap("%gp_lc_10%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_10_assign
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_fixed_lc_11_assign
-$if "%gp_lc_11%"=="no"                             $goto gpxyzlabel_after_fixed_lc_11_assign
+$ifi "%gp_lc_11%"=="no"                            $goto gpxyzlabel_after_fixed_lc_11_assign
 IF(gp_count eq 11,
  gp_fixcolorset("%gp_lc_11%") = yes;
  gp_fixlinecolormap("%gp_lc_11%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_11_assign
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_fixed_lc_12_assign
-$if "%gp_lc_12%"=="no"                             $goto gpxyzlabel_after_fixed_lc_12_assign
+$ifi "%gp_lc_12%"=="no"                            $goto gpxyzlabel_after_fixed_lc_12_assign
 IF(gp_count eq 12,
  gp_fixcolorset("%gp_lc_12%") = yes;
  gp_fixlinecolormap("%gp_lc_12%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_12_assign
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_fixed_lc_13_assign
-$if "%gp_lc_13%"=="no"                             $goto gpxyzlabel_after_fixed_lc_13_assign
+$ifi "%gp_lc_13%"=="no"                            $goto gpxyzlabel_after_fixed_lc_13_assign
 IF(gp_count eq 13,
  gp_fixcolorset("%gp_lc_13%") = yes;
  gp_fixlinecolormap("%gp_lc_13%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_13_assign
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_fixed_lc_14_assign
-$if "%gp_lc_14%"=="no"                             $goto gpxyzlabel_after_fixed_lc_14_assign
+$ifi "%gp_lc_14%"=="no"                            $goto gpxyzlabel_after_fixed_lc_14_assign
 IF(gp_count eq 14,
  gp_fixcolorset("%gp_lc_14%") = yes;
  gp_fixlinecolormap("%gp_lc_14%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_14_assign
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_fixed_lc_15_assign
-$if "%gp_lc_15%"=="no"                             $goto gpxyzlabel_after_fixed_lc_15_assign
+$ifi "%gp_lc_15%"=="no"                            $goto gpxyzlabel_after_fixed_lc_15_assign
 IF(gp_count eq 15,
  gp_fixcolorset("%gp_lc_15%") = yes;
  gp_fixlinecolormap("%gp_lc_15%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_15_assign
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_fixed_lc_16_assign
-$if "%gp_lc_16%"=="no"                             $goto gpxyzlabel_after_fixed_lc_16_assign
+$ifi "%gp_lc_16%"=="no"                            $goto gpxyzlabel_after_fixed_lc_16_assign
 IF(gp_count eq 16,
  gp_fixcolorset("%gp_lc_16%") = yes;
  gp_fixlinecolormap("%gp_lc_16%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_16_assign
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_fixed_lc_17_assign
-$if "%gp_lc_17%"=="no"                             $goto gpxyzlabel_after_fixed_lc_17_assign
+$ifi "%gp_lc_17%"=="no"                            $goto gpxyzlabel_after_fixed_lc_17_assign
 IF(gp_count eq 17,
  gp_fixcolorset("%gp_lc_17%") = yes;
  gp_fixlinecolormap("%gp_lc_17%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_17_assign
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_fixed_lc_18_assign
-$if "%gp_lc_18%"=="no"                             $goto gpxyzlabel_after_fixed_lc_18_assign
+$ifi "%gp_lc_18%"=="no"                            $goto gpxyzlabel_after_fixed_lc_18_assign
 IF(gp_count eq 18,
  gp_fixcolorset("%gp_lc_18%") = yes;
  gp_fixlinecolormap("%gp_lc_18%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_18_assign
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_fixed_lc_19_assign
-$if "%gp_lc_19%"=="no"                             $goto gpxyzlabel_after_fixed_lc_19_assign
+$ifi "%gp_lc_19%"=="no"                            $goto gpxyzlabel_after_fixed_lc_19_assign
 IF(gp_count eq 19,
  gp_fixcolorset("%gp_lc_19%") = yes;
  gp_fixlinecolormap("%gp_lc_19%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_19_assign
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_fixed_lc_20_assign
-$if "%gp_lc_20%"=="no"                             $goto gpxyzlabel_after_fixed_lc_20_assign
+$ifi "%gp_lc_20%"=="no"                            $goto gpxyzlabel_after_fixed_lc_20_assign
 IF(gp_count eq 20,
  gp_fixcolorset("%gp_lc_20%") = yes;
  gp_fixlinecolormap("%gp_lc_20%",%gp_fixcolor_set%) = yes; );
 $label gpxyzlabel_after_fixed_lc_20_assign
+$if not setglobal gp_lc_21                         $goto gpxyzlabel_after_fixed_lc_21_assign
+$ifi "%gp_lc_21%"=="no"                            $goto gpxyzlabel_after_fixed_lc_21_assign
+IF(gp_count eq 21,
+ gp_fixcolorset("%gp_lc_21%") = yes;
+ gp_fixlinecolormap("%gp_lc_21%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_21_assign
+$if not setglobal gp_lc_22                         $goto gpxyzlabel_after_fixed_lc_22_assign
+$ifi "%gp_lc_22%"=="no"                            $goto gpxyzlabel_after_fixed_lc_22_assign
+IF(gp_count eq 22,
+ gp_fixcolorset("%gp_lc_22%") = yes;
+ gp_fixlinecolormap("%gp_lc_22%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_22_assign
+$if not setglobal gp_lc_23                         $goto gpxyzlabel_after_fixed_lc_23_assign
+$ifi "%gp_lc_23%"=="no"                            $goto gpxyzlabel_after_fixed_lc_23_assign
+IF(gp_count eq 23,
+ gp_fixcolorset("%gp_lc_23%") = yes;
+ gp_fixlinecolormap("%gp_lc_23%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_23_assign
+$if not setglobal gp_lc_24                         $goto gpxyzlabel_after_fixed_lc_24_assign
+$ifi "%gp_lc_24%"=="no"                            $goto gpxyzlabel_after_fixed_lc_24_assign
+IF(gp_count eq 24,
+ gp_fixcolorset("%gp_lc_24%") = yes;
+ gp_fixlinecolormap("%gp_lc_24%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_24_assign
+$if not setglobal gp_lc_25                         $goto gpxyzlabel_after_fixed_lc_25_assign
+$ifi "%gp_lc_25%"=="no"                            $goto gpxyzlabel_after_fixed_lc_25_assign
+IF(gp_count eq 25,
+ gp_fixcolorset("%gp_lc_25%") = yes;
+ gp_fixlinecolormap("%gp_lc_25%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_25_assign
+$if not setglobal gp_lc_26                         $goto gpxyzlabel_after_fixed_lc_26_assign
+$ifi "%gp_lc_26%"=="no"                            $goto gpxyzlabel_after_fixed_lc_26_assign
+IF(gp_count eq 26,
+ gp_fixcolorset("%gp_lc_26%") = yes;
+ gp_fixlinecolormap("%gp_lc_26%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_26_assign
+$if not setglobal gp_lc_27                         $goto gpxyzlabel_after_fixed_lc_27_assign
+$ifi "%gp_lc_27%"=="no"                            $goto gpxyzlabel_after_fixed_lc_27_assign
+IF(gp_count eq 27,
+ gp_fixcolorset("%gp_lc_27%") = yes;
+ gp_fixlinecolormap("%gp_lc_27%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_27_assign
+$if not setglobal gp_lc_28                         $goto gpxyzlabel_after_fixed_lc_28_assign
+$ifi "%gp_lc_28%"=="no"                            $goto gpxyzlabel_after_fixed_lc_28_assign
+IF(gp_count eq 28,
+ gp_fixcolorset("%gp_lc_28%") = yes;
+ gp_fixlinecolormap("%gp_lc_28%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_28_assign
+$if not setglobal gp_lc_29                         $goto gpxyzlabel_after_fixed_lc_29_assign
+$ifi "%gp_lc_29%"=="no"                            $goto gpxyzlabel_after_fixed_lc_29_assign
+IF(gp_count eq 29,
+ gp_fixcolorset("%gp_lc_29%") = yes;
+ gp_fixlinecolormap("%gp_lc_29%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_29_assign
+$if not setglobal gp_lc_30                         $goto gpxyzlabel_after_fixed_lc_30_assign
+$ifi "%gp_lc_30%"=="no"                            $goto gpxyzlabel_after_fixed_lc_30_assign
+IF(gp_count eq 30,
+ gp_fixcolorset("%gp_lc_30%") = yes;
+ gp_fixlinecolormap("%gp_lc_30%",%gp_fixcolor_set%) = yes; );
+$label gpxyzlabel_after_fixed_lc_30_assign
 );
 $label gpxyzlabel_after_fixcolorassignment_2d
 * Insert Auto Code 3 produced by make_345678_linestyle.gms - end
@@ -2500,6 +2673,7 @@ $label after_gp_palette_color_20
    if(gp_count lt card(%gp_scen%), put ', '; ); );
   );
 
+
  ); PUT ")" /;
 
 $label gpxyzlabel_after_custompalette
@@ -2608,6 +2782,7 @@ $label gpxyzlabel_after_fixcolorassignment
 * Direct to histograms, spiderplots, 2D or 3D plots
 $if a%1==afunction                     $goto gpxyzlabel_plotstatement_2dgraph
 $if "%gp_style%" == "spiderplot"       $goto gpxyzlabel_plotstatement_spiderplot
+$if "%gp_style%" == "sectorplot"       $goto gpxyzlabel_plotstatement_sectorplot
 $if "%gp_style%" == "heatmap"          $goto gpxyzlabel_plotstatement_heatmap
 $if "%gp_style%"=="filledcurves"       $goto gpxyzlabel_plotstatement_2dgraph
 $if dimension 1 %1                     $goto gpxyzlabel_plotstatement_1dgraph
@@ -2689,539 +2864,796 @@ $if a%4==a                                         $goto gpxyzlabel_after_fillcu
 $label gpxyzlabel_after_fillcurvecheck
 
 * Insert Auto Code 4 produced by make_345678_linestyle.gms - begin
-$if "%gp_l1style%"=="no"                           $goto gpxyzlabel_l_1_errorstyle
-$if "%gp_l1style%"=="xerrorlines"                  If(gp_count eq 1, put ':3:4 ';);
-$if "%gp_l1style%"=="yerrorlines"                  If(gp_count eq 1, put ':3:4 ';);
-$if "%gp_l1style%"=="xerrorbars"                   If(gp_count eq 1, put ':3:4 ';);
-$if "%gp_l1style%"=="yerrorbars"                   If(gp_count eq 1, put ':3:4 ';);
-$if "%gp_l1style%"=="candlesticks"                 If(gp_count eq 1, put ':3:4:5 ';);
-$if "%gp_l1style%"=="xyerrorlines"                 If(gp_count eq 1, put ':3:4:5:6 ';);
-$if "%gp_l1style%"=="xyerrorbars"                  If(gp_count eq 1, put ':3:4:5:6 ';);
-$if "%gp_l1style%"=="boxxyerrorbars"               If(gp_count eq 1, put ':3:4:5:6 ';);
-$if "%gp_l1style%"=="circles"                      If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l1style%"=="circles"                      If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l1style%"=="circles"                      If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l1style%"=="circles"                      If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l1style%"=="no"                          $goto gpxyzlabel_l_1_errorstyle
+$ifi "%gp_l1style%"=="xerrorlines"                 If(gp_count eq 1, put ':3:4 ';);
+$ifi "%gp_l1style%"=="yerrorlines"                 If(gp_count eq 1, put ':3:4 ';);
+$ifi "%gp_l1style%"=="xerrorbars"                  If(gp_count eq 1, put ':3:4 ';);
+$ifi "%gp_l1style%"=="yerrorbars"                  If(gp_count eq 1, put ':3:4 ';);
+$ifi "%gp_l1style%"=="candlesticks"                If(gp_count eq 1, put ':3:4:5 ';);
+$ifi "%gp_l1style%"=="xyerrorlines"                If(gp_count eq 1, put ':3:4:5:6 ';);
+$ifi "%gp_l1style%"=="xyerrorbars"                 If(gp_count eq 1, put ':3:4:5:6 ';);
+$ifi "%gp_l1style%"=="boxxyerrorbars"              If(gp_count eq 1, put ':3:4:5:6 ';);
+$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_1_errorstyle
 
-$if "%gp_l2style%"=="no"                           $goto gpxyzlabel_l_2_errorstyle
-$if "%gp_l2style%"=="xerrorlines"                  If(gp_count eq 2, put ':3:4 ';);
-$if "%gp_l2style%"=="yerrorlines"                  If(gp_count eq 2, put ':3:4 ';);
-$if "%gp_l2style%"=="xerrorbars"                   If(gp_count eq 2, put ':3:4 ';);
-$if "%gp_l2style%"=="yerrorbars"                   If(gp_count eq 2, put ':3:4 ';);
-$if "%gp_l2style%"=="candlesticks"                 If(gp_count eq 2, put ':3:4:5 ';);
-$if "%gp_l2style%"=="xyerrorlines"                 If(gp_count eq 2, put ':3:4:5:6 ';);
-$if "%gp_l2style%"=="xyerrorbars"                  If(gp_count eq 2, put ':3:4:5:6 ';);
-$if "%gp_l2style%"=="boxxyerrorbars"               If(gp_count eq 2, put ':3:4:5:6 ';);
-$if "%gp_l2style%"=="circles"                      If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l2style%"=="circles"                      If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l2style%"=="circles"                      If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l2style%"=="circles"                      If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l2style%"=="no"                          $goto gpxyzlabel_l_2_errorstyle
+$ifi "%gp_l2style%"=="xerrorlines"                 If(gp_count eq 2, put ':3:4 ';);
+$ifi "%gp_l2style%"=="yerrorlines"                 If(gp_count eq 2, put ':3:4 ';);
+$ifi "%gp_l2style%"=="xerrorbars"                  If(gp_count eq 2, put ':3:4 ';);
+$ifi "%gp_l2style%"=="yerrorbars"                  If(gp_count eq 2, put ':3:4 ';);
+$ifi "%gp_l2style%"=="candlesticks"                If(gp_count eq 2, put ':3:4:5 ';);
+$ifi "%gp_l2style%"=="xyerrorlines"                If(gp_count eq 2, put ':3:4:5:6 ';);
+$ifi "%gp_l2style%"=="xyerrorbars"                 If(gp_count eq 2, put ':3:4:5:6 ';);
+$ifi "%gp_l2style%"=="boxxyerrorbars"              If(gp_count eq 2, put ':3:4:5:6 ';);
+$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_2_errorstyle
 
-$if "%gp_l3style%"=="no"                           $goto gpxyzlabel_l_3_errorstyle
-$if "%gp_l3style%"=="xerrorlines"                  If(gp_count eq 3, put ':3:4 ';);
-$if "%gp_l3style%"=="yerrorlines"                  If(gp_count eq 3, put ':3:4 ';);
-$if "%gp_l3style%"=="xerrorbars"                   If(gp_count eq 3, put ':3:4 ';);
-$if "%gp_l3style%"=="yerrorbars"                   If(gp_count eq 3, put ':3:4 ';);
-$if "%gp_l3style%"=="candlesticks"                 If(gp_count eq 3, put ':3:4:5 ';);
-$if "%gp_l3style%"=="xyerrorlines"                 If(gp_count eq 3, put ':3:4:5:6 ';);
-$if "%gp_l3style%"=="xyerrorbars"                  If(gp_count eq 3, put ':3:4:5:6 ';);
-$if "%gp_l3style%"=="boxxyerrorbars"               If(gp_count eq 3, put ':3:4:5:6 ';);
-$if "%gp_l3style%"=="circles"                      If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l3style%"=="circles"                      If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l3style%"=="circles"                      If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l3style%"=="circles"                      If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l3style%"=="no"                          $goto gpxyzlabel_l_3_errorstyle
+$ifi "%gp_l3style%"=="xerrorlines"                 If(gp_count eq 3, put ':3:4 ';);
+$ifi "%gp_l3style%"=="yerrorlines"                 If(gp_count eq 3, put ':3:4 ';);
+$ifi "%gp_l3style%"=="xerrorbars"                  If(gp_count eq 3, put ':3:4 ';);
+$ifi "%gp_l3style%"=="yerrorbars"                  If(gp_count eq 3, put ':3:4 ';);
+$ifi "%gp_l3style%"=="candlesticks"                If(gp_count eq 3, put ':3:4:5 ';);
+$ifi "%gp_l3style%"=="xyerrorlines"                If(gp_count eq 3, put ':3:4:5:6 ';);
+$ifi "%gp_l3style%"=="xyerrorbars"                 If(gp_count eq 3, put ':3:4:5:6 ';);
+$ifi "%gp_l3style%"=="boxxyerrorbars"              If(gp_count eq 3, put ':3:4:5:6 ';);
+$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_3_errorstyle
 
-$if "%gp_l4style%"=="no"                           $goto gpxyzlabel_l_4_errorstyle
-$if "%gp_l4style%"=="xerrorlines"                  If(gp_count eq 4, put ':3:4 ';);
-$if "%gp_l4style%"=="yerrorlines"                  If(gp_count eq 4, put ':3:4 ';);
-$if "%gp_l4style%"=="xerrorbars"                   If(gp_count eq 4, put ':3:4 ';);
-$if "%gp_l4style%"=="yerrorbars"                   If(gp_count eq 4, put ':3:4 ';);
-$if "%gp_l4style%"=="candlesticks"                 If(gp_count eq 4, put ':3:4:5 ';);
-$if "%gp_l4style%"=="xyerrorlines"                 If(gp_count eq 4, put ':3:4:5:6 ';);
-$if "%gp_l4style%"=="xyerrorbars"                  If(gp_count eq 4, put ':3:4:5:6 ';);
-$if "%gp_l4style%"=="boxxyerrorbars"               If(gp_count eq 4, put ':3:4:5:6 ';);
-$if "%gp_l4style%"=="circles"                      If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l4style%"=="circles"                      If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l4style%"=="circles"                      If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l4style%"=="circles"                      If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l4style%"=="no"                          $goto gpxyzlabel_l_4_errorstyle
+$ifi "%gp_l4style%"=="xerrorlines"                 If(gp_count eq 4, put ':3:4 ';);
+$ifi "%gp_l4style%"=="yerrorlines"                 If(gp_count eq 4, put ':3:4 ';);
+$ifi "%gp_l4style%"=="xerrorbars"                  If(gp_count eq 4, put ':3:4 ';);
+$ifi "%gp_l4style%"=="yerrorbars"                  If(gp_count eq 4, put ':3:4 ';);
+$ifi "%gp_l4style%"=="candlesticks"                If(gp_count eq 4, put ':3:4:5 ';);
+$ifi "%gp_l4style%"=="xyerrorlines"                If(gp_count eq 4, put ':3:4:5:6 ';);
+$ifi "%gp_l4style%"=="xyerrorbars"                 If(gp_count eq 4, put ':3:4:5:6 ';);
+$ifi "%gp_l4style%"=="boxxyerrorbars"              If(gp_count eq 4, put ':3:4:5:6 ';);
+$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_4_errorstyle
 
-$if "%gp_l5style%"=="no"                           $goto gpxyzlabel_l_5_errorstyle
-$if "%gp_l5style%"=="xerrorlines"                  If(gp_count eq 5, put ':3:4 ';);
-$if "%gp_l5style%"=="yerrorlines"                  If(gp_count eq 5, put ':3:4 ';);
-$if "%gp_l5style%"=="xerrorbars"                   If(gp_count eq 5, put ':3:4 ';);
-$if "%gp_l5style%"=="yerrorbars"                   If(gp_count eq 5, put ':3:4 ';);
-$if "%gp_l5style%"=="candlesticks"                 If(gp_count eq 5, put ':3:4:5 ';);
-$if "%gp_l5style%"=="xyerrorlines"                 If(gp_count eq 5, put ':3:4:5:6 ';);
-$if "%gp_l5style%"=="xyerrorbars"                  If(gp_count eq 5, put ':3:4:5:6 ';);
-$if "%gp_l5style%"=="boxxyerrorbars"               If(gp_count eq 5, put ':3:4:5:6 ';);
-$if "%gp_l5style%"=="circles"                      If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l5style%"=="circles"                      If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l5style%"=="circles"                      If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l5style%"=="circles"                      If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l5style%"=="no"                          $goto gpxyzlabel_l_5_errorstyle
+$ifi "%gp_l5style%"=="xerrorlines"                 If(gp_count eq 5, put ':3:4 ';);
+$ifi "%gp_l5style%"=="yerrorlines"                 If(gp_count eq 5, put ':3:4 ';);
+$ifi "%gp_l5style%"=="xerrorbars"                  If(gp_count eq 5, put ':3:4 ';);
+$ifi "%gp_l5style%"=="yerrorbars"                  If(gp_count eq 5, put ':3:4 ';);
+$ifi "%gp_l5style%"=="candlesticks"                If(gp_count eq 5, put ':3:4:5 ';);
+$ifi "%gp_l5style%"=="xyerrorlines"                If(gp_count eq 5, put ':3:4:5:6 ';);
+$ifi "%gp_l5style%"=="xyerrorbars"                 If(gp_count eq 5, put ':3:4:5:6 ';);
+$ifi "%gp_l5style%"=="boxxyerrorbars"              If(gp_count eq 5, put ':3:4:5:6 ';);
+$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_5_errorstyle
 
-$if "%gp_l6style%"=="no"                           $goto gpxyzlabel_l_6_errorstyle
-$if "%gp_l6style%"=="xerrorlines"                  If(gp_count eq 6, put ':3:4 ';);
-$if "%gp_l6style%"=="yerrorlines"                  If(gp_count eq 6, put ':3:4 ';);
-$if "%gp_l6style%"=="xerrorbars"                   If(gp_count eq 6, put ':3:4 ';);
-$if "%gp_l6style%"=="yerrorbars"                   If(gp_count eq 6, put ':3:4 ';);
-$if "%gp_l6style%"=="candlesticks"                 If(gp_count eq 6, put ':3:4:5 ';);
-$if "%gp_l6style%"=="xyerrorlines"                 If(gp_count eq 6, put ':3:4:5:6 ';);
-$if "%gp_l6style%"=="xyerrorbars"                  If(gp_count eq 6, put ':3:4:5:6 ';);
-$if "%gp_l6style%"=="boxxyerrorbars"               If(gp_count eq 6, put ':3:4:5:6 ';);
-$if "%gp_l6style%"=="circles"                      If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l6style%"=="circles"                      If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l6style%"=="circles"                      If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l6style%"=="circles"                      If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l6style%"=="no"                          $goto gpxyzlabel_l_6_errorstyle
+$ifi "%gp_l6style%"=="xerrorlines"                 If(gp_count eq 6, put ':3:4 ';);
+$ifi "%gp_l6style%"=="yerrorlines"                 If(gp_count eq 6, put ':3:4 ';);
+$ifi "%gp_l6style%"=="xerrorbars"                  If(gp_count eq 6, put ':3:4 ';);
+$ifi "%gp_l6style%"=="yerrorbars"                  If(gp_count eq 6, put ':3:4 ';);
+$ifi "%gp_l6style%"=="candlesticks"                If(gp_count eq 6, put ':3:4:5 ';);
+$ifi "%gp_l6style%"=="xyerrorlines"                If(gp_count eq 6, put ':3:4:5:6 ';);
+$ifi "%gp_l6style%"=="xyerrorbars"                 If(gp_count eq 6, put ':3:4:5:6 ';);
+$ifi "%gp_l6style%"=="boxxyerrorbars"              If(gp_count eq 6, put ':3:4:5:6 ';);
+$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_6_errorstyle
 
-$if "%gp_l7style%"=="no"                           $goto gpxyzlabel_l_7_errorstyle
-$if "%gp_l7style%"=="xerrorlines"                  If(gp_count eq 7, put ':3:4 ';);
-$if "%gp_l7style%"=="yerrorlines"                  If(gp_count eq 7, put ':3:4 ';);
-$if "%gp_l7style%"=="xerrorbars"                   If(gp_count eq 7, put ':3:4 ';);
-$if "%gp_l7style%"=="yerrorbars"                   If(gp_count eq 7, put ':3:4 ';);
-$if "%gp_l7style%"=="candlesticks"                 If(gp_count eq 7, put ':3:4:5 ';);
-$if "%gp_l7style%"=="xyerrorlines"                 If(gp_count eq 7, put ':3:4:5:6 ';);
-$if "%gp_l7style%"=="xyerrorbars"                  If(gp_count eq 7, put ':3:4:5:6 ';);
-$if "%gp_l7style%"=="boxxyerrorbars"               If(gp_count eq 7, put ':3:4:5:6 ';);
-$if "%gp_l7style%"=="circles"                      If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l7style%"=="circles"                      If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l7style%"=="circles"                      If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l7style%"=="circles"                      If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l7style%"=="no"                          $goto gpxyzlabel_l_7_errorstyle
+$ifi "%gp_l7style%"=="xerrorlines"                 If(gp_count eq 7, put ':3:4 ';);
+$ifi "%gp_l7style%"=="yerrorlines"                 If(gp_count eq 7, put ':3:4 ';);
+$ifi "%gp_l7style%"=="xerrorbars"                  If(gp_count eq 7, put ':3:4 ';);
+$ifi "%gp_l7style%"=="yerrorbars"                  If(gp_count eq 7, put ':3:4 ';);
+$ifi "%gp_l7style%"=="candlesticks"                If(gp_count eq 7, put ':3:4:5 ';);
+$ifi "%gp_l7style%"=="xyerrorlines"                If(gp_count eq 7, put ':3:4:5:6 ';);
+$ifi "%gp_l7style%"=="xyerrorbars"                 If(gp_count eq 7, put ':3:4:5:6 ';);
+$ifi "%gp_l7style%"=="boxxyerrorbars"              If(gp_count eq 7, put ':3:4:5:6 ';);
+$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_7_errorstyle
 
-$if "%gp_l8style%"=="no"                           $goto gpxyzlabel_l_8_errorstyle
-$if "%gp_l8style%"=="xerrorlines"                  If(gp_count eq 8, put ':3:4 ';);
-$if "%gp_l8style%"=="yerrorlines"                  If(gp_count eq 8, put ':3:4 ';);
-$if "%gp_l8style%"=="xerrorbars"                   If(gp_count eq 8, put ':3:4 ';);
-$if "%gp_l8style%"=="yerrorbars"                   If(gp_count eq 8, put ':3:4 ';);
-$if "%gp_l8style%"=="candlesticks"                 If(gp_count eq 8, put ':3:4:5 ';);
-$if "%gp_l8style%"=="xyerrorlines"                 If(gp_count eq 8, put ':3:4:5:6 ';);
-$if "%gp_l8style%"=="xyerrorbars"                  If(gp_count eq 8, put ':3:4:5:6 ';);
-$if "%gp_l8style%"=="boxxyerrorbars"               If(gp_count eq 8, put ':3:4:5:6 ';);
-$if "%gp_l8style%"=="circles"                      If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l8style%"=="circles"                      If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l8style%"=="circles"                      If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l8style%"=="circles"                      If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l8style%"=="no"                          $goto gpxyzlabel_l_8_errorstyle
+$ifi "%gp_l8style%"=="xerrorlines"                 If(gp_count eq 8, put ':3:4 ';);
+$ifi "%gp_l8style%"=="yerrorlines"                 If(gp_count eq 8, put ':3:4 ';);
+$ifi "%gp_l8style%"=="xerrorbars"                  If(gp_count eq 8, put ':3:4 ';);
+$ifi "%gp_l8style%"=="yerrorbars"                  If(gp_count eq 8, put ':3:4 ';);
+$ifi "%gp_l8style%"=="candlesticks"                If(gp_count eq 8, put ':3:4:5 ';);
+$ifi "%gp_l8style%"=="xyerrorlines"                If(gp_count eq 8, put ':3:4:5:6 ';);
+$ifi "%gp_l8style%"=="xyerrorbars"                 If(gp_count eq 8, put ':3:4:5:6 ';);
+$ifi "%gp_l8style%"=="boxxyerrorbars"              If(gp_count eq 8, put ':3:4:5:6 ';);
+$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_8_errorstyle
 
-$if "%gp_l9style%"=="no"                           $goto gpxyzlabel_l_9_errorstyle
-$if "%gp_l9style%"=="xerrorlines"                  If(gp_count eq 9, put ':3:4 ';);
-$if "%gp_l9style%"=="yerrorlines"                  If(gp_count eq 9, put ':3:4 ';);
-$if "%gp_l9style%"=="xerrorbars"                   If(gp_count eq 9, put ':3:4 ';);
-$if "%gp_l9style%"=="yerrorbars"                   If(gp_count eq 9, put ':3:4 ';);
-$if "%gp_l9style%"=="candlesticks"                 If(gp_count eq 9, put ':3:4:5 ';);
-$if "%gp_l9style%"=="xyerrorlines"                 If(gp_count eq 9, put ':3:4:5:6 ';);
-$if "%gp_l9style%"=="xyerrorbars"                  If(gp_count eq 9, put ':3:4:5:6 ';);
-$if "%gp_l9style%"=="boxxyerrorbars"               If(gp_count eq 9, put ':3:4:5:6 ';);
-$if "%gp_l9style%"=="circles"                      If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l9style%"=="circles"                      If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l9style%"=="circles"                      If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l9style%"=="circles"                      If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l9style%"=="no"                          $goto gpxyzlabel_l_9_errorstyle
+$ifi "%gp_l9style%"=="xerrorlines"                 If(gp_count eq 9, put ':3:4 ';);
+$ifi "%gp_l9style%"=="yerrorlines"                 If(gp_count eq 9, put ':3:4 ';);
+$ifi "%gp_l9style%"=="xerrorbars"                  If(gp_count eq 9, put ':3:4 ';);
+$ifi "%gp_l9style%"=="yerrorbars"                  If(gp_count eq 9, put ':3:4 ';);
+$ifi "%gp_l9style%"=="candlesticks"                If(gp_count eq 9, put ':3:4:5 ';);
+$ifi "%gp_l9style%"=="xyerrorlines"                If(gp_count eq 9, put ':3:4:5:6 ';);
+$ifi "%gp_l9style%"=="xyerrorbars"                 If(gp_count eq 9, put ':3:4:5:6 ';);
+$ifi "%gp_l9style%"=="boxxyerrorbars"              If(gp_count eq 9, put ':3:4:5:6 ';);
+$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_9_errorstyle
 
-$if "%gp_l10style%"=="no"                          $goto gpxyzlabel_l_10_errorstyle
-$if "%gp_l10style%"=="xerrorlines"                 If(gp_count eq 10, put ':3:4 ';);
-$if "%gp_l10style%"=="yerrorlines"                 If(gp_count eq 10, put ':3:4 ';);
-$if "%gp_l10style%"=="xerrorbars"                  If(gp_count eq 10, put ':3:4 ';);
-$if "%gp_l10style%"=="yerrorbars"                  If(gp_count eq 10, put ':3:4 ';);
-$if "%gp_l10style%"=="candlesticks"                If(gp_count eq 10, put ':3:4:5 ';);
-$if "%gp_l10style%"=="xyerrorlines"                If(gp_count eq 10, put ':3:4:5:6 ';);
-$if "%gp_l10style%"=="xyerrorbars"                 If(gp_count eq 10, put ':3:4:5:6 ';);
-$if "%gp_l10style%"=="boxxyerrorbars"              If(gp_count eq 10, put ':3:4:5:6 ';);
-$if "%gp_l10style%"=="circles"                     If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l10style%"=="circles"                     If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l10style%"=="circles"                     If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l10style%"=="circles"                     If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l10style%"=="no"                         $goto gpxyzlabel_l_10_errorstyle
+$ifi "%gp_l10style%"=="xerrorlines"                If(gp_count eq 10, put ':3:4 ';);
+$ifi "%gp_l10style%"=="yerrorlines"                If(gp_count eq 10, put ':3:4 ';);
+$ifi "%gp_l10style%"=="xerrorbars"                 If(gp_count eq 10, put ':3:4 ';);
+$ifi "%gp_l10style%"=="yerrorbars"                 If(gp_count eq 10, put ':3:4 ';);
+$ifi "%gp_l10style%"=="candlesticks"               If(gp_count eq 10, put ':3:4:5 ';);
+$ifi "%gp_l10style%"=="xyerrorlines"               If(gp_count eq 10, put ':3:4:5:6 ';);
+$ifi "%gp_l10style%"=="xyerrorbars"                If(gp_count eq 10, put ':3:4:5:6 ';);
+$ifi "%gp_l10style%"=="boxxyerrorbars"             If(gp_count eq 10, put ':3:4:5:6 ';);
+$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_10_errorstyle
 
-$if "%gp_l11style%"=="no"                          $goto gpxyzlabel_l_11_errorstyle
-$if "%gp_l11style%"=="xerrorlines"                 If(gp_count eq 11, put ':3:4 ';);
-$if "%gp_l11style%"=="yerrorlines"                 If(gp_count eq 11, put ':3:4 ';);
-$if "%gp_l11style%"=="xerrorbars"                  If(gp_count eq 11, put ':3:4 ';);
-$if "%gp_l11style%"=="yerrorbars"                  If(gp_count eq 11, put ':3:4 ';);
-$if "%gp_l11style%"=="candlesticks"                If(gp_count eq 11, put ':3:4:5 ';);
-$if "%gp_l11style%"=="xyerrorlines"                If(gp_count eq 11, put ':3:4:5:6 ';);
-$if "%gp_l11style%"=="xyerrorbars"                 If(gp_count eq 11, put ':3:4:5:6 ';);
-$if "%gp_l11style%"=="boxxyerrorbars"              If(gp_count eq 11, put ':3:4:5:6 ';);
-$if "%gp_l11style%"=="circles"                     If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l11style%"=="circles"                     If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l11style%"=="circles"                     If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l11style%"=="circles"                     If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l11style%"=="no"                         $goto gpxyzlabel_l_11_errorstyle
+$ifi "%gp_l11style%"=="xerrorlines"                If(gp_count eq 11, put ':3:4 ';);
+$ifi "%gp_l11style%"=="yerrorlines"                If(gp_count eq 11, put ':3:4 ';);
+$ifi "%gp_l11style%"=="xerrorbars"                 If(gp_count eq 11, put ':3:4 ';);
+$ifi "%gp_l11style%"=="yerrorbars"                 If(gp_count eq 11, put ':3:4 ';);
+$ifi "%gp_l11style%"=="candlesticks"               If(gp_count eq 11, put ':3:4:5 ';);
+$ifi "%gp_l11style%"=="xyerrorlines"               If(gp_count eq 11, put ':3:4:5:6 ';);
+$ifi "%gp_l11style%"=="xyerrorbars"                If(gp_count eq 11, put ':3:4:5:6 ';);
+$ifi "%gp_l11style%"=="boxxyerrorbars"             If(gp_count eq 11, put ':3:4:5:6 ';);
+$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_11_errorstyle
 
-$if "%gp_l12style%"=="no"                          $goto gpxyzlabel_l_12_errorstyle
-$if "%gp_l12style%"=="xerrorlines"                 If(gp_count eq 12, put ':3:4 ';);
-$if "%gp_l12style%"=="yerrorlines"                 If(gp_count eq 12, put ':3:4 ';);
-$if "%gp_l12style%"=="xerrorbars"                  If(gp_count eq 12, put ':3:4 ';);
-$if "%gp_l12style%"=="yerrorbars"                  If(gp_count eq 12, put ':3:4 ';);
-$if "%gp_l12style%"=="candlesticks"                If(gp_count eq 12, put ':3:4:5 ';);
-$if "%gp_l12style%"=="xyerrorlines"                If(gp_count eq 12, put ':3:4:5:6 ';);
-$if "%gp_l12style%"=="xyerrorbars"                 If(gp_count eq 12, put ':3:4:5:6 ';);
-$if "%gp_l12style%"=="boxxyerrorbars"              If(gp_count eq 12, put ':3:4:5:6 ';);
-$if "%gp_l12style%"=="circles"                     If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l12style%"=="circles"                     If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l12style%"=="circles"                     If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l12style%"=="circles"                     If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l12style%"=="no"                         $goto gpxyzlabel_l_12_errorstyle
+$ifi "%gp_l12style%"=="xerrorlines"                If(gp_count eq 12, put ':3:4 ';);
+$ifi "%gp_l12style%"=="yerrorlines"                If(gp_count eq 12, put ':3:4 ';);
+$ifi "%gp_l12style%"=="xerrorbars"                 If(gp_count eq 12, put ':3:4 ';);
+$ifi "%gp_l12style%"=="yerrorbars"                 If(gp_count eq 12, put ':3:4 ';);
+$ifi "%gp_l12style%"=="candlesticks"               If(gp_count eq 12, put ':3:4:5 ';);
+$ifi "%gp_l12style%"=="xyerrorlines"               If(gp_count eq 12, put ':3:4:5:6 ';);
+$ifi "%gp_l12style%"=="xyerrorbars"                If(gp_count eq 12, put ':3:4:5:6 ';);
+$ifi "%gp_l12style%"=="boxxyerrorbars"             If(gp_count eq 12, put ':3:4:5:6 ';);
+$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_12_errorstyle
 
-$if "%gp_l13style%"=="no"                          $goto gpxyzlabel_l_13_errorstyle
-$if "%gp_l13style%"=="xerrorlines"                 If(gp_count eq 13, put ':3:4 ';);
-$if "%gp_l13style%"=="yerrorlines"                 If(gp_count eq 13, put ':3:4 ';);
-$if "%gp_l13style%"=="xerrorbars"                  If(gp_count eq 13, put ':3:4 ';);
-$if "%gp_l13style%"=="yerrorbars"                  If(gp_count eq 13, put ':3:4 ';);
-$if "%gp_l13style%"=="candlesticks"                If(gp_count eq 13, put ':3:4:5 ';);
-$if "%gp_l13style%"=="xyerrorlines"                If(gp_count eq 13, put ':3:4:5:6 ';);
-$if "%gp_l13style%"=="xyerrorbars"                 If(gp_count eq 13, put ':3:4:5:6 ';);
-$if "%gp_l13style%"=="boxxyerrorbars"              If(gp_count eq 13, put ':3:4:5:6 ';);
-$if "%gp_l13style%"=="circles"                     If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l13style%"=="circles"                     If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l13style%"=="circles"                     If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l13style%"=="circles"                     If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l13style%"=="no"                         $goto gpxyzlabel_l_13_errorstyle
+$ifi "%gp_l13style%"=="xerrorlines"                If(gp_count eq 13, put ':3:4 ';);
+$ifi "%gp_l13style%"=="yerrorlines"                If(gp_count eq 13, put ':3:4 ';);
+$ifi "%gp_l13style%"=="xerrorbars"                 If(gp_count eq 13, put ':3:4 ';);
+$ifi "%gp_l13style%"=="yerrorbars"                 If(gp_count eq 13, put ':3:4 ';);
+$ifi "%gp_l13style%"=="candlesticks"               If(gp_count eq 13, put ':3:4:5 ';);
+$ifi "%gp_l13style%"=="xyerrorlines"               If(gp_count eq 13, put ':3:4:5:6 ';);
+$ifi "%gp_l13style%"=="xyerrorbars"                If(gp_count eq 13, put ':3:4:5:6 ';);
+$ifi "%gp_l13style%"=="boxxyerrorbars"             If(gp_count eq 13, put ':3:4:5:6 ';);
+$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_13_errorstyle
 
-$if "%gp_l14style%"=="no"                          $goto gpxyzlabel_l_14_errorstyle
-$if "%gp_l14style%"=="xerrorlines"                 If(gp_count eq 14, put ':3:4 ';);
-$if "%gp_l14style%"=="yerrorlines"                 If(gp_count eq 14, put ':3:4 ';);
-$if "%gp_l14style%"=="xerrorbars"                  If(gp_count eq 14, put ':3:4 ';);
-$if "%gp_l14style%"=="yerrorbars"                  If(gp_count eq 14, put ':3:4 ';);
-$if "%gp_l14style%"=="candlesticks"                If(gp_count eq 14, put ':3:4:5 ';);
-$if "%gp_l14style%"=="xyerrorlines"                If(gp_count eq 14, put ':3:4:5:6 ';);
-$if "%gp_l14style%"=="xyerrorbars"                 If(gp_count eq 14, put ':3:4:5:6 ';);
-$if "%gp_l14style%"=="boxxyerrorbars"              If(gp_count eq 14, put ':3:4:5:6 ';);
-$if "%gp_l14style%"=="circles"                     If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l14style%"=="circles"                     If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l14style%"=="circles"                     If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l14style%"=="circles"                     If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l14style%"=="no"                         $goto gpxyzlabel_l_14_errorstyle
+$ifi "%gp_l14style%"=="xerrorlines"                If(gp_count eq 14, put ':3:4 ';);
+$ifi "%gp_l14style%"=="yerrorlines"                If(gp_count eq 14, put ':3:4 ';);
+$ifi "%gp_l14style%"=="xerrorbars"                 If(gp_count eq 14, put ':3:4 ';);
+$ifi "%gp_l14style%"=="yerrorbars"                 If(gp_count eq 14, put ':3:4 ';);
+$ifi "%gp_l14style%"=="candlesticks"               If(gp_count eq 14, put ':3:4:5 ';);
+$ifi "%gp_l14style%"=="xyerrorlines"               If(gp_count eq 14, put ':3:4:5:6 ';);
+$ifi "%gp_l14style%"=="xyerrorbars"                If(gp_count eq 14, put ':3:4:5:6 ';);
+$ifi "%gp_l14style%"=="boxxyerrorbars"             If(gp_count eq 14, put ':3:4:5:6 ';);
+$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_14_errorstyle
 
-$if "%gp_l15style%"=="no"                          $goto gpxyzlabel_l_15_errorstyle
-$if "%gp_l15style%"=="xerrorlines"                 If(gp_count eq 15, put ':3:4 ';);
-$if "%gp_l15style%"=="yerrorlines"                 If(gp_count eq 15, put ':3:4 ';);
-$if "%gp_l15style%"=="xerrorbars"                  If(gp_count eq 15, put ':3:4 ';);
-$if "%gp_l15style%"=="yerrorbars"                  If(gp_count eq 15, put ':3:4 ';);
-$if "%gp_l15style%"=="candlesticks"                If(gp_count eq 15, put ':3:4:5 ';);
-$if "%gp_l15style%"=="xyerrorlines"                If(gp_count eq 15, put ':3:4:5:6 ';);
-$if "%gp_l15style%"=="xyerrorbars"                 If(gp_count eq 15, put ':3:4:5:6 ';);
-$if "%gp_l15style%"=="boxxyerrorbars"              If(gp_count eq 15, put ':3:4:5:6 ';);
-$if "%gp_l15style%"=="circles"                     If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l15style%"=="circles"                     If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l15style%"=="circles"                     If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l15style%"=="circles"                     If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l15style%"=="no"                         $goto gpxyzlabel_l_15_errorstyle
+$ifi "%gp_l15style%"=="xerrorlines"                If(gp_count eq 15, put ':3:4 ';);
+$ifi "%gp_l15style%"=="yerrorlines"                If(gp_count eq 15, put ':3:4 ';);
+$ifi "%gp_l15style%"=="xerrorbars"                 If(gp_count eq 15, put ':3:4 ';);
+$ifi "%gp_l15style%"=="yerrorbars"                 If(gp_count eq 15, put ':3:4 ';);
+$ifi "%gp_l15style%"=="candlesticks"               If(gp_count eq 15, put ':3:4:5 ';);
+$ifi "%gp_l15style%"=="xyerrorlines"               If(gp_count eq 15, put ':3:4:5:6 ';);
+$ifi "%gp_l15style%"=="xyerrorbars"                If(gp_count eq 15, put ':3:4:5:6 ';);
+$ifi "%gp_l15style%"=="boxxyerrorbars"             If(gp_count eq 15, put ':3:4:5:6 ';);
+$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_15_errorstyle
 
-$if "%gp_l16style%"=="no"                          $goto gpxyzlabel_l_16_errorstyle
-$if "%gp_l16style%"=="xerrorlines"                 If(gp_count eq 16, put ':3:4 ';);
-$if "%gp_l16style%"=="yerrorlines"                 If(gp_count eq 16, put ':3:4 ';);
-$if "%gp_l16style%"=="xerrorbars"                  If(gp_count eq 16, put ':3:4 ';);
-$if "%gp_l16style%"=="yerrorbars"                  If(gp_count eq 16, put ':3:4 ';);
-$if "%gp_l16style%"=="candlesticks"                If(gp_count eq 16, put ':3:4:5 ';);
-$if "%gp_l16style%"=="xyerrorlines"                If(gp_count eq 16, put ':3:4:5:6 ';);
-$if "%gp_l16style%"=="xyerrorbars"                 If(gp_count eq 16, put ':3:4:5:6 ';);
-$if "%gp_l16style%"=="boxxyerrorbars"              If(gp_count eq 16, put ':3:4:5:6 ';);
-$if "%gp_l16style%"=="circles"                     If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l16style%"=="circles"                     If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l16style%"=="circles"                     If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l16style%"=="circles"                     If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l16style%"=="no"                         $goto gpxyzlabel_l_16_errorstyle
+$ifi "%gp_l16style%"=="xerrorlines"                If(gp_count eq 16, put ':3:4 ';);
+$ifi "%gp_l16style%"=="yerrorlines"                If(gp_count eq 16, put ':3:4 ';);
+$ifi "%gp_l16style%"=="xerrorbars"                 If(gp_count eq 16, put ':3:4 ';);
+$ifi "%gp_l16style%"=="yerrorbars"                 If(gp_count eq 16, put ':3:4 ';);
+$ifi "%gp_l16style%"=="candlesticks"               If(gp_count eq 16, put ':3:4:5 ';);
+$ifi "%gp_l16style%"=="xyerrorlines"               If(gp_count eq 16, put ':3:4:5:6 ';);
+$ifi "%gp_l16style%"=="xyerrorbars"                If(gp_count eq 16, put ':3:4:5:6 ';);
+$ifi "%gp_l16style%"=="boxxyerrorbars"             If(gp_count eq 16, put ':3:4:5:6 ';);
+$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_16_errorstyle
 
-$if "%gp_l17style%"=="no"                          $goto gpxyzlabel_l_17_errorstyle
-$if "%gp_l17style%"=="xerrorlines"                 If(gp_count eq 17, put ':3:4 ';);
-$if "%gp_l17style%"=="yerrorlines"                 If(gp_count eq 17, put ':3:4 ';);
-$if "%gp_l17style%"=="xerrorbars"                  If(gp_count eq 17, put ':3:4 ';);
-$if "%gp_l17style%"=="yerrorbars"                  If(gp_count eq 17, put ':3:4 ';);
-$if "%gp_l17style%"=="candlesticks"                If(gp_count eq 17, put ':3:4:5 ';);
-$if "%gp_l17style%"=="xyerrorlines"                If(gp_count eq 17, put ':3:4:5:6 ';);
-$if "%gp_l17style%"=="xyerrorbars"                 If(gp_count eq 17, put ':3:4:5:6 ';);
-$if "%gp_l17style%"=="boxxyerrorbars"              If(gp_count eq 17, put ':3:4:5:6 ';);
-$if "%gp_l17style%"=="circles"                     If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l17style%"=="circles"                     If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l17style%"=="circles"                     If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l17style%"=="circles"                     If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l17style%"=="no"                         $goto gpxyzlabel_l_17_errorstyle
+$ifi "%gp_l17style%"=="xerrorlines"                If(gp_count eq 17, put ':3:4 ';);
+$ifi "%gp_l17style%"=="yerrorlines"                If(gp_count eq 17, put ':3:4 ';);
+$ifi "%gp_l17style%"=="xerrorbars"                 If(gp_count eq 17, put ':3:4 ';);
+$ifi "%gp_l17style%"=="yerrorbars"                 If(gp_count eq 17, put ':3:4 ';);
+$ifi "%gp_l17style%"=="candlesticks"               If(gp_count eq 17, put ':3:4:5 ';);
+$ifi "%gp_l17style%"=="xyerrorlines"               If(gp_count eq 17, put ':3:4:5:6 ';);
+$ifi "%gp_l17style%"=="xyerrorbars"                If(gp_count eq 17, put ':3:4:5:6 ';);
+$ifi "%gp_l17style%"=="boxxyerrorbars"             If(gp_count eq 17, put ':3:4:5:6 ';);
+$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_17_errorstyle
 
-$if "%gp_l18style%"=="no"                          $goto gpxyzlabel_l_18_errorstyle
-$if "%gp_l18style%"=="xerrorlines"                 If(gp_count eq 18, put ':3:4 ';);
-$if "%gp_l18style%"=="yerrorlines"                 If(gp_count eq 18, put ':3:4 ';);
-$if "%gp_l18style%"=="xerrorbars"                  If(gp_count eq 18, put ':3:4 ';);
-$if "%gp_l18style%"=="yerrorbars"                  If(gp_count eq 18, put ':3:4 ';);
-$if "%gp_l18style%"=="candlesticks"                If(gp_count eq 18, put ':3:4:5 ';);
-$if "%gp_l18style%"=="xyerrorlines"                If(gp_count eq 18, put ':3:4:5:6 ';);
-$if "%gp_l18style%"=="xyerrorbars"                 If(gp_count eq 18, put ':3:4:5:6 ';);
-$if "%gp_l18style%"=="boxxyerrorbars"              If(gp_count eq 18, put ':3:4:5:6 ';);
-$if "%gp_l18style%"=="circles"                     If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l18style%"=="circles"                     If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l18style%"=="circles"                     If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l18style%"=="circles"                     If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l18style%"=="no"                         $goto gpxyzlabel_l_18_errorstyle
+$ifi "%gp_l18style%"=="xerrorlines"                If(gp_count eq 18, put ':3:4 ';);
+$ifi "%gp_l18style%"=="yerrorlines"                If(gp_count eq 18, put ':3:4 ';);
+$ifi "%gp_l18style%"=="xerrorbars"                 If(gp_count eq 18, put ':3:4 ';);
+$ifi "%gp_l18style%"=="yerrorbars"                 If(gp_count eq 18, put ':3:4 ';);
+$ifi "%gp_l18style%"=="candlesticks"               If(gp_count eq 18, put ':3:4:5 ';);
+$ifi "%gp_l18style%"=="xyerrorlines"               If(gp_count eq 18, put ':3:4:5:6 ';);
+$ifi "%gp_l18style%"=="xyerrorbars"                If(gp_count eq 18, put ':3:4:5:6 ';);
+$ifi "%gp_l18style%"=="boxxyerrorbars"             If(gp_count eq 18, put ':3:4:5:6 ';);
+$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_18_errorstyle
 
-$if "%gp_l19style%"=="no"                          $goto gpxyzlabel_l_19_errorstyle
-$if "%gp_l19style%"=="xerrorlines"                 If(gp_count eq 19, put ':3:4 ';);
-$if "%gp_l19style%"=="yerrorlines"                 If(gp_count eq 19, put ':3:4 ';);
-$if "%gp_l19style%"=="xerrorbars"                  If(gp_count eq 19, put ':3:4 ';);
-$if "%gp_l19style%"=="yerrorbars"                  If(gp_count eq 19, put ':3:4 ';);
-$if "%gp_l19style%"=="candlesticks"                If(gp_count eq 19, put ':3:4:5 ';);
-$if "%gp_l19style%"=="xyerrorlines"                If(gp_count eq 19, put ':3:4:5:6 ';);
-$if "%gp_l19style%"=="xyerrorbars"                 If(gp_count eq 19, put ':3:4:5:6 ';);
-$if "%gp_l19style%"=="boxxyerrorbars"              If(gp_count eq 19, put ':3:4:5:6 ';);
-$if "%gp_l19style%"=="circles"                     If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l19style%"=="circles"                     If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l19style%"=="circles"                     If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l19style%"=="circles"                     If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l19style%"=="no"                         $goto gpxyzlabel_l_19_errorstyle
+$ifi "%gp_l19style%"=="xerrorlines"                If(gp_count eq 19, put ':3:4 ';);
+$ifi "%gp_l19style%"=="yerrorlines"                If(gp_count eq 19, put ':3:4 ';);
+$ifi "%gp_l19style%"=="xerrorbars"                 If(gp_count eq 19, put ':3:4 ';);
+$ifi "%gp_l19style%"=="yerrorbars"                 If(gp_count eq 19, put ':3:4 ';);
+$ifi "%gp_l19style%"=="candlesticks"               If(gp_count eq 19, put ':3:4:5 ';);
+$ifi "%gp_l19style%"=="xyerrorlines"               If(gp_count eq 19, put ':3:4:5:6 ';);
+$ifi "%gp_l19style%"=="xyerrorbars"                If(gp_count eq 19, put ':3:4:5:6 ';);
+$ifi "%gp_l19style%"=="boxxyerrorbars"             If(gp_count eq 19, put ':3:4:5:6 ';);
+$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_19_errorstyle
 
-$if "%gp_l20style%"=="no"                          $goto gpxyzlabel_l_20_errorstyle
-$if "%gp_l20style%"=="xerrorlines"                 If(gp_count eq 20, put ':3:4 ';);
-$if "%gp_l20style%"=="yerrorlines"                 If(gp_count eq 20, put ':3:4 ';);
-$if "%gp_l20style%"=="xerrorbars"                  If(gp_count eq 20, put ':3:4 ';);
-$if "%gp_l20style%"=="yerrorbars"                  If(gp_count eq 20, put ':3:4 ';);
-$if "%gp_l20style%"=="candlesticks"                If(gp_count eq 20, put ':3:4:5 ';);
-$if "%gp_l20style%"=="xyerrorlines"                If(gp_count eq 20, put ':3:4:5:6 ';);
-$if "%gp_l20style%"=="xyerrorbars"                 If(gp_count eq 20, put ':3:4:5:6 ';);
-$if "%gp_l20style%"=="boxxyerrorbars"              If(gp_count eq 20, put ':3:4:5:6 ';);
-$if "%gp_l20style%"=="circles"                     If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$if "%gp_l20style%"=="circles"                     If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$if "%gp_l20style%"=="circles"                     If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$if "%gp_l20style%"=="circles"                     If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l20style%"=="no"                         $goto gpxyzlabel_l_20_errorstyle
+$ifi "%gp_l20style%"=="xerrorlines"                If(gp_count eq 20, put ':3:4 ';);
+$ifi "%gp_l20style%"=="yerrorlines"                If(gp_count eq 20, put ':3:4 ';);
+$ifi "%gp_l20style%"=="xerrorbars"                 If(gp_count eq 20, put ':3:4 ';);
+$ifi "%gp_l20style%"=="yerrorbars"                 If(gp_count eq 20, put ':3:4 ';);
+$ifi "%gp_l20style%"=="candlesticks"               If(gp_count eq 20, put ':3:4:5 ';);
+$ifi "%gp_l20style%"=="xyerrorlines"               If(gp_count eq 20, put ':3:4:5:6 ';);
+$ifi "%gp_l20style%"=="xyerrorbars"                If(gp_count eq 20, put ':3:4:5:6 ';);
+$ifi "%gp_l20style%"=="boxxyerrorbars"             If(gp_count eq 20, put ':3:4:5:6 ';);
+$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
 $label gpxyzlabel_l_20_errorstyle
+
+$ifi "%gp_l21style%"=="no"                         $goto gpxyzlabel_l_21_errorstyle
+$ifi "%gp_l21style%"=="xerrorlines"                If(gp_count eq 21, put ':3:4 ';);
+$ifi "%gp_l21style%"=="yerrorlines"                If(gp_count eq 21, put ':3:4 ';);
+$ifi "%gp_l21style%"=="xerrorbars"                 If(gp_count eq 21, put ':3:4 ';);
+$ifi "%gp_l21style%"=="yerrorbars"                 If(gp_count eq 21, put ':3:4 ';);
+$ifi "%gp_l21style%"=="candlesticks"               If(gp_count eq 21, put ':3:4:5 ';);
+$ifi "%gp_l21style%"=="xyerrorlines"               If(gp_count eq 21, put ':3:4:5:6 ';);
+$ifi "%gp_l21style%"=="xyerrorbars"                If(gp_count eq 21, put ':3:4:5:6 ';);
+$ifi "%gp_l21style%"=="boxxyerrorbars"             If(gp_count eq 21, put ':3:4:5:6 ';);
+$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_21_errorstyle
+
+$ifi "%gp_l22style%"=="no"                         $goto gpxyzlabel_l_22_errorstyle
+$ifi "%gp_l22style%"=="xerrorlines"                If(gp_count eq 22, put ':3:4 ';);
+$ifi "%gp_l22style%"=="yerrorlines"                If(gp_count eq 22, put ':3:4 ';);
+$ifi "%gp_l22style%"=="xerrorbars"                 If(gp_count eq 22, put ':3:4 ';);
+$ifi "%gp_l22style%"=="yerrorbars"                 If(gp_count eq 22, put ':3:4 ';);
+$ifi "%gp_l22style%"=="candlesticks"               If(gp_count eq 22, put ':3:4:5 ';);
+$ifi "%gp_l22style%"=="xyerrorlines"               If(gp_count eq 22, put ':3:4:5:6 ';);
+$ifi "%gp_l22style%"=="xyerrorbars"                If(gp_count eq 22, put ':3:4:5:6 ';);
+$ifi "%gp_l22style%"=="boxxyerrorbars"             If(gp_count eq 22, put ':3:4:5:6 ';);
+$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_22_errorstyle
+
+$ifi "%gp_l23style%"=="no"                         $goto gpxyzlabel_l_23_errorstyle
+$ifi "%gp_l23style%"=="xerrorlines"                If(gp_count eq 23, put ':3:4 ';);
+$ifi "%gp_l23style%"=="yerrorlines"                If(gp_count eq 23, put ':3:4 ';);
+$ifi "%gp_l23style%"=="xerrorbars"                 If(gp_count eq 23, put ':3:4 ';);
+$ifi "%gp_l23style%"=="yerrorbars"                 If(gp_count eq 23, put ':3:4 ';);
+$ifi "%gp_l23style%"=="candlesticks"               If(gp_count eq 23, put ':3:4:5 ';);
+$ifi "%gp_l23style%"=="xyerrorlines"               If(gp_count eq 23, put ':3:4:5:6 ';);
+$ifi "%gp_l23style%"=="xyerrorbars"                If(gp_count eq 23, put ':3:4:5:6 ';);
+$ifi "%gp_l23style%"=="boxxyerrorbars"             If(gp_count eq 23, put ':3:4:5:6 ';);
+$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_23_errorstyle
+
+$ifi "%gp_l24style%"=="no"                         $goto gpxyzlabel_l_24_errorstyle
+$ifi "%gp_l24style%"=="xerrorlines"                If(gp_count eq 24, put ':3:4 ';);
+$ifi "%gp_l24style%"=="yerrorlines"                If(gp_count eq 24, put ':3:4 ';);
+$ifi "%gp_l24style%"=="xerrorbars"                 If(gp_count eq 24, put ':3:4 ';);
+$ifi "%gp_l24style%"=="yerrorbars"                 If(gp_count eq 24, put ':3:4 ';);
+$ifi "%gp_l24style%"=="candlesticks"               If(gp_count eq 24, put ':3:4:5 ';);
+$ifi "%gp_l24style%"=="xyerrorlines"               If(gp_count eq 24, put ':3:4:5:6 ';);
+$ifi "%gp_l24style%"=="xyerrorbars"                If(gp_count eq 24, put ':3:4:5:6 ';);
+$ifi "%gp_l24style%"=="boxxyerrorbars"             If(gp_count eq 24, put ':3:4:5:6 ';);
+$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_24_errorstyle
+
+$ifi "%gp_l25style%"=="no"                         $goto gpxyzlabel_l_25_errorstyle
+$ifi "%gp_l25style%"=="xerrorlines"                If(gp_count eq 25, put ':3:4 ';);
+$ifi "%gp_l25style%"=="yerrorlines"                If(gp_count eq 25, put ':3:4 ';);
+$ifi "%gp_l25style%"=="xerrorbars"                 If(gp_count eq 25, put ':3:4 ';);
+$ifi "%gp_l25style%"=="yerrorbars"                 If(gp_count eq 25, put ':3:4 ';);
+$ifi "%gp_l25style%"=="candlesticks"               If(gp_count eq 25, put ':3:4:5 ';);
+$ifi "%gp_l25style%"=="xyerrorlines"               If(gp_count eq 25, put ':3:4:5:6 ';);
+$ifi "%gp_l25style%"=="xyerrorbars"                If(gp_count eq 25, put ':3:4:5:6 ';);
+$ifi "%gp_l25style%"=="boxxyerrorbars"             If(gp_count eq 25, put ':3:4:5:6 ';);
+$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_25_errorstyle
+
+$ifi "%gp_l26style%"=="no"                         $goto gpxyzlabel_l_26_errorstyle
+$ifi "%gp_l26style%"=="xerrorlines"                If(gp_count eq 26, put ':3:4 ';);
+$ifi "%gp_l26style%"=="yerrorlines"                If(gp_count eq 26, put ':3:4 ';);
+$ifi "%gp_l26style%"=="xerrorbars"                 If(gp_count eq 26, put ':3:4 ';);
+$ifi "%gp_l26style%"=="yerrorbars"                 If(gp_count eq 26, put ':3:4 ';);
+$ifi "%gp_l26style%"=="candlesticks"               If(gp_count eq 26, put ':3:4:5 ';);
+$ifi "%gp_l26style%"=="xyerrorlines"               If(gp_count eq 26, put ':3:4:5:6 ';);
+$ifi "%gp_l26style%"=="xyerrorbars"                If(gp_count eq 26, put ':3:4:5:6 ';);
+$ifi "%gp_l26style%"=="boxxyerrorbars"             If(gp_count eq 26, put ':3:4:5:6 ';);
+$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_26_errorstyle
+
+$ifi "%gp_l27style%"=="no"                         $goto gpxyzlabel_l_27_errorstyle
+$ifi "%gp_l27style%"=="xerrorlines"                If(gp_count eq 27, put ':3:4 ';);
+$ifi "%gp_l27style%"=="yerrorlines"                If(gp_count eq 27, put ':3:4 ';);
+$ifi "%gp_l27style%"=="xerrorbars"                 If(gp_count eq 27, put ':3:4 ';);
+$ifi "%gp_l27style%"=="yerrorbars"                 If(gp_count eq 27, put ':3:4 ';);
+$ifi "%gp_l27style%"=="candlesticks"               If(gp_count eq 27, put ':3:4:5 ';);
+$ifi "%gp_l27style%"=="xyerrorlines"               If(gp_count eq 27, put ':3:4:5:6 ';);
+$ifi "%gp_l27style%"=="xyerrorbars"                If(gp_count eq 27, put ':3:4:5:6 ';);
+$ifi "%gp_l27style%"=="boxxyerrorbars"             If(gp_count eq 27, put ':3:4:5:6 ';);
+$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_27_errorstyle
+
+$ifi "%gp_l28style%"=="no"                         $goto gpxyzlabel_l_28_errorstyle
+$ifi "%gp_l28style%"=="xerrorlines"                If(gp_count eq 28, put ':3:4 ';);
+$ifi "%gp_l28style%"=="yerrorlines"                If(gp_count eq 28, put ':3:4 ';);
+$ifi "%gp_l28style%"=="xerrorbars"                 If(gp_count eq 28, put ':3:4 ';);
+$ifi "%gp_l28style%"=="yerrorbars"                 If(gp_count eq 28, put ':3:4 ';);
+$ifi "%gp_l28style%"=="candlesticks"               If(gp_count eq 28, put ':3:4:5 ';);
+$ifi "%gp_l28style%"=="xyerrorlines"               If(gp_count eq 28, put ':3:4:5:6 ';);
+$ifi "%gp_l28style%"=="xyerrorbars"                If(gp_count eq 28, put ':3:4:5:6 ';);
+$ifi "%gp_l28style%"=="boxxyerrorbars"             If(gp_count eq 28, put ':3:4:5:6 ';);
+$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_28_errorstyle
+
+$ifi "%gp_l29style%"=="no"                         $goto gpxyzlabel_l_29_errorstyle
+$ifi "%gp_l29style%"=="xerrorlines"                If(gp_count eq 29, put ':3:4 ';);
+$ifi "%gp_l29style%"=="yerrorlines"                If(gp_count eq 29, put ':3:4 ';);
+$ifi "%gp_l29style%"=="xerrorbars"                 If(gp_count eq 29, put ':3:4 ';);
+$ifi "%gp_l29style%"=="yerrorbars"                 If(gp_count eq 29, put ':3:4 ';);
+$ifi "%gp_l29style%"=="candlesticks"               If(gp_count eq 29, put ':3:4:5 ';);
+$ifi "%gp_l29style%"=="xyerrorlines"               If(gp_count eq 29, put ':3:4:5:6 ';);
+$ifi "%gp_l29style%"=="xyerrorbars"                If(gp_count eq 29, put ':3:4:5:6 ';);
+$ifi "%gp_l29style%"=="boxxyerrorbars"             If(gp_count eq 29, put ':3:4:5:6 ';);
+$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_29_errorstyle
+
+$ifi "%gp_l30style%"=="no"                         $goto gpxyzlabel_l_30_errorstyle
+$ifi "%gp_l30style%"=="xerrorlines"                If(gp_count eq 30, put ':3:4 ';);
+$ifi "%gp_l30style%"=="yerrorlines"                If(gp_count eq 30, put ':3:4 ';);
+$ifi "%gp_l30style%"=="xerrorbars"                 If(gp_count eq 30, put ':3:4 ';);
+$ifi "%gp_l30style%"=="yerrorbars"                 If(gp_count eq 30, put ':3:4 ';);
+$ifi "%gp_l30style%"=="candlesticks"               If(gp_count eq 30, put ':3:4:5 ';);
+$ifi "%gp_l30style%"=="xyerrorlines"               If(gp_count eq 30, put ':3:4:5:6 ';);
+$ifi "%gp_l30style%"=="xyerrorbars"                If(gp_count eq 30, put ':3:4:5:6 ';);
+$ifi "%gp_l30style%"=="boxxyerrorbars"             If(gp_count eq 30, put ':3:4:5:6 ';);
+$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
+$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
+$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
+$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$label gpxyzlabel_l_30_errorstyle
 * Insert Auto Code 4 produced by make_345678_linestyle.gms - end
 
 
-
-
-
-* Insert Auto Code 5 produced by make_4_linestyle.gms - begin
+* Insert Auto Code 5 produced by make_345678_linestyle.gms - begin
 $if not setglobal gp_l1axes                        $goto gpxyzlabel_after_1_axes
-$if "%gp_l1axes%"=="no"                            $goto gpxyzlabel_after_1_axes
+$ifi "%gp_l1axes%"=="no"                           $goto gpxyzlabel_after_1_axes
 If(gp_count eq 1, put ' axes %gp_l1axes%';);
 $label gpxyzlabel_after_1_axes
 $if not setglobal gp_l2axes                        $goto gpxyzlabel_after_2_axes
-$if "%gp_l2axes%"=="no"                            $goto gpxyzlabel_after_2_axes
+$ifi "%gp_l2axes%"=="no"                           $goto gpxyzlabel_after_2_axes
 If(gp_count eq 2, put ' axes %gp_l2axes%';);
 $label gpxyzlabel_after_2_axes
 $if not setglobal gp_l3axes                        $goto gpxyzlabel_after_3_axes
-$if "%gp_l3axes%"=="no"                            $goto gpxyzlabel_after_3_axes
+$ifi "%gp_l3axes%"=="no"                           $goto gpxyzlabel_after_3_axes
 If(gp_count eq 3, put ' axes %gp_l3axes%';);
 $label gpxyzlabel_after_3_axes
 $if not setglobal gp_l4axes                        $goto gpxyzlabel_after_4_axes
-$if "%gp_l4axes%"=="no"                            $goto gpxyzlabel_after_4_axes
+$ifi "%gp_l4axes%"=="no"                           $goto gpxyzlabel_after_4_axes
 If(gp_count eq 4, put ' axes %gp_l4axes%';);
 $label gpxyzlabel_after_4_axes
 $if not setglobal gp_l5axes                        $goto gpxyzlabel_after_5_axes
-$if "%gp_l5axes%"=="no"                            $goto gpxyzlabel_after_5_axes
+$ifi "%gp_l5axes%"=="no"                           $goto gpxyzlabel_after_5_axes
 If(gp_count eq 5, put ' axes %gp_l5axes%';);
 $label gpxyzlabel_after_5_axes
 $if not setglobal gp_l6axes                        $goto gpxyzlabel_after_6_axes
-$if "%gp_l6axes%"=="no"                            $goto gpxyzlabel_after_6_axes
+$ifi "%gp_l6axes%"=="no"                           $goto gpxyzlabel_after_6_axes
 If(gp_count eq 6, put ' axes %gp_l6axes%';);
 $label gpxyzlabel_after_6_axes
 $if not setglobal gp_l7axes                        $goto gpxyzlabel_after_7_axes
-$if "%gp_l7axes%"=="no"                            $goto gpxyzlabel_after_7_axes
+$ifi "%gp_l7axes%"=="no"                           $goto gpxyzlabel_after_7_axes
 If(gp_count eq 7, put ' axes %gp_l7axes%';);
 $label gpxyzlabel_after_7_axes
 $if not setglobal gp_l8axes                        $goto gpxyzlabel_after_8_axes
-$if "%gp_l8axes%"=="no"                            $goto gpxyzlabel_after_8_axes
+$ifi "%gp_l8axes%"=="no"                           $goto gpxyzlabel_after_8_axes
 If(gp_count eq 8, put ' axes %gp_l8axes%';);
 $label gpxyzlabel_after_8_axes
 $if not setglobal gp_l9axes                        $goto gpxyzlabel_after_9_axes
-$if "%gp_l9axes%"=="no"                            $goto gpxyzlabel_after_9_axes
+$ifi "%gp_l9axes%"=="no"                           $goto gpxyzlabel_after_9_axes
 If(gp_count eq 9, put ' axes %gp_l9axes%';);
 $label gpxyzlabel_after_9_axes
 $if not setglobal gp_l10axes                       $goto gpxyzlabel_after_10_axes
-$if "%gp_l10axes%"=="no"                           $goto gpxyzlabel_after_10_axes
+$ifi "%gp_l10axes%"=="no"                          $goto gpxyzlabel_after_10_axes
 If(gp_count eq 10, put ' axes %gp_l10axes%';);
 $label gpxyzlabel_after_10_axes
 $if not setglobal gp_l11axes                       $goto gpxyzlabel_after_11_axes
-$if "%gp_l11axes%"=="no"                           $goto gpxyzlabel_after_11_axes
+$ifi "%gp_l11axes%"=="no"                          $goto gpxyzlabel_after_11_axes
 If(gp_count eq 11, put ' axes %gp_l11axes%';);
 $label gpxyzlabel_after_11_axes
 $if not setglobal gp_l12axes                       $goto gpxyzlabel_after_12_axes
-$if "%gp_l12axes%"=="no"                           $goto gpxyzlabel_after_12_axes
+$ifi "%gp_l12axes%"=="no"                          $goto gpxyzlabel_after_12_axes
 If(gp_count eq 12, put ' axes %gp_l12axes%';);
 $label gpxyzlabel_after_12_axes
 $if not setglobal gp_l13axes                       $goto gpxyzlabel_after_13_axes
-$if "%gp_l13axes%"=="no"                           $goto gpxyzlabel_after_13_axes
+$ifi "%gp_l13axes%"=="no"                          $goto gpxyzlabel_after_13_axes
 If(gp_count eq 13, put ' axes %gp_l13axes%';);
 $label gpxyzlabel_after_13_axes
 $if not setglobal gp_l14axes                       $goto gpxyzlabel_after_14_axes
-$if "%gp_l14axes%"=="no"                           $goto gpxyzlabel_after_14_axes
+$ifi "%gp_l14axes%"=="no"                          $goto gpxyzlabel_after_14_axes
 If(gp_count eq 14, put ' axes %gp_l14axes%';);
 $label gpxyzlabel_after_14_axes
 $if not setglobal gp_l15axes                       $goto gpxyzlabel_after_15_axes
-$if "%gp_l15axes%"=="no"                           $goto gpxyzlabel_after_15_axes
+$ifi "%gp_l15axes%"=="no"                          $goto gpxyzlabel_after_15_axes
 If(gp_count eq 15, put ' axes %gp_l15axes%';);
 $label gpxyzlabel_after_15_axes
 $if not setglobal gp_l16axes                       $goto gpxyzlabel_after_16_axes
-$if "%gp_l16axes%"=="no"                           $goto gpxyzlabel_after_16_axes
+$ifi "%gp_l16axes%"=="no"                          $goto gpxyzlabel_after_16_axes
 If(gp_count eq 16, put ' axes %gp_l16axes%';);
 $label gpxyzlabel_after_16_axes
 $if not setglobal gp_l17axes                       $goto gpxyzlabel_after_17_axes
-$if "%gp_l17axes%"=="no"                           $goto gpxyzlabel_after_17_axes
+$ifi "%gp_l17axes%"=="no"                          $goto gpxyzlabel_after_17_axes
 If(gp_count eq 17, put ' axes %gp_l17axes%';);
 $label gpxyzlabel_after_17_axes
 $if not setglobal gp_l18axes                       $goto gpxyzlabel_after_18_axes
-$if "%gp_l18axes%"=="no"                           $goto gpxyzlabel_after_18_axes
+$ifi "%gp_l18axes%"=="no"                          $goto gpxyzlabel_after_18_axes
 If(gp_count eq 18, put ' axes %gp_l18axes%';);
 $label gpxyzlabel_after_18_axes
 $if not setglobal gp_l19axes                       $goto gpxyzlabel_after_19_axes
-$if "%gp_l19axes%"=="no"                           $goto gpxyzlabel_after_19_axes
+$ifi "%gp_l19axes%"=="no"                          $goto gpxyzlabel_after_19_axes
 If(gp_count eq 19, put ' axes %gp_l19axes%';);
 $label gpxyzlabel_after_19_axes
 $if not setglobal gp_l20axes                       $goto gpxyzlabel_after_20_axes
-$if "%gp_l20axes%"=="no"                           $goto gpxyzlabel_after_20_axes
+$ifi "%gp_l20axes%"=="no"                          $goto gpxyzlabel_after_20_axes
 If(gp_count eq 20, put ' axes %gp_l20axes%';);
 $label gpxyzlabel_after_20_axes
-* Insert Auto Code 5 produced by make_4_linestyle.gms - end
+$if not setglobal gp_l21axes                       $goto gpxyzlabel_after_21_axes
+$ifi "%gp_l21axes%"=="no"                          $goto gpxyzlabel_after_21_axes
+If(gp_count eq 21, put ' axes %gp_l21axes%';);
+$label gpxyzlabel_after_21_axes
+$if not setglobal gp_l22axes                       $goto gpxyzlabel_after_22_axes
+$ifi "%gp_l22axes%"=="no"                          $goto gpxyzlabel_after_22_axes
+If(gp_count eq 22, put ' axes %gp_l22axes%';);
+$label gpxyzlabel_after_22_axes
+$if not setglobal gp_l23axes                       $goto gpxyzlabel_after_23_axes
+$ifi "%gp_l23axes%"=="no"                          $goto gpxyzlabel_after_23_axes
+If(gp_count eq 23, put ' axes %gp_l23axes%';);
+$label gpxyzlabel_after_23_axes
+$if not setglobal gp_l24axes                       $goto gpxyzlabel_after_24_axes
+$ifi "%gp_l24axes%"=="no"                          $goto gpxyzlabel_after_24_axes
+If(gp_count eq 24, put ' axes %gp_l24axes%';);
+$label gpxyzlabel_after_24_axes
+$if not setglobal gp_l25axes                       $goto gpxyzlabel_after_25_axes
+$ifi "%gp_l25axes%"=="no"                          $goto gpxyzlabel_after_25_axes
+If(gp_count eq 25, put ' axes %gp_l25axes%';);
+$label gpxyzlabel_after_25_axes
+$if not setglobal gp_l26axes                       $goto gpxyzlabel_after_26_axes
+$ifi "%gp_l26axes%"=="no"                          $goto gpxyzlabel_after_26_axes
+If(gp_count eq 26, put ' axes %gp_l26axes%';);
+$label gpxyzlabel_after_26_axes
+$if not setglobal gp_l27axes                       $goto gpxyzlabel_after_27_axes
+$ifi "%gp_l27axes%"=="no"                          $goto gpxyzlabel_after_27_axes
+If(gp_count eq 27, put ' axes %gp_l27axes%';);
+$label gpxyzlabel_after_27_axes
+$if not setglobal gp_l28axes                       $goto gpxyzlabel_after_28_axes
+$ifi "%gp_l28axes%"=="no"                          $goto gpxyzlabel_after_28_axes
+If(gp_count eq 28, put ' axes %gp_l28axes%';);
+$label gpxyzlabel_after_28_axes
+$if not setglobal gp_l29axes                       $goto gpxyzlabel_after_29_axes
+$ifi "%gp_l29axes%"=="no"                          $goto gpxyzlabel_after_29_axes
+If(gp_count eq 29, put ' axes %gp_l29axes%';);
+$label gpxyzlabel_after_29_axes
+$if not setglobal gp_l30axes                       $goto gpxyzlabel_after_30_axes
+$ifi "%gp_l30axes%"=="no"                          $goto gpxyzlabel_after_30_axes
+If(gp_count eq 30, put ' axes %gp_l30axes%';);
+$label gpxyzlabel_after_30_axes
+* Insert Auto Code 5 produced by make_345678_linestyle.gms - end
 
 IF(no_gp_legend(%gp_scen%),  put ' title ""';
  ELSE put ' title "',%gp_scen%.tl,'"';);
 
-* Insert Auto Code 6 produced by make_4_linestyle.gms - begin
+* Insert Auto Code 6 produced by make_345678_linestyle.gms - begin
 $if not setglobal gp_l1style                       $goto gpxyzlabel_l_1_style
-$if "%gp_l1style%"=="no"                           $goto gpxyzlabel_l_1_style
+$ifi "%gp_l1style%"=="no"                          $goto gpxyzlabel_l_1_style
 If(gp_count eq 1, put " with %gp_l1style%";);
 $if not "%gp_l1style%" == "boxes"                  $goto gpxyzlabel_l_1_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 1, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 1, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 1, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 1, put " lt -1";);
 $label gpxyzlabel_l_1_style
 $if not setglobal gp_l2style                       $goto gpxyzlabel_l_2_style
-$if "%gp_l2style%"=="no"                           $goto gpxyzlabel_l_2_style
+$ifi "%gp_l2style%"=="no"                          $goto gpxyzlabel_l_2_style
 If(gp_count eq 2, put " with %gp_l2style%";);
 $if not "%gp_l2style%" == "boxes"                  $goto gpxyzlabel_l_2_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 2, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 2, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 2, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 2, put " lt -1";);
 $label gpxyzlabel_l_2_style
 $if not setglobal gp_l3style                       $goto gpxyzlabel_l_3_style
-$if "%gp_l3style%"=="no"                           $goto gpxyzlabel_l_3_style
+$ifi "%gp_l3style%"=="no"                          $goto gpxyzlabel_l_3_style
 If(gp_count eq 3, put " with %gp_l3style%";);
 $if not "%gp_l3style%" == "boxes"                  $goto gpxyzlabel_l_3_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 3, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 3, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 3, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 3, put " lt -1";);
 $label gpxyzlabel_l_3_style
 $if not setglobal gp_l4style                       $goto gpxyzlabel_l_4_style
-$if "%gp_l4style%"=="no"                           $goto gpxyzlabel_l_4_style
+$ifi "%gp_l4style%"=="no"                          $goto gpxyzlabel_l_4_style
 If(gp_count eq 4, put " with %gp_l4style%";);
 $if not "%gp_l4style%" == "boxes"                  $goto gpxyzlabel_l_4_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 4, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 4, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 4, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 4, put " lt -1";);
 $label gpxyzlabel_l_4_style
 $if not setglobal gp_l5style                       $goto gpxyzlabel_l_5_style
-$if "%gp_l5style%"=="no"                           $goto gpxyzlabel_l_5_style
+$ifi "%gp_l5style%"=="no"                          $goto gpxyzlabel_l_5_style
 If(gp_count eq 5, put " with %gp_l5style%";);
 $if not "%gp_l5style%" == "boxes"                  $goto gpxyzlabel_l_5_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 5, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 5, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 5, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 5, put " lt -1";);
 $label gpxyzlabel_l_5_style
 $if not setglobal gp_l6style                       $goto gpxyzlabel_l_6_style
-$if "%gp_l6style%"=="no"                           $goto gpxyzlabel_l_6_style
+$ifi "%gp_l6style%"=="no"                          $goto gpxyzlabel_l_6_style
 If(gp_count eq 6, put " with %gp_l6style%";);
 $if not "%gp_l6style%" == "boxes"                  $goto gpxyzlabel_l_6_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 6, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 6, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 6, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 6, put " lt -1";);
 $label gpxyzlabel_l_6_style
 $if not setglobal gp_l7style                       $goto gpxyzlabel_l_7_style
-$if "%gp_l7style%"=="no"                           $goto gpxyzlabel_l_7_style
+$ifi "%gp_l7style%"=="no"                          $goto gpxyzlabel_l_7_style
 If(gp_count eq 7, put " with %gp_l7style%";);
 $if not "%gp_l7style%" == "boxes"                  $goto gpxyzlabel_l_7_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 7, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 7, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 7, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 7, put " lt -1";);
 $label gpxyzlabel_l_7_style
 $if not setglobal gp_l8style                       $goto gpxyzlabel_l_8_style
-$if "%gp_l8style%"=="no"                           $goto gpxyzlabel_l_8_style
+$ifi "%gp_l8style%"=="no"                          $goto gpxyzlabel_l_8_style
 If(gp_count eq 8, put " with %gp_l8style%";);
 $if not "%gp_l8style%" == "boxes"                  $goto gpxyzlabel_l_8_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 8, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 8, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 8, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 8, put " lt -1";);
 $label gpxyzlabel_l_8_style
 $if not setglobal gp_l9style                       $goto gpxyzlabel_l_9_style
-$if "%gp_l9style%"=="no"                           $goto gpxyzlabel_l_9_style
+$ifi "%gp_l9style%"=="no"                          $goto gpxyzlabel_l_9_style
 If(gp_count eq 9, put " with %gp_l9style%";);
 $if not "%gp_l9style%" == "boxes"                  $goto gpxyzlabel_l_9_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 9, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 9, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 9, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 9, put " lt -1";);
 $label gpxyzlabel_l_9_style
 $if not setglobal gp_l10style                      $goto gpxyzlabel_l_10_style
-$if "%gp_l10style%"=="no"                          $goto gpxyzlabel_l_10_style
+$ifi "%gp_l10style%"=="no"                         $goto gpxyzlabel_l_10_style
 If(gp_count eq 10, put " with %gp_l10style%";);
 $if not "%gp_l10style%" == "boxes"                 $goto gpxyzlabel_l_10_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 10, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 10, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 10, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 10, put " lt -1";);
 $label gpxyzlabel_l_10_style
 $if not setglobal gp_l11style                      $goto gpxyzlabel_l_11_style
-$if "%gp_l11style%"=="no"                          $goto gpxyzlabel_l_11_style
+$ifi "%gp_l11style%"=="no"                         $goto gpxyzlabel_l_11_style
 If(gp_count eq 11, put " with %gp_l11style%";);
 $if not "%gp_l11style%" == "boxes"                 $goto gpxyzlabel_l_11_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 11, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 11, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 11, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 11, put " lt -1";);
 $label gpxyzlabel_l_11_style
 $if not setglobal gp_l12style                      $goto gpxyzlabel_l_12_style
-$if "%gp_l12style%"=="no"                          $goto gpxyzlabel_l_12_style
+$ifi "%gp_l12style%"=="no"                         $goto gpxyzlabel_l_12_style
 If(gp_count eq 12, put " with %gp_l12style%";);
 $if not "%gp_l12style%" == "boxes"                 $goto gpxyzlabel_l_12_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 12, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 12, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 12, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 12, put " lt -1";);
 $label gpxyzlabel_l_12_style
 $if not setglobal gp_l13style                      $goto gpxyzlabel_l_13_style
-$if "%gp_l13style%"=="no"                          $goto gpxyzlabel_l_13_style
+$ifi "%gp_l13style%"=="no"                         $goto gpxyzlabel_l_13_style
 If(gp_count eq 13, put " with %gp_l13style%";);
 $if not "%gp_l13style%" == "boxes"                 $goto gpxyzlabel_l_13_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 13, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 13, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 13, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 13, put " lt -1";);
 $label gpxyzlabel_l_13_style
 $if not setglobal gp_l14style                      $goto gpxyzlabel_l_14_style
-$if "%gp_l14style%"=="no"                          $goto gpxyzlabel_l_14_style
+$ifi "%gp_l14style%"=="no"                         $goto gpxyzlabel_l_14_style
 If(gp_count eq 14, put " with %gp_l14style%";);
 $if not "%gp_l14style%" == "boxes"                 $goto gpxyzlabel_l_14_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 14, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 14, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 14, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 14, put " lt -1";);
 $label gpxyzlabel_l_14_style
 $if not setglobal gp_l15style                      $goto gpxyzlabel_l_15_style
-$if "%gp_l15style%"=="no"                          $goto gpxyzlabel_l_15_style
+$ifi "%gp_l15style%"=="no"                         $goto gpxyzlabel_l_15_style
 If(gp_count eq 15, put " with %gp_l15style%";);
 $if not "%gp_l15style%" == "boxes"                 $goto gpxyzlabel_l_15_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 15, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 15, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 15, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 15, put " lt -1";);
 $label gpxyzlabel_l_15_style
 $if not setglobal gp_l16style                      $goto gpxyzlabel_l_16_style
-$if "%gp_l16style%"=="no"                          $goto gpxyzlabel_l_16_style
+$ifi "%gp_l16style%"=="no"                         $goto gpxyzlabel_l_16_style
 If(gp_count eq 16, put " with %gp_l16style%";);
 $if not "%gp_l16style%" == "boxes"                 $goto gpxyzlabel_l_16_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 16, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 16, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 16, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 16, put " lt -1";);
 $label gpxyzlabel_l_16_style
 $if not setglobal gp_l17style                      $goto gpxyzlabel_l_17_style
-$if "%gp_l17style%"=="no"                          $goto gpxyzlabel_l_17_style
+$ifi "%gp_l17style%"=="no"                         $goto gpxyzlabel_l_17_style
 If(gp_count eq 17, put " with %gp_l17style%";);
 $if not "%gp_l17style%" == "boxes"                 $goto gpxyzlabel_l_17_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 17, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 17, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 17, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 17, put " lt -1";);
 $label gpxyzlabel_l_17_style
 $if not setglobal gp_l18style                      $goto gpxyzlabel_l_18_style
-$if "%gp_l18style%"=="no"                          $goto gpxyzlabel_l_18_style
+$ifi "%gp_l18style%"=="no"                         $goto gpxyzlabel_l_18_style
 If(gp_count eq 18, put " with %gp_l18style%";);
 $if not "%gp_l18style%" == "boxes"                 $goto gpxyzlabel_l_18_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 18, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 18, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 18, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 18, put " lt -1";);
 $label gpxyzlabel_l_18_style
 $if not setglobal gp_l19style                      $goto gpxyzlabel_l_19_style
-$if "%gp_l19style%"=="no"                          $goto gpxyzlabel_l_19_style
+$ifi "%gp_l19style%"=="no"                         $goto gpxyzlabel_l_19_style
 If(gp_count eq 19, put " with %gp_l19style%";);
 $if not "%gp_l19style%" == "boxes"                 $goto gpxyzlabel_l_19_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 19, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 19, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 19, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 19, put " lt -1";);
 $label gpxyzlabel_l_19_style
 $if not setglobal gp_l20style                      $goto gpxyzlabel_l_20_style
-$if "%gp_l20style%"=="no"                          $goto gpxyzlabel_l_20_style
+$ifi "%gp_l20style%"=="no"                         $goto gpxyzlabel_l_20_style
 If(gp_count eq 20, put " with %gp_l20style%";);
 $if not "%gp_l20style%" == "boxes"                 $goto gpxyzlabel_l_20_style
-$if  "%gp_color%" == "no"                          If(gp_count eq 20, put " lt -1";);
-$if  "%gp_color%" == "monochrome"                  If(gp_count eq 20, put " lt -1";);
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 20, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 20, put " lt -1";);
 $label gpxyzlabel_l_20_style
-* Insert Auto Code 6 produced by make_4_linestyle.gms - end
+$if not setglobal gp_l21style                      $goto gpxyzlabel_l_21_style
+$ifi "%gp_l21style%"=="no"                         $goto gpxyzlabel_l_21_style
+If(gp_count eq 21, put " with %gp_l21style%";);
+$if not "%gp_l21style%" == "boxes"                 $goto gpxyzlabel_l_21_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 21, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 21, put " lt -1";);
+$label gpxyzlabel_l_21_style
+$if not setglobal gp_l22style                      $goto gpxyzlabel_l_22_style
+$ifi "%gp_l22style%"=="no"                         $goto gpxyzlabel_l_22_style
+If(gp_count eq 22, put " with %gp_l22style%";);
+$if not "%gp_l22style%" == "boxes"                 $goto gpxyzlabel_l_22_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 22, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 22, put " lt -1";);
+$label gpxyzlabel_l_22_style
+$if not setglobal gp_l23style                      $goto gpxyzlabel_l_23_style
+$ifi "%gp_l23style%"=="no"                         $goto gpxyzlabel_l_23_style
+If(gp_count eq 23, put " with %gp_l23style%";);
+$if not "%gp_l23style%" == "boxes"                 $goto gpxyzlabel_l_23_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 23, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 23, put " lt -1";);
+$label gpxyzlabel_l_23_style
+$if not setglobal gp_l24style                      $goto gpxyzlabel_l_24_style
+$ifi "%gp_l24style%"=="no"                         $goto gpxyzlabel_l_24_style
+If(gp_count eq 24, put " with %gp_l24style%";);
+$if not "%gp_l24style%" == "boxes"                 $goto gpxyzlabel_l_24_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 24, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 24, put " lt -1";);
+$label gpxyzlabel_l_24_style
+$if not setglobal gp_l25style                      $goto gpxyzlabel_l_25_style
+$ifi "%gp_l25style%"=="no"                         $goto gpxyzlabel_l_25_style
+If(gp_count eq 25, put " with %gp_l25style%";);
+$if not "%gp_l25style%" == "boxes"                 $goto gpxyzlabel_l_25_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 25, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 25, put " lt -1";);
+$label gpxyzlabel_l_25_style
+$if not setglobal gp_l26style                      $goto gpxyzlabel_l_26_style
+$ifi "%gp_l26style%"=="no"                         $goto gpxyzlabel_l_26_style
+If(gp_count eq 26, put " with %gp_l26style%";);
+$if not "%gp_l26style%" == "boxes"                 $goto gpxyzlabel_l_26_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 26, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 26, put " lt -1";);
+$label gpxyzlabel_l_26_style
+$if not setglobal gp_l27style                      $goto gpxyzlabel_l_27_style
+$ifi "%gp_l27style%"=="no"                         $goto gpxyzlabel_l_27_style
+If(gp_count eq 27, put " with %gp_l27style%";);
+$if not "%gp_l27style%" == "boxes"                 $goto gpxyzlabel_l_27_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 27, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 27, put " lt -1";);
+$label gpxyzlabel_l_27_style
+$if not setglobal gp_l28style                      $goto gpxyzlabel_l_28_style
+$ifi "%gp_l28style%"=="no"                         $goto gpxyzlabel_l_28_style
+If(gp_count eq 28, put " with %gp_l28style%";);
+$if not "%gp_l28style%" == "boxes"                 $goto gpxyzlabel_l_28_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 28, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 28, put " lt -1";);
+$label gpxyzlabel_l_28_style
+$if not setglobal gp_l29style                      $goto gpxyzlabel_l_29_style
+$ifi "%gp_l29style%"=="no"                         $goto gpxyzlabel_l_29_style
+If(gp_count eq 29, put " with %gp_l29style%";);
+$if not "%gp_l29style%" == "boxes"                 $goto gpxyzlabel_l_29_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 29, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 29, put " lt -1";);
+$label gpxyzlabel_l_29_style
+$if not setglobal gp_l30style                      $goto gpxyzlabel_l_30_style
+$ifi "%gp_l30style%"=="no"                         $goto gpxyzlabel_l_30_style
+If(gp_count eq 30, put " with %gp_l30style%";);
+$if not "%gp_l30style%" == "boxes"                 $goto gpxyzlabel_l_30_style
+$ifi  "%gp_color%" == "no"                         If(gp_count eq 30, put " lt -1";);
+$ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 30, put " lt -1";);
+$label gpxyzlabel_l_30_style
+* Insert Auto Code 6 produced by make_345678_linestyle.gms - end
 
 
 * Insert Auto Code 7 produced by make_345678_linestyle.gms - begin
@@ -3233,10 +3665,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_1_assign
 $label gpxyzlabel_after_lc_1_paletteassign
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_assign
-$if "%gp_lc_1%"=="no"                              $goto gpxyzlabel_after_lc_1_assign
+$ifi "%gp_lc_1%"=="no"                             $goto gpxyzlabel_after_lc_1_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_1_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_1_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_1_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_1_normalassign
 $label gpxyzlabel_after_lc_1_fixedassign
@@ -3248,12 +3680,12 @@ gp_xyz_ind_col("%gp_lc_1%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_1_assign
 $if not setglobal gp_lw_1                          $goto gpxyzlabel_after_lw_1_assign
-$if "%gp_lw_1%"=="no"                              $goto gpxyzlabel_after_lw_1_assign
+$ifi "%gp_lw_1%"=="no"                             $goto gpxyzlabel_after_lw_1_assign
 put " lw %gp_lw_1%";
 $goto gpxyzlabel_after_lwidth_general_assign_1
 $label gpxyzlabel_after_lw_1_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_1
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_1
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_1
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_1
 );
@@ -3266,10 +3698,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_2_assign
 $label gpxyzlabel_after_lc_2_paletteassign
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_assign
-$if "%gp_lc_2%"=="no"                              $goto gpxyzlabel_after_lc_2_assign
+$ifi "%gp_lc_2%"=="no"                             $goto gpxyzlabel_after_lc_2_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_2_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_2_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_2_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_2_normalassign
 $label gpxyzlabel_after_lc_2_fixedassign
@@ -3281,12 +3713,12 @@ gp_xyz_ind_col("%gp_lc_2%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_2_assign
 $if not setglobal gp_lw_2                          $goto gpxyzlabel_after_lw_2_assign
-$if "%gp_lw_2%"=="no"                              $goto gpxyzlabel_after_lw_2_assign
+$ifi "%gp_lw_2%"=="no"                             $goto gpxyzlabel_after_lw_2_assign
 put " lw %gp_lw_2%";
 $goto gpxyzlabel_after_lwidth_general_assign_2
 $label gpxyzlabel_after_lw_2_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_2
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_2
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_2
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_2
 );
@@ -3299,10 +3731,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_3_assign
 $label gpxyzlabel_after_lc_3_paletteassign
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_assign
-$if "%gp_lc_3%"=="no"                              $goto gpxyzlabel_after_lc_3_assign
+$ifi "%gp_lc_3%"=="no"                             $goto gpxyzlabel_after_lc_3_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_3_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_3_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_3_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_3_normalassign
 $label gpxyzlabel_after_lc_3_fixedassign
@@ -3314,12 +3746,12 @@ gp_xyz_ind_col("%gp_lc_3%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_3_assign
 $if not setglobal gp_lw_3                          $goto gpxyzlabel_after_lw_3_assign
-$if "%gp_lw_3%"=="no"                              $goto gpxyzlabel_after_lw_3_assign
+$ifi "%gp_lw_3%"=="no"                             $goto gpxyzlabel_after_lw_3_assign
 put " lw %gp_lw_3%";
 $goto gpxyzlabel_after_lwidth_general_assign_3
 $label gpxyzlabel_after_lw_3_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_3
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_3
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_3
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_3
 );
@@ -3332,10 +3764,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_4_assign
 $label gpxyzlabel_after_lc_4_paletteassign
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_assign
-$if "%gp_lc_4%"=="no"                              $goto gpxyzlabel_after_lc_4_assign
+$ifi "%gp_lc_4%"=="no"                             $goto gpxyzlabel_after_lc_4_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_4_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_4_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_4_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_4_normalassign
 $label gpxyzlabel_after_lc_4_fixedassign
@@ -3347,12 +3779,12 @@ gp_xyz_ind_col("%gp_lc_4%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_4_assign
 $if not setglobal gp_lw_4                          $goto gpxyzlabel_after_lw_4_assign
-$if "%gp_lw_4%"=="no"                              $goto gpxyzlabel_after_lw_4_assign
+$ifi "%gp_lw_4%"=="no"                             $goto gpxyzlabel_after_lw_4_assign
 put " lw %gp_lw_4%";
 $goto gpxyzlabel_after_lwidth_general_assign_4
 $label gpxyzlabel_after_lw_4_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_4
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_4
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_4
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_4
 );
@@ -3365,10 +3797,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_5_assign
 $label gpxyzlabel_after_lc_5_paletteassign
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_assign
-$if "%gp_lc_5%"=="no"                              $goto gpxyzlabel_after_lc_5_assign
+$ifi "%gp_lc_5%"=="no"                             $goto gpxyzlabel_after_lc_5_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_5_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_5_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_5_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_5_normalassign
 $label gpxyzlabel_after_lc_5_fixedassign
@@ -3380,12 +3812,12 @@ gp_xyz_ind_col("%gp_lc_5%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_5_assign
 $if not setglobal gp_lw_5                          $goto gpxyzlabel_after_lw_5_assign
-$if "%gp_lw_5%"=="no"                              $goto gpxyzlabel_after_lw_5_assign
+$ifi "%gp_lw_5%"=="no"                             $goto gpxyzlabel_after_lw_5_assign
 put " lw %gp_lw_5%";
 $goto gpxyzlabel_after_lwidth_general_assign_5
 $label gpxyzlabel_after_lw_5_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_5
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_5
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_5
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_5
 );
@@ -3398,10 +3830,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_6_assign
 $label gpxyzlabel_after_lc_6_paletteassign
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_assign
-$if "%gp_lc_6%"=="no"                              $goto gpxyzlabel_after_lc_6_assign
+$ifi "%gp_lc_6%"=="no"                             $goto gpxyzlabel_after_lc_6_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_6_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_6_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_6_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_6_normalassign
 $label gpxyzlabel_after_lc_6_fixedassign
@@ -3413,12 +3845,12 @@ gp_xyz_ind_col("%gp_lc_6%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_6_assign
 $if not setglobal gp_lw_6                          $goto gpxyzlabel_after_lw_6_assign
-$if "%gp_lw_6%"=="no"                              $goto gpxyzlabel_after_lw_6_assign
+$ifi "%gp_lw_6%"=="no"                             $goto gpxyzlabel_after_lw_6_assign
 put " lw %gp_lw_6%";
 $goto gpxyzlabel_after_lwidth_general_assign_6
 $label gpxyzlabel_after_lw_6_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_6
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_6
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_6
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_6
 );
@@ -3431,10 +3863,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_7_assign
 $label gpxyzlabel_after_lc_7_paletteassign
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_assign
-$if "%gp_lc_7%"=="no"                              $goto gpxyzlabel_after_lc_7_assign
+$ifi "%gp_lc_7%"=="no"                             $goto gpxyzlabel_after_lc_7_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_7_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_7_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_7_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_7_normalassign
 $label gpxyzlabel_after_lc_7_fixedassign
@@ -3446,12 +3878,12 @@ gp_xyz_ind_col("%gp_lc_7%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_7_assign
 $if not setglobal gp_lw_7                          $goto gpxyzlabel_after_lw_7_assign
-$if "%gp_lw_7%"=="no"                              $goto gpxyzlabel_after_lw_7_assign
+$ifi "%gp_lw_7%"=="no"                             $goto gpxyzlabel_after_lw_7_assign
 put " lw %gp_lw_7%";
 $goto gpxyzlabel_after_lwidth_general_assign_7
 $label gpxyzlabel_after_lw_7_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_7
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_7
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_7
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_7
 );
@@ -3464,10 +3896,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_8_assign
 $label gpxyzlabel_after_lc_8_paletteassign
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_assign
-$if "%gp_lc_8%"=="no"                              $goto gpxyzlabel_after_lc_8_assign
+$ifi "%gp_lc_8%"=="no"                             $goto gpxyzlabel_after_lc_8_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_8_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_8_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_8_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_8_normalassign
 $label gpxyzlabel_after_lc_8_fixedassign
@@ -3479,12 +3911,12 @@ gp_xyz_ind_col("%gp_lc_8%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_8_assign
 $if not setglobal gp_lw_8                          $goto gpxyzlabel_after_lw_8_assign
-$if "%gp_lw_8%"=="no"                              $goto gpxyzlabel_after_lw_8_assign
+$ifi "%gp_lw_8%"=="no"                             $goto gpxyzlabel_after_lw_8_assign
 put " lw %gp_lw_8%";
 $goto gpxyzlabel_after_lwidth_general_assign_8
 $label gpxyzlabel_after_lw_8_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_8
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_8
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_8
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_8
 );
@@ -3497,10 +3929,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_9_assign
 $label gpxyzlabel_after_lc_9_paletteassign
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_assign
-$if "%gp_lc_9%"=="no"                              $goto gpxyzlabel_after_lc_9_assign
+$ifi "%gp_lc_9%"=="no"                             $goto gpxyzlabel_after_lc_9_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_9_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_9_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_9_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_9_normalassign
 $label gpxyzlabel_after_lc_9_fixedassign
@@ -3512,12 +3944,12 @@ gp_xyz_ind_col("%gp_lc_9%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_9_assign
 $if not setglobal gp_lw_9                          $goto gpxyzlabel_after_lw_9_assign
-$if "%gp_lw_9%"=="no"                              $goto gpxyzlabel_after_lw_9_assign
+$ifi "%gp_lw_9%"=="no"                             $goto gpxyzlabel_after_lw_9_assign
 put " lw %gp_lw_9%";
 $goto gpxyzlabel_after_lwidth_general_assign_9
 $label gpxyzlabel_after_lw_9_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_9
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_9
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_9
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_9
 );
@@ -3530,10 +3962,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_10_assign
 $label gpxyzlabel_after_lc_10_paletteassign
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_assign
-$if "%gp_lc_10%"=="no"                             $goto gpxyzlabel_after_lc_10_assign
+$ifi "%gp_lc_10%"=="no"                            $goto gpxyzlabel_after_lc_10_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_10_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_10_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_10_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_10_normalassign
 $label gpxyzlabel_after_lc_10_fixedassign
@@ -3545,12 +3977,12 @@ gp_xyz_ind_col("%gp_lc_10%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_10_assign
 $if not setglobal gp_lw_10                         $goto gpxyzlabel_after_lw_10_assign
-$if "%gp_lw_10%"=="no"                             $goto gpxyzlabel_after_lw_10_assign
+$ifi "%gp_lw_10%"=="no"                            $goto gpxyzlabel_after_lw_10_assign
 put " lw %gp_lw_10%";
 $goto gpxyzlabel_after_lwidth_general_assign_10
 $label gpxyzlabel_after_lw_10_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_10
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_10
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_10
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_10
 );
@@ -3563,10 +3995,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_11_assign
 $label gpxyzlabel_after_lc_11_paletteassign
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_assign
-$if "%gp_lc_11%"=="no"                             $goto gpxyzlabel_after_lc_11_assign
+$ifi "%gp_lc_11%"=="no"                            $goto gpxyzlabel_after_lc_11_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_11_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_11_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_11_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_11_normalassign
 $label gpxyzlabel_after_lc_11_fixedassign
@@ -3578,12 +4010,12 @@ gp_xyz_ind_col("%gp_lc_11%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_11_assign
 $if not setglobal gp_lw_11                         $goto gpxyzlabel_after_lw_11_assign
-$if "%gp_lw_11%"=="no"                             $goto gpxyzlabel_after_lw_11_assign
+$ifi "%gp_lw_11%"=="no"                            $goto gpxyzlabel_after_lw_11_assign
 put " lw %gp_lw_11%";
 $goto gpxyzlabel_after_lwidth_general_assign_11
 $label gpxyzlabel_after_lw_11_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_11
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_11
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_11
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_11
 );
@@ -3596,10 +4028,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_12_assign
 $label gpxyzlabel_after_lc_12_paletteassign
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_assign
-$if "%gp_lc_12%"=="no"                             $goto gpxyzlabel_after_lc_12_assign
+$ifi "%gp_lc_12%"=="no"                            $goto gpxyzlabel_after_lc_12_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_12_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_12_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_12_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_12_normalassign
 $label gpxyzlabel_after_lc_12_fixedassign
@@ -3611,12 +4043,12 @@ gp_xyz_ind_col("%gp_lc_12%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_12_assign
 $if not setglobal gp_lw_12                         $goto gpxyzlabel_after_lw_12_assign
-$if "%gp_lw_12%"=="no"                             $goto gpxyzlabel_after_lw_12_assign
+$ifi "%gp_lw_12%"=="no"                            $goto gpxyzlabel_after_lw_12_assign
 put " lw %gp_lw_12%";
 $goto gpxyzlabel_after_lwidth_general_assign_12
 $label gpxyzlabel_after_lw_12_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_12
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_12
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_12
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_12
 );
@@ -3629,10 +4061,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_13_assign
 $label gpxyzlabel_after_lc_13_paletteassign
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_assign
-$if "%gp_lc_13%"=="no"                             $goto gpxyzlabel_after_lc_13_assign
+$ifi "%gp_lc_13%"=="no"                            $goto gpxyzlabel_after_lc_13_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_13_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_13_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_13_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_13_normalassign
 $label gpxyzlabel_after_lc_13_fixedassign
@@ -3644,12 +4076,12 @@ gp_xyz_ind_col("%gp_lc_13%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_13_assign
 $if not setglobal gp_lw_13                         $goto gpxyzlabel_after_lw_13_assign
-$if "%gp_lw_13%"=="no"                             $goto gpxyzlabel_after_lw_13_assign
+$ifi "%gp_lw_13%"=="no"                            $goto gpxyzlabel_after_lw_13_assign
 put " lw %gp_lw_13%";
 $goto gpxyzlabel_after_lwidth_general_assign_13
 $label gpxyzlabel_after_lw_13_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_13
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_13
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_13
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_13
 );
@@ -3662,10 +4094,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_14_assign
 $label gpxyzlabel_after_lc_14_paletteassign
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_assign
-$if "%gp_lc_14%"=="no"                             $goto gpxyzlabel_after_lc_14_assign
+$ifi "%gp_lc_14%"=="no"                            $goto gpxyzlabel_after_lc_14_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_14_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_14_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_14_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_14_normalassign
 $label gpxyzlabel_after_lc_14_fixedassign
@@ -3677,12 +4109,12 @@ gp_xyz_ind_col("%gp_lc_14%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_14_assign
 $if not setglobal gp_lw_14                         $goto gpxyzlabel_after_lw_14_assign
-$if "%gp_lw_14%"=="no"                             $goto gpxyzlabel_after_lw_14_assign
+$ifi "%gp_lw_14%"=="no"                            $goto gpxyzlabel_after_lw_14_assign
 put " lw %gp_lw_14%";
 $goto gpxyzlabel_after_lwidth_general_assign_14
 $label gpxyzlabel_after_lw_14_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_14
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_14
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_14
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_14
 );
@@ -3695,10 +4127,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_15_assign
 $label gpxyzlabel_after_lc_15_paletteassign
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_assign
-$if "%gp_lc_15%"=="no"                             $goto gpxyzlabel_after_lc_15_assign
+$ifi "%gp_lc_15%"=="no"                            $goto gpxyzlabel_after_lc_15_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_15_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_15_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_15_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_15_normalassign
 $label gpxyzlabel_after_lc_15_fixedassign
@@ -3710,12 +4142,12 @@ gp_xyz_ind_col("%gp_lc_15%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_15_assign
 $if not setglobal gp_lw_15                         $goto gpxyzlabel_after_lw_15_assign
-$if "%gp_lw_15%"=="no"                             $goto gpxyzlabel_after_lw_15_assign
+$ifi "%gp_lw_15%"=="no"                            $goto gpxyzlabel_after_lw_15_assign
 put " lw %gp_lw_15%";
 $goto gpxyzlabel_after_lwidth_general_assign_15
 $label gpxyzlabel_after_lw_15_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_15
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_15
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_15
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_15
 );
@@ -3728,10 +4160,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_16_assign
 $label gpxyzlabel_after_lc_16_paletteassign
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_assign
-$if "%gp_lc_16%"=="no"                             $goto gpxyzlabel_after_lc_16_assign
+$ifi "%gp_lc_16%"=="no"                            $goto gpxyzlabel_after_lc_16_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_16_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_16_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_16_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_16_normalassign
 $label gpxyzlabel_after_lc_16_fixedassign
@@ -3743,12 +4175,12 @@ gp_xyz_ind_col("%gp_lc_16%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_16_assign
 $if not setglobal gp_lw_16                         $goto gpxyzlabel_after_lw_16_assign
-$if "%gp_lw_16%"=="no"                             $goto gpxyzlabel_after_lw_16_assign
+$ifi "%gp_lw_16%"=="no"                            $goto gpxyzlabel_after_lw_16_assign
 put " lw %gp_lw_16%";
 $goto gpxyzlabel_after_lwidth_general_assign_16
 $label gpxyzlabel_after_lw_16_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_16
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_16
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_16
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_16
 );
@@ -3761,10 +4193,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_17_assign
 $label gpxyzlabel_after_lc_17_paletteassign
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_assign
-$if "%gp_lc_17%"=="no"                             $goto gpxyzlabel_after_lc_17_assign
+$ifi "%gp_lc_17%"=="no"                            $goto gpxyzlabel_after_lc_17_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_17_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_17_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_17_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_17_normalassign
 $label gpxyzlabel_after_lc_17_fixedassign
@@ -3776,12 +4208,12 @@ gp_xyz_ind_col("%gp_lc_17%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_17_assign
 $if not setglobal gp_lw_17                         $goto gpxyzlabel_after_lw_17_assign
-$if "%gp_lw_17%"=="no"                             $goto gpxyzlabel_after_lw_17_assign
+$ifi "%gp_lw_17%"=="no"                            $goto gpxyzlabel_after_lw_17_assign
 put " lw %gp_lw_17%";
 $goto gpxyzlabel_after_lwidth_general_assign_17
 $label gpxyzlabel_after_lw_17_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_17
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_17
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_17
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_17
 );
@@ -3794,10 +4226,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_18_assign
 $label gpxyzlabel_after_lc_18_paletteassign
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_assign
-$if "%gp_lc_18%"=="no"                             $goto gpxyzlabel_after_lc_18_assign
+$ifi "%gp_lc_18%"=="no"                            $goto gpxyzlabel_after_lc_18_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_18_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_18_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_18_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_18_normalassign
 $label gpxyzlabel_after_lc_18_fixedassign
@@ -3809,12 +4241,12 @@ gp_xyz_ind_col("%gp_lc_18%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_18_assign
 $if not setglobal gp_lw_18                         $goto gpxyzlabel_after_lw_18_assign
-$if "%gp_lw_18%"=="no"                             $goto gpxyzlabel_after_lw_18_assign
+$ifi "%gp_lw_18%"=="no"                            $goto gpxyzlabel_after_lw_18_assign
 put " lw %gp_lw_18%";
 $goto gpxyzlabel_after_lwidth_general_assign_18
 $label gpxyzlabel_after_lw_18_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_18
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_18
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_18
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_18
 );
@@ -3827,10 +4259,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_19_assign
 $label gpxyzlabel_after_lc_19_paletteassign
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_assign
-$if "%gp_lc_19%"=="no"                             $goto gpxyzlabel_after_lc_19_assign
+$ifi "%gp_lc_19%"=="no"                            $goto gpxyzlabel_after_lc_19_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_19_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_19_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_19_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_19_normalassign
 $label gpxyzlabel_after_lc_19_fixedassign
@@ -3842,12 +4274,12 @@ gp_xyz_ind_col("%gp_lc_19%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_19_assign
 $if not setglobal gp_lw_19                         $goto gpxyzlabel_after_lw_19_assign
-$if "%gp_lw_19%"=="no"                             $goto gpxyzlabel_after_lw_19_assign
+$ifi "%gp_lw_19%"=="no"                            $goto gpxyzlabel_after_lw_19_assign
 put " lw %gp_lw_19%";
 $goto gpxyzlabel_after_lwidth_general_assign_19
 $label gpxyzlabel_after_lw_19_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_19
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_19
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_19
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_19
 );
@@ -3860,10 +4292,10 @@ put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_pal
 $goto gpxyzlabel_after_lc_20_assign
 $label gpxyzlabel_after_lc_20_paletteassign
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_assign
-$if "%gp_lc_20%"=="no"                             $goto gpxyzlabel_after_lc_20_assign
+$ifi "%gp_lc_20%"=="no"                            $goto gpxyzlabel_after_lc_20_assign
 put " lc rgb ";
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_20_fixedassign
-$if "%gp_fixcolor_set%"=="no"                      $goto gpxyzlabel_after_lc_20_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_20_fixedassign
 gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
 $goto gpxyzlabel_after_lc_20_normalassign
 $label gpxyzlabel_after_lc_20_fixedassign
@@ -3875,19 +4307,346 @@ gp_xyz_ind_col("%gp_lc_20%") = no;
 gp_xyz_ind_col(gp_hex_color_name) = no;
 $label gpxyzlabel_after_lc_20_assign
 $if not setglobal gp_lw_20                         $goto gpxyzlabel_after_lw_20_assign
-$if "%gp_lw_20%"=="no"                             $goto gpxyzlabel_after_lw_20_assign
+$ifi "%gp_lw_20%"=="no"                            $goto gpxyzlabel_after_lw_20_assign
 put " lw %gp_lw_20%";
 $goto gpxyzlabel_after_lwidth_general_assign_20
 $label gpxyzlabel_after_lw_20_assign
 $if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_20
-$if "%gp_lwidth%"=="no"                            $goto gpxyzlabel_after_lwidth_general_assign_20
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_20
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_assign_20
 );
 
+If(gp_count eq 21,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_21_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_21_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_21_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_21_assign
+$label gpxyzlabel_after_lc_21_paletteassign
+$if not setglobal gp_lc_21                         $goto gpxyzlabel_after_lc_21_assign
+$ifi "%gp_lc_21%"=="no"                            $goto gpxyzlabel_after_lc_21_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_21_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_21_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_21_normalassign
+$label gpxyzlabel_after_lc_21_fixedassign
+gp_xyz_ind_col("%gp_lc_21%") = yes;
+$label gpxyzlabel_after_lc_21_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_21%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_21_assign
+$if not setglobal gp_lw_21                         $goto gpxyzlabel_after_lw_21_assign
+$ifi "%gp_lw_21%"=="no"                            $goto gpxyzlabel_after_lw_21_assign
+put " lw %gp_lw_21%";
+$goto gpxyzlabel_after_lwidth_general_assign_21
+$label gpxyzlabel_after_lw_21_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_21
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_21
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_21
+);
+
+If(gp_count eq 22,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_22_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_22_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_22_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_22_assign
+$label gpxyzlabel_after_lc_22_paletteassign
+$if not setglobal gp_lc_22                         $goto gpxyzlabel_after_lc_22_assign
+$ifi "%gp_lc_22%"=="no"                            $goto gpxyzlabel_after_lc_22_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_22_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_22_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_22_normalassign
+$label gpxyzlabel_after_lc_22_fixedassign
+gp_xyz_ind_col("%gp_lc_22%") = yes;
+$label gpxyzlabel_after_lc_22_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_22%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_22_assign
+$if not setglobal gp_lw_22                         $goto gpxyzlabel_after_lw_22_assign
+$ifi "%gp_lw_22%"=="no"                            $goto gpxyzlabel_after_lw_22_assign
+put " lw %gp_lw_22%";
+$goto gpxyzlabel_after_lwidth_general_assign_22
+$label gpxyzlabel_after_lw_22_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_22
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_22
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_22
+);
+
+If(gp_count eq 23,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_23_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_23_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_23_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_23_assign
+$label gpxyzlabel_after_lc_23_paletteassign
+$if not setglobal gp_lc_23                         $goto gpxyzlabel_after_lc_23_assign
+$ifi "%gp_lc_23%"=="no"                            $goto gpxyzlabel_after_lc_23_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_23_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_23_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_23_normalassign
+$label gpxyzlabel_after_lc_23_fixedassign
+gp_xyz_ind_col("%gp_lc_23%") = yes;
+$label gpxyzlabel_after_lc_23_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_23%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_23_assign
+$if not setglobal gp_lw_23                         $goto gpxyzlabel_after_lw_23_assign
+$ifi "%gp_lw_23%"=="no"                            $goto gpxyzlabel_after_lw_23_assign
+put " lw %gp_lw_23%";
+$goto gpxyzlabel_after_lwidth_general_assign_23
+$label gpxyzlabel_after_lw_23_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_23
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_23
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_23
+);
+
+If(gp_count eq 24,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_24_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_24_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_24_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_24_assign
+$label gpxyzlabel_after_lc_24_paletteassign
+$if not setglobal gp_lc_24                         $goto gpxyzlabel_after_lc_24_assign
+$ifi "%gp_lc_24%"=="no"                            $goto gpxyzlabel_after_lc_24_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_24_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_24_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_24_normalassign
+$label gpxyzlabel_after_lc_24_fixedassign
+gp_xyz_ind_col("%gp_lc_24%") = yes;
+$label gpxyzlabel_after_lc_24_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_24%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_24_assign
+$if not setglobal gp_lw_24                         $goto gpxyzlabel_after_lw_24_assign
+$ifi "%gp_lw_24%"=="no"                            $goto gpxyzlabel_after_lw_24_assign
+put " lw %gp_lw_24%";
+$goto gpxyzlabel_after_lwidth_general_assign_24
+$label gpxyzlabel_after_lw_24_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_24
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_24
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_24
+);
+
+If(gp_count eq 25,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_25_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_25_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_25_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_25_assign
+$label gpxyzlabel_after_lc_25_paletteassign
+$if not setglobal gp_lc_25                         $goto gpxyzlabel_after_lc_25_assign
+$ifi "%gp_lc_25%"=="no"                            $goto gpxyzlabel_after_lc_25_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_25_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_25_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_25_normalassign
+$label gpxyzlabel_after_lc_25_fixedassign
+gp_xyz_ind_col("%gp_lc_25%") = yes;
+$label gpxyzlabel_after_lc_25_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_25%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_25_assign
+$if not setglobal gp_lw_25                         $goto gpxyzlabel_after_lw_25_assign
+$ifi "%gp_lw_25%"=="no"                            $goto gpxyzlabel_after_lw_25_assign
+put " lw %gp_lw_25%";
+$goto gpxyzlabel_after_lwidth_general_assign_25
+$label gpxyzlabel_after_lw_25_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_25
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_25
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_25
+);
+
+If(gp_count eq 26,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_26_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_26_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_26_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_26_assign
+$label gpxyzlabel_after_lc_26_paletteassign
+$if not setglobal gp_lc_26                         $goto gpxyzlabel_after_lc_26_assign
+$ifi "%gp_lc_26%"=="no"                            $goto gpxyzlabel_after_lc_26_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_26_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_26_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_26_normalassign
+$label gpxyzlabel_after_lc_26_fixedassign
+gp_xyz_ind_col("%gp_lc_26%") = yes;
+$label gpxyzlabel_after_lc_26_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_26%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_26_assign
+$if not setglobal gp_lw_26                         $goto gpxyzlabel_after_lw_26_assign
+$ifi "%gp_lw_26%"=="no"                            $goto gpxyzlabel_after_lw_26_assign
+put " lw %gp_lw_26%";
+$goto gpxyzlabel_after_lwidth_general_assign_26
+$label gpxyzlabel_after_lw_26_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_26
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_26
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_26
+);
+
+If(gp_count eq 27,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_27_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_27_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_27_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_27_assign
+$label gpxyzlabel_after_lc_27_paletteassign
+$if not setglobal gp_lc_27                         $goto gpxyzlabel_after_lc_27_assign
+$ifi "%gp_lc_27%"=="no"                            $goto gpxyzlabel_after_lc_27_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_27_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_27_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_27_normalassign
+$label gpxyzlabel_after_lc_27_fixedassign
+gp_xyz_ind_col("%gp_lc_27%") = yes;
+$label gpxyzlabel_after_lc_27_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_27%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_27_assign
+$if not setglobal gp_lw_27                         $goto gpxyzlabel_after_lw_27_assign
+$ifi "%gp_lw_27%"=="no"                            $goto gpxyzlabel_after_lw_27_assign
+put " lw %gp_lw_27%";
+$goto gpxyzlabel_after_lwidth_general_assign_27
+$label gpxyzlabel_after_lw_27_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_27
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_27
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_27
+);
+
+If(gp_count eq 28,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_28_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_28_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_28_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_28_assign
+$label gpxyzlabel_after_lc_28_paletteassign
+$if not setglobal gp_lc_28                         $goto gpxyzlabel_after_lc_28_assign
+$ifi "%gp_lc_28%"=="no"                            $goto gpxyzlabel_after_lc_28_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_28_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_28_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_28_normalassign
+$label gpxyzlabel_after_lc_28_fixedassign
+gp_xyz_ind_col("%gp_lc_28%") = yes;
+$label gpxyzlabel_after_lc_28_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_28%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_28_assign
+$if not setglobal gp_lw_28                         $goto gpxyzlabel_after_lw_28_assign
+$ifi "%gp_lw_28%"=="no"                            $goto gpxyzlabel_after_lw_28_assign
+put " lw %gp_lw_28%";
+$goto gpxyzlabel_after_lwidth_general_assign_28
+$label gpxyzlabel_after_lw_28_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_28
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_28
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_28
+);
+
+If(gp_count eq 29,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_29_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_29_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_29_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_29_assign
+$label gpxyzlabel_after_lc_29_paletteassign
+$if not setglobal gp_lc_29                         $goto gpxyzlabel_after_lc_29_assign
+$ifi "%gp_lc_29%"=="no"                            $goto gpxyzlabel_after_lc_29_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_29_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_29_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_29_normalassign
+$label gpxyzlabel_after_lc_29_fixedassign
+gp_xyz_ind_col("%gp_lc_29%") = yes;
+$label gpxyzlabel_after_lc_29_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_29%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_29_assign
+$if not setglobal gp_lw_29                         $goto gpxyzlabel_after_lw_29_assign
+$ifi "%gp_lw_29%"=="no"                            $goto gpxyzlabel_after_lw_29_assign
+put " lw %gp_lw_29%";
+$goto gpxyzlabel_after_lwidth_general_assign_29
+$label gpxyzlabel_after_lw_29_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_29
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_29
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_29
+);
+
+If(gp_count eq 30,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_30_paletteassign
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_30_paletteassign
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_30_paletteassign
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_30_assign
+$label gpxyzlabel_after_lc_30_paletteassign
+$if not setglobal gp_lc_30                         $goto gpxyzlabel_after_lc_30_assign
+$ifi "%gp_lc_30%"=="no"                            $goto gpxyzlabel_after_lc_30_assign
+put " lc rgb ";
+$if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_after_lc_30_fixedassign
+$ifi "%gp_fixcolor_set%"=="no"                     $goto gpxyzlabel_after_lc_30_fixedassign
+gp_xyz_ind_col(gp_hex_color_name) $gp_fixlinecolormap(gp_hex_color_name,%gp_scen%) = yes;
+$goto gpxyzlabel_after_lc_30_normalassign
+$label gpxyzlabel_after_lc_30_fixedassign
+gp_xyz_ind_col("%gp_lc_30%") = yes;
+$label gpxyzlabel_after_lc_30_normalassign
+LOOP(gp_hex_color_name $ gp_xyz_ind_col(gp_hex_color_name),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"';  );
+gp_xyz_ind_col("%gp_lc_30%") = no;
+gp_xyz_ind_col(gp_hex_color_name) = no;
+$label gpxyzlabel_after_lc_30_assign
+$if not setglobal gp_lw_30                         $goto gpxyzlabel_after_lw_30_assign
+$ifi "%gp_lw_30%"=="no"                            $goto gpxyzlabel_after_lw_30_assign
+put " lw %gp_lw_30%";
+$goto gpxyzlabel_after_lwidth_general_assign_30
+$label gpxyzlabel_after_lw_30_assign
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_assign_30
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_assign_30
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_assign_30
+);
 * Insert Auto Code 7 produced by make_345678_linestyle.gms - end
-
-
 
  gp_input.nw = 6;
  gp_count = gp_count + 1;
@@ -3895,11 +4654,14 @@ $label gpxyzlabel_after_lwidth_general_assign_20
 
 $goto gpxyzlabel_write_data_file
 
+
+
+
 * 1D Plots
 $label gpxyzlabel_plotstatement_1dgraph
 
 $ifi not "%gp_style%" == "piechart"       $goto gpxyzlabel_after_piechartplot
-$ifi not setglobal gp_piechart_colormode  $setglobal gp_piechart_colormode "lc palette "
+$if  not setglobal gp_piechart_colormode  $setglobal gp_piechart_colormode "lc palette "
 
 put 'plot \' /;
 gp_count=0;
@@ -3947,7 +4709,7 @@ $if '%gp_xticlabels%'=='no'         $goto gpxyzlabel_afterxticlabels_3Dgraph
 * Insert Auto Code 9b produced by make_345678_linestyle.gms - begin
 IF(gp_count eq 1,
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_3Dbox
-$if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_3Dbox
+$ifi    "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_1%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -3960,7 +4722,7 @@ $label gpxyzlabel_after_lc_1_3Dbox
  );
 IF(gp_count eq 1,
 $if not setglobal gp_fc_1                          $goto gpxyzlabel_after_fc_1_3Dbox
-$if     "%gp_fc_1%" == "no"                        $goto gpxyzlabel_after_fc_1_3Dbox
+$ifi    "%gp_fc_1%" == "no"                        $goto gpxyzlabel_after_fc_1_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_1%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -3973,7 +4735,7 @@ $label gpxyzlabel_after_fc_1_3Dbox
  );
 IF(gp_count eq 2,
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_3Dbox
-$if     "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_3Dbox
+$ifi    "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_2%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -3986,7 +4748,7 @@ $label gpxyzlabel_after_lc_2_3Dbox
  );
 IF(gp_count eq 2,
 $if not setglobal gp_fc_2                          $goto gpxyzlabel_after_fc_2_3Dbox
-$if     "%gp_fc_2%" == "no"                        $goto gpxyzlabel_after_fc_2_3Dbox
+$ifi    "%gp_fc_2%" == "no"                        $goto gpxyzlabel_after_fc_2_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_2%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -3999,7 +4761,7 @@ $label gpxyzlabel_after_fc_2_3Dbox
  );
 IF(gp_count eq 3,
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_3Dbox
-$if     "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_3Dbox
+$ifi    "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_3%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4012,7 +4774,7 @@ $label gpxyzlabel_after_lc_3_3Dbox
  );
 IF(gp_count eq 3,
 $if not setglobal gp_fc_3                          $goto gpxyzlabel_after_fc_3_3Dbox
-$if     "%gp_fc_3%" == "no"                        $goto gpxyzlabel_after_fc_3_3Dbox
+$ifi    "%gp_fc_3%" == "no"                        $goto gpxyzlabel_after_fc_3_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_3%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4025,7 +4787,7 @@ $label gpxyzlabel_after_fc_3_3Dbox
  );
 IF(gp_count eq 4,
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_3Dbox
-$if     "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_3Dbox
+$ifi    "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_4%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4038,7 +4800,7 @@ $label gpxyzlabel_after_lc_4_3Dbox
  );
 IF(gp_count eq 4,
 $if not setglobal gp_fc_4                          $goto gpxyzlabel_after_fc_4_3Dbox
-$if     "%gp_fc_4%" == "no"                        $goto gpxyzlabel_after_fc_4_3Dbox
+$ifi    "%gp_fc_4%" == "no"                        $goto gpxyzlabel_after_fc_4_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_4%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4051,7 +4813,7 @@ $label gpxyzlabel_after_fc_4_3Dbox
  );
 IF(gp_count eq 5,
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_3Dbox
-$if     "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_3Dbox
+$ifi    "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_5%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4064,7 +4826,7 @@ $label gpxyzlabel_after_lc_5_3Dbox
  );
 IF(gp_count eq 5,
 $if not setglobal gp_fc_5                          $goto gpxyzlabel_after_fc_5_3Dbox
-$if     "%gp_fc_5%" == "no"                        $goto gpxyzlabel_after_fc_5_3Dbox
+$ifi    "%gp_fc_5%" == "no"                        $goto gpxyzlabel_after_fc_5_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_5%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4077,7 +4839,7 @@ $label gpxyzlabel_after_fc_5_3Dbox
  );
 IF(gp_count eq 6,
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_3Dbox
-$if     "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_3Dbox
+$ifi    "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_6%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4090,7 +4852,7 @@ $label gpxyzlabel_after_lc_6_3Dbox
  );
 IF(gp_count eq 6,
 $if not setglobal gp_fc_6                          $goto gpxyzlabel_after_fc_6_3Dbox
-$if     "%gp_fc_6%" == "no"                        $goto gpxyzlabel_after_fc_6_3Dbox
+$ifi    "%gp_fc_6%" == "no"                        $goto gpxyzlabel_after_fc_6_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_6%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4103,7 +4865,7 @@ $label gpxyzlabel_after_fc_6_3Dbox
  );
 IF(gp_count eq 7,
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_3Dbox
-$if     "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_3Dbox
+$ifi    "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_7%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4116,7 +4878,7 @@ $label gpxyzlabel_after_lc_7_3Dbox
  );
 IF(gp_count eq 7,
 $if not setglobal gp_fc_7                          $goto gpxyzlabel_after_fc_7_3Dbox
-$if     "%gp_fc_7%" == "no"                        $goto gpxyzlabel_after_fc_7_3Dbox
+$ifi    "%gp_fc_7%" == "no"                        $goto gpxyzlabel_after_fc_7_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_7%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4129,7 +4891,7 @@ $label gpxyzlabel_after_fc_7_3Dbox
  );
 IF(gp_count eq 8,
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_3Dbox
-$if     "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_3Dbox
+$ifi    "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_8%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4142,7 +4904,7 @@ $label gpxyzlabel_after_lc_8_3Dbox
  );
 IF(gp_count eq 8,
 $if not setglobal gp_fc_8                          $goto gpxyzlabel_after_fc_8_3Dbox
-$if     "%gp_fc_8%" == "no"                        $goto gpxyzlabel_after_fc_8_3Dbox
+$ifi    "%gp_fc_8%" == "no"                        $goto gpxyzlabel_after_fc_8_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_8%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4155,7 +4917,7 @@ $label gpxyzlabel_after_fc_8_3Dbox
  );
 IF(gp_count eq 9,
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_3Dbox
-$if     "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_3Dbox
+$ifi    "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_9%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4168,7 +4930,7 @@ $label gpxyzlabel_after_lc_9_3Dbox
  );
 IF(gp_count eq 9,
 $if not setglobal gp_fc_9                          $goto gpxyzlabel_after_fc_9_3Dbox
-$if     "%gp_fc_9%" == "no"                        $goto gpxyzlabel_after_fc_9_3Dbox
+$ifi    "%gp_fc_9%" == "no"                        $goto gpxyzlabel_after_fc_9_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_9%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4181,7 +4943,7 @@ $label gpxyzlabel_after_fc_9_3Dbox
  );
 IF(gp_count eq 10,
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_3Dbox
-$if     "%gp_lc_10%" == "no"                       $goto gpxyzlabel_after_lc_10_3Dbox
+$ifi    "%gp_lc_10%" == "no"                       $goto gpxyzlabel_after_lc_10_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_10%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4194,7 +4956,7 @@ $label gpxyzlabel_after_lc_10_3Dbox
  );
 IF(gp_count eq 10,
 $if not setglobal gp_fc_10                         $goto gpxyzlabel_after_fc_10_3Dbox
-$if     "%gp_fc_10%" == "no"                       $goto gpxyzlabel_after_fc_10_3Dbox
+$ifi    "%gp_fc_10%" == "no"                       $goto gpxyzlabel_after_fc_10_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_10%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4207,7 +4969,7 @@ $label gpxyzlabel_after_fc_10_3Dbox
  );
 IF(gp_count eq 11,
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_3Dbox
-$if     "%gp_lc_11%" == "no"                       $goto gpxyzlabel_after_lc_11_3Dbox
+$ifi    "%gp_lc_11%" == "no"                       $goto gpxyzlabel_after_lc_11_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_11%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4220,7 +4982,7 @@ $label gpxyzlabel_after_lc_11_3Dbox
  );
 IF(gp_count eq 11,
 $if not setglobal gp_fc_11                         $goto gpxyzlabel_after_fc_11_3Dbox
-$if     "%gp_fc_11%" == "no"                       $goto gpxyzlabel_after_fc_11_3Dbox
+$ifi    "%gp_fc_11%" == "no"                       $goto gpxyzlabel_after_fc_11_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_11%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4233,7 +4995,7 @@ $label gpxyzlabel_after_fc_11_3Dbox
  );
 IF(gp_count eq 12,
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_3Dbox
-$if     "%gp_lc_12%" == "no"                       $goto gpxyzlabel_after_lc_12_3Dbox
+$ifi    "%gp_lc_12%" == "no"                       $goto gpxyzlabel_after_lc_12_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_12%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4246,7 +5008,7 @@ $label gpxyzlabel_after_lc_12_3Dbox
  );
 IF(gp_count eq 12,
 $if not setglobal gp_fc_12                         $goto gpxyzlabel_after_fc_12_3Dbox
-$if     "%gp_fc_12%" == "no"                       $goto gpxyzlabel_after_fc_12_3Dbox
+$ifi    "%gp_fc_12%" == "no"                       $goto gpxyzlabel_after_fc_12_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_12%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4259,7 +5021,7 @@ $label gpxyzlabel_after_fc_12_3Dbox
  );
 IF(gp_count eq 13,
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_3Dbox
-$if     "%gp_lc_13%" == "no"                       $goto gpxyzlabel_after_lc_13_3Dbox
+$ifi    "%gp_lc_13%" == "no"                       $goto gpxyzlabel_after_lc_13_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_13%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4272,7 +5034,7 @@ $label gpxyzlabel_after_lc_13_3Dbox
  );
 IF(gp_count eq 13,
 $if not setglobal gp_fc_13                         $goto gpxyzlabel_after_fc_13_3Dbox
-$if     "%gp_fc_13%" == "no"                       $goto gpxyzlabel_after_fc_13_3Dbox
+$ifi    "%gp_fc_13%" == "no"                       $goto gpxyzlabel_after_fc_13_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_13%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4285,7 +5047,7 @@ $label gpxyzlabel_after_fc_13_3Dbox
  );
 IF(gp_count eq 14,
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_3Dbox
-$if     "%gp_lc_14%" == "no"                       $goto gpxyzlabel_after_lc_14_3Dbox
+$ifi    "%gp_lc_14%" == "no"                       $goto gpxyzlabel_after_lc_14_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_14%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4298,7 +5060,7 @@ $label gpxyzlabel_after_lc_14_3Dbox
  );
 IF(gp_count eq 14,
 $if not setglobal gp_fc_14                         $goto gpxyzlabel_after_fc_14_3Dbox
-$if     "%gp_fc_14%" == "no"                       $goto gpxyzlabel_after_fc_14_3Dbox
+$ifi    "%gp_fc_14%" == "no"                       $goto gpxyzlabel_after_fc_14_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_14%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4311,7 +5073,7 @@ $label gpxyzlabel_after_fc_14_3Dbox
  );
 IF(gp_count eq 15,
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_3Dbox
-$if     "%gp_lc_15%" == "no"                       $goto gpxyzlabel_after_lc_15_3Dbox
+$ifi    "%gp_lc_15%" == "no"                       $goto gpxyzlabel_after_lc_15_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_15%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4324,7 +5086,7 @@ $label gpxyzlabel_after_lc_15_3Dbox
  );
 IF(gp_count eq 15,
 $if not setglobal gp_fc_15                         $goto gpxyzlabel_after_fc_15_3Dbox
-$if     "%gp_fc_15%" == "no"                       $goto gpxyzlabel_after_fc_15_3Dbox
+$ifi    "%gp_fc_15%" == "no"                       $goto gpxyzlabel_after_fc_15_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_15%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4337,7 +5099,7 @@ $label gpxyzlabel_after_fc_15_3Dbox
  );
 IF(gp_count eq 16,
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_3Dbox
-$if     "%gp_lc_16%" == "no"                       $goto gpxyzlabel_after_lc_16_3Dbox
+$ifi    "%gp_lc_16%" == "no"                       $goto gpxyzlabel_after_lc_16_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_16%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4350,7 +5112,7 @@ $label gpxyzlabel_after_lc_16_3Dbox
  );
 IF(gp_count eq 16,
 $if not setglobal gp_fc_16                         $goto gpxyzlabel_after_fc_16_3Dbox
-$if     "%gp_fc_16%" == "no"                       $goto gpxyzlabel_after_fc_16_3Dbox
+$ifi    "%gp_fc_16%" == "no"                       $goto gpxyzlabel_after_fc_16_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_16%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4363,7 +5125,7 @@ $label gpxyzlabel_after_fc_16_3Dbox
  );
 IF(gp_count eq 17,
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_3Dbox
-$if     "%gp_lc_17%" == "no"                       $goto gpxyzlabel_after_lc_17_3Dbox
+$ifi    "%gp_lc_17%" == "no"                       $goto gpxyzlabel_after_lc_17_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_17%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4376,7 +5138,7 @@ $label gpxyzlabel_after_lc_17_3Dbox
  );
 IF(gp_count eq 17,
 $if not setglobal gp_fc_17                         $goto gpxyzlabel_after_fc_17_3Dbox
-$if     "%gp_fc_17%" == "no"                       $goto gpxyzlabel_after_fc_17_3Dbox
+$ifi    "%gp_fc_17%" == "no"                       $goto gpxyzlabel_after_fc_17_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_17%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4389,7 +5151,7 @@ $label gpxyzlabel_after_fc_17_3Dbox
  );
 IF(gp_count eq 18,
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_3Dbox
-$if     "%gp_lc_18%" == "no"                       $goto gpxyzlabel_after_lc_18_3Dbox
+$ifi    "%gp_lc_18%" == "no"                       $goto gpxyzlabel_after_lc_18_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_18%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4402,7 +5164,7 @@ $label gpxyzlabel_after_lc_18_3Dbox
  );
 IF(gp_count eq 18,
 $if not setglobal gp_fc_18                         $goto gpxyzlabel_after_fc_18_3Dbox
-$if     "%gp_fc_18%" == "no"                       $goto gpxyzlabel_after_fc_18_3Dbox
+$ifi    "%gp_fc_18%" == "no"                       $goto gpxyzlabel_after_fc_18_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_18%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4415,7 +5177,7 @@ $label gpxyzlabel_after_fc_18_3Dbox
  );
 IF(gp_count eq 19,
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_3Dbox
-$if     "%gp_lc_19%" == "no"                       $goto gpxyzlabel_after_lc_19_3Dbox
+$ifi    "%gp_lc_19%" == "no"                       $goto gpxyzlabel_after_lc_19_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_19%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4428,7 +5190,7 @@ $label gpxyzlabel_after_lc_19_3Dbox
  );
 IF(gp_count eq 19,
 $if not setglobal gp_fc_19                         $goto gpxyzlabel_after_fc_19_3Dbox
-$if     "%gp_fc_19%" == "no"                       $goto gpxyzlabel_after_fc_19_3Dbox
+$ifi    "%gp_fc_19%" == "no"                       $goto gpxyzlabel_after_fc_19_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_19%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4441,7 +5203,7 @@ $label gpxyzlabel_after_fc_19_3Dbox
  );
 IF(gp_count eq 20,
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_3Dbox
-$if     "%gp_lc_20%" == "no"                       $goto gpxyzlabel_after_lc_20_3Dbox
+$ifi    "%gp_lc_20%" == "no"                       $goto gpxyzlabel_after_lc_20_3Dbox
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_20%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4454,7 +5216,7 @@ $label gpxyzlabel_after_lc_20_3Dbox
  );
 IF(gp_count eq 20,
 $if not setglobal gp_fc_20                         $goto gpxyzlabel_after_fc_20_3Dbox
-$if     "%gp_fc_20%" == "no"                       $goto gpxyzlabel_after_fc_20_3Dbox
+$ifi    "%gp_fc_20%" == "no"                       $goto gpxyzlabel_after_fc_20_3Dbox
 PUT " fc rgb ";
 gp_xyz_ind_col("%gp_fc_20%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4464,6 +5226,266 @@ LOOP(gp_hex_color_name
  put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
 gp_xyz_ind_col("%gp_fc_20%") = no;
 $label gpxyzlabel_after_fc_20_3Dbox
+ );
+IF(gp_count eq 21,
+$if not setglobal gp_lc_21                         $goto gpxyzlabel_after_lc_21_3Dbox
+$ifi    "%gp_lc_21%" == "no"                       $goto gpxyzlabel_after_lc_21_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_21%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_21%") = no;
+$label gpxyzlabel_after_lc_21_3Dbox
+ );
+IF(gp_count eq 21,
+$if not setglobal gp_fc_21                         $goto gpxyzlabel_after_fc_21_3Dbox
+$ifi    "%gp_fc_21%" == "no"                       $goto gpxyzlabel_after_fc_21_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_21%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_21%") = no;
+$label gpxyzlabel_after_fc_21_3Dbox
+ );
+IF(gp_count eq 22,
+$if not setglobal gp_lc_22                         $goto gpxyzlabel_after_lc_22_3Dbox
+$ifi    "%gp_lc_22%" == "no"                       $goto gpxyzlabel_after_lc_22_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_22%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_22%") = no;
+$label gpxyzlabel_after_lc_22_3Dbox
+ );
+IF(gp_count eq 22,
+$if not setglobal gp_fc_22                         $goto gpxyzlabel_after_fc_22_3Dbox
+$ifi    "%gp_fc_22%" == "no"                       $goto gpxyzlabel_after_fc_22_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_22%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_22%") = no;
+$label gpxyzlabel_after_fc_22_3Dbox
+ );
+IF(gp_count eq 23,
+$if not setglobal gp_lc_23                         $goto gpxyzlabel_after_lc_23_3Dbox
+$ifi    "%gp_lc_23%" == "no"                       $goto gpxyzlabel_after_lc_23_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_23%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_23%") = no;
+$label gpxyzlabel_after_lc_23_3Dbox
+ );
+IF(gp_count eq 23,
+$if not setglobal gp_fc_23                         $goto gpxyzlabel_after_fc_23_3Dbox
+$ifi    "%gp_fc_23%" == "no"                       $goto gpxyzlabel_after_fc_23_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_23%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_23%") = no;
+$label gpxyzlabel_after_fc_23_3Dbox
+ );
+IF(gp_count eq 24,
+$if not setglobal gp_lc_24                         $goto gpxyzlabel_after_lc_24_3Dbox
+$ifi    "%gp_lc_24%" == "no"                       $goto gpxyzlabel_after_lc_24_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_24%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_24%") = no;
+$label gpxyzlabel_after_lc_24_3Dbox
+ );
+IF(gp_count eq 24,
+$if not setglobal gp_fc_24                         $goto gpxyzlabel_after_fc_24_3Dbox
+$ifi    "%gp_fc_24%" == "no"                       $goto gpxyzlabel_after_fc_24_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_24%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_24%") = no;
+$label gpxyzlabel_after_fc_24_3Dbox
+ );
+IF(gp_count eq 25,
+$if not setglobal gp_lc_25                         $goto gpxyzlabel_after_lc_25_3Dbox
+$ifi    "%gp_lc_25%" == "no"                       $goto gpxyzlabel_after_lc_25_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_25%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_25%") = no;
+$label gpxyzlabel_after_lc_25_3Dbox
+ );
+IF(gp_count eq 25,
+$if not setglobal gp_fc_25                         $goto gpxyzlabel_after_fc_25_3Dbox
+$ifi    "%gp_fc_25%" == "no"                       $goto gpxyzlabel_after_fc_25_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_25%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_25%") = no;
+$label gpxyzlabel_after_fc_25_3Dbox
+ );
+IF(gp_count eq 26,
+$if not setglobal gp_lc_26                         $goto gpxyzlabel_after_lc_26_3Dbox
+$ifi    "%gp_lc_26%" == "no"                       $goto gpxyzlabel_after_lc_26_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_26%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_26%") = no;
+$label gpxyzlabel_after_lc_26_3Dbox
+ );
+IF(gp_count eq 26,
+$if not setglobal gp_fc_26                         $goto gpxyzlabel_after_fc_26_3Dbox
+$ifi    "%gp_fc_26%" == "no"                       $goto gpxyzlabel_after_fc_26_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_26%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_26%") = no;
+$label gpxyzlabel_after_fc_26_3Dbox
+ );
+IF(gp_count eq 27,
+$if not setglobal gp_lc_27                         $goto gpxyzlabel_after_lc_27_3Dbox
+$ifi    "%gp_lc_27%" == "no"                       $goto gpxyzlabel_after_lc_27_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_27%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_27%") = no;
+$label gpxyzlabel_after_lc_27_3Dbox
+ );
+IF(gp_count eq 27,
+$if not setglobal gp_fc_27                         $goto gpxyzlabel_after_fc_27_3Dbox
+$ifi    "%gp_fc_27%" == "no"                       $goto gpxyzlabel_after_fc_27_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_27%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_27%") = no;
+$label gpxyzlabel_after_fc_27_3Dbox
+ );
+IF(gp_count eq 28,
+$if not setglobal gp_lc_28                         $goto gpxyzlabel_after_lc_28_3Dbox
+$ifi    "%gp_lc_28%" == "no"                       $goto gpxyzlabel_after_lc_28_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_28%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_28%") = no;
+$label gpxyzlabel_after_lc_28_3Dbox
+ );
+IF(gp_count eq 28,
+$if not setglobal gp_fc_28                         $goto gpxyzlabel_after_fc_28_3Dbox
+$ifi    "%gp_fc_28%" == "no"                       $goto gpxyzlabel_after_fc_28_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_28%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_28%") = no;
+$label gpxyzlabel_after_fc_28_3Dbox
+ );
+IF(gp_count eq 29,
+$if not setglobal gp_lc_29                         $goto gpxyzlabel_after_lc_29_3Dbox
+$ifi    "%gp_lc_29%" == "no"                       $goto gpxyzlabel_after_lc_29_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_29%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_29%") = no;
+$label gpxyzlabel_after_lc_29_3Dbox
+ );
+IF(gp_count eq 29,
+$if not setglobal gp_fc_29                         $goto gpxyzlabel_after_fc_29_3Dbox
+$ifi    "%gp_fc_29%" == "no"                       $goto gpxyzlabel_after_fc_29_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_29%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_29%") = no;
+$label gpxyzlabel_after_fc_29_3Dbox
+ );
+IF(gp_count eq 30,
+$if not setglobal gp_lc_30                         $goto gpxyzlabel_after_lc_30_3Dbox
+$ifi    "%gp_lc_30%" == "no"                       $goto gpxyzlabel_after_lc_30_3Dbox
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_30%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_30%") = no;
+$label gpxyzlabel_after_lc_30_3Dbox
+ );
+IF(gp_count eq 30,
+$if not setglobal gp_fc_30                         $goto gpxyzlabel_after_fc_30_3Dbox
+$ifi    "%gp_fc_30%" == "no"                       $goto gpxyzlabel_after_fc_30_3Dbox
+PUT " fc rgb ";
+gp_xyz_ind_col("%gp_fc_30%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_fc_30%") = no;
+$label gpxyzlabel_after_fc_30_3Dbox
  );
 * Insert Auto Code 9b produced by make_345678_linestyle.gms - end
 
@@ -4648,7 +5670,7 @@ $if not setglobal  gp_key_color_adjective        $setglobal gp_key_color_adjecti
 
 * Insert Auto Code Spider produced by make_345678_linestyle.gms - begin
 $if not setglobal gp_paxis_min              $setglobal  gp_paxis_min '0'
-$if "%gp_paxis_min%" == "no"                $setglobal  gp_paxis_min '0'
+$ifi "%gp_paxis_min%" == "no"               $setglobal  gp_paxis_min '0'
 
 $if not setglobal gp_paxis_min_1            $setglobal gp_paxis_min_1 %gp_paxis_min%
 $if not setglobal gp_paxis_min_2            $setglobal gp_paxis_min_2 %gp_paxis_min%
@@ -4661,39 +5683,39 @@ $if not setglobal gp_paxis_min_8            $setglobal gp_paxis_min_8 %gp_paxis_
 $if not setglobal gp_paxis_min_9            $setglobal gp_paxis_min_9 %gp_paxis_min%
 
 
-$if "%gp_paxis_max_1%" == "no"              $goto gpxyzlabel_after_p_1_manualmax
+$ifi "%gp_paxis_max_1%" == "no"             $goto gpxyzlabel_after_p_1_manualmax
 $if setglobal gp_paxis_max_1                PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_paxis_max_1%]"/;
 $label gpxyzlabel_after_p_1_manualmax
 
-$if "%gp_paxis_max_2%" == "no"              $goto gpxyzlabel_after_p_2_manualmax
+$ifi "%gp_paxis_max_2%" == "no"             $goto gpxyzlabel_after_p_2_manualmax
 $if setglobal gp_paxis_max_2                PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_paxis_max_2%]"/;
 $label gpxyzlabel_after_p_2_manualmax
 
-$if "%gp_paxis_max_3%" == "no"              $goto gpxyzlabel_after_p_3_manualmax
+$ifi "%gp_paxis_max_3%" == "no"             $goto gpxyzlabel_after_p_3_manualmax
 $if setglobal gp_paxis_max_3                PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_paxis_max_3%]"/;
 $label gpxyzlabel_after_p_3_manualmax
 
-$if "%gp_paxis_max_4%" == "no"              $goto gpxyzlabel_after_p_4_manualmax
+$ifi "%gp_paxis_max_4%" == "no"             $goto gpxyzlabel_after_p_4_manualmax
 $if setglobal gp_paxis_max_4                PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_paxis_max_4%]"/;
 $label gpxyzlabel_after_p_4_manualmax
 
-$if "%gp_paxis_max_5%" == "no"              $goto gpxyzlabel_after_p_5_manualmax
+$ifi "%gp_paxis_max_5%" == "no"             $goto gpxyzlabel_after_p_5_manualmax
 $if setglobal gp_paxis_max_5                PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_paxis_max_5%]"/;
 $label gpxyzlabel_after_p_5_manualmax
 
-$if "%gp_paxis_max_6%" == "no"              $goto gpxyzlabel_after_p_6_manualmax
+$ifi "%gp_paxis_max_6%" == "no"             $goto gpxyzlabel_after_p_6_manualmax
 $if setglobal gp_paxis_max_6                PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_paxis_max_6%]"/;
 $label gpxyzlabel_after_p_6_manualmax
 
-$if "%gp_paxis_max_7%" == "no"              $goto gpxyzlabel_after_p_7_manualmax
+$ifi "%gp_paxis_max_7%" == "no"             $goto gpxyzlabel_after_p_7_manualmax
 $if setglobal gp_paxis_max_7                PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_paxis_max_7%]"/;
 $label gpxyzlabel_after_p_7_manualmax
 
-$if "%gp_paxis_max_8%" == "no"              $goto gpxyzlabel_after_p_8_manualmax
+$ifi "%gp_paxis_max_8%" == "no"             $goto gpxyzlabel_after_p_8_manualmax
 $if setglobal gp_paxis_max_8                PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_paxis_max_8%]"/;
 $label gpxyzlabel_after_p_8_manualmax
 
-$if "%gp_paxis_max_9%" == "no"              $goto gpxyzlabel_after_p_9_manualmax
+$ifi "%gp_paxis_max_9%" == "no"             $goto gpxyzlabel_after_p_9_manualmax
 $if setglobal gp_paxis_max_9                PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_paxis_max_9%]"/;
 $label gpxyzlabel_after_p_9_manualmax
 
@@ -4705,40 +5727,40 @@ gp_count=0;
 LOOP(%gp_obsv_1%,
 gp_count=gp_count+1;
 IF(gp_count=1,
-$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_1  PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=2,
-$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_2  PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=3,
-$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_3  PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=4,
-$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_4  PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=5,
-$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_5  PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=6,
-$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_6  PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=7,
-$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_7  PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=8,
-$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_8  PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 IF(gp_count=9,
-$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
-$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$if not setglobal gp_paxis_max_9  PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
+$ifi "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_spider_max(%gp_obsv_1%)/10))," ]"/;
 );
 );
 
@@ -4751,40 +5773,40 @@ gp_count=0;
 LOOP(%gp_obsv_1%,
 gp_count=gp_count+1;
 IF(gp_count=1,
-$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_1  PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=2,
-$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_2  PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=3,
-$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_3  PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=4,
-$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_4  PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=5,
-$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_5  PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=6,
-$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_6  PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=7,
-$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_7  PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=8,
-$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_8  PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 IF(gp_count=9,
-$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_ymax)/10)," ]"/;
-$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_ymax)/10)," ]"/;
+$if not setglobal gp_paxis_max_9  PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_ymax)/10)," ]"/;
+$ifi "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:", (10*ceil(gp_ymax)/10)," ]"/;
 );
 );
 
@@ -4796,40 +5818,40 @@ gp_count=0;
 LOOP(%gp_obsv_1%,
 gp_count=gp_count+1;
 IF(gp_count=1,
-$if not setglobal gp_paxis_max_1 PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_1  PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_1%" == "no"   PUT "set paxis 1 range [%gp_paxis_min_1%:%gp_spider_range%]"/;
 );
 IF(gp_count=2,
-$if not setglobal gp_paxis_max_2 PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_2  PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_2%" == "no"   PUT "set paxis 2 range [%gp_paxis_min_2%:%gp_spider_range%]"/;
 );
 IF(gp_count=3,
-$if not setglobal gp_paxis_max_3 PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_3  PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_3%" == "no"   PUT "set paxis 3 range [%gp_paxis_min_3%:%gp_spider_range%]"/;
 );
 IF(gp_count=4,
-$if not setglobal gp_paxis_max_4 PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_4  PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_4%" == "no"   PUT "set paxis 4 range [%gp_paxis_min_4%:%gp_spider_range%]"/;
 );
 IF(gp_count=5,
-$if not setglobal gp_paxis_max_5 PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_5  PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_5%" == "no"   PUT "set paxis 5 range [%gp_paxis_min_5%:%gp_spider_range%]"/;
 );
 IF(gp_count=6,
-$if not setglobal gp_paxis_max_6 PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_6  PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_6%" == "no"   PUT "set paxis 6 range [%gp_paxis_min_6%:%gp_spider_range%]"/;
 );
 IF(gp_count=7,
-$if not setglobal gp_paxis_max_7 PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_7  PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_7%" == "no"   PUT "set paxis 7 range [%gp_paxis_min_7%:%gp_spider_range%]"/;
 );
 IF(gp_count=8,
-$if not setglobal gp_paxis_max_8 PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_8  PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_8%" == "no"   PUT "set paxis 8 range [%gp_paxis_min_8%:%gp_spider_range%]"/;
 );
 IF(gp_count=9,
-$if not setglobal gp_paxis_max_9 PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_spider_range%]"/;
-$if "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_spider_range%]"/;
+$if not setglobal gp_paxis_max_9  PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_spider_range%]"/;
+$ifi "%gp_paxis_max_9%" == "no"   PUT "set paxis 9 range [%gp_paxis_min_9%:%gp_spider_range%]"/;
 );
 );
 
@@ -4856,7 +5878,7 @@ $if "%gp_key%" == "no"     $goto gpxyzlabel_after_spider_legend
 IF(gp_count eq 1,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_spiderkey
-$if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_spiderkey
+$ifi    "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_1%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4871,7 +5893,7 @@ $label gpxyzlabel_after_lc_1_spiderkey
 IF(gp_count eq 2,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_spiderkey
-$if     "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_spiderkey
+$ifi    "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_2%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4886,7 +5908,7 @@ $label gpxyzlabel_after_lc_2_spiderkey
 IF(gp_count eq 3,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_spiderkey
-$if     "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_spiderkey
+$ifi    "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_3%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4901,7 +5923,7 @@ $label gpxyzlabel_after_lc_3_spiderkey
 IF(gp_count eq 4,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_spiderkey
-$if     "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_spiderkey
+$ifi    "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_4%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4916,7 +5938,7 @@ $label gpxyzlabel_after_lc_4_spiderkey
 IF(gp_count eq 5,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_spiderkey
-$if     "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_spiderkey
+$ifi    "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_5%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4931,7 +5953,7 @@ $label gpxyzlabel_after_lc_5_spiderkey
 IF(gp_count eq 6,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_spiderkey
-$if     "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_spiderkey
+$ifi    "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_6%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4946,7 +5968,7 @@ $label gpxyzlabel_after_lc_6_spiderkey
 IF(gp_count eq 7,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_spiderkey
-$if     "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_spiderkey
+$ifi    "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_7%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4961,7 +5983,7 @@ $label gpxyzlabel_after_lc_7_spiderkey
 IF(gp_count eq 8,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_spiderkey
-$if     "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_spiderkey
+$ifi    "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_8%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4976,7 +5998,7 @@ $label gpxyzlabel_after_lc_8_spiderkey
 IF(gp_count eq 9,
   PUT "keyentry with %gp_key_style%";
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_spiderkey
-$if     "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_spiderkey
+$ifi    "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_spiderkey
 PUT " %gp_key_color_adjective% rgb ";
 gp_xyz_ind_col("%gp_lc_9%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -4996,7 +6018,7 @@ $label gpxyzlabel_after_spider_legend
 IF(gp_count eq 1,
   PUT " for [i=1:|Array1|] Array1 using (Array1[i])";
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_spiderplot
-$if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_spiderplot
+$ifi    "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_1%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5011,7 +6033,7 @@ $label gpxyzlabel_after_lc_1_spiderplot
 IF(gp_count eq 2,
   PUT " for [j=1:|Array2|] Array2 using (Array2[j])";
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_spiderplot
-$if     "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_spiderplot
+$ifi    "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_2%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5026,7 +6048,7 @@ $label gpxyzlabel_after_lc_2_spiderplot
 IF(gp_count eq 3,
   PUT " for [k=1:|Array3|] Array3 using (Array3[k])";
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_spiderplot
-$if     "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_spiderplot
+$ifi    "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_3%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5041,7 +6063,7 @@ $label gpxyzlabel_after_lc_3_spiderplot
 IF(gp_count eq 4,
   PUT " for [l=1:|Array4|] Array4 using (Array4[l])";
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_spiderplot
-$if     "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_spiderplot
+$ifi    "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_4%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5056,7 +6078,7 @@ $label gpxyzlabel_after_lc_4_spiderplot
 IF(gp_count eq 5,
   PUT " for [m=1:|Array5|] Array5 using (Array5[m])";
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_spiderplot
-$if     "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_spiderplot
+$ifi    "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_5%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5071,7 +6093,7 @@ $label gpxyzlabel_after_lc_5_spiderplot
 IF(gp_count eq 6,
   PUT " for [n=1:|Array6|] Array6 using (Array6[n])";
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_spiderplot
-$if     "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_spiderplot
+$ifi    "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_6%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5086,7 +6108,7 @@ $label gpxyzlabel_after_lc_6_spiderplot
 IF(gp_count eq 7,
   PUT " for [o=1:|Array7|] Array7 using (Array7[o])";
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_spiderplot
-$if     "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_spiderplot
+$ifi    "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_7%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5101,7 +6123,7 @@ $label gpxyzlabel_after_lc_7_spiderplot
 IF(gp_count eq 8,
   PUT " for [p=1:|Array8|] Array8 using (Array8[p])";
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_spiderplot
-$if     "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_spiderplot
+$ifi    "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_8%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5116,7 +6138,7 @@ $label gpxyzlabel_after_lc_8_spiderplot
 IF(gp_count eq 9,
   PUT " for [q=1:|Array9|] Array9 using (Array9[q])";
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_spiderplot
-$if     "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_spiderplot
+$ifi    "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_spiderplot
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_9%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -5138,6 +6160,19 @@ IF(gp_count lt card(%gp_scen%), put " ,";  );
 $goto gpxyzlabel_write_data_file
 * Insert Auto Code Spider produced by make_345678_linestyle.gms - end
 
+
+
+
+* Segment Sectorplot
+$label gpxyzlabel_plotstatement_sectorplot
+
+
+gp_count=1;
+
+put 'plot gnuplot.dat using 3:5:4:5:6:7 with sectors fill solid 0.7 noborder lc rgb var' /;
+
+
+$goto gpxyzlabel_write_data_file
 
 
 
@@ -5166,7 +6201,7 @@ $label gpxyzlabel_afterxdatatime
 
 * Insert Auto Code 7a produced by make_345678_linestyle.gms - begin
 $if not setglobal gp_x1y1                          $goto gpxyzlabel_afterx1y1_hist
-$if "%gp_x1y1%" == "no"                            $goto gpxyzlabel_afterx1y1_hist
+$ifi "%gp_x1y1%" == "no"                           $goto gpxyzlabel_afterx1y1_hist
 gpxyz_stoppvalue = 0;
 gpxyzset_one("%gp_x1y1%") = yes;
 gpxyzset_two("%gp_x1y1%")= yes;
@@ -5182,7 +6217,7 @@ $if declared %gp_x1y1%                             gpxyzset_two(%gp_x1y1%)= no;
 $label gpxyzlabel_afterx1y1_hist
 
 $if not setglobal gp_x1y2                          $goto gpxyzlabel_afterx1y2_hist
-$if "%gp_x1y2%" == "no"                            $goto gpxyzlabel_afterx1y2_hist
+$ifi "%gp_x1y2%" == "no"                           $goto gpxyzlabel_afterx1y2_hist
 gpxyz_stoppvalue = 0;
 gpxyzset_one("%gp_x1y2%") = yes;
 gpxyzset_two("%gp_x1y2%")= yes;
@@ -5198,7 +6233,7 @@ $if declared %gp_x1y2%                             gpxyzset_two(%gp_x1y2%)= no;
 $label gpxyzlabel_afterx1y2_hist
 
 $if not setglobal gp_x2y1                          $goto gpxyzlabel_afterx2y1_hist
-$if "%gp_x2y1%" == "no"                            $goto gpxyzlabel_afterx2y1_hist
+$ifi "%gp_x2y1%" == "no"                           $goto gpxyzlabel_afterx2y1_hist
 gpxyz_stoppvalue = 0;
 gpxyzset_one("%gp_x2y1%") = yes;
 gpxyzset_two("%gp_x2y1%")= yes;
@@ -5214,7 +6249,7 @@ $if declared %gp_x2y1%                             gpxyzset_two(%gp_x2y1%)= no;
 $label gpxyzlabel_afterx2y1_hist
 
 $if not setglobal gp_x2y2                          $goto gpxyzlabel_afterx2y2_hist
-$if "%gp_x2y2%" == "no"                            $goto gpxyzlabel_afterx2y2_hist
+$ifi "%gp_x2y2%" == "no"                           $goto gpxyzlabel_afterx2y2_hist
 gpxyz_stoppvalue = 0;
 gpxyzset_one("%gp_x2y2%") = yes;
 gpxyzset_two("%gp_x2y2%")= yes;
@@ -5228,132 +6263,190 @@ gpxyzset_two("%gp_x2y2%")= no;
 $if declared %gp_x2y2%                             gpxyzset_one(%gp_x2y2%) = no;
 $if declared %gp_x2y2%                             gpxyzset_two(%gp_x2y2%)= no;
 $label gpxyzlabel_afterx2y2_hist
+
 * Insert Auto Code 7a produced by make_345678_linestyle.gms - end
-
-
 * Insert Auto Code 7b produced by make_345678_linestyle.gms - begin
 IF(gp_count eq 1,
 $if not setglobal gp_axes_l1                       $goto gpxyzlabel_after_axes_1_hist
-$if "%gp_axes_l1%" == "no"                         $goto gpxyzlabel_after_axes_1_hist
+$ifi "%gp_axes_l1%" == "no"                        $goto gpxyzlabel_after_axes_1_hist
 PUT " axes %gp_axes_l1% ";
 $label gpxyzlabel_after_axes_1_hist
 );
 IF(gp_count eq 2,
 $if not setglobal gp_axes_l2                       $goto gpxyzlabel_after_axes_2_hist
-$if "%gp_axes_l2%" == "no"                         $goto gpxyzlabel_after_axes_2_hist
+$ifi "%gp_axes_l2%" == "no"                        $goto gpxyzlabel_after_axes_2_hist
 PUT " axes %gp_axes_l2% ";
 $label gpxyzlabel_after_axes_2_hist
 );
 IF(gp_count eq 3,
 $if not setglobal gp_axes_l3                       $goto gpxyzlabel_after_axes_3_hist
-$if "%gp_axes_l3%" == "no"                         $goto gpxyzlabel_after_axes_3_hist
+$ifi "%gp_axes_l3%" == "no"                        $goto gpxyzlabel_after_axes_3_hist
 PUT " axes %gp_axes_l3% ";
 $label gpxyzlabel_after_axes_3_hist
 );
 IF(gp_count eq 4,
 $if not setglobal gp_axes_l4                       $goto gpxyzlabel_after_axes_4_hist
-$if "%gp_axes_l4%" == "no"                         $goto gpxyzlabel_after_axes_4_hist
+$ifi "%gp_axes_l4%" == "no"                        $goto gpxyzlabel_after_axes_4_hist
 PUT " axes %gp_axes_l4% ";
 $label gpxyzlabel_after_axes_4_hist
 );
 IF(gp_count eq 5,
 $if not setglobal gp_axes_l5                       $goto gpxyzlabel_after_axes_5_hist
-$if "%gp_axes_l5%" == "no"                         $goto gpxyzlabel_after_axes_5_hist
+$ifi "%gp_axes_l5%" == "no"                        $goto gpxyzlabel_after_axes_5_hist
 PUT " axes %gp_axes_l5% ";
 $label gpxyzlabel_after_axes_5_hist
 );
 IF(gp_count eq 6,
 $if not setglobal gp_axes_l6                       $goto gpxyzlabel_after_axes_6_hist
-$if "%gp_axes_l6%" == "no"                         $goto gpxyzlabel_after_axes_6_hist
+$ifi "%gp_axes_l6%" == "no"                        $goto gpxyzlabel_after_axes_6_hist
 PUT " axes %gp_axes_l6% ";
 $label gpxyzlabel_after_axes_6_hist
 );
 IF(gp_count eq 7,
 $if not setglobal gp_axes_l7                       $goto gpxyzlabel_after_axes_7_hist
-$if "%gp_axes_l7%" == "no"                         $goto gpxyzlabel_after_axes_7_hist
+$ifi "%gp_axes_l7%" == "no"                        $goto gpxyzlabel_after_axes_7_hist
 PUT " axes %gp_axes_l7% ";
 $label gpxyzlabel_after_axes_7_hist
 );
 IF(gp_count eq 8,
 $if not setglobal gp_axes_l8                       $goto gpxyzlabel_after_axes_8_hist
-$if "%gp_axes_l8%" == "no"                         $goto gpxyzlabel_after_axes_8_hist
+$ifi "%gp_axes_l8%" == "no"                        $goto gpxyzlabel_after_axes_8_hist
 PUT " axes %gp_axes_l8% ";
 $label gpxyzlabel_after_axes_8_hist
 );
 IF(gp_count eq 9,
 $if not setglobal gp_axes_l9                       $goto gpxyzlabel_after_axes_9_hist
-$if "%gp_axes_l9%" == "no"                         $goto gpxyzlabel_after_axes_9_hist
+$ifi "%gp_axes_l9%" == "no"                        $goto gpxyzlabel_after_axes_9_hist
 PUT " axes %gp_axes_l9% ";
 $label gpxyzlabel_after_axes_9_hist
 );
 IF(gp_count eq 10,
 $if not setglobal gp_axes_l10                      $goto gpxyzlabel_after_axes_10_hist
-$if "%gp_axes_l10%" == "no"                        $goto gpxyzlabel_after_axes_10_hist
+$ifi "%gp_axes_l10%" == "no"                       $goto gpxyzlabel_after_axes_10_hist
 PUT " axes %gp_axes_l10% ";
 $label gpxyzlabel_after_axes_10_hist
 );
 IF(gp_count eq 11,
 $if not setglobal gp_axes_l11                      $goto gpxyzlabel_after_axes_11_hist
-$if "%gp_axes_l11%" == "no"                        $goto gpxyzlabel_after_axes_11_hist
+$ifi "%gp_axes_l11%" == "no"                       $goto gpxyzlabel_after_axes_11_hist
 PUT " axes %gp_axes_l11% ";
 $label gpxyzlabel_after_axes_11_hist
 );
 IF(gp_count eq 12,
 $if not setglobal gp_axes_l12                      $goto gpxyzlabel_after_axes_12_hist
-$if "%gp_axes_l12%" == "no"                        $goto gpxyzlabel_after_axes_12_hist
+$ifi "%gp_axes_l12%" == "no"                       $goto gpxyzlabel_after_axes_12_hist
 PUT " axes %gp_axes_l12% ";
 $label gpxyzlabel_after_axes_12_hist
 );
 IF(gp_count eq 13,
 $if not setglobal gp_axes_l13                      $goto gpxyzlabel_after_axes_13_hist
-$if "%gp_axes_l13%" == "no"                        $goto gpxyzlabel_after_axes_13_hist
+$ifi "%gp_axes_l13%" == "no"                       $goto gpxyzlabel_after_axes_13_hist
 PUT " axes %gp_axes_l13% ";
 $label gpxyzlabel_after_axes_13_hist
 );
 IF(gp_count eq 14,
 $if not setglobal gp_axes_l14                      $goto gpxyzlabel_after_axes_14_hist
-$if "%gp_axes_l14%" == "no"                        $goto gpxyzlabel_after_axes_14_hist
+$ifi "%gp_axes_l14%" == "no"                       $goto gpxyzlabel_after_axes_14_hist
 PUT " axes %gp_axes_l14% ";
 $label gpxyzlabel_after_axes_14_hist
 );
 IF(gp_count eq 15,
 $if not setglobal gp_axes_l15                      $goto gpxyzlabel_after_axes_15_hist
-$if "%gp_axes_l15%" == "no"                        $goto gpxyzlabel_after_axes_15_hist
+$ifi "%gp_axes_l15%" == "no"                       $goto gpxyzlabel_after_axes_15_hist
 PUT " axes %gp_axes_l15% ";
 $label gpxyzlabel_after_axes_15_hist
 );
 IF(gp_count eq 16,
 $if not setglobal gp_axes_l16                      $goto gpxyzlabel_after_axes_16_hist
-$if "%gp_axes_l16%" == "no"                        $goto gpxyzlabel_after_axes_16_hist
+$ifi "%gp_axes_l16%" == "no"                       $goto gpxyzlabel_after_axes_16_hist
 PUT " axes %gp_axes_l16% ";
 $label gpxyzlabel_after_axes_16_hist
 );
 IF(gp_count eq 17,
 $if not setglobal gp_axes_l17                      $goto gpxyzlabel_after_axes_17_hist
-$if "%gp_axes_l17%" == "no"                        $goto gpxyzlabel_after_axes_17_hist
+$ifi "%gp_axes_l17%" == "no"                       $goto gpxyzlabel_after_axes_17_hist
 PUT " axes %gp_axes_l17% ";
 $label gpxyzlabel_after_axes_17_hist
 );
 IF(gp_count eq 18,
 $if not setglobal gp_axes_l18                      $goto gpxyzlabel_after_axes_18_hist
-$if "%gp_axes_l18%" == "no"                        $goto gpxyzlabel_after_axes_18_hist
+$ifi "%gp_axes_l18%" == "no"                       $goto gpxyzlabel_after_axes_18_hist
 PUT " axes %gp_axes_l18% ";
 $label gpxyzlabel_after_axes_18_hist
 );
 IF(gp_count eq 19,
 $if not setglobal gp_axes_l19                      $goto gpxyzlabel_after_axes_19_hist
-$if "%gp_axes_l19%" == "no"                        $goto gpxyzlabel_after_axes_19_hist
+$ifi "%gp_axes_l19%" == "no"                       $goto gpxyzlabel_after_axes_19_hist
 PUT " axes %gp_axes_l19% ";
 $label gpxyzlabel_after_axes_19_hist
 );
 IF(gp_count eq 20,
 $if not setglobal gp_axes_l20                      $goto gpxyzlabel_after_axes_20_hist
-$if "%gp_axes_l20%" == "no"                        $goto gpxyzlabel_after_axes_20_hist
+$ifi "%gp_axes_l20%" == "no"                       $goto gpxyzlabel_after_axes_20_hist
 PUT " axes %gp_axes_l20% ";
 $label gpxyzlabel_after_axes_20_hist
 );
+IF(gp_count eq 21,
+$if not setglobal gp_axes_l21                      $goto gpxyzlabel_after_axes_21_hist
+$ifi "%gp_axes_l21%" == "no"                       $goto gpxyzlabel_after_axes_21_hist
+PUT " axes %gp_axes_l21% ";
+$label gpxyzlabel_after_axes_21_hist
+);
+IF(gp_count eq 22,
+$if not setglobal gp_axes_l22                      $goto gpxyzlabel_after_axes_22_hist
+$ifi "%gp_axes_l22%" == "no"                       $goto gpxyzlabel_after_axes_22_hist
+PUT " axes %gp_axes_l22% ";
+$label gpxyzlabel_after_axes_22_hist
+);
+IF(gp_count eq 23,
+$if not setglobal gp_axes_l23                      $goto gpxyzlabel_after_axes_23_hist
+$ifi "%gp_axes_l23%" == "no"                       $goto gpxyzlabel_after_axes_23_hist
+PUT " axes %gp_axes_l23% ";
+$label gpxyzlabel_after_axes_23_hist
+);
+IF(gp_count eq 24,
+$if not setglobal gp_axes_l24                      $goto gpxyzlabel_after_axes_24_hist
+$ifi "%gp_axes_l24%" == "no"                       $goto gpxyzlabel_after_axes_24_hist
+PUT " axes %gp_axes_l24% ";
+$label gpxyzlabel_after_axes_24_hist
+);
+IF(gp_count eq 25,
+$if not setglobal gp_axes_l25                      $goto gpxyzlabel_after_axes_25_hist
+$ifi "%gp_axes_l25%" == "no"                       $goto gpxyzlabel_after_axes_25_hist
+PUT " axes %gp_axes_l25% ";
+$label gpxyzlabel_after_axes_25_hist
+);
+IF(gp_count eq 26,
+$if not setglobal gp_axes_l26                      $goto gpxyzlabel_after_axes_26_hist
+$ifi "%gp_axes_l26%" == "no"                       $goto gpxyzlabel_after_axes_26_hist
+PUT " axes %gp_axes_l26% ";
+$label gpxyzlabel_after_axes_26_hist
+);
+IF(gp_count eq 27,
+$if not setglobal gp_axes_l27                      $goto gpxyzlabel_after_axes_27_hist
+$ifi "%gp_axes_l27%" == "no"                       $goto gpxyzlabel_after_axes_27_hist
+PUT " axes %gp_axes_l27% ";
+$label gpxyzlabel_after_axes_27_hist
+);
+IF(gp_count eq 28,
+$if not setglobal gp_axes_l28                      $goto gpxyzlabel_after_axes_28_hist
+$ifi "%gp_axes_l28%" == "no"                       $goto gpxyzlabel_after_axes_28_hist
+PUT " axes %gp_axes_l28% ";
+$label gpxyzlabel_after_axes_28_hist
+);
+IF(gp_count eq 29,
+$if not setglobal gp_axes_l29                      $goto gpxyzlabel_after_axes_29_hist
+$ifi "%gp_axes_l29%" == "no"                       $goto gpxyzlabel_after_axes_29_hist
+PUT " axes %gp_axes_l29% ";
+$label gpxyzlabel_after_axes_29_hist
+);
+IF(gp_count eq 30,
+$if not setglobal gp_axes_l30                      $goto gpxyzlabel_after_axes_30_hist
+$ifi "%gp_axes_l30%" == "no"                       $goto gpxyzlabel_after_axes_30_hist
+PUT " axes %gp_axes_l30% ";
+$label gpxyzlabel_after_axes_30_hist
+);
 * Insert Auto Code 7b produced by make_345678_linestyle.gms - end
-
 * Insert Auto Code 7c produced by make_345678_linestyle.gms - begin
 IF(gp_count eq 1,
 $if not setglobal gp_title_l1                      put ' ti col';
@@ -5533,6 +6626,96 @@ $ifi '%gp_title_l20%' == 'no'                      put ' notitle';
 $ifi '%gp_title_l20%' == 'no'                      $goto gpxyzlabel_after_line20_title
   put ' ti %gp_title_l20%';
 $label gpxyzlabel_after_line20_title
+
+);
+IF(gp_count eq 21,
+$if not setglobal gp_title_l21                     put ' ti col';
+$if not setglobal gp_title_l21                     $goto gpxyzlabel_after_line21_title
+$ifi '%gp_title_l21%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l21%' == 'no'                      $goto gpxyzlabel_after_line21_title
+  put ' ti %gp_title_l21%';
+$label gpxyzlabel_after_line21_title
+
+);
+IF(gp_count eq 22,
+$if not setglobal gp_title_l22                     put ' ti col';
+$if not setglobal gp_title_l22                     $goto gpxyzlabel_after_line22_title
+$ifi '%gp_title_l22%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l22%' == 'no'                      $goto gpxyzlabel_after_line22_title
+  put ' ti %gp_title_l22%';
+$label gpxyzlabel_after_line22_title
+
+);
+IF(gp_count eq 23,
+$if not setglobal gp_title_l23                     put ' ti col';
+$if not setglobal gp_title_l23                     $goto gpxyzlabel_after_line23_title
+$ifi '%gp_title_l23%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l23%' == 'no'                      $goto gpxyzlabel_after_line23_title
+  put ' ti %gp_title_l23%';
+$label gpxyzlabel_after_line23_title
+
+);
+IF(gp_count eq 24,
+$if not setglobal gp_title_l24                     put ' ti col';
+$if not setglobal gp_title_l24                     $goto gpxyzlabel_after_line24_title
+$ifi '%gp_title_l24%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l24%' == 'no'                      $goto gpxyzlabel_after_line24_title
+  put ' ti %gp_title_l24%';
+$label gpxyzlabel_after_line24_title
+
+);
+IF(gp_count eq 25,
+$if not setglobal gp_title_l25                     put ' ti col';
+$if not setglobal gp_title_l25                     $goto gpxyzlabel_after_line25_title
+$ifi '%gp_title_l25%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l25%' == 'no'                      $goto gpxyzlabel_after_line25_title
+  put ' ti %gp_title_l25%';
+$label gpxyzlabel_after_line25_title
+
+);
+IF(gp_count eq 26,
+$if not setglobal gp_title_l26                     put ' ti col';
+$if not setglobal gp_title_l26                     $goto gpxyzlabel_after_line26_title
+$ifi '%gp_title_l26%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l26%' == 'no'                      $goto gpxyzlabel_after_line26_title
+  put ' ti %gp_title_l26%';
+$label gpxyzlabel_after_line26_title
+
+);
+IF(gp_count eq 27,
+$if not setglobal gp_title_l27                     put ' ti col';
+$if not setglobal gp_title_l27                     $goto gpxyzlabel_after_line27_title
+$ifi '%gp_title_l27%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l27%' == 'no'                      $goto gpxyzlabel_after_line27_title
+  put ' ti %gp_title_l27%';
+$label gpxyzlabel_after_line27_title
+
+);
+IF(gp_count eq 28,
+$if not setglobal gp_title_l28                     put ' ti col';
+$if not setglobal gp_title_l28                     $goto gpxyzlabel_after_line28_title
+$ifi '%gp_title_l28%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l28%' == 'no'                      $goto gpxyzlabel_after_line28_title
+  put ' ti %gp_title_l28%';
+$label gpxyzlabel_after_line28_title
+
+);
+IF(gp_count eq 29,
+$if not setglobal gp_title_l29                     put ' ti col';
+$if not setglobal gp_title_l29                     $goto gpxyzlabel_after_line29_title
+$ifi '%gp_title_l29%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l29%' == 'no'                      $goto gpxyzlabel_after_line29_title
+  put ' ti %gp_title_l29%';
+$label gpxyzlabel_after_line29_title
+
+);
+IF(gp_count eq 30,
+$if not setglobal gp_title_l30                     put ' ti col';
+$if not setglobal gp_title_l30                     $goto gpxyzlabel_after_line30_title
+$ifi '%gp_title_l30%' == 'no'                      put ' notitle';
+$ifi '%gp_title_l30%' == 'no'                      $goto gpxyzlabel_after_line30_title
+  put ' ti %gp_title_l30%';
+$label gpxyzlabel_after_line30_title
 
 );
 * Insert Auto Code 7c produced by make_345678_linestyle.gms - end
@@ -6099,6 +7282,286 @@ $ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth
 put " lw %gp_lwidth%";
 $label gpxyzlabel_after_lwidth_general_hist_20
  );
+IF(gp_count eq 21,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_21_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_21_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_21_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_21_hist
+$label gpxyzlabel_after_lc_21_palettehist
+$if not setglobal gp_lc_21                         $goto gpxyzlabel_after_lc_21_hist
+$ifi    "%gp_lc_21%" == "no"                       $goto gpxyzlabel_after_lc_21_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_21%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_21%") = no;
+$label gpxyzlabel_after_lc_21_hist
+$if not setglobal gp_lw_21                         $goto gpxyzlabel_after_lw_21_hist
+$ifi "%gp_lw_21%"=="no"                            $goto gpxyzlabel_after_lw_21_hist
+put " lw %gp_lw_21%";
+$goto gpxyzlabel_after_lwidth_general_hist_21
+$label gpxyzlabel_after_lw_21_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_21
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_21
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_21
+ );
+IF(gp_count eq 22,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_22_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_22_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_22_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_22_hist
+$label gpxyzlabel_after_lc_22_palettehist
+$if not setglobal gp_lc_22                         $goto gpxyzlabel_after_lc_22_hist
+$ifi    "%gp_lc_22%" == "no"                       $goto gpxyzlabel_after_lc_22_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_22%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_22%") = no;
+$label gpxyzlabel_after_lc_22_hist
+$if not setglobal gp_lw_22                         $goto gpxyzlabel_after_lw_22_hist
+$ifi "%gp_lw_22%"=="no"                            $goto gpxyzlabel_after_lw_22_hist
+put " lw %gp_lw_22%";
+$goto gpxyzlabel_after_lwidth_general_hist_22
+$label gpxyzlabel_after_lw_22_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_22
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_22
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_22
+ );
+IF(gp_count eq 23,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_23_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_23_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_23_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_23_hist
+$label gpxyzlabel_after_lc_23_palettehist
+$if not setglobal gp_lc_23                         $goto gpxyzlabel_after_lc_23_hist
+$ifi    "%gp_lc_23%" == "no"                       $goto gpxyzlabel_after_lc_23_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_23%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_23%") = no;
+$label gpxyzlabel_after_lc_23_hist
+$if not setglobal gp_lw_23                         $goto gpxyzlabel_after_lw_23_hist
+$ifi "%gp_lw_23%"=="no"                            $goto gpxyzlabel_after_lw_23_hist
+put " lw %gp_lw_23%";
+$goto gpxyzlabel_after_lwidth_general_hist_23
+$label gpxyzlabel_after_lw_23_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_23
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_23
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_23
+ );
+IF(gp_count eq 24,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_24_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_24_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_24_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_24_hist
+$label gpxyzlabel_after_lc_24_palettehist
+$if not setglobal gp_lc_24                         $goto gpxyzlabel_after_lc_24_hist
+$ifi    "%gp_lc_24%" == "no"                       $goto gpxyzlabel_after_lc_24_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_24%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_24%") = no;
+$label gpxyzlabel_after_lc_24_hist
+$if not setglobal gp_lw_24                         $goto gpxyzlabel_after_lw_24_hist
+$ifi "%gp_lw_24%"=="no"                            $goto gpxyzlabel_after_lw_24_hist
+put " lw %gp_lw_24%";
+$goto gpxyzlabel_after_lwidth_general_hist_24
+$label gpxyzlabel_after_lw_24_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_24
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_24
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_24
+ );
+IF(gp_count eq 25,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_25_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_25_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_25_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_25_hist
+$label gpxyzlabel_after_lc_25_palettehist
+$if not setglobal gp_lc_25                         $goto gpxyzlabel_after_lc_25_hist
+$ifi    "%gp_lc_25%" == "no"                       $goto gpxyzlabel_after_lc_25_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_25%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_25%") = no;
+$label gpxyzlabel_after_lc_25_hist
+$if not setglobal gp_lw_25                         $goto gpxyzlabel_after_lw_25_hist
+$ifi "%gp_lw_25%"=="no"                            $goto gpxyzlabel_after_lw_25_hist
+put " lw %gp_lw_25%";
+$goto gpxyzlabel_after_lwidth_general_hist_25
+$label gpxyzlabel_after_lw_25_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_25
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_25
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_25
+ );
+IF(gp_count eq 26,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_26_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_26_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_26_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_26_hist
+$label gpxyzlabel_after_lc_26_palettehist
+$if not setglobal gp_lc_26                         $goto gpxyzlabel_after_lc_26_hist
+$ifi    "%gp_lc_26%" == "no"                       $goto gpxyzlabel_after_lc_26_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_26%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_26%") = no;
+$label gpxyzlabel_after_lc_26_hist
+$if not setglobal gp_lw_26                         $goto gpxyzlabel_after_lw_26_hist
+$ifi "%gp_lw_26%"=="no"                            $goto gpxyzlabel_after_lw_26_hist
+put " lw %gp_lw_26%";
+$goto gpxyzlabel_after_lwidth_general_hist_26
+$label gpxyzlabel_after_lw_26_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_26
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_26
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_26
+ );
+IF(gp_count eq 27,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_27_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_27_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_27_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_27_hist
+$label gpxyzlabel_after_lc_27_palettehist
+$if not setglobal gp_lc_27                         $goto gpxyzlabel_after_lc_27_hist
+$ifi    "%gp_lc_27%" == "no"                       $goto gpxyzlabel_after_lc_27_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_27%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_27%") = no;
+$label gpxyzlabel_after_lc_27_hist
+$if not setglobal gp_lw_27                         $goto gpxyzlabel_after_lw_27_hist
+$ifi "%gp_lw_27%"=="no"                            $goto gpxyzlabel_after_lw_27_hist
+put " lw %gp_lw_27%";
+$goto gpxyzlabel_after_lwidth_general_hist_27
+$label gpxyzlabel_after_lw_27_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_27
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_27
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_27
+ );
+IF(gp_count eq 28,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_28_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_28_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_28_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_28_hist
+$label gpxyzlabel_after_lc_28_palettehist
+$if not setglobal gp_lc_28                         $goto gpxyzlabel_after_lc_28_hist
+$ifi    "%gp_lc_28%" == "no"                       $goto gpxyzlabel_after_lc_28_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_28%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_28%") = no;
+$label gpxyzlabel_after_lc_28_hist
+$if not setglobal gp_lw_28                         $goto gpxyzlabel_after_lw_28_hist
+$ifi "%gp_lw_28%"=="no"                            $goto gpxyzlabel_after_lw_28_hist
+put " lw %gp_lw_28%";
+$goto gpxyzlabel_after_lwidth_general_hist_28
+$label gpxyzlabel_after_lw_28_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_28
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_28
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_28
+ );
+IF(gp_count eq 29,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_29_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_29_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_29_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_29_hist
+$label gpxyzlabel_after_lc_29_palettehist
+$if not setglobal gp_lc_29                         $goto gpxyzlabel_after_lc_29_hist
+$ifi    "%gp_lc_29%" == "no"                       $goto gpxyzlabel_after_lc_29_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_29%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_29%") = no;
+$label gpxyzlabel_after_lc_29_hist
+$if not setglobal gp_lw_29                         $goto gpxyzlabel_after_lw_29_hist
+$ifi "%gp_lw_29%"=="no"                            $goto gpxyzlabel_after_lw_29_hist
+put " lw %gp_lw_29%";
+$goto gpxyzlabel_after_lwidth_general_hist_29
+$label gpxyzlabel_after_lw_29_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_29
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_29
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_29
+ );
+IF(gp_count eq 30,
+$if not setglobal gp_palette_fractions             $goto gpxyzlabel_after_lc_30_palettehist
+$ifi "%gp_palette_fractions%" == "no"              $goto gpxyzlabel_after_lc_30_palettehist
+$ife %gp_palette_fractions%<0.5                    $goto gpxyzlabel_after_lc_30_palettehist
+put " lc palette frac ",min(1.0,round(%gp_palette_min%+(%gp_palette_max%-%gp_palette_min%)*(gp_count-1)/(%gp_palette_fractions%-1),3)):0:3;
+$goto gpxyzlabel_after_lc_30_hist
+$label gpxyzlabel_after_lc_30_palettehist
+$if not setglobal gp_lc_30                         $goto gpxyzlabel_after_lc_30_hist
+$ifi    "%gp_lc_30%" == "no"                       $goto gpxyzlabel_after_lc_30_hist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_30%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_30%") = no;
+$label gpxyzlabel_after_lc_30_hist
+$if not setglobal gp_lw_30                         $goto gpxyzlabel_after_lw_30_hist
+$ifi "%gp_lw_30%"=="no"                            $goto gpxyzlabel_after_lw_30_hist
+put " lw %gp_lw_30%";
+$goto gpxyzlabel_after_lwidth_general_hist_30
+$label gpxyzlabel_after_lw_30_hist
+$if not setglobal gp_lwidth                        $goto gpxyzlabel_after_lwidth_general_hist_30
+$ifi "%gp_lwidth%"=="no"                           $goto gpxyzlabel_after_lwidth_general_hist_30
+put " lw %gp_lwidth%";
+$label gpxyzlabel_after_lwidth_general_hist_30
+ );
 * Insert Auto Code 8 produced by make_345678_linestyle.gms - end
 
 
@@ -6180,134 +7643,194 @@ $if     "%gp_hist%" == "columnstacked"  if(gp_count_2 eq 1, put ' ti col'; else 
 * Insert Auto Code 8b produced by make_345678_linestyle.gms - begin
 IF(gp_count eq 1,
 $if not setglobal gp_axes_l1                       $goto gpxyzlabel_after_axes_1_newhist
-$if "%gp_axes_l1%" == "no"                         $goto gpxyzlabel_after_axes_1_newhist
+$ifi "%gp_axes_l1%" == "no"                        $goto gpxyzlabel_after_axes_1_newhist
 PUT " axes %gp_axes_l1% ";
 $label gpxyzlabel_after_axes_1_newhist
 );
 IF(gp_count eq 2,
 $if not setglobal gp_axes_l2                       $goto gpxyzlabel_after_axes_2_newhist
-$if "%gp_axes_l2%" == "no"                         $goto gpxyzlabel_after_axes_2_newhist
+$ifi "%gp_axes_l2%" == "no"                        $goto gpxyzlabel_after_axes_2_newhist
 PUT " axes %gp_axes_l2% ";
 $label gpxyzlabel_after_axes_2_newhist
 );
 IF(gp_count eq 3,
 $if not setglobal gp_axes_l3                       $goto gpxyzlabel_after_axes_3_newhist
-$if "%gp_axes_l3%" == "no"                         $goto gpxyzlabel_after_axes_3_newhist
+$ifi "%gp_axes_l3%" == "no"                        $goto gpxyzlabel_after_axes_3_newhist
 PUT " axes %gp_axes_l3% ";
 $label gpxyzlabel_after_axes_3_newhist
 );
 IF(gp_count eq 4,
 $if not setglobal gp_axes_l4                       $goto gpxyzlabel_after_axes_4_newhist
-$if "%gp_axes_l4%" == "no"                         $goto gpxyzlabel_after_axes_4_newhist
+$ifi "%gp_axes_l4%" == "no"                        $goto gpxyzlabel_after_axes_4_newhist
 PUT " axes %gp_axes_l4% ";
 $label gpxyzlabel_after_axes_4_newhist
 );
 IF(gp_count eq 5,
 $if not setglobal gp_axes_l5                       $goto gpxyzlabel_after_axes_5_newhist
-$if "%gp_axes_l5%" == "no"                         $goto gpxyzlabel_after_axes_5_newhist
+$ifi "%gp_axes_l5%" == "no"                        $goto gpxyzlabel_after_axes_5_newhist
 PUT " axes %gp_axes_l5% ";
 $label gpxyzlabel_after_axes_5_newhist
 );
 IF(gp_count eq 6,
 $if not setglobal gp_axes_l6                       $goto gpxyzlabel_after_axes_6_newhist
-$if "%gp_axes_l6%" == "no"                         $goto gpxyzlabel_after_axes_6_newhist
+$ifi "%gp_axes_l6%" == "no"                        $goto gpxyzlabel_after_axes_6_newhist
 PUT " axes %gp_axes_l6% ";
 $label gpxyzlabel_after_axes_6_newhist
 );
 IF(gp_count eq 7,
 $if not setglobal gp_axes_l7                       $goto gpxyzlabel_after_axes_7_newhist
-$if "%gp_axes_l7%" == "no"                         $goto gpxyzlabel_after_axes_7_newhist
+$ifi "%gp_axes_l7%" == "no"                        $goto gpxyzlabel_after_axes_7_newhist
 PUT " axes %gp_axes_l7% ";
 $label gpxyzlabel_after_axes_7_newhist
 );
 IF(gp_count eq 8,
 $if not setglobal gp_axes_l8                       $goto gpxyzlabel_after_axes_8_newhist
-$if "%gp_axes_l8%" == "no"                         $goto gpxyzlabel_after_axes_8_newhist
+$ifi "%gp_axes_l8%" == "no"                        $goto gpxyzlabel_after_axes_8_newhist
 PUT " axes %gp_axes_l8% ";
 $label gpxyzlabel_after_axes_8_newhist
 );
 IF(gp_count eq 9,
 $if not setglobal gp_axes_l9                       $goto gpxyzlabel_after_axes_9_newhist
-$if "%gp_axes_l9%" == "no"                         $goto gpxyzlabel_after_axes_9_newhist
+$ifi "%gp_axes_l9%" == "no"                        $goto gpxyzlabel_after_axes_9_newhist
 PUT " axes %gp_axes_l9% ";
 $label gpxyzlabel_after_axes_9_newhist
 );
 IF(gp_count eq 10,
 $if not setglobal gp_axes_l10                      $goto gpxyzlabel_after_axes_10_newhist
-$if "%gp_axes_l10%" == "no"                        $goto gpxyzlabel_after_axes_10_newhist
+$ifi "%gp_axes_l10%" == "no"                       $goto gpxyzlabel_after_axes_10_newhist
 PUT " axes %gp_axes_l10% ";
 $label gpxyzlabel_after_axes_10_newhist
 );
 IF(gp_count eq 11,
 $if not setglobal gp_axes_l11                      $goto gpxyzlabel_after_axes_11_newhist
-$if "%gp_axes_l11%" == "no"                        $goto gpxyzlabel_after_axes_11_newhist
+$ifi "%gp_axes_l11%" == "no"                       $goto gpxyzlabel_after_axes_11_newhist
 PUT " axes %gp_axes_l11% ";
 $label gpxyzlabel_after_axes_11_newhist
 );
 IF(gp_count eq 12,
 $if not setglobal gp_axes_l12                      $goto gpxyzlabel_after_axes_12_newhist
-$if "%gp_axes_l12%" == "no"                        $goto gpxyzlabel_after_axes_12_newhist
+$ifi "%gp_axes_l12%" == "no"                       $goto gpxyzlabel_after_axes_12_newhist
 PUT " axes %gp_axes_l12% ";
 $label gpxyzlabel_after_axes_12_newhist
 );
 IF(gp_count eq 13,
 $if not setglobal gp_axes_l13                      $goto gpxyzlabel_after_axes_13_newhist
-$if "%gp_axes_l13%" == "no"                        $goto gpxyzlabel_after_axes_13_newhist
+$ifi "%gp_axes_l13%" == "no"                       $goto gpxyzlabel_after_axes_13_newhist
 PUT " axes %gp_axes_l13% ";
 $label gpxyzlabel_after_axes_13_newhist
 );
 IF(gp_count eq 14,
 $if not setglobal gp_axes_l14                      $goto gpxyzlabel_after_axes_14_newhist
-$if "%gp_axes_l14%" == "no"                        $goto gpxyzlabel_after_axes_14_newhist
+$ifi "%gp_axes_l14%" == "no"                       $goto gpxyzlabel_after_axes_14_newhist
 PUT " axes %gp_axes_l14% ";
 $label gpxyzlabel_after_axes_14_newhist
 );
 IF(gp_count eq 15,
 $if not setglobal gp_axes_l15                      $goto gpxyzlabel_after_axes_15_newhist
-$if "%gp_axes_l15%" == "no"                        $goto gpxyzlabel_after_axes_15_newhist
+$ifi "%gp_axes_l15%" == "no"                       $goto gpxyzlabel_after_axes_15_newhist
 PUT " axes %gp_axes_l15% ";
 $label gpxyzlabel_after_axes_15_newhist
 );
 IF(gp_count eq 16,
 $if not setglobal gp_axes_l16                      $goto gpxyzlabel_after_axes_16_newhist
-$if "%gp_axes_l16%" == "no"                        $goto gpxyzlabel_after_axes_16_newhist
+$ifi "%gp_axes_l16%" == "no"                       $goto gpxyzlabel_after_axes_16_newhist
 PUT " axes %gp_axes_l16% ";
 $label gpxyzlabel_after_axes_16_newhist
 );
 IF(gp_count eq 17,
 $if not setglobal gp_axes_l17                      $goto gpxyzlabel_after_axes_17_newhist
-$if "%gp_axes_l17%" == "no"                        $goto gpxyzlabel_after_axes_17_newhist
+$ifi "%gp_axes_l17%" == "no"                       $goto gpxyzlabel_after_axes_17_newhist
 PUT " axes %gp_axes_l17% ";
 $label gpxyzlabel_after_axes_17_newhist
 );
 IF(gp_count eq 18,
 $if not setglobal gp_axes_l18                      $goto gpxyzlabel_after_axes_18_newhist
-$if "%gp_axes_l18%" == "no"                        $goto gpxyzlabel_after_axes_18_newhist
+$ifi "%gp_axes_l18%" == "no"                       $goto gpxyzlabel_after_axes_18_newhist
 PUT " axes %gp_axes_l18% ";
 $label gpxyzlabel_after_axes_18_newhist
 );
 IF(gp_count eq 19,
 $if not setglobal gp_axes_l19                      $goto gpxyzlabel_after_axes_19_newhist
-$if "%gp_axes_l19%" == "no"                        $goto gpxyzlabel_after_axes_19_newhist
+$ifi "%gp_axes_l19%" == "no"                       $goto gpxyzlabel_after_axes_19_newhist
 PUT " axes %gp_axes_l19% ";
 $label gpxyzlabel_after_axes_19_newhist
 );
 IF(gp_count eq 20,
 $if not setglobal gp_axes_l20                      $goto gpxyzlabel_after_axes_20_newhist
-$if "%gp_axes_l20%" == "no"                        $goto gpxyzlabel_after_axes_20_newhist
+$ifi "%gp_axes_l20%" == "no"                       $goto gpxyzlabel_after_axes_20_newhist
 PUT " axes %gp_axes_l20% ";
 $label gpxyzlabel_after_axes_20_newhist
+);
+IF(gp_count eq 21,
+$if not setglobal gp_axes_l21                      $goto gpxyzlabel_after_axes_21_newhist
+$ifi "%gp_axes_l21%" == "no"                       $goto gpxyzlabel_after_axes_21_newhist
+PUT " axes %gp_axes_l21% ";
+$label gpxyzlabel_after_axes_21_newhist
+);
+IF(gp_count eq 22,
+$if not setglobal gp_axes_l22                      $goto gpxyzlabel_after_axes_22_newhist
+$ifi "%gp_axes_l22%" == "no"                       $goto gpxyzlabel_after_axes_22_newhist
+PUT " axes %gp_axes_l22% ";
+$label gpxyzlabel_after_axes_22_newhist
+);
+IF(gp_count eq 23,
+$if not setglobal gp_axes_l23                      $goto gpxyzlabel_after_axes_23_newhist
+$ifi "%gp_axes_l23%" == "no"                       $goto gpxyzlabel_after_axes_23_newhist
+PUT " axes %gp_axes_l23% ";
+$label gpxyzlabel_after_axes_23_newhist
+);
+IF(gp_count eq 24,
+$if not setglobal gp_axes_l24                      $goto gpxyzlabel_after_axes_24_newhist
+$ifi "%gp_axes_l24%" == "no"                       $goto gpxyzlabel_after_axes_24_newhist
+PUT " axes %gp_axes_l24% ";
+$label gpxyzlabel_after_axes_24_newhist
+);
+IF(gp_count eq 25,
+$if not setglobal gp_axes_l25                      $goto gpxyzlabel_after_axes_25_newhist
+$ifi "%gp_axes_l25%" == "no"                       $goto gpxyzlabel_after_axes_25_newhist
+PUT " axes %gp_axes_l25% ";
+$label gpxyzlabel_after_axes_25_newhist
+);
+IF(gp_count eq 26,
+$if not setglobal gp_axes_l26                      $goto gpxyzlabel_after_axes_26_newhist
+$ifi "%gp_axes_l26%" == "no"                       $goto gpxyzlabel_after_axes_26_newhist
+PUT " axes %gp_axes_l26% ";
+$label gpxyzlabel_after_axes_26_newhist
+);
+IF(gp_count eq 27,
+$if not setglobal gp_axes_l27                      $goto gpxyzlabel_after_axes_27_newhist
+$ifi "%gp_axes_l27%" == "no"                       $goto gpxyzlabel_after_axes_27_newhist
+PUT " axes %gp_axes_l27% ";
+$label gpxyzlabel_after_axes_27_newhist
+);
+IF(gp_count eq 28,
+$if not setglobal gp_axes_l28                      $goto gpxyzlabel_after_axes_28_newhist
+$ifi "%gp_axes_l28%" == "no"                       $goto gpxyzlabel_after_axes_28_newhist
+PUT " axes %gp_axes_l28% ";
+$label gpxyzlabel_after_axes_28_newhist
+);
+IF(gp_count eq 29,
+$if not setglobal gp_axes_l29                      $goto gpxyzlabel_after_axes_29_newhist
+$ifi "%gp_axes_l29%" == "no"                       $goto gpxyzlabel_after_axes_29_newhist
+PUT " axes %gp_axes_l29% ";
+$label gpxyzlabel_after_axes_29_newhist
+);
+IF(gp_count eq 30,
+$if not setglobal gp_axes_l30                      $goto gpxyzlabel_after_axes_30_newhist
+$ifi "%gp_axes_l30%" == "no"                       $goto gpxyzlabel_after_axes_30_newhist
+PUT " axes %gp_axes_l30% ";
+$label gpxyzlabel_after_axes_30_newhist
 );
 * Insert Auto Code 8b produced by make_345678_linestyle.gms - end
 
 $if     "%gp_hist%" == "columnstacked"  $goto gpxyzlabel_afterinserthistlinecolors
 
-* Insert Auto Code 9 produced by make_4_linestyle.gms - begin
+* Insert Auto Code 9 produced by make_345678_linestyle.gms - begin
 IF(gp_count eq 1,
 $if not setglobal gp_lc_1                          IF(gp_count_2 gt 1, put " lt 1"; );
-$if     "%gp_lc_1%" == "no"                        IF(gp_count_2 gt 1, put " lt 1"; );
+$ifi    "%gp_lc_1%" == "no"                        IF(gp_count_2 gt 1, put " lt 1"; );
 $if not setglobal gp_lc_1                          $goto gpxyzlabel_after_lc_1_newhist
-$if     "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_newhist
+$ifi    "%gp_lc_1%" == "no"                        $goto gpxyzlabel_after_lc_1_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_1%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6320,9 +7843,9 @@ $label gpxyzlabel_after_lc_1_newhist
  );
 IF(gp_count eq 2,
 $if not setglobal gp_lc_2                          IF(gp_count_2 gt 1, put " lt 2"; );
-$if     "%gp_lc_2%" == "no"                        IF(gp_count_2 gt 1, put " lt 2"; );
+$ifi    "%gp_lc_2%" == "no"                        IF(gp_count_2 gt 1, put " lt 2"; );
 $if not setglobal gp_lc_2                          $goto gpxyzlabel_after_lc_2_newhist
-$if     "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_newhist
+$ifi    "%gp_lc_2%" == "no"                        $goto gpxyzlabel_after_lc_2_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_2%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6335,9 +7858,9 @@ $label gpxyzlabel_after_lc_2_newhist
  );
 IF(gp_count eq 3,
 $if not setglobal gp_lc_3                          IF(gp_count_2 gt 1, put " lt 3"; );
-$if     "%gp_lc_3%" == "no"                        IF(gp_count_2 gt 1, put " lt 3"; );
+$ifi    "%gp_lc_3%" == "no"                        IF(gp_count_2 gt 1, put " lt 3"; );
 $if not setglobal gp_lc_3                          $goto gpxyzlabel_after_lc_3_newhist
-$if     "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_newhist
+$ifi    "%gp_lc_3%" == "no"                        $goto gpxyzlabel_after_lc_3_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_3%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6350,9 +7873,9 @@ $label gpxyzlabel_after_lc_3_newhist
  );
 IF(gp_count eq 4,
 $if not setglobal gp_lc_4                          IF(gp_count_2 gt 1, put " lt 4"; );
-$if     "%gp_lc_4%" == "no"                        IF(gp_count_2 gt 1, put " lt 4"; );
+$ifi    "%gp_lc_4%" == "no"                        IF(gp_count_2 gt 1, put " lt 4"; );
 $if not setglobal gp_lc_4                          $goto gpxyzlabel_after_lc_4_newhist
-$if     "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_newhist
+$ifi    "%gp_lc_4%" == "no"                        $goto gpxyzlabel_after_lc_4_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_4%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6365,9 +7888,9 @@ $label gpxyzlabel_after_lc_4_newhist
  );
 IF(gp_count eq 5,
 $if not setglobal gp_lc_5                          IF(gp_count_2 gt 1, put " lt 5"; );
-$if     "%gp_lc_5%" == "no"                        IF(gp_count_2 gt 1, put " lt 5"; );
+$ifi    "%gp_lc_5%" == "no"                        IF(gp_count_2 gt 1, put " lt 5"; );
 $if not setglobal gp_lc_5                          $goto gpxyzlabel_after_lc_5_newhist
-$if     "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_newhist
+$ifi    "%gp_lc_5%" == "no"                        $goto gpxyzlabel_after_lc_5_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_5%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6380,9 +7903,9 @@ $label gpxyzlabel_after_lc_5_newhist
  );
 IF(gp_count eq 6,
 $if not setglobal gp_lc_6                          IF(gp_count_2 gt 1, put " lt 6"; );
-$if     "%gp_lc_6%" == "no"                        IF(gp_count_2 gt 1, put " lt 6"; );
+$ifi    "%gp_lc_6%" == "no"                        IF(gp_count_2 gt 1, put " lt 6"; );
 $if not setglobal gp_lc_6                          $goto gpxyzlabel_after_lc_6_newhist
-$if     "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_newhist
+$ifi    "%gp_lc_6%" == "no"                        $goto gpxyzlabel_after_lc_6_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_6%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6395,9 +7918,9 @@ $label gpxyzlabel_after_lc_6_newhist
  );
 IF(gp_count eq 7,
 $if not setglobal gp_lc_7                          IF(gp_count_2 gt 1, put " lt 7"; );
-$if     "%gp_lc_7%" == "no"                        IF(gp_count_2 gt 1, put " lt 7"; );
+$ifi    "%gp_lc_7%" == "no"                        IF(gp_count_2 gt 1, put " lt 7"; );
 $if not setglobal gp_lc_7                          $goto gpxyzlabel_after_lc_7_newhist
-$if     "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_newhist
+$ifi    "%gp_lc_7%" == "no"                        $goto gpxyzlabel_after_lc_7_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_7%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6410,9 +7933,9 @@ $label gpxyzlabel_after_lc_7_newhist
  );
 IF(gp_count eq 8,
 $if not setglobal gp_lc_8                          IF(gp_count_2 gt 1, put " lt 8"; );
-$if     "%gp_lc_8%" == "no"                        IF(gp_count_2 gt 1, put " lt 8"; );
+$ifi    "%gp_lc_8%" == "no"                        IF(gp_count_2 gt 1, put " lt 8"; );
 $if not setglobal gp_lc_8                          $goto gpxyzlabel_after_lc_8_newhist
-$if     "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_newhist
+$ifi    "%gp_lc_8%" == "no"                        $goto gpxyzlabel_after_lc_8_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_8%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6425,9 +7948,9 @@ $label gpxyzlabel_after_lc_8_newhist
  );
 IF(gp_count eq 9,
 $if not setglobal gp_lc_9                          IF(gp_count_2 gt 1, put " lt 9"; );
-$if     "%gp_lc_9%" == "no"                        IF(gp_count_2 gt 1, put " lt 9"; );
+$ifi    "%gp_lc_9%" == "no"                        IF(gp_count_2 gt 1, put " lt 9"; );
 $if not setglobal gp_lc_9                          $goto gpxyzlabel_after_lc_9_newhist
-$if     "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_newhist
+$ifi    "%gp_lc_9%" == "no"                        $goto gpxyzlabel_after_lc_9_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_9%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6440,9 +7963,9 @@ $label gpxyzlabel_after_lc_9_newhist
  );
 IF(gp_count eq 10,
 $if not setglobal gp_lc_10                         IF(gp_count_2 gt 1, put " lt 10"; );
-$if     "%gp_lc_10%" == "no"                       IF(gp_count_2 gt 1, put " lt 10"; );
+$ifi    "%gp_lc_10%" == "no"                       IF(gp_count_2 gt 1, put " lt 10"; );
 $if not setglobal gp_lc_10                         $goto gpxyzlabel_after_lc_10_newhist
-$if     "%gp_lc_10%" == "no"                       $goto gpxyzlabel_after_lc_10_newhist
+$ifi    "%gp_lc_10%" == "no"                       $goto gpxyzlabel_after_lc_10_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_10%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6455,9 +7978,9 @@ $label gpxyzlabel_after_lc_10_newhist
  );
 IF(gp_count eq 11,
 $if not setglobal gp_lc_11                         IF(gp_count_2 gt 1, put " lt 11"; );
-$if     "%gp_lc_11%" == "no"                       IF(gp_count_2 gt 1, put " lt 11"; );
+$ifi    "%gp_lc_11%" == "no"                       IF(gp_count_2 gt 1, put " lt 11"; );
 $if not setglobal gp_lc_11                         $goto gpxyzlabel_after_lc_11_newhist
-$if     "%gp_lc_11%" == "no"                       $goto gpxyzlabel_after_lc_11_newhist
+$ifi    "%gp_lc_11%" == "no"                       $goto gpxyzlabel_after_lc_11_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_11%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6470,9 +7993,9 @@ $label gpxyzlabel_after_lc_11_newhist
  );
 IF(gp_count eq 12,
 $if not setglobal gp_lc_12                         IF(gp_count_2 gt 1, put " lt 12"; );
-$if     "%gp_lc_12%" == "no"                       IF(gp_count_2 gt 1, put " lt 12"; );
+$ifi    "%gp_lc_12%" == "no"                       IF(gp_count_2 gt 1, put " lt 12"; );
 $if not setglobal gp_lc_12                         $goto gpxyzlabel_after_lc_12_newhist
-$if     "%gp_lc_12%" == "no"                       $goto gpxyzlabel_after_lc_12_newhist
+$ifi    "%gp_lc_12%" == "no"                       $goto gpxyzlabel_after_lc_12_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_12%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6485,9 +8008,9 @@ $label gpxyzlabel_after_lc_12_newhist
  );
 IF(gp_count eq 13,
 $if not setglobal gp_lc_13                         IF(gp_count_2 gt 1, put " lt 13"; );
-$if     "%gp_lc_13%" == "no"                       IF(gp_count_2 gt 1, put " lt 13"; );
+$ifi    "%gp_lc_13%" == "no"                       IF(gp_count_2 gt 1, put " lt 13"; );
 $if not setglobal gp_lc_13                         $goto gpxyzlabel_after_lc_13_newhist
-$if     "%gp_lc_13%" == "no"                       $goto gpxyzlabel_after_lc_13_newhist
+$ifi    "%gp_lc_13%" == "no"                       $goto gpxyzlabel_after_lc_13_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_13%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6500,9 +8023,9 @@ $label gpxyzlabel_after_lc_13_newhist
  );
 IF(gp_count eq 14,
 $if not setglobal gp_lc_14                         IF(gp_count_2 gt 1, put " lt 14"; );
-$if     "%gp_lc_14%" == "no"                       IF(gp_count_2 gt 1, put " lt 14"; );
+$ifi    "%gp_lc_14%" == "no"                       IF(gp_count_2 gt 1, put " lt 14"; );
 $if not setglobal gp_lc_14                         $goto gpxyzlabel_after_lc_14_newhist
-$if     "%gp_lc_14%" == "no"                       $goto gpxyzlabel_after_lc_14_newhist
+$ifi    "%gp_lc_14%" == "no"                       $goto gpxyzlabel_after_lc_14_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_14%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6515,9 +8038,9 @@ $label gpxyzlabel_after_lc_14_newhist
  );
 IF(gp_count eq 15,
 $if not setglobal gp_lc_15                         IF(gp_count_2 gt 1, put " lt 15"; );
-$if     "%gp_lc_15%" == "no"                       IF(gp_count_2 gt 1, put " lt 15"; );
+$ifi    "%gp_lc_15%" == "no"                       IF(gp_count_2 gt 1, put " lt 15"; );
 $if not setglobal gp_lc_15                         $goto gpxyzlabel_after_lc_15_newhist
-$if     "%gp_lc_15%" == "no"                       $goto gpxyzlabel_after_lc_15_newhist
+$ifi    "%gp_lc_15%" == "no"                       $goto gpxyzlabel_after_lc_15_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_15%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6530,9 +8053,9 @@ $label gpxyzlabel_after_lc_15_newhist
  );
 IF(gp_count eq 16,
 $if not setglobal gp_lc_16                         IF(gp_count_2 gt 1, put " lt 16"; );
-$if     "%gp_lc_16%" == "no"                       IF(gp_count_2 gt 1, put " lt 16"; );
+$ifi    "%gp_lc_16%" == "no"                       IF(gp_count_2 gt 1, put " lt 16"; );
 $if not setglobal gp_lc_16                         $goto gpxyzlabel_after_lc_16_newhist
-$if     "%gp_lc_16%" == "no"                       $goto gpxyzlabel_after_lc_16_newhist
+$ifi    "%gp_lc_16%" == "no"                       $goto gpxyzlabel_after_lc_16_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_16%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6545,9 +8068,9 @@ $label gpxyzlabel_after_lc_16_newhist
  );
 IF(gp_count eq 17,
 $if not setglobal gp_lc_17                         IF(gp_count_2 gt 1, put " lt 17"; );
-$if     "%gp_lc_17%" == "no"                       IF(gp_count_2 gt 1, put " lt 17"; );
+$ifi    "%gp_lc_17%" == "no"                       IF(gp_count_2 gt 1, put " lt 17"; );
 $if not setglobal gp_lc_17                         $goto gpxyzlabel_after_lc_17_newhist
-$if     "%gp_lc_17%" == "no"                       $goto gpxyzlabel_after_lc_17_newhist
+$ifi    "%gp_lc_17%" == "no"                       $goto gpxyzlabel_after_lc_17_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_17%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6560,9 +8083,9 @@ $label gpxyzlabel_after_lc_17_newhist
  );
 IF(gp_count eq 18,
 $if not setglobal gp_lc_18                         IF(gp_count_2 gt 1, put " lt 18"; );
-$if     "%gp_lc_18%" == "no"                       IF(gp_count_2 gt 1, put " lt 18"; );
+$ifi    "%gp_lc_18%" == "no"                       IF(gp_count_2 gt 1, put " lt 18"; );
 $if not setglobal gp_lc_18                         $goto gpxyzlabel_after_lc_18_newhist
-$if     "%gp_lc_18%" == "no"                       $goto gpxyzlabel_after_lc_18_newhist
+$ifi    "%gp_lc_18%" == "no"                       $goto gpxyzlabel_after_lc_18_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_18%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6575,9 +8098,9 @@ $label gpxyzlabel_after_lc_18_newhist
  );
 IF(gp_count eq 19,
 $if not setglobal gp_lc_19                         IF(gp_count_2 gt 1, put " lt 19"; );
-$if     "%gp_lc_19%" == "no"                       IF(gp_count_2 gt 1, put " lt 19"; );
+$ifi    "%gp_lc_19%" == "no"                       IF(gp_count_2 gt 1, put " lt 19"; );
 $if not setglobal gp_lc_19                         $goto gpxyzlabel_after_lc_19_newhist
-$if     "%gp_lc_19%" == "no"                       $goto gpxyzlabel_after_lc_19_newhist
+$ifi    "%gp_lc_19%" == "no"                       $goto gpxyzlabel_after_lc_19_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_19%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6590,9 +8113,9 @@ $label gpxyzlabel_after_lc_19_newhist
  );
 IF(gp_count eq 20,
 $if not setglobal gp_lc_20                         IF(gp_count_2 gt 1, put " lt 20"; );
-$if     "%gp_lc_20%" == "no"                       IF(gp_count_2 gt 1, put " lt 20"; );
+$ifi    "%gp_lc_20%" == "no"                       IF(gp_count_2 gt 1, put " lt 20"; );
 $if not setglobal gp_lc_20                         $goto gpxyzlabel_after_lc_20_newhist
-$if     "%gp_lc_20%" == "no"                       $goto gpxyzlabel_after_lc_20_newhist
+$ifi    "%gp_lc_20%" == "no"                       $goto gpxyzlabel_after_lc_20_newhist
 PUT " lc rgb ";
 gp_xyz_ind_col("%gp_lc_20%") = yes;
 gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
@@ -6603,7 +8126,157 @@ LOOP(gp_hex_color_name
 gp_xyz_ind_col("%gp_lc_20%") = no;
 $label gpxyzlabel_after_lc_20_newhist
  );
-* Insert Auto Code 9 produced by make_4_linestyle.gms - end
+IF(gp_count eq 21,
+$if not setglobal gp_lc_21                         IF(gp_count_2 gt 1, put " lt 21"; );
+$ifi    "%gp_lc_21%" == "no"                       IF(gp_count_2 gt 1, put " lt 21"; );
+$if not setglobal gp_lc_21                         $goto gpxyzlabel_after_lc_21_newhist
+$ifi    "%gp_lc_21%" == "no"                       $goto gpxyzlabel_after_lc_21_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_21%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_21%") = no;
+$label gpxyzlabel_after_lc_21_newhist
+ );
+IF(gp_count eq 22,
+$if not setglobal gp_lc_22                         IF(gp_count_2 gt 1, put " lt 22"; );
+$ifi    "%gp_lc_22%" == "no"                       IF(gp_count_2 gt 1, put " lt 22"; );
+$if not setglobal gp_lc_22                         $goto gpxyzlabel_after_lc_22_newhist
+$ifi    "%gp_lc_22%" == "no"                       $goto gpxyzlabel_after_lc_22_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_22%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_22%") = no;
+$label gpxyzlabel_after_lc_22_newhist
+ );
+IF(gp_count eq 23,
+$if not setglobal gp_lc_23                         IF(gp_count_2 gt 1, put " lt 23"; );
+$ifi    "%gp_lc_23%" == "no"                       IF(gp_count_2 gt 1, put " lt 23"; );
+$if not setglobal gp_lc_23                         $goto gpxyzlabel_after_lc_23_newhist
+$ifi    "%gp_lc_23%" == "no"                       $goto gpxyzlabel_after_lc_23_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_23%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_23%") = no;
+$label gpxyzlabel_after_lc_23_newhist
+ );
+IF(gp_count eq 24,
+$if not setglobal gp_lc_24                         IF(gp_count_2 gt 1, put " lt 24"; );
+$ifi    "%gp_lc_24%" == "no"                       IF(gp_count_2 gt 1, put " lt 24"; );
+$if not setglobal gp_lc_24                         $goto gpxyzlabel_after_lc_24_newhist
+$ifi    "%gp_lc_24%" == "no"                       $goto gpxyzlabel_after_lc_24_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_24%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_24%") = no;
+$label gpxyzlabel_after_lc_24_newhist
+ );
+IF(gp_count eq 25,
+$if not setglobal gp_lc_25                         IF(gp_count_2 gt 1, put " lt 25"; );
+$ifi    "%gp_lc_25%" == "no"                       IF(gp_count_2 gt 1, put " lt 25"; );
+$if not setglobal gp_lc_25                         $goto gpxyzlabel_after_lc_25_newhist
+$ifi    "%gp_lc_25%" == "no"                       $goto gpxyzlabel_after_lc_25_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_25%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_25%") = no;
+$label gpxyzlabel_after_lc_25_newhist
+ );
+IF(gp_count eq 26,
+$if not setglobal gp_lc_26                         IF(gp_count_2 gt 1, put " lt 26"; );
+$ifi    "%gp_lc_26%" == "no"                       IF(gp_count_2 gt 1, put " lt 26"; );
+$if not setglobal gp_lc_26                         $goto gpxyzlabel_after_lc_26_newhist
+$ifi    "%gp_lc_26%" == "no"                       $goto gpxyzlabel_after_lc_26_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_26%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_26%") = no;
+$label gpxyzlabel_after_lc_26_newhist
+ );
+IF(gp_count eq 27,
+$if not setglobal gp_lc_27                         IF(gp_count_2 gt 1, put " lt 27"; );
+$ifi    "%gp_lc_27%" == "no"                       IF(gp_count_2 gt 1, put " lt 27"; );
+$if not setglobal gp_lc_27                         $goto gpxyzlabel_after_lc_27_newhist
+$ifi    "%gp_lc_27%" == "no"                       $goto gpxyzlabel_after_lc_27_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_27%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_27%") = no;
+$label gpxyzlabel_after_lc_27_newhist
+ );
+IF(gp_count eq 28,
+$if not setglobal gp_lc_28                         IF(gp_count_2 gt 1, put " lt 28"; );
+$ifi    "%gp_lc_28%" == "no"                       IF(gp_count_2 gt 1, put " lt 28"; );
+$if not setglobal gp_lc_28                         $goto gpxyzlabel_after_lc_28_newhist
+$ifi    "%gp_lc_28%" == "no"                       $goto gpxyzlabel_after_lc_28_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_28%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_28%") = no;
+$label gpxyzlabel_after_lc_28_newhist
+ );
+IF(gp_count eq 29,
+$if not setglobal gp_lc_29                         IF(gp_count_2 gt 1, put " lt 29"; );
+$ifi    "%gp_lc_29%" == "no"                       IF(gp_count_2 gt 1, put " lt 29"; );
+$if not setglobal gp_lc_29                         $goto gpxyzlabel_after_lc_29_newhist
+$ifi    "%gp_lc_29%" == "no"                       $goto gpxyzlabel_after_lc_29_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_29%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_29%") = no;
+$label gpxyzlabel_after_lc_29_newhist
+ );
+IF(gp_count eq 30,
+$if not setglobal gp_lc_30                         IF(gp_count_2 gt 1, put " lt 30"; );
+$ifi    "%gp_lc_30%" == "no"                       IF(gp_count_2 gt 1, put " lt 30"; );
+$if not setglobal gp_lc_30                         $goto gpxyzlabel_after_lc_30_newhist
+$ifi    "%gp_lc_30%" == "no"                       $goto gpxyzlabel_after_lc_30_newhist
+PUT " lc rgb ";
+gp_xyz_ind_col("%gp_lc_30%") = yes;
+gp_xyz_ind_col(gp_hex_color_name) $sum(gp_xyz_fixed_col,1) = no;
+LOOP(gp_hex_color_name
+ $(gp_xyz_ind_col(gp_hex_color_name) or
+   gp_xyz_fixed_col(gp_hex_color_name,%gp_scen%)),
+ put '"#',gp_hex_color_name.te(gp_hex_color_name),'"'; );
+gp_xyz_ind_col("%gp_lc_30%") = no;
+$label gpxyzlabel_after_lc_30_newhist
+ );
+* Insert Auto Code 9 produced by make_345678_linestyle.gms - end
 
 $label gpxyzlabel_afterinserthistlinecolors
 
@@ -7134,6 +8807,7 @@ put 'Line15=255 255 0 0 4' /;
 $offtext
 
 
+* individual colors
 * individual colors
 $if "%gp_fixcolor_set%" == "no"                    $goto gpxyzlabel_gp_lc_1_lb
 $if not setglobal gp_fixcolor_set                  $goto gpxyzlabel_gp_lc_1_lb
@@ -8222,7 +9896,7 @@ $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop1
 $if not setglobal gp_title                        $setglobal gp_title " "
-put "%gp_title% ",%gp_loop1%.te(%gp_loop1%);
+put "%gp_title% ",%gp_loop1%.tl;
 $if "%gp_loop2%"   == "no"            $goto gpxyzlabel_no_loop_title_2
 $if "%gp_loop2%"   == "0"             $goto gpxyzlabel_no_loop_title_2
 $if     setglobal gp_loop2            $goto gpxyzlabel_ppttitle_loop2
@@ -8240,7 +9914,7 @@ put /;
 $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop2
-put " ",%gp_loop2%.te(%gp_loop2%);
+put " ",%gp_loop2%.tl;
 $if "%gp_loop3%"   == "no"            $goto gpxyzlabel_no_loop_title_3
 $if "%gp_loop3%"   == "0"             $goto gpxyzlabel_no_loop_title_3
 $if     setglobal gp_loop3            $goto gpxyzlabel_ppttitle_loop3
@@ -8258,7 +9932,7 @@ put /;
 $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop3
-put " ",%gp_loop3%.te(%gp_loop3%);
+put " ",%gp_loop3%.tl;
 $if "%gp_loop4%"   == "no"            $goto gpxyzlabel_no_loop_title_4
 $if "%gp_loop4%"   == "0"             $goto gpxyzlabel_no_loop_title_4
 $if     setglobal gp_loop4            $goto gpxyzlabel_ppttitle_loop4
@@ -8276,7 +9950,7 @@ put /;
 $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop4
-put " ",%gp_loop4%.te(%gp_loop4%);
+put " ",%gp_loop4%.tl;
 $if "%gp_loop5%"   == "no"            $goto gpxyzlabel_no_loop_title_5
 $if "%gp_loop5%"   == "0"             $goto gpxyzlabel_no_loop_title_5
 $if     setglobal gp_loop5            $goto gpxyzlabel_ppttitle_loop5
@@ -8294,7 +9968,7 @@ put /;
 $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop5
-put " ",%gp_loop5%.te(%gp_loop5%);
+put " ",%gp_loop5%.tl;
 $if "%gp_loop6%"   == "no"            $goto gpxyzlabel_no_loop_title_6
 $if "%gp_loop6%"   == "0"             $goto gpxyzlabel_no_loop_title_6
 $if     setglobal gp_loop6            $goto gpxyzlabel_ppttitle_loop6
@@ -8312,7 +9986,7 @@ put /;
 $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop6
-put " ",%gp_loop6%.te(%gp_loop6%);
+put " ",%gp_loop6%.tl;
 $if "%gp_loop7%"   == "no"            $goto gpxyzlabel_no_loop_title_7
 $if "%gp_loop7%"   == "0"             $goto gpxyzlabel_no_loop_title_7
 $if     setglobal gp_loop7            $goto gpxyzlabel_ppttitle_loop7
@@ -8330,7 +10004,7 @@ put /;
 $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop7
-put " ",%gp_loop7%.te(%gp_loop7%);
+put " ",%gp_loop7%.tl;
 $if "%gp_loop8%"   == "no"            $goto gpxyzlabel_no_loop_title_8
 $if "%gp_loop8%"   == "0"             $goto gpxyzlabel_no_loop_title_8
 $if     setglobal gp_loop8            $goto gpxyzlabel_ppttitle_loop8
@@ -8348,7 +10022,7 @@ put /;
 $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop8
-put " ",%gp_loop8%.te(%gp_loop8%);
+put " ",%gp_loop8%.tl;
 $if "%gp_loop9%"   == "no"            $goto gpxyzlabel_no_loop_title_9
 $if "%gp_loop9%"   == "0"             $goto gpxyzlabel_no_loop_title_9
 $if     setglobal gp_loop9            $goto gpxyzlabel_ppttitle_loop9
@@ -8366,7 +10040,7 @@ put /;
 $goto gpxyzlabel_skipppttitle
 
 $label gpxyzlabel_ppttitle_loop9
-put " ",%gp_loop9%.te(%gp_loop9%);
+put " ",%gp_loop9%.tl;
 $if setglobal gp_ppt_1_name  If(gp_count eq 1, put "%gp_ppt_1_name%"; );
 $if setglobal gp_ppt_2_name  If(gp_count eq 2, put "%gp_ppt_2_name%"; );
 $if setglobal gp_ppt_3_name  If(gp_count eq 3, put "%gp_ppt_3_name%"; );

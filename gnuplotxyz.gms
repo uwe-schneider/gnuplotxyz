@@ -2071,7 +2071,7 @@ put '%gp_keyoption% ';
 $label gpxyzlabel_keytitle
 $if not setglobal gp_keytitle                     $goto gpxyzlabel_key_box
 $if '%gp_keytitle%' == 'no'                       $goto gpxyzlabel_key_box
-put 'title %gp_keytitle% '
+put 'title "%gp_keytitle%"'
 
 $label gpxyzlabel_key_box
 $if not setglobal gp_keybox                       put /;

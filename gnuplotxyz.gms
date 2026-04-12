@@ -956,6 +956,11 @@ $if not setglobal gp_term                         $setglobal gp_term windows
 $if not setglobal gp_extension                    $setglobal gp_extension %gp_term%
 $ifi '%gp_extension%' == 'no'                     $setglobal gp_extension %gp_term%
 
+$if  not setglobal gp_encoding                    $goto gpxyzlabel_after_encoding
+$ifi '%gp_encoding%' =='no'                       $goto gpxyzlabel_after_encoding
+put 'set encoding %gp_encoding%' /;
+$label gpxyzlabel_after_encoding
+
 put 'set terminal %gp_term%';
 put ' font "%gp_font%, %gp_fontsize%" linewidth %gp_lwidth%';
 $if not setglobal gp_wsize                        $goto gpxyzlabel_after_wsize

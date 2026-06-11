@@ -165,6 +165,7 @@ SCALARS
  gpxyz_stoppvalue /0/
  gnuplotxyz_ploterror_nodata /0/
  gnuplotxyz_current_nodata  /0/
+ zerovalue /0/
 ;
 
 PARAMETERS
@@ -172,6 +173,8 @@ PARAMETERS
  gp_heatmap_colposition(*)
  gp_piechartdata(*,*) parameter to calculate piechart data
  gp_scencount(*) scenario counter
+ gp_obsvcount(*) obsv counter
+ gp_whiskerposition(*,*) Parameter to caluclate position of whiskers
  gp_00(*) number of zeros at the end
  gp_xy(*) total observations
  gp__0(*) total observations minus end zeros
@@ -608,6 +611,7 @@ $if "%gp_style%" == "histogram"         $goto gpxyzlabel_prepare_2D_NewHistogram
 $if "%gp_style%" == "heatmap"           $goto gpxyzlabel_prepare_2D_NewHistograms
 $if a%2==a                              $goto gpxyzlabel_prepare_2D_NewHistograms
 $if "%gp_style%" == "filledcurves"      $goto gpxyzlabel_prepare_2D_LinePlots
+$if "%gp_style%" == "whiskerbars"       $goto gpxyzlabel_prepare_2D_LinePlots
 
 * Fourth argument present -> 3D plots
 $if not a%4==a                          $goto gpxyzlabel_prepare_3D_LinePlots
@@ -708,12 +712,21 @@ $label gpxyzlabel_prepare_3D_LinePlots
 
 $setglobal gp_scen      'uu___1'
 $setglobal gp_obsv_1    'uu___2'
-$setglobal gp_xxxvalue  "%2"
-$setglobal gp_yyyvalue  "%3"
-$setglobal gp_zzzvalue  "%4"
-$setglobal gp__col4     "%5"
-$setglobal gp__col5     "%6"
-$setglobal gp__col6     "%7"
+
+
+$setglobal gp_xxxvalue  ""
+$setglobal gp_yyyvalue  ""
+$setglobal gp_zzzvalue  ""
+$setglobal gp__col4     ""
+$setglobal gp__col5     ""
+$setglobal gp__col6     ""
+
+$if not a%2==a          $setglobal gp_xxxvalue  "%2"
+$if not a%3==a          $setglobal gp_yyyvalue  "%3"
+$if not a%4==a          $setglobal gp_zzzvalue  "%4"
+$if not a%5==a          $setglobal gp__col4     "%5"
+$if not a%6==a          $setglobal gp__col5     "%6"
+$if not a%7==a          $setglobal gp__col6     "%7"
 
 allu3(u__1,u__2,"%2") $ %1(u__1,u__2,"%2")=yes;
 allu3(u__1,u__2,"%3") $ %1(u__1,u__2,"%3")=yes;
@@ -1769,7 +1782,7 @@ $ifi a%1==afunction                               $goto gpxyzlabel_check_x2_labe
 $if  dimension 1 %1                               $goto gpxyzlabel_check_x2_label
 $if  dimension 2 %1                               $goto gpxyzlabel_check_x2_label
 *$if  not dimension 4 %1                           $goto gpxyzlabel_check_x2_label
-$if  not setglobal gp_zlabel                      put 'set zlabel  "%gp_zzzvalue%" rotate by 90'/;
+$if  not setglobal gp_zlabel                      put 'unset zlabel'/;
 $ifi "%gp_zlabel%"  == "no"                       put 'unset zlabel'/;
 $if  not setglobal gp_zlabel                      $goto gpxyzlabel_check_x2_label
 $ifi "%gp_zlabel%"  == "no"                       $goto gpxyzlabel_check_x2_label
@@ -2022,6 +2035,7 @@ $ifi not '%gp_style%'=='histogram'                $setglobal gp_style histogram
 $label gpxyzlabel_gp_label_nohistogram
 $ifi     '%gp_style%'=='piechart'                 $goto gpxyzlabel_circlesegmentstyle
 $ifi     '%gp_style%'=='sectorplot'               $goto gpxyzlabel_circlesegmentstyle
+$ifi     '%gp_style%'=='whiskerbars'              $goto gpxyzlabel_circlesegmentstyle
 put 'set style data %gp_style%'/;
 $goto gpxyzlabel_afterpiechartstyle
 
@@ -2143,47 +2157,158 @@ $label gpxyzlabel_afterpptlinestyle_1
 
 $label gpxyzlabel_afterpptlinestyle
 
-* Use up to 20 different styles
-$if not setglobal gp_l1style                      $setglobal gp_l1style %gp_style%
+* Insert Auto Code 2d produced by make_345678_linestyle.gms - begin
+$if not setglobal gp_l1style                       $setglobal gp_l1style %gp_style%
 $ifi "%gp_l1style%"=="no"                          $setglobal gp_l1style %gp_style%
-$if not setglobal gp_l2style                      $setglobal gp_l2style %gp_style%
+$if not setglobal gp_l1antestyle                   $setglobal gp_l1antestyle ""
+$ifi "%gp_l1antestyle%"=="no"                      $setglobal gp_l1antestyle ""
+$ifi "%gp_l1style%"=="whiskerbars"                 $setglobal gp_l1antestyle candlesticks
+$if not setglobal gp_l2style                       $setglobal gp_l2style %gp_style%
 $ifi "%gp_l2style%"=="no"                          $setglobal gp_l2style %gp_style%
-$if not setglobal gp_l3style                      $setglobal gp_l3style %gp_style%
+$if not setglobal gp_l2antestyle                   $setglobal gp_l2antestyle ""
+$ifi "%gp_l2antestyle%"=="no"                      $setglobal gp_l2antestyle ""
+$ifi "%gp_l2style%"=="whiskerbars"                 $setglobal gp_l2antestyle candlesticks
+$if not setglobal gp_l3style                       $setglobal gp_l3style %gp_style%
 $ifi "%gp_l3style%"=="no"                          $setglobal gp_l3style %gp_style%
-$if not setglobal gp_l4style                      $setglobal gp_l4style %gp_style%
+$if not setglobal gp_l3antestyle                   $setglobal gp_l3antestyle ""
+$ifi "%gp_l3antestyle%"=="no"                      $setglobal gp_l3antestyle ""
+$ifi "%gp_l3style%"=="whiskerbars"                 $setglobal gp_l3antestyle candlesticks
+$if not setglobal gp_l4style                       $setglobal gp_l4style %gp_style%
 $ifi "%gp_l4style%"=="no"                          $setglobal gp_l4style %gp_style%
-$if not setglobal gp_l5style                      $setglobal gp_l5style %gp_style%
+$if not setglobal gp_l4antestyle                   $setglobal gp_l4antestyle ""
+$ifi "%gp_l4antestyle%"=="no"                      $setglobal gp_l4antestyle ""
+$ifi "%gp_l4style%"=="whiskerbars"                 $setglobal gp_l4antestyle candlesticks
+$if not setglobal gp_l5style                       $setglobal gp_l5style %gp_style%
 $ifi "%gp_l5style%"=="no"                          $setglobal gp_l5style %gp_style%
-$if not setglobal gp_l6style                      $setglobal gp_l6style %gp_style%
+$if not setglobal gp_l5antestyle                   $setglobal gp_l5antestyle ""
+$ifi "%gp_l5antestyle%"=="no"                      $setglobal gp_l5antestyle ""
+$ifi "%gp_l5style%"=="whiskerbars"                 $setglobal gp_l5antestyle candlesticks
+$if not setglobal gp_l6style                       $setglobal gp_l6style %gp_style%
 $ifi "%gp_l6style%"=="no"                          $setglobal gp_l6style %gp_style%
-$if not setglobal gp_l7style                      $setglobal gp_l7style %gp_style%
+$if not setglobal gp_l6antestyle                   $setglobal gp_l6antestyle ""
+$ifi "%gp_l6antestyle%"=="no"                      $setglobal gp_l6antestyle ""
+$ifi "%gp_l6style%"=="whiskerbars"                 $setglobal gp_l6antestyle candlesticks
+$if not setglobal gp_l7style                       $setglobal gp_l7style %gp_style%
 $ifi "%gp_l7style%"=="no"                          $setglobal gp_l7style %gp_style%
-$if not setglobal gp_l8style                      $setglobal gp_l8style %gp_style%
+$if not setglobal gp_l7antestyle                   $setglobal gp_l7antestyle ""
+$ifi "%gp_l7antestyle%"=="no"                      $setglobal gp_l7antestyle ""
+$ifi "%gp_l7style%"=="whiskerbars"                 $setglobal gp_l7antestyle candlesticks
+$if not setglobal gp_l8style                       $setglobal gp_l8style %gp_style%
 $ifi "%gp_l8style%"=="no"                          $setglobal gp_l8style %gp_style%
-$if not setglobal gp_l9style                      $setglobal gp_l9style %gp_style%
+$if not setglobal gp_l8antestyle                   $setglobal gp_l8antestyle ""
+$ifi "%gp_l8antestyle%"=="no"                      $setglobal gp_l8antestyle ""
+$ifi "%gp_l8style%"=="whiskerbars"                 $setglobal gp_l8antestyle candlesticks
+$if not setglobal gp_l9style                       $setglobal gp_l9style %gp_style%
 $ifi "%gp_l9style%"=="no"                          $setglobal gp_l9style %gp_style%
-$if not setglobal gp_l10style                     $setglobal gp_l10style %gp_style%
+$if not setglobal gp_l9antestyle                   $setglobal gp_l9antestyle ""
+$ifi "%gp_l9antestyle%"=="no"                      $setglobal gp_l9antestyle ""
+$ifi "%gp_l9style%"=="whiskerbars"                 $setglobal gp_l9antestyle candlesticks
+$if not setglobal gp_l10style                      $setglobal gp_l10style %gp_style%
 $ifi "%gp_l10style%"=="no"                         $setglobal gp_l10style %gp_style%
-$if not setglobal gp_l11style                     $setglobal gp_l11style %gp_style%
+$if not setglobal gp_l10antestyle                  $setglobal gp_l10antestyle ""
+$ifi "%gp_l10antestyle%"=="no"                     $setglobal gp_l10antestyle ""
+$ifi "%gp_l10style%"=="whiskerbars"                $setglobal gp_l10antestyle candlesticks
+$if not setglobal gp_l11style                      $setglobal gp_l11style %gp_style%
 $ifi "%gp_l11style%"=="no"                         $setglobal gp_l11style %gp_style%
-$if not setglobal gp_l12style                     $setglobal gp_l12style %gp_style%
+$if not setglobal gp_l11antestyle                  $setglobal gp_l11antestyle ""
+$ifi "%gp_l11antestyle%"=="no"                     $setglobal gp_l11antestyle ""
+$ifi "%gp_l11style%"=="whiskerbars"                $setglobal gp_l11antestyle candlesticks
+$if not setglobal gp_l12style                      $setglobal gp_l12style %gp_style%
 $ifi "%gp_l12style%"=="no"                         $setglobal gp_l12style %gp_style%
-$if not setglobal gp_l13style                     $setglobal gp_l13style %gp_style%
+$if not setglobal gp_l12antestyle                  $setglobal gp_l12antestyle ""
+$ifi "%gp_l12antestyle%"=="no"                     $setglobal gp_l12antestyle ""
+$ifi "%gp_l12style%"=="whiskerbars"                $setglobal gp_l12antestyle candlesticks
+$if not setglobal gp_l13style                      $setglobal gp_l13style %gp_style%
 $ifi "%gp_l13style%"=="no"                         $setglobal gp_l13style %gp_style%
-$if not setglobal gp_l14style                     $setglobal gp_l14style %gp_style%
+$if not setglobal gp_l13antestyle                  $setglobal gp_l13antestyle ""
+$ifi "%gp_l13antestyle%"=="no"                     $setglobal gp_l13antestyle ""
+$ifi "%gp_l13style%"=="whiskerbars"                $setglobal gp_l13antestyle candlesticks
+$if not setglobal gp_l14style                      $setglobal gp_l14style %gp_style%
 $ifi "%gp_l14style%"=="no"                         $setglobal gp_l14style %gp_style%
-$if not setglobal gp_l15style                     $setglobal gp_l15style %gp_style%
+$if not setglobal gp_l14antestyle                  $setglobal gp_l14antestyle ""
+$ifi "%gp_l14antestyle%"=="no"                     $setglobal gp_l14antestyle ""
+$ifi "%gp_l14style%"=="whiskerbars"                $setglobal gp_l14antestyle candlesticks
+$if not setglobal gp_l15style                      $setglobal gp_l15style %gp_style%
 $ifi "%gp_l15style%"=="no"                         $setglobal gp_l15style %gp_style%
-$if not setglobal gp_l16style                     $setglobal gp_l16style %gp_style%
+$if not setglobal gp_l15antestyle                  $setglobal gp_l15antestyle ""
+$ifi "%gp_l15antestyle%"=="no"                     $setglobal gp_l15antestyle ""
+$ifi "%gp_l15style%"=="whiskerbars"                $setglobal gp_l15antestyle candlesticks
+$if not setglobal gp_l16style                      $setglobal gp_l16style %gp_style%
 $ifi "%gp_l16style%"=="no"                         $setglobal gp_l16style %gp_style%
-$if not setglobal gp_l17style                     $setglobal gp_l17style %gp_style%
+$if not setglobal gp_l16antestyle                  $setglobal gp_l16antestyle ""
+$ifi "%gp_l16antestyle%"=="no"                     $setglobal gp_l16antestyle ""
+$ifi "%gp_l16style%"=="whiskerbars"                $setglobal gp_l16antestyle candlesticks
+$if not setglobal gp_l17style                      $setglobal gp_l17style %gp_style%
 $ifi "%gp_l17style%"=="no"                         $setglobal gp_l17style %gp_style%
-$if not setglobal gp_l18style                     $setglobal gp_l18style %gp_style%
+$if not setglobal gp_l17antestyle                  $setglobal gp_l17antestyle ""
+$ifi "%gp_l17antestyle%"=="no"                     $setglobal gp_l17antestyle ""
+$ifi "%gp_l17style%"=="whiskerbars"                $setglobal gp_l17antestyle candlesticks
+$if not setglobal gp_l18style                      $setglobal gp_l18style %gp_style%
 $ifi "%gp_l18style%"=="no"                         $setglobal gp_l18style %gp_style%
-$if not setglobal gp_l19style                     $setglobal gp_l19style %gp_style%
+$if not setglobal gp_l18antestyle                  $setglobal gp_l18antestyle ""
+$ifi "%gp_l18antestyle%"=="no"                     $setglobal gp_l18antestyle ""
+$ifi "%gp_l18style%"=="whiskerbars"                $setglobal gp_l18antestyle candlesticks
+$if not setglobal gp_l19style                      $setglobal gp_l19style %gp_style%
 $ifi "%gp_l19style%"=="no"                         $setglobal gp_l19style %gp_style%
-$if not setglobal gp_l20style                     $setglobal gp_l20style %gp_style%
+$if not setglobal gp_l19antestyle                  $setglobal gp_l19antestyle ""
+$ifi "%gp_l19antestyle%"=="no"                     $setglobal gp_l19antestyle ""
+$ifi "%gp_l19style%"=="whiskerbars"                $setglobal gp_l19antestyle candlesticks
+$if not setglobal gp_l20style                      $setglobal gp_l20style %gp_style%
 $ifi "%gp_l20style%"=="no"                         $setglobal gp_l20style %gp_style%
+$if not setglobal gp_l20antestyle                  $setglobal gp_l20antestyle ""
+$ifi "%gp_l20antestyle%"=="no"                     $setglobal gp_l20antestyle ""
+$ifi "%gp_l20style%"=="whiskerbars"                $setglobal gp_l20antestyle candlesticks
+$if not setglobal gp_l21style                      $setglobal gp_l21style %gp_style%
+$ifi "%gp_l21style%"=="no"                         $setglobal gp_l21style %gp_style%
+$if not setglobal gp_l21antestyle                  $setglobal gp_l21antestyle ""
+$ifi "%gp_l21antestyle%"=="no"                     $setglobal gp_l21antestyle ""
+$ifi "%gp_l21style%"=="whiskerbars"                $setglobal gp_l21antestyle candlesticks
+$if not setglobal gp_l22style                      $setglobal gp_l22style %gp_style%
+$ifi "%gp_l22style%"=="no"                         $setglobal gp_l22style %gp_style%
+$if not setglobal gp_l22antestyle                  $setglobal gp_l22antestyle ""
+$ifi "%gp_l22antestyle%"=="no"                     $setglobal gp_l22antestyle ""
+$ifi "%gp_l22style%"=="whiskerbars"                $setglobal gp_l22antestyle candlesticks
+$if not setglobal gp_l23style                      $setglobal gp_l23style %gp_style%
+$ifi "%gp_l23style%"=="no"                         $setglobal gp_l23style %gp_style%
+$if not setglobal gp_l23antestyle                  $setglobal gp_l23antestyle ""
+$ifi "%gp_l23antestyle%"=="no"                     $setglobal gp_l23antestyle ""
+$ifi "%gp_l23style%"=="whiskerbars"                $setglobal gp_l23antestyle candlesticks
+$if not setglobal gp_l24style                      $setglobal gp_l24style %gp_style%
+$ifi "%gp_l24style%"=="no"                         $setglobal gp_l24style %gp_style%
+$if not setglobal gp_l24antestyle                  $setglobal gp_l24antestyle ""
+$ifi "%gp_l24antestyle%"=="no"                     $setglobal gp_l24antestyle ""
+$ifi "%gp_l24style%"=="whiskerbars"                $setglobal gp_l24antestyle candlesticks
+$if not setglobal gp_l25style                      $setglobal gp_l25style %gp_style%
+$ifi "%gp_l25style%"=="no"                         $setglobal gp_l25style %gp_style%
+$if not setglobal gp_l25antestyle                  $setglobal gp_l25antestyle ""
+$ifi "%gp_l25antestyle%"=="no"                     $setglobal gp_l25antestyle ""
+$ifi "%gp_l25style%"=="whiskerbars"                $setglobal gp_l25antestyle candlesticks
+$if not setglobal gp_l26style                      $setglobal gp_l26style %gp_style%
+$ifi "%gp_l26style%"=="no"                         $setglobal gp_l26style %gp_style%
+$if not setglobal gp_l26antestyle                  $setglobal gp_l26antestyle ""
+$ifi "%gp_l26antestyle%"=="no"                     $setglobal gp_l26antestyle ""
+$ifi "%gp_l26style%"=="whiskerbars"                $setglobal gp_l26antestyle candlesticks
+$if not setglobal gp_l27style                      $setglobal gp_l27style %gp_style%
+$ifi "%gp_l27style%"=="no"                         $setglobal gp_l27style %gp_style%
+$if not setglobal gp_l27antestyle                  $setglobal gp_l27antestyle ""
+$ifi "%gp_l27antestyle%"=="no"                     $setglobal gp_l27antestyle ""
+$ifi "%gp_l27style%"=="whiskerbars"                $setglobal gp_l27antestyle candlesticks
+$if not setglobal gp_l28style                      $setglobal gp_l28style %gp_style%
+$ifi "%gp_l28style%"=="no"                         $setglobal gp_l28style %gp_style%
+$if not setglobal gp_l28antestyle                  $setglobal gp_l28antestyle ""
+$ifi "%gp_l28antestyle%"=="no"                     $setglobal gp_l28antestyle ""
+$ifi "%gp_l28style%"=="whiskerbars"                $setglobal gp_l28antestyle candlesticks
+$if not setglobal gp_l29style                      $setglobal gp_l29style %gp_style%
+$ifi "%gp_l29style%"=="no"                         $setglobal gp_l29style %gp_style%
+$if not setglobal gp_l29antestyle                  $setglobal gp_l29antestyle ""
+$ifi "%gp_l29antestyle%"=="no"                     $setglobal gp_l29antestyle ""
+$ifi "%gp_l29style%"=="whiskerbars"                $setglobal gp_l29antestyle candlesticks
+$if not setglobal gp_l30style                      $setglobal gp_l30style %gp_style%
+$ifi "%gp_l30style%"=="no"                         $setglobal gp_l30style %gp_style%
+$if not setglobal gp_l30antestyle                  $setglobal gp_l30antestyle ""
+$ifi "%gp_l30antestyle%"=="no"                     $setglobal gp_l30antestyle ""
+$ifi "%gp_l30style%"=="whiskerbars"                $setglobal gp_l30antestyle candlesticks
+* Insert Auto Code 2d produced by make_345678_linestyle.gms - end
 
 
 gp_input.nd = 0;
@@ -2687,9 +2812,6 @@ $label gpxyzlabel_after_custompalette
 
 
 
-
-
-
 * +++++++++++++++++++++++ *
 * Section Plot Statements *
 * +++++++++++++++++++++++ *
@@ -2789,7 +2911,8 @@ $if a%1==afunction                     $goto gpxyzlabel_plotstatement_2dgraph
 $if "%gp_style%" == "spiderplot"       $goto gpxyzlabel_plotstatement_spiderplot
 $if "%gp_style%" == "sectorplot"       $goto gpxyzlabel_plotstatement_sectorplot
 $if "%gp_style%" == "heatmap"          $goto gpxyzlabel_plotstatement_heatmap
-$if "%gp_style%"=="filledcurves"       $goto gpxyzlabel_plotstatement_2dgraph
+$if "%gp_style%" =="filledcurves"      $goto gpxyzlabel_plotstatement_2dgraph
+$if "%gp_style%" =="whiskerbars"       $goto gpxyzlabel_plotstatement_2dgraph
 $if dimension 1 %1                     $goto gpxyzlabel_plotstatement_1dgraph
 $if dimension 2 %1                     $goto gpxyzlabel_plotstatement_histogram
 $if a%2 == a                           $goto gpxyzlabel_plotstatement_newhistogram
@@ -2799,8 +2922,12 @@ $if not a%4==a                         $goto gpxyzlabel_plotstatement_3dlinegrap
 
 $label gpxyzlabel_plotstatement_2dgraph
 
-* 2D plots
-put 'plot ';
+
+* +++++++++++++++++++++++++++ *
+*   2D plot statements        *
+* +++++++++++++++++++++++++++ *
+
+put 'plot \' /;
 
 $if not setglobal gp_functionplot_1    $goto gpxyzlabel_afterfunctionplot1
 $if "%gp_functionplot_1%"=="no"        $goto gpxyzlabel_afterfunctionplot1
@@ -2856,468 +2983,661 @@ $if "%gp_functionplot_any%"=="yes"     Put ",";
 
 gp_count=1;
 loop(%gp_scen%,
-  if (gp_count gt 1, put ',';);
+*  if (gp_count gt 1, put ',';);
   file.nw = 0
 
-  put  '\'/' "gnuplot%gp_multiplot_count%.dat" index ',(gp_count-1):0:0;
-  put ' using 1:2';
+* Whiskerbars need an index 0 to place the labels
+$ifi     "%gp_l1style%"=="whiskerbars"      IF(gp_count eq 1, put ' "gnuplot%gp_multiplot_count%.dat" index 0 using 2:(NaN):xtic(1) notitle, \' /; );
+$ifi     "%gp_l1style%"=="whiskerbars"      IF(gp_count eq 1, gp_count = 2; );
+
+  put  ' "gnuplot%gp_multiplot_count%.dat" index ',(gp_count-1):0:0;
 
 * filled curves
 $if not "%gp_style%"=="filledcurves"               $goto gpxyzlabel_after_fillcurvecheck
 $if a%4==a                                         $goto gpxyzlabel_after_fillcurvecheck
- put ':3';
+ put 'using 1:2:3';
 $label gpxyzlabel_after_fillcurvecheck
 
 * Insert Auto Code 4 produced by make_345678_linestyle.gms - begin
 $ifi "%gp_l1style%"=="no"                          $goto gpxyzlabel_l_1_errorstyle
-$ifi "%gp_l1style%"=="xerrorlines"                 If(gp_count eq 1, put ':3:4 ';);
-$ifi "%gp_l1style%"=="yerrorlines"                 If(gp_count eq 1, put ':3:4 ';);
-$ifi "%gp_l1style%"=="xerrorbars"                  If(gp_count eq 1, put ':3:4 ';);
-$ifi "%gp_l1style%"=="yerrorbars"                  If(gp_count eq 1, put ':3:4 ';);
-$ifi "%gp_l1style%"=="candlesticks"                If(gp_count eq 1, put ':3:4:5 ';);
-$ifi "%gp_l1style%"=="xyerrorlines"                If(gp_count eq 1, put ':3:4:5:6 ';);
-$ifi "%gp_l1style%"=="xyerrorbars"                 If(gp_count eq 1, put ':3:4:5:6 ';);
-$ifi "%gp_l1style%"=="boxxyerrorbars"              If(gp_count eq 1, put ':3:4:5:6 ';);
-$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l1style%"=="xerrorlines"                 If(gp_count eq 1, put ' using 1:2:3:4 ';);
+$ifi "%gp_l1style%"=="yerrorlines"                 If(gp_count eq 1, put ' using 1:2:3:4 ';);
+$ifi "%gp_l1style%"=="xerrorbars"                  If(gp_count eq 1, put ' using 1:2:3:4 ';);
+$ifi "%gp_l1style%"=="yerrorbars"                  If(gp_count eq 1, put ' using 1:2:3:4 ';);
+$ifi "%gp_l1style%"=="whiskerbars"                 If(gp_count eq 1, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l1style%"=="candlesticks"                If(gp_count eq 1, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l1style%"=="xyerrorlines"                If(gp_count eq 1, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l1style%"=="xyerrorbars"                 If(gp_count eq 1, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l1style%"=="boxxyerrorbars"              If(gp_count eq 1, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l1style%"=="circles"                     If(gp_count eq 1 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_1_errorstyle
 
 $ifi "%gp_l2style%"=="no"                          $goto gpxyzlabel_l_2_errorstyle
-$ifi "%gp_l2style%"=="xerrorlines"                 If(gp_count eq 2, put ':3:4 ';);
-$ifi "%gp_l2style%"=="yerrorlines"                 If(gp_count eq 2, put ':3:4 ';);
-$ifi "%gp_l2style%"=="xerrorbars"                  If(gp_count eq 2, put ':3:4 ';);
-$ifi "%gp_l2style%"=="yerrorbars"                  If(gp_count eq 2, put ':3:4 ';);
-$ifi "%gp_l2style%"=="candlesticks"                If(gp_count eq 2, put ':3:4:5 ';);
-$ifi "%gp_l2style%"=="xyerrorlines"                If(gp_count eq 2, put ':3:4:5:6 ';);
-$ifi "%gp_l2style%"=="xyerrorbars"                 If(gp_count eq 2, put ':3:4:5:6 ';);
-$ifi "%gp_l2style%"=="boxxyerrorbars"              If(gp_count eq 2, put ':3:4:5:6 ';);
-$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l2style%"=="xerrorlines"                 If(gp_count eq 2, put ' using 1:2:3:4 ';);
+$ifi "%gp_l2style%"=="yerrorlines"                 If(gp_count eq 2, put ' using 1:2:3:4 ';);
+$ifi "%gp_l2style%"=="xerrorbars"                  If(gp_count eq 2, put ' using 1:2:3:4 ';);
+$ifi "%gp_l2style%"=="yerrorbars"                  If(gp_count eq 2, put ' using 1:2:3:4 ';);
+$ifi "%gp_l2style%"=="whiskerbars"                 If(gp_count eq 2, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l2style%"=="candlesticks"                If(gp_count eq 2, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l2style%"=="xyerrorlines"                If(gp_count eq 2, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l2style%"=="xyerrorbars"                 If(gp_count eq 2, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l2style%"=="boxxyerrorbars"              If(gp_count eq 2, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l2style%"=="circles"                     If(gp_count eq 2 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_2_errorstyle
 
 $ifi "%gp_l3style%"=="no"                          $goto gpxyzlabel_l_3_errorstyle
-$ifi "%gp_l3style%"=="xerrorlines"                 If(gp_count eq 3, put ':3:4 ';);
-$ifi "%gp_l3style%"=="yerrorlines"                 If(gp_count eq 3, put ':3:4 ';);
-$ifi "%gp_l3style%"=="xerrorbars"                  If(gp_count eq 3, put ':3:4 ';);
-$ifi "%gp_l3style%"=="yerrorbars"                  If(gp_count eq 3, put ':3:4 ';);
-$ifi "%gp_l3style%"=="candlesticks"                If(gp_count eq 3, put ':3:4:5 ';);
-$ifi "%gp_l3style%"=="xyerrorlines"                If(gp_count eq 3, put ':3:4:5:6 ';);
-$ifi "%gp_l3style%"=="xyerrorbars"                 If(gp_count eq 3, put ':3:4:5:6 ';);
-$ifi "%gp_l3style%"=="boxxyerrorbars"              If(gp_count eq 3, put ':3:4:5:6 ';);
-$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l3style%"=="xerrorlines"                 If(gp_count eq 3, put ' using 1:2:3:4 ';);
+$ifi "%gp_l3style%"=="yerrorlines"                 If(gp_count eq 3, put ' using 1:2:3:4 ';);
+$ifi "%gp_l3style%"=="xerrorbars"                  If(gp_count eq 3, put ' using 1:2:3:4 ';);
+$ifi "%gp_l3style%"=="yerrorbars"                  If(gp_count eq 3, put ' using 1:2:3:4 ';);
+$ifi "%gp_l3style%"=="whiskerbars"                 If(gp_count eq 3, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l3style%"=="candlesticks"                If(gp_count eq 3, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l3style%"=="xyerrorlines"                If(gp_count eq 3, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l3style%"=="xyerrorbars"                 If(gp_count eq 3, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l3style%"=="boxxyerrorbars"              If(gp_count eq 3, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l3style%"=="circles"                     If(gp_count eq 3 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_3_errorstyle
 
 $ifi "%gp_l4style%"=="no"                          $goto gpxyzlabel_l_4_errorstyle
-$ifi "%gp_l4style%"=="xerrorlines"                 If(gp_count eq 4, put ':3:4 ';);
-$ifi "%gp_l4style%"=="yerrorlines"                 If(gp_count eq 4, put ':3:4 ';);
-$ifi "%gp_l4style%"=="xerrorbars"                  If(gp_count eq 4, put ':3:4 ';);
-$ifi "%gp_l4style%"=="yerrorbars"                  If(gp_count eq 4, put ':3:4 ';);
-$ifi "%gp_l4style%"=="candlesticks"                If(gp_count eq 4, put ':3:4:5 ';);
-$ifi "%gp_l4style%"=="xyerrorlines"                If(gp_count eq 4, put ':3:4:5:6 ';);
-$ifi "%gp_l4style%"=="xyerrorbars"                 If(gp_count eq 4, put ':3:4:5:6 ';);
-$ifi "%gp_l4style%"=="boxxyerrorbars"              If(gp_count eq 4, put ':3:4:5:6 ';);
-$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l4style%"=="xerrorlines"                 If(gp_count eq 4, put ' using 1:2:3:4 ';);
+$ifi "%gp_l4style%"=="yerrorlines"                 If(gp_count eq 4, put ' using 1:2:3:4 ';);
+$ifi "%gp_l4style%"=="xerrorbars"                  If(gp_count eq 4, put ' using 1:2:3:4 ';);
+$ifi "%gp_l4style%"=="yerrorbars"                  If(gp_count eq 4, put ' using 1:2:3:4 ';);
+$ifi "%gp_l4style%"=="whiskerbars"                 If(gp_count eq 4, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l4style%"=="candlesticks"                If(gp_count eq 4, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l4style%"=="xyerrorlines"                If(gp_count eq 4, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l4style%"=="xyerrorbars"                 If(gp_count eq 4, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l4style%"=="boxxyerrorbars"              If(gp_count eq 4, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l4style%"=="circles"                     If(gp_count eq 4 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_4_errorstyle
 
 $ifi "%gp_l5style%"=="no"                          $goto gpxyzlabel_l_5_errorstyle
-$ifi "%gp_l5style%"=="xerrorlines"                 If(gp_count eq 5, put ':3:4 ';);
-$ifi "%gp_l5style%"=="yerrorlines"                 If(gp_count eq 5, put ':3:4 ';);
-$ifi "%gp_l5style%"=="xerrorbars"                  If(gp_count eq 5, put ':3:4 ';);
-$ifi "%gp_l5style%"=="yerrorbars"                  If(gp_count eq 5, put ':3:4 ';);
-$ifi "%gp_l5style%"=="candlesticks"                If(gp_count eq 5, put ':3:4:5 ';);
-$ifi "%gp_l5style%"=="xyerrorlines"                If(gp_count eq 5, put ':3:4:5:6 ';);
-$ifi "%gp_l5style%"=="xyerrorbars"                 If(gp_count eq 5, put ':3:4:5:6 ';);
-$ifi "%gp_l5style%"=="boxxyerrorbars"              If(gp_count eq 5, put ':3:4:5:6 ';);
-$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l5style%"=="xerrorlines"                 If(gp_count eq 5, put ' using 1:2:3:4 ';);
+$ifi "%gp_l5style%"=="yerrorlines"                 If(gp_count eq 5, put ' using 1:2:3:4 ';);
+$ifi "%gp_l5style%"=="xerrorbars"                  If(gp_count eq 5, put ' using 1:2:3:4 ';);
+$ifi "%gp_l5style%"=="yerrorbars"                  If(gp_count eq 5, put ' using 1:2:3:4 ';);
+$ifi "%gp_l5style%"=="whiskerbars"                 If(gp_count eq 5, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l5style%"=="candlesticks"                If(gp_count eq 5, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l5style%"=="xyerrorlines"                If(gp_count eq 5, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l5style%"=="xyerrorbars"                 If(gp_count eq 5, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l5style%"=="boxxyerrorbars"              If(gp_count eq 5, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l5style%"=="circles"                     If(gp_count eq 5 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_5_errorstyle
 
 $ifi "%gp_l6style%"=="no"                          $goto gpxyzlabel_l_6_errorstyle
-$ifi "%gp_l6style%"=="xerrorlines"                 If(gp_count eq 6, put ':3:4 ';);
-$ifi "%gp_l6style%"=="yerrorlines"                 If(gp_count eq 6, put ':3:4 ';);
-$ifi "%gp_l6style%"=="xerrorbars"                  If(gp_count eq 6, put ':3:4 ';);
-$ifi "%gp_l6style%"=="yerrorbars"                  If(gp_count eq 6, put ':3:4 ';);
-$ifi "%gp_l6style%"=="candlesticks"                If(gp_count eq 6, put ':3:4:5 ';);
-$ifi "%gp_l6style%"=="xyerrorlines"                If(gp_count eq 6, put ':3:4:5:6 ';);
-$ifi "%gp_l6style%"=="xyerrorbars"                 If(gp_count eq 6, put ':3:4:5:6 ';);
-$ifi "%gp_l6style%"=="boxxyerrorbars"              If(gp_count eq 6, put ':3:4:5:6 ';);
-$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l6style%"=="xerrorlines"                 If(gp_count eq 6, put ' using 1:2:3:4 ';);
+$ifi "%gp_l6style%"=="yerrorlines"                 If(gp_count eq 6, put ' using 1:2:3:4 ';);
+$ifi "%gp_l6style%"=="xerrorbars"                  If(gp_count eq 6, put ' using 1:2:3:4 ';);
+$ifi "%gp_l6style%"=="yerrorbars"                  If(gp_count eq 6, put ' using 1:2:3:4 ';);
+$ifi "%gp_l6style%"=="whiskerbars"                 If(gp_count eq 6, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l6style%"=="candlesticks"                If(gp_count eq 6, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l6style%"=="xyerrorlines"                If(gp_count eq 6, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l6style%"=="xyerrorbars"                 If(gp_count eq 6, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l6style%"=="boxxyerrorbars"              If(gp_count eq 6, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l6style%"=="circles"                     If(gp_count eq 6 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_6_errorstyle
 
 $ifi "%gp_l7style%"=="no"                          $goto gpxyzlabel_l_7_errorstyle
-$ifi "%gp_l7style%"=="xerrorlines"                 If(gp_count eq 7, put ':3:4 ';);
-$ifi "%gp_l7style%"=="yerrorlines"                 If(gp_count eq 7, put ':3:4 ';);
-$ifi "%gp_l7style%"=="xerrorbars"                  If(gp_count eq 7, put ':3:4 ';);
-$ifi "%gp_l7style%"=="yerrorbars"                  If(gp_count eq 7, put ':3:4 ';);
-$ifi "%gp_l7style%"=="candlesticks"                If(gp_count eq 7, put ':3:4:5 ';);
-$ifi "%gp_l7style%"=="xyerrorlines"                If(gp_count eq 7, put ':3:4:5:6 ';);
-$ifi "%gp_l7style%"=="xyerrorbars"                 If(gp_count eq 7, put ':3:4:5:6 ';);
-$ifi "%gp_l7style%"=="boxxyerrorbars"              If(gp_count eq 7, put ':3:4:5:6 ';);
-$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l7style%"=="xerrorlines"                 If(gp_count eq 7, put ' using 1:2:3:4 ';);
+$ifi "%gp_l7style%"=="yerrorlines"                 If(gp_count eq 7, put ' using 1:2:3:4 ';);
+$ifi "%gp_l7style%"=="xerrorbars"                  If(gp_count eq 7, put ' using 1:2:3:4 ';);
+$ifi "%gp_l7style%"=="yerrorbars"                  If(gp_count eq 7, put ' using 1:2:3:4 ';);
+$ifi "%gp_l7style%"=="whiskerbars"                 If(gp_count eq 7, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l7style%"=="candlesticks"                If(gp_count eq 7, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l7style%"=="xyerrorlines"                If(gp_count eq 7, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l7style%"=="xyerrorbars"                 If(gp_count eq 7, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l7style%"=="boxxyerrorbars"              If(gp_count eq 7, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l7style%"=="circles"                     If(gp_count eq 7 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_7_errorstyle
 
 $ifi "%gp_l8style%"=="no"                          $goto gpxyzlabel_l_8_errorstyle
-$ifi "%gp_l8style%"=="xerrorlines"                 If(gp_count eq 8, put ':3:4 ';);
-$ifi "%gp_l8style%"=="yerrorlines"                 If(gp_count eq 8, put ':3:4 ';);
-$ifi "%gp_l8style%"=="xerrorbars"                  If(gp_count eq 8, put ':3:4 ';);
-$ifi "%gp_l8style%"=="yerrorbars"                  If(gp_count eq 8, put ':3:4 ';);
-$ifi "%gp_l8style%"=="candlesticks"                If(gp_count eq 8, put ':3:4:5 ';);
-$ifi "%gp_l8style%"=="xyerrorlines"                If(gp_count eq 8, put ':3:4:5:6 ';);
-$ifi "%gp_l8style%"=="xyerrorbars"                 If(gp_count eq 8, put ':3:4:5:6 ';);
-$ifi "%gp_l8style%"=="boxxyerrorbars"              If(gp_count eq 8, put ':3:4:5:6 ';);
-$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l8style%"=="xerrorlines"                 If(gp_count eq 8, put ' using 1:2:3:4 ';);
+$ifi "%gp_l8style%"=="yerrorlines"                 If(gp_count eq 8, put ' using 1:2:3:4 ';);
+$ifi "%gp_l8style%"=="xerrorbars"                  If(gp_count eq 8, put ' using 1:2:3:4 ';);
+$ifi "%gp_l8style%"=="yerrorbars"                  If(gp_count eq 8, put ' using 1:2:3:4 ';);
+$ifi "%gp_l8style%"=="whiskerbars"                 If(gp_count eq 8, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l8style%"=="candlesticks"                If(gp_count eq 8, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l8style%"=="xyerrorlines"                If(gp_count eq 8, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l8style%"=="xyerrorbars"                 If(gp_count eq 8, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l8style%"=="boxxyerrorbars"              If(gp_count eq 8, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l8style%"=="circles"                     If(gp_count eq 8 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_8_errorstyle
 
 $ifi "%gp_l9style%"=="no"                          $goto gpxyzlabel_l_9_errorstyle
-$ifi "%gp_l9style%"=="xerrorlines"                 If(gp_count eq 9, put ':3:4 ';);
-$ifi "%gp_l9style%"=="yerrorlines"                 If(gp_count eq 9, put ':3:4 ';);
-$ifi "%gp_l9style%"=="xerrorbars"                  If(gp_count eq 9, put ':3:4 ';);
-$ifi "%gp_l9style%"=="yerrorbars"                  If(gp_count eq 9, put ':3:4 ';);
-$ifi "%gp_l9style%"=="candlesticks"                If(gp_count eq 9, put ':3:4:5 ';);
-$ifi "%gp_l9style%"=="xyerrorlines"                If(gp_count eq 9, put ':3:4:5:6 ';);
-$ifi "%gp_l9style%"=="xyerrorbars"                 If(gp_count eq 9, put ':3:4:5:6 ';);
-$ifi "%gp_l9style%"=="boxxyerrorbars"              If(gp_count eq 9, put ':3:4:5:6 ';);
-$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l9style%"=="xerrorlines"                 If(gp_count eq 9, put ' using 1:2:3:4 ';);
+$ifi "%gp_l9style%"=="yerrorlines"                 If(gp_count eq 9, put ' using 1:2:3:4 ';);
+$ifi "%gp_l9style%"=="xerrorbars"                  If(gp_count eq 9, put ' using 1:2:3:4 ';);
+$ifi "%gp_l9style%"=="yerrorbars"                  If(gp_count eq 9, put ' using 1:2:3:4 ';);
+$ifi "%gp_l9style%"=="whiskerbars"                 If(gp_count eq 9, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l9style%"=="candlesticks"                If(gp_count eq 9, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l9style%"=="xyerrorlines"                If(gp_count eq 9, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l9style%"=="xyerrorbars"                 If(gp_count eq 9, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l9style%"=="boxxyerrorbars"              If(gp_count eq 9, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l9style%"=="circles"                     If(gp_count eq 9 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_9_errorstyle
 
 $ifi "%gp_l10style%"=="no"                         $goto gpxyzlabel_l_10_errorstyle
-$ifi "%gp_l10style%"=="xerrorlines"                If(gp_count eq 10, put ':3:4 ';);
-$ifi "%gp_l10style%"=="yerrorlines"                If(gp_count eq 10, put ':3:4 ';);
-$ifi "%gp_l10style%"=="xerrorbars"                 If(gp_count eq 10, put ':3:4 ';);
-$ifi "%gp_l10style%"=="yerrorbars"                 If(gp_count eq 10, put ':3:4 ';);
-$ifi "%gp_l10style%"=="candlesticks"               If(gp_count eq 10, put ':3:4:5 ';);
-$ifi "%gp_l10style%"=="xyerrorlines"               If(gp_count eq 10, put ':3:4:5:6 ';);
-$ifi "%gp_l10style%"=="xyerrorbars"                If(gp_count eq 10, put ':3:4:5:6 ';);
-$ifi "%gp_l10style%"=="boxxyerrorbars"             If(gp_count eq 10, put ':3:4:5:6 ';);
-$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l10style%"=="xerrorlines"                If(gp_count eq 10, put ' using 1:2:3:4 ';);
+$ifi "%gp_l10style%"=="yerrorlines"                If(gp_count eq 10, put ' using 1:2:3:4 ';);
+$ifi "%gp_l10style%"=="xerrorbars"                 If(gp_count eq 10, put ' using 1:2:3:4 ';);
+$ifi "%gp_l10style%"=="yerrorbars"                 If(gp_count eq 10, put ' using 1:2:3:4 ';);
+$ifi "%gp_l10style%"=="whiskerbars"                If(gp_count eq 10, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l10style%"=="candlesticks"               If(gp_count eq 10, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l10style%"=="xyerrorlines"               If(gp_count eq 10, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l10style%"=="xyerrorbars"                If(gp_count eq 10, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l10style%"=="boxxyerrorbars"             If(gp_count eq 10, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l10style%"=="circles"                    If(gp_count eq 10 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_10_errorstyle
 
 $ifi "%gp_l11style%"=="no"                         $goto gpxyzlabel_l_11_errorstyle
-$ifi "%gp_l11style%"=="xerrorlines"                If(gp_count eq 11, put ':3:4 ';);
-$ifi "%gp_l11style%"=="yerrorlines"                If(gp_count eq 11, put ':3:4 ';);
-$ifi "%gp_l11style%"=="xerrorbars"                 If(gp_count eq 11, put ':3:4 ';);
-$ifi "%gp_l11style%"=="yerrorbars"                 If(gp_count eq 11, put ':3:4 ';);
-$ifi "%gp_l11style%"=="candlesticks"               If(gp_count eq 11, put ':3:4:5 ';);
-$ifi "%gp_l11style%"=="xyerrorlines"               If(gp_count eq 11, put ':3:4:5:6 ';);
-$ifi "%gp_l11style%"=="xyerrorbars"                If(gp_count eq 11, put ':3:4:5:6 ';);
-$ifi "%gp_l11style%"=="boxxyerrorbars"             If(gp_count eq 11, put ':3:4:5:6 ';);
-$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l11style%"=="xerrorlines"                If(gp_count eq 11, put ' using 1:2:3:4 ';);
+$ifi "%gp_l11style%"=="yerrorlines"                If(gp_count eq 11, put ' using 1:2:3:4 ';);
+$ifi "%gp_l11style%"=="xerrorbars"                 If(gp_count eq 11, put ' using 1:2:3:4 ';);
+$ifi "%gp_l11style%"=="yerrorbars"                 If(gp_count eq 11, put ' using 1:2:3:4 ';);
+$ifi "%gp_l11style%"=="whiskerbars"                If(gp_count eq 11, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l11style%"=="candlesticks"               If(gp_count eq 11, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l11style%"=="xyerrorlines"               If(gp_count eq 11, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l11style%"=="xyerrorbars"                If(gp_count eq 11, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l11style%"=="boxxyerrorbars"             If(gp_count eq 11, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l11style%"=="circles"                    If(gp_count eq 11 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_11_errorstyle
 
 $ifi "%gp_l12style%"=="no"                         $goto gpxyzlabel_l_12_errorstyle
-$ifi "%gp_l12style%"=="xerrorlines"                If(gp_count eq 12, put ':3:4 ';);
-$ifi "%gp_l12style%"=="yerrorlines"                If(gp_count eq 12, put ':3:4 ';);
-$ifi "%gp_l12style%"=="xerrorbars"                 If(gp_count eq 12, put ':3:4 ';);
-$ifi "%gp_l12style%"=="yerrorbars"                 If(gp_count eq 12, put ':3:4 ';);
-$ifi "%gp_l12style%"=="candlesticks"               If(gp_count eq 12, put ':3:4:5 ';);
-$ifi "%gp_l12style%"=="xyerrorlines"               If(gp_count eq 12, put ':3:4:5:6 ';);
-$ifi "%gp_l12style%"=="xyerrorbars"                If(gp_count eq 12, put ':3:4:5:6 ';);
-$ifi "%gp_l12style%"=="boxxyerrorbars"             If(gp_count eq 12, put ':3:4:5:6 ';);
-$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l12style%"=="xerrorlines"                If(gp_count eq 12, put ' using 1:2:3:4 ';);
+$ifi "%gp_l12style%"=="yerrorlines"                If(gp_count eq 12, put ' using 1:2:3:4 ';);
+$ifi "%gp_l12style%"=="xerrorbars"                 If(gp_count eq 12, put ' using 1:2:3:4 ';);
+$ifi "%gp_l12style%"=="yerrorbars"                 If(gp_count eq 12, put ' using 1:2:3:4 ';);
+$ifi "%gp_l12style%"=="whiskerbars"                If(gp_count eq 12, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l12style%"=="candlesticks"               If(gp_count eq 12, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l12style%"=="xyerrorlines"               If(gp_count eq 12, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l12style%"=="xyerrorbars"                If(gp_count eq 12, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l12style%"=="boxxyerrorbars"             If(gp_count eq 12, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l12style%"=="circles"                    If(gp_count eq 12 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_12_errorstyle
 
 $ifi "%gp_l13style%"=="no"                         $goto gpxyzlabel_l_13_errorstyle
-$ifi "%gp_l13style%"=="xerrorlines"                If(gp_count eq 13, put ':3:4 ';);
-$ifi "%gp_l13style%"=="yerrorlines"                If(gp_count eq 13, put ':3:4 ';);
-$ifi "%gp_l13style%"=="xerrorbars"                 If(gp_count eq 13, put ':3:4 ';);
-$ifi "%gp_l13style%"=="yerrorbars"                 If(gp_count eq 13, put ':3:4 ';);
-$ifi "%gp_l13style%"=="candlesticks"               If(gp_count eq 13, put ':3:4:5 ';);
-$ifi "%gp_l13style%"=="xyerrorlines"               If(gp_count eq 13, put ':3:4:5:6 ';);
-$ifi "%gp_l13style%"=="xyerrorbars"                If(gp_count eq 13, put ':3:4:5:6 ';);
-$ifi "%gp_l13style%"=="boxxyerrorbars"             If(gp_count eq 13, put ':3:4:5:6 ';);
-$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l13style%"=="xerrorlines"                If(gp_count eq 13, put ' using 1:2:3:4 ';);
+$ifi "%gp_l13style%"=="yerrorlines"                If(gp_count eq 13, put ' using 1:2:3:4 ';);
+$ifi "%gp_l13style%"=="xerrorbars"                 If(gp_count eq 13, put ' using 1:2:3:4 ';);
+$ifi "%gp_l13style%"=="yerrorbars"                 If(gp_count eq 13, put ' using 1:2:3:4 ';);
+$ifi "%gp_l13style%"=="whiskerbars"                If(gp_count eq 13, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l13style%"=="candlesticks"               If(gp_count eq 13, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l13style%"=="xyerrorlines"               If(gp_count eq 13, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l13style%"=="xyerrorbars"                If(gp_count eq 13, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l13style%"=="boxxyerrorbars"             If(gp_count eq 13, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l13style%"=="circles"                    If(gp_count eq 13 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_13_errorstyle
 
 $ifi "%gp_l14style%"=="no"                         $goto gpxyzlabel_l_14_errorstyle
-$ifi "%gp_l14style%"=="xerrorlines"                If(gp_count eq 14, put ':3:4 ';);
-$ifi "%gp_l14style%"=="yerrorlines"                If(gp_count eq 14, put ':3:4 ';);
-$ifi "%gp_l14style%"=="xerrorbars"                 If(gp_count eq 14, put ':3:4 ';);
-$ifi "%gp_l14style%"=="yerrorbars"                 If(gp_count eq 14, put ':3:4 ';);
-$ifi "%gp_l14style%"=="candlesticks"               If(gp_count eq 14, put ':3:4:5 ';);
-$ifi "%gp_l14style%"=="xyerrorlines"               If(gp_count eq 14, put ':3:4:5:6 ';);
-$ifi "%gp_l14style%"=="xyerrorbars"                If(gp_count eq 14, put ':3:4:5:6 ';);
-$ifi "%gp_l14style%"=="boxxyerrorbars"             If(gp_count eq 14, put ':3:4:5:6 ';);
-$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l14style%"=="xerrorlines"                If(gp_count eq 14, put ' using 1:2:3:4 ';);
+$ifi "%gp_l14style%"=="yerrorlines"                If(gp_count eq 14, put ' using 1:2:3:4 ';);
+$ifi "%gp_l14style%"=="xerrorbars"                 If(gp_count eq 14, put ' using 1:2:3:4 ';);
+$ifi "%gp_l14style%"=="yerrorbars"                 If(gp_count eq 14, put ' using 1:2:3:4 ';);
+$ifi "%gp_l14style%"=="whiskerbars"                If(gp_count eq 14, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l14style%"=="candlesticks"               If(gp_count eq 14, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l14style%"=="xyerrorlines"               If(gp_count eq 14, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l14style%"=="xyerrorbars"                If(gp_count eq 14, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l14style%"=="boxxyerrorbars"             If(gp_count eq 14, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l14style%"=="circles"                    If(gp_count eq 14 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_14_errorstyle
 
 $ifi "%gp_l15style%"=="no"                         $goto gpxyzlabel_l_15_errorstyle
-$ifi "%gp_l15style%"=="xerrorlines"                If(gp_count eq 15, put ':3:4 ';);
-$ifi "%gp_l15style%"=="yerrorlines"                If(gp_count eq 15, put ':3:4 ';);
-$ifi "%gp_l15style%"=="xerrorbars"                 If(gp_count eq 15, put ':3:4 ';);
-$ifi "%gp_l15style%"=="yerrorbars"                 If(gp_count eq 15, put ':3:4 ';);
-$ifi "%gp_l15style%"=="candlesticks"               If(gp_count eq 15, put ':3:4:5 ';);
-$ifi "%gp_l15style%"=="xyerrorlines"               If(gp_count eq 15, put ':3:4:5:6 ';);
-$ifi "%gp_l15style%"=="xyerrorbars"                If(gp_count eq 15, put ':3:4:5:6 ';);
-$ifi "%gp_l15style%"=="boxxyerrorbars"             If(gp_count eq 15, put ':3:4:5:6 ';);
-$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l15style%"=="xerrorlines"                If(gp_count eq 15, put ' using 1:2:3:4 ';);
+$ifi "%gp_l15style%"=="yerrorlines"                If(gp_count eq 15, put ' using 1:2:3:4 ';);
+$ifi "%gp_l15style%"=="xerrorbars"                 If(gp_count eq 15, put ' using 1:2:3:4 ';);
+$ifi "%gp_l15style%"=="yerrorbars"                 If(gp_count eq 15, put ' using 1:2:3:4 ';);
+$ifi "%gp_l15style%"=="whiskerbars"                If(gp_count eq 15, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l15style%"=="candlesticks"               If(gp_count eq 15, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l15style%"=="xyerrorlines"               If(gp_count eq 15, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l15style%"=="xyerrorbars"                If(gp_count eq 15, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l15style%"=="boxxyerrorbars"             If(gp_count eq 15, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l15style%"=="circles"                    If(gp_count eq 15 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_15_errorstyle
 
 $ifi "%gp_l16style%"=="no"                         $goto gpxyzlabel_l_16_errorstyle
-$ifi "%gp_l16style%"=="xerrorlines"                If(gp_count eq 16, put ':3:4 ';);
-$ifi "%gp_l16style%"=="yerrorlines"                If(gp_count eq 16, put ':3:4 ';);
-$ifi "%gp_l16style%"=="xerrorbars"                 If(gp_count eq 16, put ':3:4 ';);
-$ifi "%gp_l16style%"=="yerrorbars"                 If(gp_count eq 16, put ':3:4 ';);
-$ifi "%gp_l16style%"=="candlesticks"               If(gp_count eq 16, put ':3:4:5 ';);
-$ifi "%gp_l16style%"=="xyerrorlines"               If(gp_count eq 16, put ':3:4:5:6 ';);
-$ifi "%gp_l16style%"=="xyerrorbars"                If(gp_count eq 16, put ':3:4:5:6 ';);
-$ifi "%gp_l16style%"=="boxxyerrorbars"             If(gp_count eq 16, put ':3:4:5:6 ';);
-$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l16style%"=="xerrorlines"                If(gp_count eq 16, put ' using 1:2:3:4 ';);
+$ifi "%gp_l16style%"=="yerrorlines"                If(gp_count eq 16, put ' using 1:2:3:4 ';);
+$ifi "%gp_l16style%"=="xerrorbars"                 If(gp_count eq 16, put ' using 1:2:3:4 ';);
+$ifi "%gp_l16style%"=="yerrorbars"                 If(gp_count eq 16, put ' using 1:2:3:4 ';);
+$ifi "%gp_l16style%"=="whiskerbars"                If(gp_count eq 16, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l16style%"=="candlesticks"               If(gp_count eq 16, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l16style%"=="xyerrorlines"               If(gp_count eq 16, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l16style%"=="xyerrorbars"                If(gp_count eq 16, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l16style%"=="boxxyerrorbars"             If(gp_count eq 16, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l16style%"=="circles"                    If(gp_count eq 16 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_16_errorstyle
 
 $ifi "%gp_l17style%"=="no"                         $goto gpxyzlabel_l_17_errorstyle
-$ifi "%gp_l17style%"=="xerrorlines"                If(gp_count eq 17, put ':3:4 ';);
-$ifi "%gp_l17style%"=="yerrorlines"                If(gp_count eq 17, put ':3:4 ';);
-$ifi "%gp_l17style%"=="xerrorbars"                 If(gp_count eq 17, put ':3:4 ';);
-$ifi "%gp_l17style%"=="yerrorbars"                 If(gp_count eq 17, put ':3:4 ';);
-$ifi "%gp_l17style%"=="candlesticks"               If(gp_count eq 17, put ':3:4:5 ';);
-$ifi "%gp_l17style%"=="xyerrorlines"               If(gp_count eq 17, put ':3:4:5:6 ';);
-$ifi "%gp_l17style%"=="xyerrorbars"                If(gp_count eq 17, put ':3:4:5:6 ';);
-$ifi "%gp_l17style%"=="boxxyerrorbars"             If(gp_count eq 17, put ':3:4:5:6 ';);
-$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l17style%"=="xerrorlines"                If(gp_count eq 17, put ' using 1:2:3:4 ';);
+$ifi "%gp_l17style%"=="yerrorlines"                If(gp_count eq 17, put ' using 1:2:3:4 ';);
+$ifi "%gp_l17style%"=="xerrorbars"                 If(gp_count eq 17, put ' using 1:2:3:4 ';);
+$ifi "%gp_l17style%"=="yerrorbars"                 If(gp_count eq 17, put ' using 1:2:3:4 ';);
+$ifi "%gp_l17style%"=="whiskerbars"                If(gp_count eq 17, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l17style%"=="candlesticks"               If(gp_count eq 17, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l17style%"=="xyerrorlines"               If(gp_count eq 17, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l17style%"=="xyerrorbars"                If(gp_count eq 17, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l17style%"=="boxxyerrorbars"             If(gp_count eq 17, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l17style%"=="circles"                    If(gp_count eq 17 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_17_errorstyle
 
 $ifi "%gp_l18style%"=="no"                         $goto gpxyzlabel_l_18_errorstyle
-$ifi "%gp_l18style%"=="xerrorlines"                If(gp_count eq 18, put ':3:4 ';);
-$ifi "%gp_l18style%"=="yerrorlines"                If(gp_count eq 18, put ':3:4 ';);
-$ifi "%gp_l18style%"=="xerrorbars"                 If(gp_count eq 18, put ':3:4 ';);
-$ifi "%gp_l18style%"=="yerrorbars"                 If(gp_count eq 18, put ':3:4 ';);
-$ifi "%gp_l18style%"=="candlesticks"               If(gp_count eq 18, put ':3:4:5 ';);
-$ifi "%gp_l18style%"=="xyerrorlines"               If(gp_count eq 18, put ':3:4:5:6 ';);
-$ifi "%gp_l18style%"=="xyerrorbars"                If(gp_count eq 18, put ':3:4:5:6 ';);
-$ifi "%gp_l18style%"=="boxxyerrorbars"             If(gp_count eq 18, put ':3:4:5:6 ';);
-$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l18style%"=="xerrorlines"                If(gp_count eq 18, put ' using 1:2:3:4 ';);
+$ifi "%gp_l18style%"=="yerrorlines"                If(gp_count eq 18, put ' using 1:2:3:4 ';);
+$ifi "%gp_l18style%"=="xerrorbars"                 If(gp_count eq 18, put ' using 1:2:3:4 ';);
+$ifi "%gp_l18style%"=="yerrorbars"                 If(gp_count eq 18, put ' using 1:2:3:4 ';);
+$ifi "%gp_l18style%"=="whiskerbars"                If(gp_count eq 18, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l18style%"=="candlesticks"               If(gp_count eq 18, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l18style%"=="xyerrorlines"               If(gp_count eq 18, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l18style%"=="xyerrorbars"                If(gp_count eq 18, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l18style%"=="boxxyerrorbars"             If(gp_count eq 18, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l18style%"=="circles"                    If(gp_count eq 18 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_18_errorstyle
 
 $ifi "%gp_l19style%"=="no"                         $goto gpxyzlabel_l_19_errorstyle
-$ifi "%gp_l19style%"=="xerrorlines"                If(gp_count eq 19, put ':3:4 ';);
-$ifi "%gp_l19style%"=="yerrorlines"                If(gp_count eq 19, put ':3:4 ';);
-$ifi "%gp_l19style%"=="xerrorbars"                 If(gp_count eq 19, put ':3:4 ';);
-$ifi "%gp_l19style%"=="yerrorbars"                 If(gp_count eq 19, put ':3:4 ';);
-$ifi "%gp_l19style%"=="candlesticks"               If(gp_count eq 19, put ':3:4:5 ';);
-$ifi "%gp_l19style%"=="xyerrorlines"               If(gp_count eq 19, put ':3:4:5:6 ';);
-$ifi "%gp_l19style%"=="xyerrorbars"                If(gp_count eq 19, put ':3:4:5:6 ';);
-$ifi "%gp_l19style%"=="boxxyerrorbars"             If(gp_count eq 19, put ':3:4:5:6 ';);
-$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l19style%"=="xerrorlines"                If(gp_count eq 19, put ' using 1:2:3:4 ';);
+$ifi "%gp_l19style%"=="yerrorlines"                If(gp_count eq 19, put ' using 1:2:3:4 ';);
+$ifi "%gp_l19style%"=="xerrorbars"                 If(gp_count eq 19, put ' using 1:2:3:4 ';);
+$ifi "%gp_l19style%"=="yerrorbars"                 If(gp_count eq 19, put ' using 1:2:3:4 ';);
+$ifi "%gp_l19style%"=="whiskerbars"                If(gp_count eq 19, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l19style%"=="candlesticks"               If(gp_count eq 19, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l19style%"=="xyerrorlines"               If(gp_count eq 19, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l19style%"=="xyerrorbars"                If(gp_count eq 19, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l19style%"=="boxxyerrorbars"             If(gp_count eq 19, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l19style%"=="circles"                    If(gp_count eq 19 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_19_errorstyle
 
 $ifi "%gp_l20style%"=="no"                         $goto gpxyzlabel_l_20_errorstyle
-$ifi "%gp_l20style%"=="xerrorlines"                If(gp_count eq 20, put ':3:4 ';);
-$ifi "%gp_l20style%"=="yerrorlines"                If(gp_count eq 20, put ':3:4 ';);
-$ifi "%gp_l20style%"=="xerrorbars"                 If(gp_count eq 20, put ':3:4 ';);
-$ifi "%gp_l20style%"=="yerrorbars"                 If(gp_count eq 20, put ':3:4 ';);
-$ifi "%gp_l20style%"=="candlesticks"               If(gp_count eq 20, put ':3:4:5 ';);
-$ifi "%gp_l20style%"=="xyerrorlines"               If(gp_count eq 20, put ':3:4:5:6 ';);
-$ifi "%gp_l20style%"=="xyerrorbars"                If(gp_count eq 20, put ':3:4:5:6 ';);
-$ifi "%gp_l20style%"=="boxxyerrorbars"             If(gp_count eq 20, put ':3:4:5:6 ';);
-$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l20style%"=="xerrorlines"                If(gp_count eq 20, put ' using 1:2:3:4 ';);
+$ifi "%gp_l20style%"=="yerrorlines"                If(gp_count eq 20, put ' using 1:2:3:4 ';);
+$ifi "%gp_l20style%"=="xerrorbars"                 If(gp_count eq 20, put ' using 1:2:3:4 ';);
+$ifi "%gp_l20style%"=="yerrorbars"                 If(gp_count eq 20, put ' using 1:2:3:4 ';);
+$ifi "%gp_l20style%"=="whiskerbars"                If(gp_count eq 20, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l20style%"=="candlesticks"               If(gp_count eq 20, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l20style%"=="xyerrorlines"               If(gp_count eq 20, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l20style%"=="xyerrorbars"                If(gp_count eq 20, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l20style%"=="boxxyerrorbars"             If(gp_count eq 20, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l20style%"=="circles"                    If(gp_count eq 20 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_20_errorstyle
 
 $ifi "%gp_l21style%"=="no"                         $goto gpxyzlabel_l_21_errorstyle
-$ifi "%gp_l21style%"=="xerrorlines"                If(gp_count eq 21, put ':3:4 ';);
-$ifi "%gp_l21style%"=="yerrorlines"                If(gp_count eq 21, put ':3:4 ';);
-$ifi "%gp_l21style%"=="xerrorbars"                 If(gp_count eq 21, put ':3:4 ';);
-$ifi "%gp_l21style%"=="yerrorbars"                 If(gp_count eq 21, put ':3:4 ';);
-$ifi "%gp_l21style%"=="candlesticks"               If(gp_count eq 21, put ':3:4:5 ';);
-$ifi "%gp_l21style%"=="xyerrorlines"               If(gp_count eq 21, put ':3:4:5:6 ';);
-$ifi "%gp_l21style%"=="xyerrorbars"                If(gp_count eq 21, put ':3:4:5:6 ';);
-$ifi "%gp_l21style%"=="boxxyerrorbars"             If(gp_count eq 21, put ':3:4:5:6 ';);
-$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l21style%"=="xerrorlines"                If(gp_count eq 21, put ' using 1:2:3:4 ';);
+$ifi "%gp_l21style%"=="yerrorlines"                If(gp_count eq 21, put ' using 1:2:3:4 ';);
+$ifi "%gp_l21style%"=="xerrorbars"                 If(gp_count eq 21, put ' using 1:2:3:4 ';);
+$ifi "%gp_l21style%"=="yerrorbars"                 If(gp_count eq 21, put ' using 1:2:3:4 ';);
+$ifi "%gp_l21style%"=="whiskerbars"                If(gp_count eq 21, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l21style%"=="candlesticks"               If(gp_count eq 21, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l21style%"=="xyerrorlines"               If(gp_count eq 21, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l21style%"=="xyerrorbars"                If(gp_count eq 21, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l21style%"=="boxxyerrorbars"             If(gp_count eq 21, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l21style%"=="circles"                    If(gp_count eq 21 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_21_errorstyle
 
 $ifi "%gp_l22style%"=="no"                         $goto gpxyzlabel_l_22_errorstyle
-$ifi "%gp_l22style%"=="xerrorlines"                If(gp_count eq 22, put ':3:4 ';);
-$ifi "%gp_l22style%"=="yerrorlines"                If(gp_count eq 22, put ':3:4 ';);
-$ifi "%gp_l22style%"=="xerrorbars"                 If(gp_count eq 22, put ':3:4 ';);
-$ifi "%gp_l22style%"=="yerrorbars"                 If(gp_count eq 22, put ':3:4 ';);
-$ifi "%gp_l22style%"=="candlesticks"               If(gp_count eq 22, put ':3:4:5 ';);
-$ifi "%gp_l22style%"=="xyerrorlines"               If(gp_count eq 22, put ':3:4:5:6 ';);
-$ifi "%gp_l22style%"=="xyerrorbars"                If(gp_count eq 22, put ':3:4:5:6 ';);
-$ifi "%gp_l22style%"=="boxxyerrorbars"             If(gp_count eq 22, put ':3:4:5:6 ';);
-$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l22style%"=="xerrorlines"                If(gp_count eq 22, put ' using 1:2:3:4 ';);
+$ifi "%gp_l22style%"=="yerrorlines"                If(gp_count eq 22, put ' using 1:2:3:4 ';);
+$ifi "%gp_l22style%"=="xerrorbars"                 If(gp_count eq 22, put ' using 1:2:3:4 ';);
+$ifi "%gp_l22style%"=="yerrorbars"                 If(gp_count eq 22, put ' using 1:2:3:4 ';);
+$ifi "%gp_l22style%"=="whiskerbars"                If(gp_count eq 22, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l22style%"=="candlesticks"               If(gp_count eq 22, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l22style%"=="xyerrorlines"               If(gp_count eq 22, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l22style%"=="xyerrorbars"                If(gp_count eq 22, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l22style%"=="boxxyerrorbars"             If(gp_count eq 22, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l22style%"=="circles"                    If(gp_count eq 22 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_22_errorstyle
 
 $ifi "%gp_l23style%"=="no"                         $goto gpxyzlabel_l_23_errorstyle
-$ifi "%gp_l23style%"=="xerrorlines"                If(gp_count eq 23, put ':3:4 ';);
-$ifi "%gp_l23style%"=="yerrorlines"                If(gp_count eq 23, put ':3:4 ';);
-$ifi "%gp_l23style%"=="xerrorbars"                 If(gp_count eq 23, put ':3:4 ';);
-$ifi "%gp_l23style%"=="yerrorbars"                 If(gp_count eq 23, put ':3:4 ';);
-$ifi "%gp_l23style%"=="candlesticks"               If(gp_count eq 23, put ':3:4:5 ';);
-$ifi "%gp_l23style%"=="xyerrorlines"               If(gp_count eq 23, put ':3:4:5:6 ';);
-$ifi "%gp_l23style%"=="xyerrorbars"                If(gp_count eq 23, put ':3:4:5:6 ';);
-$ifi "%gp_l23style%"=="boxxyerrorbars"             If(gp_count eq 23, put ':3:4:5:6 ';);
-$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l23style%"=="xerrorlines"                If(gp_count eq 23, put ' using 1:2:3:4 ';);
+$ifi "%gp_l23style%"=="yerrorlines"                If(gp_count eq 23, put ' using 1:2:3:4 ';);
+$ifi "%gp_l23style%"=="xerrorbars"                 If(gp_count eq 23, put ' using 1:2:3:4 ';);
+$ifi "%gp_l23style%"=="yerrorbars"                 If(gp_count eq 23, put ' using 1:2:3:4 ';);
+$ifi "%gp_l23style%"=="whiskerbars"                If(gp_count eq 23, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l23style%"=="candlesticks"               If(gp_count eq 23, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l23style%"=="xyerrorlines"               If(gp_count eq 23, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l23style%"=="xyerrorbars"                If(gp_count eq 23, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l23style%"=="boxxyerrorbars"             If(gp_count eq 23, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l23style%"=="circles"                    If(gp_count eq 23 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_23_errorstyle
 
 $ifi "%gp_l24style%"=="no"                         $goto gpxyzlabel_l_24_errorstyle
-$ifi "%gp_l24style%"=="xerrorlines"                If(gp_count eq 24, put ':3:4 ';);
-$ifi "%gp_l24style%"=="yerrorlines"                If(gp_count eq 24, put ':3:4 ';);
-$ifi "%gp_l24style%"=="xerrorbars"                 If(gp_count eq 24, put ':3:4 ';);
-$ifi "%gp_l24style%"=="yerrorbars"                 If(gp_count eq 24, put ':3:4 ';);
-$ifi "%gp_l24style%"=="candlesticks"               If(gp_count eq 24, put ':3:4:5 ';);
-$ifi "%gp_l24style%"=="xyerrorlines"               If(gp_count eq 24, put ':3:4:5:6 ';);
-$ifi "%gp_l24style%"=="xyerrorbars"                If(gp_count eq 24, put ':3:4:5:6 ';);
-$ifi "%gp_l24style%"=="boxxyerrorbars"             If(gp_count eq 24, put ':3:4:5:6 ';);
-$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l24style%"=="xerrorlines"                If(gp_count eq 24, put ' using 1:2:3:4 ';);
+$ifi "%gp_l24style%"=="yerrorlines"                If(gp_count eq 24, put ' using 1:2:3:4 ';);
+$ifi "%gp_l24style%"=="xerrorbars"                 If(gp_count eq 24, put ' using 1:2:3:4 ';);
+$ifi "%gp_l24style%"=="yerrorbars"                 If(gp_count eq 24, put ' using 1:2:3:4 ';);
+$ifi "%gp_l24style%"=="whiskerbars"                If(gp_count eq 24, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l24style%"=="candlesticks"               If(gp_count eq 24, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l24style%"=="xyerrorlines"               If(gp_count eq 24, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l24style%"=="xyerrorbars"                If(gp_count eq 24, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l24style%"=="boxxyerrorbars"             If(gp_count eq 24, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l24style%"=="circles"                    If(gp_count eq 24 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_24_errorstyle
 
 $ifi "%gp_l25style%"=="no"                         $goto gpxyzlabel_l_25_errorstyle
-$ifi "%gp_l25style%"=="xerrorlines"                If(gp_count eq 25, put ':3:4 ';);
-$ifi "%gp_l25style%"=="yerrorlines"                If(gp_count eq 25, put ':3:4 ';);
-$ifi "%gp_l25style%"=="xerrorbars"                 If(gp_count eq 25, put ':3:4 ';);
-$ifi "%gp_l25style%"=="yerrorbars"                 If(gp_count eq 25, put ':3:4 ';);
-$ifi "%gp_l25style%"=="candlesticks"               If(gp_count eq 25, put ':3:4:5 ';);
-$ifi "%gp_l25style%"=="xyerrorlines"               If(gp_count eq 25, put ':3:4:5:6 ';);
-$ifi "%gp_l25style%"=="xyerrorbars"                If(gp_count eq 25, put ':3:4:5:6 ';);
-$ifi "%gp_l25style%"=="boxxyerrorbars"             If(gp_count eq 25, put ':3:4:5:6 ';);
-$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l25style%"=="xerrorlines"                If(gp_count eq 25, put ' using 1:2:3:4 ';);
+$ifi "%gp_l25style%"=="yerrorlines"                If(gp_count eq 25, put ' using 1:2:3:4 ';);
+$ifi "%gp_l25style%"=="xerrorbars"                 If(gp_count eq 25, put ' using 1:2:3:4 ';);
+$ifi "%gp_l25style%"=="yerrorbars"                 If(gp_count eq 25, put ' using 1:2:3:4 ';);
+$ifi "%gp_l25style%"=="whiskerbars"                If(gp_count eq 25, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l25style%"=="candlesticks"               If(gp_count eq 25, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l25style%"=="xyerrorlines"               If(gp_count eq 25, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l25style%"=="xyerrorbars"                If(gp_count eq 25, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l25style%"=="boxxyerrorbars"             If(gp_count eq 25, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l25style%"=="circles"                    If(gp_count eq 25 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_25_errorstyle
 
 $ifi "%gp_l26style%"=="no"                         $goto gpxyzlabel_l_26_errorstyle
-$ifi "%gp_l26style%"=="xerrorlines"                If(gp_count eq 26, put ':3:4 ';);
-$ifi "%gp_l26style%"=="yerrorlines"                If(gp_count eq 26, put ':3:4 ';);
-$ifi "%gp_l26style%"=="xerrorbars"                 If(gp_count eq 26, put ':3:4 ';);
-$ifi "%gp_l26style%"=="yerrorbars"                 If(gp_count eq 26, put ':3:4 ';);
-$ifi "%gp_l26style%"=="candlesticks"               If(gp_count eq 26, put ':3:4:5 ';);
-$ifi "%gp_l26style%"=="xyerrorlines"               If(gp_count eq 26, put ':3:4:5:6 ';);
-$ifi "%gp_l26style%"=="xyerrorbars"                If(gp_count eq 26, put ':3:4:5:6 ';);
-$ifi "%gp_l26style%"=="boxxyerrorbars"             If(gp_count eq 26, put ':3:4:5:6 ';);
-$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l26style%"=="xerrorlines"                If(gp_count eq 26, put ' using 1:2:3:4 ';);
+$ifi "%gp_l26style%"=="yerrorlines"                If(gp_count eq 26, put ' using 1:2:3:4 ';);
+$ifi "%gp_l26style%"=="xerrorbars"                 If(gp_count eq 26, put ' using 1:2:3:4 ';);
+$ifi "%gp_l26style%"=="yerrorbars"                 If(gp_count eq 26, put ' using 1:2:3:4 ';);
+$ifi "%gp_l26style%"=="whiskerbars"                If(gp_count eq 26, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l26style%"=="candlesticks"               If(gp_count eq 26, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l26style%"=="xyerrorlines"               If(gp_count eq 26, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l26style%"=="xyerrorbars"                If(gp_count eq 26, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l26style%"=="boxxyerrorbars"             If(gp_count eq 26, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l26style%"=="circles"                    If(gp_count eq 26 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_26_errorstyle
 
 $ifi "%gp_l27style%"=="no"                         $goto gpxyzlabel_l_27_errorstyle
-$ifi "%gp_l27style%"=="xerrorlines"                If(gp_count eq 27, put ':3:4 ';);
-$ifi "%gp_l27style%"=="yerrorlines"                If(gp_count eq 27, put ':3:4 ';);
-$ifi "%gp_l27style%"=="xerrorbars"                 If(gp_count eq 27, put ':3:4 ';);
-$ifi "%gp_l27style%"=="yerrorbars"                 If(gp_count eq 27, put ':3:4 ';);
-$ifi "%gp_l27style%"=="candlesticks"               If(gp_count eq 27, put ':3:4:5 ';);
-$ifi "%gp_l27style%"=="xyerrorlines"               If(gp_count eq 27, put ':3:4:5:6 ';);
-$ifi "%gp_l27style%"=="xyerrorbars"                If(gp_count eq 27, put ':3:4:5:6 ';);
-$ifi "%gp_l27style%"=="boxxyerrorbars"             If(gp_count eq 27, put ':3:4:5:6 ';);
-$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l27style%"=="xerrorlines"                If(gp_count eq 27, put ' using 1:2:3:4 ';);
+$ifi "%gp_l27style%"=="yerrorlines"                If(gp_count eq 27, put ' using 1:2:3:4 ';);
+$ifi "%gp_l27style%"=="xerrorbars"                 If(gp_count eq 27, put ' using 1:2:3:4 ';);
+$ifi "%gp_l27style%"=="yerrorbars"                 If(gp_count eq 27, put ' using 1:2:3:4 ';);
+$ifi "%gp_l27style%"=="whiskerbars"                If(gp_count eq 27, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l27style%"=="candlesticks"               If(gp_count eq 27, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l27style%"=="xyerrorlines"               If(gp_count eq 27, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l27style%"=="xyerrorbars"                If(gp_count eq 27, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l27style%"=="boxxyerrorbars"             If(gp_count eq 27, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l27style%"=="circles"                    If(gp_count eq 27 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_27_errorstyle
 
 $ifi "%gp_l28style%"=="no"                         $goto gpxyzlabel_l_28_errorstyle
-$ifi "%gp_l28style%"=="xerrorlines"                If(gp_count eq 28, put ':3:4 ';);
-$ifi "%gp_l28style%"=="yerrorlines"                If(gp_count eq 28, put ':3:4 ';);
-$ifi "%gp_l28style%"=="xerrorbars"                 If(gp_count eq 28, put ':3:4 ';);
-$ifi "%gp_l28style%"=="yerrorbars"                 If(gp_count eq 28, put ':3:4 ';);
-$ifi "%gp_l28style%"=="candlesticks"               If(gp_count eq 28, put ':3:4:5 ';);
-$ifi "%gp_l28style%"=="xyerrorlines"               If(gp_count eq 28, put ':3:4:5:6 ';);
-$ifi "%gp_l28style%"=="xyerrorbars"                If(gp_count eq 28, put ':3:4:5:6 ';);
-$ifi "%gp_l28style%"=="boxxyerrorbars"             If(gp_count eq 28, put ':3:4:5:6 ';);
-$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l28style%"=="xerrorlines"                If(gp_count eq 28, put ' using 1:2:3:4 ';);
+$ifi "%gp_l28style%"=="yerrorlines"                If(gp_count eq 28, put ' using 1:2:3:4 ';);
+$ifi "%gp_l28style%"=="xerrorbars"                 If(gp_count eq 28, put ' using 1:2:3:4 ';);
+$ifi "%gp_l28style%"=="yerrorbars"                 If(gp_count eq 28, put ' using 1:2:3:4 ';);
+$ifi "%gp_l28style%"=="whiskerbars"                If(gp_count eq 28, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l28style%"=="candlesticks"               If(gp_count eq 28, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l28style%"=="xyerrorlines"               If(gp_count eq 28, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l28style%"=="xyerrorbars"                If(gp_count eq 28, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l28style%"=="boxxyerrorbars"             If(gp_count eq 28, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l28style%"=="circles"                    If(gp_count eq 28 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_28_errorstyle
 
 $ifi "%gp_l29style%"=="no"                         $goto gpxyzlabel_l_29_errorstyle
-$ifi "%gp_l29style%"=="xerrorlines"                If(gp_count eq 29, put ':3:4 ';);
-$ifi "%gp_l29style%"=="yerrorlines"                If(gp_count eq 29, put ':3:4 ';);
-$ifi "%gp_l29style%"=="xerrorbars"                 If(gp_count eq 29, put ':3:4 ';);
-$ifi "%gp_l29style%"=="yerrorbars"                 If(gp_count eq 29, put ':3:4 ';);
-$ifi "%gp_l29style%"=="candlesticks"               If(gp_count eq 29, put ':3:4:5 ';);
-$ifi "%gp_l29style%"=="xyerrorlines"               If(gp_count eq 29, put ':3:4:5:6 ';);
-$ifi "%gp_l29style%"=="xyerrorbars"                If(gp_count eq 29, put ':3:4:5:6 ';);
-$ifi "%gp_l29style%"=="boxxyerrorbars"             If(gp_count eq 29, put ':3:4:5:6 ';);
-$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l29style%"=="xerrorlines"                If(gp_count eq 29, put ' using 1:2:3:4 ';);
+$ifi "%gp_l29style%"=="yerrorlines"                If(gp_count eq 29, put ' using 1:2:3:4 ';);
+$ifi "%gp_l29style%"=="xerrorbars"                 If(gp_count eq 29, put ' using 1:2:3:4 ';);
+$ifi "%gp_l29style%"=="yerrorbars"                 If(gp_count eq 29, put ' using 1:2:3:4 ';);
+$ifi "%gp_l29style%"=="whiskerbars"                If(gp_count eq 29, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l29style%"=="candlesticks"               If(gp_count eq 29, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l29style%"=="xyerrorlines"               If(gp_count eq 29, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l29style%"=="xyerrorbars"                If(gp_count eq 29, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l29style%"=="boxxyerrorbars"             If(gp_count eq 29, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l29style%"=="circles"                    If(gp_count eq 29 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_29_errorstyle
 
 $ifi "%gp_l30style%"=="no"                         $goto gpxyzlabel_l_30_errorstyle
-$ifi "%gp_l30style%"=="xerrorlines"                If(gp_count eq 30, put ':3:4 ';);
-$ifi "%gp_l30style%"=="yerrorlines"                If(gp_count eq 30, put ':3:4 ';);
-$ifi "%gp_l30style%"=="xerrorbars"                 If(gp_count eq 30, put ':3:4 ';);
-$ifi "%gp_l30style%"=="yerrorbars"                 If(gp_count eq 30, put ':3:4 ';);
-$ifi "%gp_l30style%"=="candlesticks"               If(gp_count eq 30, put ':3:4:5 ';);
-$ifi "%gp_l30style%"=="xyerrorlines"               If(gp_count eq 30, put ':3:4:5:6 ';);
-$ifi "%gp_l30style%"=="xyerrorbars"                If(gp_count eq 30, put ':3:4:5:6 ';);
-$ifi "%gp_l30style%"=="boxxyerrorbars"             If(gp_count eq 30, put ':3:4:5:6 ';);
-$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ':3 ';);
-$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ':3:4 ';);
-$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ':3:4:5 ';);
-$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ':3:4:5:6 ';);
+$ifi "%gp_l30style%"=="xerrorlines"                If(gp_count eq 30, put ' using 1:2:3:4 ';);
+$ifi "%gp_l30style%"=="yerrorlines"                If(gp_count eq 30, put ' using 1:2:3:4 ';);
+$ifi "%gp_l30style%"=="xerrorbars"                 If(gp_count eq 30, put ' using 1:2:3:4 ';);
+$ifi "%gp_l30style%"=="yerrorbars"                 If(gp_count eq 30, put ' using 1:2:3:4 ';);
+$ifi "%gp_l30style%"=="whiskerbars"                If(gp_count eq 30, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l30style%"=="candlesticks"               If(gp_count eq 30, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l30style%"=="xyerrorlines"               If(gp_count eq 30, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l30style%"=="xyerrorbars"                If(gp_count eq 30, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l30style%"=="boxxyerrorbars"             If(gp_count eq 30, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l30style%"=="circles"                    If(gp_count eq 30 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
 $label gpxyzlabel_l_30_errorstyle
+
+$ifi "%gp_l31style%"=="no"                         $goto gpxyzlabel_l_31_errorstyle
+$ifi "%gp_l31style%"=="xerrorlines"                If(gp_count eq 31, put ' using 1:2:3:4 ';);
+$ifi "%gp_l31style%"=="yerrorlines"                If(gp_count eq 31, put ' using 1:2:3:4 ';);
+$ifi "%gp_l31style%"=="xerrorbars"                 If(gp_count eq 31, put ' using 1:2:3:4 ';);
+$ifi "%gp_l31style%"=="yerrorbars"                 If(gp_count eq 31, put ' using 1:2:3:4 ';);
+$ifi "%gp_l31style%"=="whiskerbars"                If(gp_count eq 31, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l31style%"=="candlesticks"               If(gp_count eq 31, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l31style%"=="xyerrorlines"               If(gp_count eq 31, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l31style%"=="xyerrorbars"                If(gp_count eq 31, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l31style%"=="boxxyerrorbars"             If(gp_count eq 31, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l31style%"=="circles"                    If(gp_count eq 31 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l31style%"=="circles"                    If(gp_count eq 31 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l31style%"=="circles"                    If(gp_count eq 31 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l31style%"=="circles"                    If(gp_count eq 31 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_31_errorstyle
+
+$ifi "%gp_l32style%"=="no"                         $goto gpxyzlabel_l_32_errorstyle
+$ifi "%gp_l32style%"=="xerrorlines"                If(gp_count eq 32, put ' using 1:2:3:4 ';);
+$ifi "%gp_l32style%"=="yerrorlines"                If(gp_count eq 32, put ' using 1:2:3:4 ';);
+$ifi "%gp_l32style%"=="xerrorbars"                 If(gp_count eq 32, put ' using 1:2:3:4 ';);
+$ifi "%gp_l32style%"=="yerrorbars"                 If(gp_count eq 32, put ' using 1:2:3:4 ';);
+$ifi "%gp_l32style%"=="whiskerbars"                If(gp_count eq 32, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l32style%"=="candlesticks"               If(gp_count eq 32, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l32style%"=="xyerrorlines"               If(gp_count eq 32, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l32style%"=="xyerrorbars"                If(gp_count eq 32, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l32style%"=="boxxyerrorbars"             If(gp_count eq 32, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l32style%"=="circles"                    If(gp_count eq 32 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l32style%"=="circles"                    If(gp_count eq 32 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l32style%"=="circles"                    If(gp_count eq 32 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l32style%"=="circles"                    If(gp_count eq 32 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_32_errorstyle
+
+$ifi "%gp_l33style%"=="no"                         $goto gpxyzlabel_l_33_errorstyle
+$ifi "%gp_l33style%"=="xerrorlines"                If(gp_count eq 33, put ' using 1:2:3:4 ';);
+$ifi "%gp_l33style%"=="yerrorlines"                If(gp_count eq 33, put ' using 1:2:3:4 ';);
+$ifi "%gp_l33style%"=="xerrorbars"                 If(gp_count eq 33, put ' using 1:2:3:4 ';);
+$ifi "%gp_l33style%"=="yerrorbars"                 If(gp_count eq 33, put ' using 1:2:3:4 ';);
+$ifi "%gp_l33style%"=="whiskerbars"                If(gp_count eq 33, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l33style%"=="candlesticks"               If(gp_count eq 33, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l33style%"=="xyerrorlines"               If(gp_count eq 33, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l33style%"=="xyerrorbars"                If(gp_count eq 33, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l33style%"=="boxxyerrorbars"             If(gp_count eq 33, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l33style%"=="circles"                    If(gp_count eq 33 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l33style%"=="circles"                    If(gp_count eq 33 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l33style%"=="circles"                    If(gp_count eq 33 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l33style%"=="circles"                    If(gp_count eq 33 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_33_errorstyle
+
+$ifi "%gp_l34style%"=="no"                         $goto gpxyzlabel_l_34_errorstyle
+$ifi "%gp_l34style%"=="xerrorlines"                If(gp_count eq 34, put ' using 1:2:3:4 ';);
+$ifi "%gp_l34style%"=="yerrorlines"                If(gp_count eq 34, put ' using 1:2:3:4 ';);
+$ifi "%gp_l34style%"=="xerrorbars"                 If(gp_count eq 34, put ' using 1:2:3:4 ';);
+$ifi "%gp_l34style%"=="yerrorbars"                 If(gp_count eq 34, put ' using 1:2:3:4 ';);
+$ifi "%gp_l34style%"=="whiskerbars"                If(gp_count eq 34, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l34style%"=="candlesticks"               If(gp_count eq 34, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l34style%"=="xyerrorlines"               If(gp_count eq 34, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l34style%"=="xyerrorbars"                If(gp_count eq 34, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l34style%"=="boxxyerrorbars"             If(gp_count eq 34, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l34style%"=="circles"                    If(gp_count eq 34 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l34style%"=="circles"                    If(gp_count eq 34 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l34style%"=="circles"                    If(gp_count eq 34 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l34style%"=="circles"                    If(gp_count eq 34 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_34_errorstyle
+
+$ifi "%gp_l35style%"=="no"                         $goto gpxyzlabel_l_35_errorstyle
+$ifi "%gp_l35style%"=="xerrorlines"                If(gp_count eq 35, put ' using 1:2:3:4 ';);
+$ifi "%gp_l35style%"=="yerrorlines"                If(gp_count eq 35, put ' using 1:2:3:4 ';);
+$ifi "%gp_l35style%"=="xerrorbars"                 If(gp_count eq 35, put ' using 1:2:3:4 ';);
+$ifi "%gp_l35style%"=="yerrorbars"                 If(gp_count eq 35, put ' using 1:2:3:4 ';);
+$ifi "%gp_l35style%"=="whiskerbars"                If(gp_count eq 35, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l35style%"=="candlesticks"               If(gp_count eq 35, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l35style%"=="xyerrorlines"               If(gp_count eq 35, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l35style%"=="xyerrorbars"                If(gp_count eq 35, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l35style%"=="boxxyerrorbars"             If(gp_count eq 35, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l35style%"=="circles"                    If(gp_count eq 35 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l35style%"=="circles"                    If(gp_count eq 35 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l35style%"=="circles"                    If(gp_count eq 35 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l35style%"=="circles"                    If(gp_count eq 35 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_35_errorstyle
+
+$ifi "%gp_l36style%"=="no"                         $goto gpxyzlabel_l_36_errorstyle
+$ifi "%gp_l36style%"=="xerrorlines"                If(gp_count eq 36, put ' using 1:2:3:4 ';);
+$ifi "%gp_l36style%"=="yerrorlines"                If(gp_count eq 36, put ' using 1:2:3:4 ';);
+$ifi "%gp_l36style%"=="xerrorbars"                 If(gp_count eq 36, put ' using 1:2:3:4 ';);
+$ifi "%gp_l36style%"=="yerrorbars"                 If(gp_count eq 36, put ' using 1:2:3:4 ';);
+$ifi "%gp_l36style%"=="whiskerbars"                If(gp_count eq 36, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l36style%"=="candlesticks"               If(gp_count eq 36, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l36style%"=="xyerrorlines"               If(gp_count eq 36, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l36style%"=="xyerrorbars"                If(gp_count eq 36, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l36style%"=="boxxyerrorbars"             If(gp_count eq 36, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l36style%"=="circles"                    If(gp_count eq 36 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l36style%"=="circles"                    If(gp_count eq 36 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l36style%"=="circles"                    If(gp_count eq 36 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l36style%"=="circles"                    If(gp_count eq 36 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_36_errorstyle
+
+$ifi "%gp_l37style%"=="no"                         $goto gpxyzlabel_l_37_errorstyle
+$ifi "%gp_l37style%"=="xerrorlines"                If(gp_count eq 37, put ' using 1:2:3:4 ';);
+$ifi "%gp_l37style%"=="yerrorlines"                If(gp_count eq 37, put ' using 1:2:3:4 ';);
+$ifi "%gp_l37style%"=="xerrorbars"                 If(gp_count eq 37, put ' using 1:2:3:4 ';);
+$ifi "%gp_l37style%"=="yerrorbars"                 If(gp_count eq 37, put ' using 1:2:3:4 ';);
+$ifi "%gp_l37style%"=="whiskerbars"                If(gp_count eq 37, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l37style%"=="candlesticks"               If(gp_count eq 37, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l37style%"=="xyerrorlines"               If(gp_count eq 37, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l37style%"=="xyerrorbars"                If(gp_count eq 37, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l37style%"=="boxxyerrorbars"             If(gp_count eq 37, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l37style%"=="circles"                    If(gp_count eq 37 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l37style%"=="circles"                    If(gp_count eq 37 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l37style%"=="circles"                    If(gp_count eq 37 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l37style%"=="circles"                    If(gp_count eq 37 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_37_errorstyle
+
+$ifi "%gp_l38style%"=="no"                         $goto gpxyzlabel_l_38_errorstyle
+$ifi "%gp_l38style%"=="xerrorlines"                If(gp_count eq 38, put ' using 1:2:3:4 ';);
+$ifi "%gp_l38style%"=="yerrorlines"                If(gp_count eq 38, put ' using 1:2:3:4 ';);
+$ifi "%gp_l38style%"=="xerrorbars"                 If(gp_count eq 38, put ' using 1:2:3:4 ';);
+$ifi "%gp_l38style%"=="yerrorbars"                 If(gp_count eq 38, put ' using 1:2:3:4 ';);
+$ifi "%gp_l38style%"=="whiskerbars"                If(gp_count eq 38, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l38style%"=="candlesticks"               If(gp_count eq 38, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l38style%"=="xyerrorlines"               If(gp_count eq 38, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l38style%"=="xyerrorbars"                If(gp_count eq 38, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l38style%"=="boxxyerrorbars"             If(gp_count eq 38, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l38style%"=="circles"                    If(gp_count eq 38 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l38style%"=="circles"                    If(gp_count eq 38 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l38style%"=="circles"                    If(gp_count eq 38 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l38style%"=="circles"                    If(gp_count eq 38 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_38_errorstyle
+
+$ifi "%gp_l39style%"=="no"                         $goto gpxyzlabel_l_39_errorstyle
+$ifi "%gp_l39style%"=="xerrorlines"                If(gp_count eq 39, put ' using 1:2:3:4 ';);
+$ifi "%gp_l39style%"=="yerrorlines"                If(gp_count eq 39, put ' using 1:2:3:4 ';);
+$ifi "%gp_l39style%"=="xerrorbars"                 If(gp_count eq 39, put ' using 1:2:3:4 ';);
+$ifi "%gp_l39style%"=="yerrorbars"                 If(gp_count eq 39, put ' using 1:2:3:4 ';);
+$ifi "%gp_l39style%"=="whiskerbars"                If(gp_count eq 39, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l39style%"=="candlesticks"               If(gp_count eq 39, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l39style%"=="xyerrorlines"               If(gp_count eq 39, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l39style%"=="xyerrorbars"                If(gp_count eq 39, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l39style%"=="boxxyerrorbars"             If(gp_count eq 39, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l39style%"=="circles"                    If(gp_count eq 39 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l39style%"=="circles"                    If(gp_count eq 39 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l39style%"=="circles"                    If(gp_count eq 39 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l39style%"=="circles"                    If(gp_count eq 39 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_39_errorstyle
+
+$ifi "%gp_l40style%"=="no"                         $goto gpxyzlabel_l_40_errorstyle
+$ifi "%gp_l40style%"=="xerrorlines"                If(gp_count eq 40, put ' using 1:2:3:4 ';);
+$ifi "%gp_l40style%"=="yerrorlines"                If(gp_count eq 40, put ' using 1:2:3:4 ';);
+$ifi "%gp_l40style%"=="xerrorbars"                 If(gp_count eq 40, put ' using 1:2:3:4 ';);
+$ifi "%gp_l40style%"=="yerrorbars"                 If(gp_count eq 40, put ' using 1:2:3:4 ';);
+$ifi "%gp_l40style%"=="whiskerbars"                If(gp_count eq 40, put ' using 2:4:3:7:6 ';);
+$ifi "%gp_l40style%"=="candlesticks"               If(gp_count eq 40, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l40style%"=="xyerrorlines"               If(gp_count eq 40, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l40style%"=="xyerrorbars"                If(gp_count eq 40, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l40style%"=="boxxyerrorbars"             If(gp_count eq 40, put ' using 1:2:3:4:5:6 ';);
+$ifi "%gp_l40style%"=="circles"                    If(gp_count eq 40 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) eq 0, put ' using 1:2:3 ';);
+$ifi "%gp_l40style%"=="circles"                    If(gp_count eq 40 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col4%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) eq 0, put ' using 1:2:3:4 ';);
+$ifi "%gp_l40style%"=="circles"                    If(gp_count eq 40 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col5%") ne 0),1) ne 0 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) eq 0, put ' using 1:2:3:4:5 ';);
+$ifi "%gp_l40style%"=="circles"                    If(gp_count eq 40 and sum(%gp_obsv_1% $(%1(%gp_scen%,%gp_obsv_1%,"%gp__col6%") ne 0),1) ne 0, put ' using 1:2:3:4:5:6 ';);
+$label gpxyzlabel_l_40_errorstyle
 * Insert Auto Code 4 produced by make_345678_linestyle.gms - end
 
 
@@ -3450,210 +3770,210 @@ IF(no_gp_legend(%gp_scen%),  put ' title ""';
 * Insert Auto Code 6 produced by make_345678_linestyle.gms - begin
 $if not setglobal gp_l1style                       $goto gpxyzlabel_l_1_style
 $ifi "%gp_l1style%"=="no"                          $goto gpxyzlabel_l_1_style
-If(gp_count eq 1, put " with %gp_l1style%";);
+If(gp_count eq 1, put " with %gp_l1antestyle% %gp_l1style%";);
 $if not "%gp_l1style%" == "boxes"                  $goto gpxyzlabel_l_1_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 1, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 1, put " lt -1";);
 $label gpxyzlabel_l_1_style
 $if not setglobal gp_l2style                       $goto gpxyzlabel_l_2_style
 $ifi "%gp_l2style%"=="no"                          $goto gpxyzlabel_l_2_style
-If(gp_count eq 2, put " with %gp_l2style%";);
+If(gp_count eq 2, put " with %gp_l2antestyle% %gp_l2style%";);
 $if not "%gp_l2style%" == "boxes"                  $goto gpxyzlabel_l_2_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 2, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 2, put " lt -1";);
 $label gpxyzlabel_l_2_style
 $if not setglobal gp_l3style                       $goto gpxyzlabel_l_3_style
 $ifi "%gp_l3style%"=="no"                          $goto gpxyzlabel_l_3_style
-If(gp_count eq 3, put " with %gp_l3style%";);
+If(gp_count eq 3, put " with %gp_l3antestyle% %gp_l3style%";);
 $if not "%gp_l3style%" == "boxes"                  $goto gpxyzlabel_l_3_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 3, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 3, put " lt -1";);
 $label gpxyzlabel_l_3_style
 $if not setglobal gp_l4style                       $goto gpxyzlabel_l_4_style
 $ifi "%gp_l4style%"=="no"                          $goto gpxyzlabel_l_4_style
-If(gp_count eq 4, put " with %gp_l4style%";);
+If(gp_count eq 4, put " with %gp_l4antestyle% %gp_l4style%";);
 $if not "%gp_l4style%" == "boxes"                  $goto gpxyzlabel_l_4_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 4, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 4, put " lt -1";);
 $label gpxyzlabel_l_4_style
 $if not setglobal gp_l5style                       $goto gpxyzlabel_l_5_style
 $ifi "%gp_l5style%"=="no"                          $goto gpxyzlabel_l_5_style
-If(gp_count eq 5, put " with %gp_l5style%";);
+If(gp_count eq 5, put " with %gp_l5antestyle% %gp_l5style%";);
 $if not "%gp_l5style%" == "boxes"                  $goto gpxyzlabel_l_5_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 5, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 5, put " lt -1";);
 $label gpxyzlabel_l_5_style
 $if not setglobal gp_l6style                       $goto gpxyzlabel_l_6_style
 $ifi "%gp_l6style%"=="no"                          $goto gpxyzlabel_l_6_style
-If(gp_count eq 6, put " with %gp_l6style%";);
+If(gp_count eq 6, put " with %gp_l6antestyle% %gp_l6style%";);
 $if not "%gp_l6style%" == "boxes"                  $goto gpxyzlabel_l_6_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 6, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 6, put " lt -1";);
 $label gpxyzlabel_l_6_style
 $if not setglobal gp_l7style                       $goto gpxyzlabel_l_7_style
 $ifi "%gp_l7style%"=="no"                          $goto gpxyzlabel_l_7_style
-If(gp_count eq 7, put " with %gp_l7style%";);
+If(gp_count eq 7, put " with %gp_l7antestyle% %gp_l7style%";);
 $if not "%gp_l7style%" == "boxes"                  $goto gpxyzlabel_l_7_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 7, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 7, put " lt -1";);
 $label gpxyzlabel_l_7_style
 $if not setglobal gp_l8style                       $goto gpxyzlabel_l_8_style
 $ifi "%gp_l8style%"=="no"                          $goto gpxyzlabel_l_8_style
-If(gp_count eq 8, put " with %gp_l8style%";);
+If(gp_count eq 8, put " with %gp_l8antestyle% %gp_l8style%";);
 $if not "%gp_l8style%" == "boxes"                  $goto gpxyzlabel_l_8_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 8, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 8, put " lt -1";);
 $label gpxyzlabel_l_8_style
 $if not setglobal gp_l9style                       $goto gpxyzlabel_l_9_style
 $ifi "%gp_l9style%"=="no"                          $goto gpxyzlabel_l_9_style
-If(gp_count eq 9, put " with %gp_l9style%";);
+If(gp_count eq 9, put " with %gp_l9antestyle% %gp_l9style%";);
 $if not "%gp_l9style%" == "boxes"                  $goto gpxyzlabel_l_9_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 9, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 9, put " lt -1";);
 $label gpxyzlabel_l_9_style
 $if not setglobal gp_l10style                      $goto gpxyzlabel_l_10_style
 $ifi "%gp_l10style%"=="no"                         $goto gpxyzlabel_l_10_style
-If(gp_count eq 10, put " with %gp_l10style%";);
+If(gp_count eq 10, put " with %gp_l10antestyle% %gp_l10style%";);
 $if not "%gp_l10style%" == "boxes"                 $goto gpxyzlabel_l_10_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 10, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 10, put " lt -1";);
 $label gpxyzlabel_l_10_style
 $if not setglobal gp_l11style                      $goto gpxyzlabel_l_11_style
 $ifi "%gp_l11style%"=="no"                         $goto gpxyzlabel_l_11_style
-If(gp_count eq 11, put " with %gp_l11style%";);
+If(gp_count eq 11, put " with %gp_l11antestyle% %gp_l11style%";);
 $if not "%gp_l11style%" == "boxes"                 $goto gpxyzlabel_l_11_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 11, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 11, put " lt -1";);
 $label gpxyzlabel_l_11_style
 $if not setglobal gp_l12style                      $goto gpxyzlabel_l_12_style
 $ifi "%gp_l12style%"=="no"                         $goto gpxyzlabel_l_12_style
-If(gp_count eq 12, put " with %gp_l12style%";);
+If(gp_count eq 12, put " with %gp_l12antestyle% %gp_l12style%";);
 $if not "%gp_l12style%" == "boxes"                 $goto gpxyzlabel_l_12_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 12, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 12, put " lt -1";);
 $label gpxyzlabel_l_12_style
 $if not setglobal gp_l13style                      $goto gpxyzlabel_l_13_style
 $ifi "%gp_l13style%"=="no"                         $goto gpxyzlabel_l_13_style
-If(gp_count eq 13, put " with %gp_l13style%";);
+If(gp_count eq 13, put " with %gp_l13antestyle% %gp_l13style%";);
 $if not "%gp_l13style%" == "boxes"                 $goto gpxyzlabel_l_13_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 13, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 13, put " lt -1";);
 $label gpxyzlabel_l_13_style
 $if not setglobal gp_l14style                      $goto gpxyzlabel_l_14_style
 $ifi "%gp_l14style%"=="no"                         $goto gpxyzlabel_l_14_style
-If(gp_count eq 14, put " with %gp_l14style%";);
+If(gp_count eq 14, put " with %gp_l14antestyle% %gp_l14style%";);
 $if not "%gp_l14style%" == "boxes"                 $goto gpxyzlabel_l_14_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 14, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 14, put " lt -1";);
 $label gpxyzlabel_l_14_style
 $if not setglobal gp_l15style                      $goto gpxyzlabel_l_15_style
 $ifi "%gp_l15style%"=="no"                         $goto gpxyzlabel_l_15_style
-If(gp_count eq 15, put " with %gp_l15style%";);
+If(gp_count eq 15, put " with %gp_l15antestyle% %gp_l15style%";);
 $if not "%gp_l15style%" == "boxes"                 $goto gpxyzlabel_l_15_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 15, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 15, put " lt -1";);
 $label gpxyzlabel_l_15_style
 $if not setglobal gp_l16style                      $goto gpxyzlabel_l_16_style
 $ifi "%gp_l16style%"=="no"                         $goto gpxyzlabel_l_16_style
-If(gp_count eq 16, put " with %gp_l16style%";);
+If(gp_count eq 16, put " with %gp_l16antestyle% %gp_l16style%";);
 $if not "%gp_l16style%" == "boxes"                 $goto gpxyzlabel_l_16_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 16, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 16, put " lt -1";);
 $label gpxyzlabel_l_16_style
 $if not setglobal gp_l17style                      $goto gpxyzlabel_l_17_style
 $ifi "%gp_l17style%"=="no"                         $goto gpxyzlabel_l_17_style
-If(gp_count eq 17, put " with %gp_l17style%";);
+If(gp_count eq 17, put " with %gp_l17antestyle% %gp_l17style%";);
 $if not "%gp_l17style%" == "boxes"                 $goto gpxyzlabel_l_17_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 17, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 17, put " lt -1";);
 $label gpxyzlabel_l_17_style
 $if not setglobal gp_l18style                      $goto gpxyzlabel_l_18_style
 $ifi "%gp_l18style%"=="no"                         $goto gpxyzlabel_l_18_style
-If(gp_count eq 18, put " with %gp_l18style%";);
+If(gp_count eq 18, put " with %gp_l18antestyle% %gp_l18style%";);
 $if not "%gp_l18style%" == "boxes"                 $goto gpxyzlabel_l_18_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 18, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 18, put " lt -1";);
 $label gpxyzlabel_l_18_style
 $if not setglobal gp_l19style                      $goto gpxyzlabel_l_19_style
 $ifi "%gp_l19style%"=="no"                         $goto gpxyzlabel_l_19_style
-If(gp_count eq 19, put " with %gp_l19style%";);
+If(gp_count eq 19, put " with %gp_l19antestyle% %gp_l19style%";);
 $if not "%gp_l19style%" == "boxes"                 $goto gpxyzlabel_l_19_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 19, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 19, put " lt -1";);
 $label gpxyzlabel_l_19_style
 $if not setglobal gp_l20style                      $goto gpxyzlabel_l_20_style
 $ifi "%gp_l20style%"=="no"                         $goto gpxyzlabel_l_20_style
-If(gp_count eq 20, put " with %gp_l20style%";);
+If(gp_count eq 20, put " with %gp_l20antestyle% %gp_l20style%";);
 $if not "%gp_l20style%" == "boxes"                 $goto gpxyzlabel_l_20_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 20, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 20, put " lt -1";);
 $label gpxyzlabel_l_20_style
 $if not setglobal gp_l21style                      $goto gpxyzlabel_l_21_style
 $ifi "%gp_l21style%"=="no"                         $goto gpxyzlabel_l_21_style
-If(gp_count eq 21, put " with %gp_l21style%";);
+If(gp_count eq 21, put " with %gp_l21antestyle% %gp_l21style%";);
 $if not "%gp_l21style%" == "boxes"                 $goto gpxyzlabel_l_21_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 21, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 21, put " lt -1";);
 $label gpxyzlabel_l_21_style
 $if not setglobal gp_l22style                      $goto gpxyzlabel_l_22_style
 $ifi "%gp_l22style%"=="no"                         $goto gpxyzlabel_l_22_style
-If(gp_count eq 22, put " with %gp_l22style%";);
+If(gp_count eq 22, put " with %gp_l22antestyle% %gp_l22style%";);
 $if not "%gp_l22style%" == "boxes"                 $goto gpxyzlabel_l_22_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 22, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 22, put " lt -1";);
 $label gpxyzlabel_l_22_style
 $if not setglobal gp_l23style                      $goto gpxyzlabel_l_23_style
 $ifi "%gp_l23style%"=="no"                         $goto gpxyzlabel_l_23_style
-If(gp_count eq 23, put " with %gp_l23style%";);
+If(gp_count eq 23, put " with %gp_l23antestyle% %gp_l23style%";);
 $if not "%gp_l23style%" == "boxes"                 $goto gpxyzlabel_l_23_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 23, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 23, put " lt -1";);
 $label gpxyzlabel_l_23_style
 $if not setglobal gp_l24style                      $goto gpxyzlabel_l_24_style
 $ifi "%gp_l24style%"=="no"                         $goto gpxyzlabel_l_24_style
-If(gp_count eq 24, put " with %gp_l24style%";);
+If(gp_count eq 24, put " with %gp_l24antestyle% %gp_l24style%";);
 $if not "%gp_l24style%" == "boxes"                 $goto gpxyzlabel_l_24_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 24, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 24, put " lt -1";);
 $label gpxyzlabel_l_24_style
 $if not setglobal gp_l25style                      $goto gpxyzlabel_l_25_style
 $ifi "%gp_l25style%"=="no"                         $goto gpxyzlabel_l_25_style
-If(gp_count eq 25, put " with %gp_l25style%";);
+If(gp_count eq 25, put " with %gp_l25antestyle% %gp_l25style%";);
 $if not "%gp_l25style%" == "boxes"                 $goto gpxyzlabel_l_25_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 25, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 25, put " lt -1";);
 $label gpxyzlabel_l_25_style
 $if not setglobal gp_l26style                      $goto gpxyzlabel_l_26_style
 $ifi "%gp_l26style%"=="no"                         $goto gpxyzlabel_l_26_style
-If(gp_count eq 26, put " with %gp_l26style%";);
+If(gp_count eq 26, put " with %gp_l26antestyle% %gp_l26style%";);
 $if not "%gp_l26style%" == "boxes"                 $goto gpxyzlabel_l_26_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 26, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 26, put " lt -1";);
 $label gpxyzlabel_l_26_style
 $if not setglobal gp_l27style                      $goto gpxyzlabel_l_27_style
 $ifi "%gp_l27style%"=="no"                         $goto gpxyzlabel_l_27_style
-If(gp_count eq 27, put " with %gp_l27style%";);
+If(gp_count eq 27, put " with %gp_l27antestyle% %gp_l27style%";);
 $if not "%gp_l27style%" == "boxes"                 $goto gpxyzlabel_l_27_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 27, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 27, put " lt -1";);
 $label gpxyzlabel_l_27_style
 $if not setglobal gp_l28style                      $goto gpxyzlabel_l_28_style
 $ifi "%gp_l28style%"=="no"                         $goto gpxyzlabel_l_28_style
-If(gp_count eq 28, put " with %gp_l28style%";);
+If(gp_count eq 28, put " with %gp_l28antestyle% %gp_l28style%";);
 $if not "%gp_l28style%" == "boxes"                 $goto gpxyzlabel_l_28_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 28, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 28, put " lt -1";);
 $label gpxyzlabel_l_28_style
 $if not setglobal gp_l29style                      $goto gpxyzlabel_l_29_style
 $ifi "%gp_l29style%"=="no"                         $goto gpxyzlabel_l_29_style
-If(gp_count eq 29, put " with %gp_l29style%";);
+If(gp_count eq 29, put " with %gp_l29antestyle% %gp_l29style%";);
 $if not "%gp_l29style%" == "boxes"                 $goto gpxyzlabel_l_29_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 29, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 29, put " lt -1";);
 $label gpxyzlabel_l_29_style
 $if not setglobal gp_l30style                      $goto gpxyzlabel_l_30_style
 $ifi "%gp_l30style%"=="no"                         $goto gpxyzlabel_l_30_style
-If(gp_count eq 30, put " with %gp_l30style%";);
+If(gp_count eq 30, put " with %gp_l30antestyle% %gp_l30style%";);
 $if not "%gp_l30style%" == "boxes"                 $goto gpxyzlabel_l_30_style
 $ifi  "%gp_color%" == "no"                         If(gp_count eq 30, put " lt -1";);
 $ifi  "%gp_color%" == "monochrome"                 If(gp_count eq 30, put " lt -1";);
@@ -4653,9 +4973,17 @@ $label gpxyzlabel_after_lwidth_general_assign_30
 );
 * Insert Auto Code 7 produced by make_345678_linestyle.gms - end
 
+Put ', \' /;
+
+* Median plotting for whiskers
+$ifi not "%gp_style%" == "whiskerbars"             $goto gpxyzlabel_after_median_to_whisker
+  put  ' "gnuplot%gp_multiplot_count%.dat" index ',(gp_count-1):0:0;
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#A9A9A9" notitle, \' /;
+$label gpxyzlabel_after_median_to_whisker
+
  gp_input.nw = 6;
  gp_count = gp_count + 1;
-   ); put /;
+   ); put  " NaN notitle" /;
 
 $goto gpxyzlabel_write_data_file
 
@@ -8328,18 +8656,20 @@ gp__0(%gp_scen%) = inf;
 %gp_data_string%.nr = 1;
 %gp_data_string%.nr = 2;
 
+
 $if dimension 1 %1                                 $goto gpxyzlabel_put_1D_data
-$if "%gp_style%"=="heatmap"                        $goto gpxyzlabel_put_heatmap_data
-$if "%gp_style%"=="filledcurves"                   $goto gpxyzlabel_put_2D_data
+$ifi "%gp_style%"=="heatmap"                       $goto gpxyzlabel_put_heatmap_data
+$ifi "%gp_style%"=="filledcurves"                  $goto gpxyzlabel_put_2D_data
+$ifi "%gp_style%"=="whiskerbars"                   $goto gpxyzlabel_put_2D_data
 $if dimension 2 %1                                 $goto gpxyzlabel_put_histogram_or_spider_data
 $if a%2==a                                         $goto gpxyzlabel_put_newhistogram_data
 $if not a%4==a                                     $goto gpxyzlabel_put_3Dgraph_data
 $if dimension 4 %1                                 $goto gpxyzlabel_put_3D_data
 
 $label gpxyzlabel_put_2D_data
-
-
 * Segment Put 2D Plot data
+* Three dimensional data with more arguments
+
 loop(%gp_scen%,
   loop(%gp_obsv_1%,
     if(      ((%1(%gp_scen%,%gp_obsv_1%,"%gp_xxxvalue%") eq 0) and
@@ -8358,10 +8688,53 @@ $goto gpxyzlabel_putdata
 
 $label gpxyzlabel_putdata
 
+$ifi not "%gp_style%"=="whiskerbars"               $goto gpxyzlabel_afterwhisherdummy
+
+%gp_data_string%.TW = 50;
+put %gp_data_string%, "# INDEX 0: Dummy block just for labels" /;
+%gp_data_string%.tw = 16;
+
+* Should move to a general sections
+gp_count = 0;
+loop(%gp_obsv_1%,
+ gp_count = gp_count + 1;
+ gp_obsvcount(%gp_obsv_1%) = gp_count;
+   );
+gp_count = 0;
+loop(%gp_scen%,
+ gp_count = gp_count + 1;
+ gp_scencount(%gp_scen%) = gp_count;
+   );
+
+gp_whiskerposition(%gp_scen%,%gp_obsv_1%)
+ = gp_obsvcount(%gp_obsv_1%)
+ + (gp_scencount(%gp_scen%)-1) * (%gp_boxwidth% + %gp_boxgap%)
+ - (card(%gp_scen%)-1) * (%gp_boxwidth% +%gp_boxgap%)/2;
+
+loop(%gp_obsv_1%,
+put %gp_data_string%, %gp_obsv_1%.TL;
+put %gp_data_string%, gp_obsvcount(%gp_obsv_1%);
+$if not a%2==a   put %gp_data_string%, zerovalue;
+$if not a%3==a   put %gp_data_string%, zerovalue;
+$if not a%4==a   put %gp_data_string%, zerovalue;
+$if not a%5==a   put %gp_data_string%, zerovalue;
+$if not a%6==a   put %gp_data_string%, zerovalue;
+$if not a%7==a   put %gp_data_string%, zerovalue;
+Put /; );
+* Different Data Index Blocks need to be separated by 2 empty lines!
+PUT / /;
+
+$label gpxyzlabel_afterwhisherdummy
+
+
 loop(%gp_scen%,
  gp_count = 0;
 
   loop(%gp_obsv_1%,
+
+$ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, %gp_obsv_1%.tl;
+$ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, gp_whiskerposition(%gp_scen%,%gp_obsv_1%);
+
     gp_count = gp_count + 1;
     if(     ((gp_supzer eq 0) and ((gp_count - gp__0(%gp_scen%)) lt 0)
           or (       %1(%gp_scen%,%gp_obsv_1%,"%gp_xxxvalue%") ne 0 or
@@ -8379,6 +8752,7 @@ loop(%gp_scen%,
         else
          put %gp_data_string%, %1(%gp_scen%,%gp_obsv_1%,"%gp_yyyvalue%") ;
       );
+
 $if a%4==a       $goto gpxyzlabel_line_break_indata
       if (%1(%gp_scen%,%gp_obsv_1%,"%gp__col3%") eq gp_na,
          put %gp_data_string%, '                ';

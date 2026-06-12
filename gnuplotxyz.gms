@@ -8711,8 +8711,9 @@ gp_whiskerposition(%gp_scen%,%gp_obsv_1%)
  + (gp_scencount(%gp_scen%)-1) * (%gp_boxwidth% + %gp_boxgap%)
  - (card(%gp_scen%)-1) * (%gp_boxwidth% +%gp_boxgap%)/2;
 
+%gp_data_string%.tw = 1;
 loop(%gp_obsv_1%,
-put %gp_data_string%, %gp_obsv_1%.TL;
+put %gp_data_string%, '"',%gp_obsv_1%.TL,'"',;
 put %gp_data_string%, gp_obsvcount(%gp_obsv_1%);
 $if not a%2==a   put %gp_data_string%, zerovalue;
 $if not a%3==a   put %gp_data_string%, zerovalue;
@@ -8721,6 +8722,7 @@ $if not a%5==a   put %gp_data_string%, zerovalue;
 $if not a%6==a   put %gp_data_string%, zerovalue;
 $if not a%7==a   put %gp_data_string%, zerovalue;
 Put /; );
+%gp_data_string%.tw = 16; 
 * Different Data Index Blocks need to be separated by 2 empty lines!
 PUT / /;
 
@@ -8732,8 +8734,10 @@ loop(%gp_scen%,
 
   loop(%gp_obsv_1%,
 
-$ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, %gp_obsv_1%.tl;
+%gp_data_string%.tw = 1;
+$ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, '"',%gp_obsv_1%.tl,'"';
 $ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, gp_whiskerposition(%gp_scen%,%gp_obsv_1%);
+%gp_data_string%.tw = 16;
 
     gp_count = gp_count + 1;
     if(     ((gp_supzer eq 0) and ((gp_count - gp__0(%gp_scen%)) lt 0)

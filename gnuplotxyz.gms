@@ -4975,16 +4975,253 @@ $label gpxyzlabel_after_lwidth_general_assign_30
 
 Put ', \' /;
 
-* Median plotting for whiskers
-
-$if not setglobal gp_mediancolor_hexadecimal       $setglobal gp_mediancolor_hexadecimal 000000
-$ifi "%gp_mediancolor_hexadecimal%" == "no"        $setglobal gp_mediancolor_hexadecimal 000000
-
-
 
 $ifi not "%gp_style%" == "whiskerbars"             $goto gpxyzlabel_after_median_to_whisker
   put  ' "gnuplot%gp_multiplot_count%.dat" index ',(gp_count-1):0:0;
-  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_mediancolor_hexadecimal%" notitle, \' /;
+
+* Insert Auto Code 7a0 produced by make_345678_linestyle.gms - begin
+If(gp_count eq 1,
+$if setglobal gp_hexmedcol_1                       $goto gpxyzlabel_after_hexmedcol_1
+$ifi     "%gp_lc_1%"=="black"                      $setglobal gp_hexmedcol_1 FFFAF0
+$ifi not "%gp_lc_1%"=="black"                      $setglobal gp_hexmedcol_1 000000
+$label gpxyzlabel_after_hexmedcol_1
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_1%" notitle, \'/;
+);
+
+If(gp_count eq 2,
+$if setglobal gp_hexmedcol_2                       $goto gpxyzlabel_after_hexmedcol_2
+$ifi     "%gp_lc_2%"=="black"                      $setglobal gp_hexmedcol_2 FFFAF0
+$ifi not "%gp_lc_2%"=="black"                      $setglobal gp_hexmedcol_2 000000
+$label gpxyzlabel_after_hexmedcol_2
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_2%" notitle, \'/;
+);
+
+If(gp_count eq 3,
+$if setglobal gp_hexmedcol_3                       $goto gpxyzlabel_after_hexmedcol_3
+$ifi     "%gp_lc_3%"=="black"                      $setglobal gp_hexmedcol_3 FFFAF0
+$ifi not "%gp_lc_3%"=="black"                      $setglobal gp_hexmedcol_3 000000
+$label gpxyzlabel_after_hexmedcol_3
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_3%" notitle, \'/;
+);
+
+If(gp_count eq 4,
+$if setglobal gp_hexmedcol_4                       $goto gpxyzlabel_after_hexmedcol_4
+$ifi     "%gp_lc_4%"=="black"                      $setglobal gp_hexmedcol_4 FFFAF0
+$ifi not "%gp_lc_4%"=="black"                      $setglobal gp_hexmedcol_4 000000
+$label gpxyzlabel_after_hexmedcol_4
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_4%" notitle, \'/;
+);
+
+If(gp_count eq 5,
+$if setglobal gp_hexmedcol_5                       $goto gpxyzlabel_after_hexmedcol_5
+$ifi     "%gp_lc_5%"=="black"                      $setglobal gp_hexmedcol_5 FFFAF0
+$ifi not "%gp_lc_5%"=="black"                      $setglobal gp_hexmedcol_5 000000
+$label gpxyzlabel_after_hexmedcol_5
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_5%" notitle, \'/;
+);
+
+If(gp_count eq 6,
+$if setglobal gp_hexmedcol_6                       $goto gpxyzlabel_after_hexmedcol_6
+$ifi     "%gp_lc_6%"=="black"                      $setglobal gp_hexmedcol_6 FFFAF0
+$ifi not "%gp_lc_6%"=="black"                      $setglobal gp_hexmedcol_6 000000
+$label gpxyzlabel_after_hexmedcol_6
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_6%" notitle, \'/;
+);
+
+If(gp_count eq 7,
+$if setglobal gp_hexmedcol_7                       $goto gpxyzlabel_after_hexmedcol_7
+$ifi     "%gp_lc_7%"=="black"                      $setglobal gp_hexmedcol_7 FFFAF0
+$ifi not "%gp_lc_7%"=="black"                      $setglobal gp_hexmedcol_7 000000
+$label gpxyzlabel_after_hexmedcol_7
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_7%" notitle, \'/;
+);
+
+If(gp_count eq 8,
+$if setglobal gp_hexmedcol_8                       $goto gpxyzlabel_after_hexmedcol_8
+$ifi     "%gp_lc_8%"=="black"                      $setglobal gp_hexmedcol_8 FFFAF0
+$ifi not "%gp_lc_8%"=="black"                      $setglobal gp_hexmedcol_8 000000
+$label gpxyzlabel_after_hexmedcol_8
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_8%" notitle, \'/;
+);
+
+If(gp_count eq 9,
+$if setglobal gp_hexmedcol_9                       $goto gpxyzlabel_after_hexmedcol_9
+$ifi     "%gp_lc_9%"=="black"                      $setglobal gp_hexmedcol_9 FFFAF0
+$ifi not "%gp_lc_9%"=="black"                      $setglobal gp_hexmedcol_9 000000
+$label gpxyzlabel_after_hexmedcol_9
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_9%" notitle, \'/;
+);
+
+If(gp_count eq 10,
+$if setglobal gp_hexmedcol_10                      $goto gpxyzlabel_after_hexmedcol_10
+$ifi     "%gp_lc_10%"=="black"                     $setglobal gp_hexmedcol_10 FFFAF0
+$ifi not "%gp_lc_10%"=="black"                     $setglobal gp_hexmedcol_10 000000
+$label gpxyzlabel_after_hexmedcol_10
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_10%" notitle, \'/;
+);
+
+If(gp_count eq 11,
+$if setglobal gp_hexmedcol_11                      $goto gpxyzlabel_after_hexmedcol_11
+$ifi     "%gp_lc_11%"=="black"                     $setglobal gp_hexmedcol_11 FFFAF0
+$ifi not "%gp_lc_11%"=="black"                     $setglobal gp_hexmedcol_11 000000
+$label gpxyzlabel_after_hexmedcol_11
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_11%" notitle, \'/;
+);
+
+If(gp_count eq 12,
+$if setglobal gp_hexmedcol_12                      $goto gpxyzlabel_after_hexmedcol_12
+$ifi     "%gp_lc_12%"=="black"                     $setglobal gp_hexmedcol_12 FFFAF0
+$ifi not "%gp_lc_12%"=="black"                     $setglobal gp_hexmedcol_12 000000
+$label gpxyzlabel_after_hexmedcol_12
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_12%" notitle, \'/;
+);
+
+If(gp_count eq 13,
+$if setglobal gp_hexmedcol_13                      $goto gpxyzlabel_after_hexmedcol_13
+$ifi     "%gp_lc_13%"=="black"                     $setglobal gp_hexmedcol_13 FFFAF0
+$ifi not "%gp_lc_13%"=="black"                     $setglobal gp_hexmedcol_13 000000
+$label gpxyzlabel_after_hexmedcol_13
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_13%" notitle, \'/;
+);
+
+If(gp_count eq 14,
+$if setglobal gp_hexmedcol_14                      $goto gpxyzlabel_after_hexmedcol_14
+$ifi     "%gp_lc_14%"=="black"                     $setglobal gp_hexmedcol_14 FFFAF0
+$ifi not "%gp_lc_14%"=="black"                     $setglobal gp_hexmedcol_14 000000
+$label gpxyzlabel_after_hexmedcol_14
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_14%" notitle, \'/;
+);
+
+If(gp_count eq 15,
+$if setglobal gp_hexmedcol_15                      $goto gpxyzlabel_after_hexmedcol_15
+$ifi     "%gp_lc_15%"=="black"                     $setglobal gp_hexmedcol_15 FFFAF0
+$ifi not "%gp_lc_15%"=="black"                     $setglobal gp_hexmedcol_15 000000
+$label gpxyzlabel_after_hexmedcol_15
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_15%" notitle, \'/;
+);
+
+If(gp_count eq 16,
+$if setglobal gp_hexmedcol_16                      $goto gpxyzlabel_after_hexmedcol_16
+$ifi     "%gp_lc_16%"=="black"                     $setglobal gp_hexmedcol_16 FFFAF0
+$ifi not "%gp_lc_16%"=="black"                     $setglobal gp_hexmedcol_16 000000
+$label gpxyzlabel_after_hexmedcol_16
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_16%" notitle, \'/;
+);
+
+If(gp_count eq 17,
+$if setglobal gp_hexmedcol_17                      $goto gpxyzlabel_after_hexmedcol_17
+$ifi     "%gp_lc_17%"=="black"                     $setglobal gp_hexmedcol_17 FFFAF0
+$ifi not "%gp_lc_17%"=="black"                     $setglobal gp_hexmedcol_17 000000
+$label gpxyzlabel_after_hexmedcol_17
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_17%" notitle, \'/;
+);
+
+If(gp_count eq 18,
+$if setglobal gp_hexmedcol_18                      $goto gpxyzlabel_after_hexmedcol_18
+$ifi     "%gp_lc_18%"=="black"                     $setglobal gp_hexmedcol_18 FFFAF0
+$ifi not "%gp_lc_18%"=="black"                     $setglobal gp_hexmedcol_18 000000
+$label gpxyzlabel_after_hexmedcol_18
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_18%" notitle, \'/;
+);
+
+If(gp_count eq 19,
+$if setglobal gp_hexmedcol_19                      $goto gpxyzlabel_after_hexmedcol_19
+$ifi     "%gp_lc_19%"=="black"                     $setglobal gp_hexmedcol_19 FFFAF0
+$ifi not "%gp_lc_19%"=="black"                     $setglobal gp_hexmedcol_19 000000
+$label gpxyzlabel_after_hexmedcol_19
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_19%" notitle, \'/;
+);
+
+If(gp_count eq 20,
+$if setglobal gp_hexmedcol_20                      $goto gpxyzlabel_after_hexmedcol_20
+$ifi     "%gp_lc_20%"=="black"                     $setglobal gp_hexmedcol_20 FFFAF0
+$ifi not "%gp_lc_20%"=="black"                     $setglobal gp_hexmedcol_20 000000
+$label gpxyzlabel_after_hexmedcol_20
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_20%" notitle, \'/;
+);
+
+If(gp_count eq 21,
+$if setglobal gp_hexmedcol_21                      $goto gpxyzlabel_after_hexmedcol_21
+$ifi     "%gp_lc_21%"=="black"                     $setglobal gp_hexmedcol_21 FFFAF0
+$ifi not "%gp_lc_21%"=="black"                     $setglobal gp_hexmedcol_21 000000
+$label gpxyzlabel_after_hexmedcol_21
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_21%" notitle, \'/;
+);
+
+If(gp_count eq 22,
+$if setglobal gp_hexmedcol_22                      $goto gpxyzlabel_after_hexmedcol_22
+$ifi     "%gp_lc_22%"=="black"                     $setglobal gp_hexmedcol_22 FFFAF0
+$ifi not "%gp_lc_22%"=="black"                     $setglobal gp_hexmedcol_22 000000
+$label gpxyzlabel_after_hexmedcol_22
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_22%" notitle, \'/;
+);
+
+If(gp_count eq 23,
+$if setglobal gp_hexmedcol_23                      $goto gpxyzlabel_after_hexmedcol_23
+$ifi     "%gp_lc_23%"=="black"                     $setglobal gp_hexmedcol_23 FFFAF0
+$ifi not "%gp_lc_23%"=="black"                     $setglobal gp_hexmedcol_23 000000
+$label gpxyzlabel_after_hexmedcol_23
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_23%" notitle, \'/;
+);
+
+If(gp_count eq 24,
+$if setglobal gp_hexmedcol_24                      $goto gpxyzlabel_after_hexmedcol_24
+$ifi     "%gp_lc_24%"=="black"                     $setglobal gp_hexmedcol_24 FFFAF0
+$ifi not "%gp_lc_24%"=="black"                     $setglobal gp_hexmedcol_24 000000
+$label gpxyzlabel_after_hexmedcol_24
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_24%" notitle, \'/;
+);
+
+If(gp_count eq 25,
+$if setglobal gp_hexmedcol_25                      $goto gpxyzlabel_after_hexmedcol_25
+$ifi     "%gp_lc_25%"=="black"                     $setglobal gp_hexmedcol_25 FFFAF0
+$ifi not "%gp_lc_25%"=="black"                     $setglobal gp_hexmedcol_25 000000
+$label gpxyzlabel_after_hexmedcol_25
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_25%" notitle, \'/;
+);
+
+If(gp_count eq 26,
+$if setglobal gp_hexmedcol_26                      $goto gpxyzlabel_after_hexmedcol_26
+$ifi     "%gp_lc_26%"=="black"                     $setglobal gp_hexmedcol_26 FFFAF0
+$ifi not "%gp_lc_26%"=="black"                     $setglobal gp_hexmedcol_26 000000
+$label gpxyzlabel_after_hexmedcol_26
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_26%" notitle, \'/;
+);
+
+If(gp_count eq 27,
+$if setglobal gp_hexmedcol_27                      $goto gpxyzlabel_after_hexmedcol_27
+$ifi     "%gp_lc_27%"=="black"                     $setglobal gp_hexmedcol_27 FFFAF0
+$ifi not "%gp_lc_27%"=="black"                     $setglobal gp_hexmedcol_27 000000
+$label gpxyzlabel_after_hexmedcol_27
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_27%" notitle, \'/;
+);
+
+If(gp_count eq 28,
+$if setglobal gp_hexmedcol_28                      $goto gpxyzlabel_after_hexmedcol_28
+$ifi     "%gp_lc_28%"=="black"                     $setglobal gp_hexmedcol_28 FFFAF0
+$ifi not "%gp_lc_28%"=="black"                     $setglobal gp_hexmedcol_28 000000
+$label gpxyzlabel_after_hexmedcol_28
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_28%" notitle, \'/;
+);
+
+If(gp_count eq 29,
+$if setglobal gp_hexmedcol_29                      $goto gpxyzlabel_after_hexmedcol_29
+$ifi     "%gp_lc_29%"=="black"                     $setglobal gp_hexmedcol_29 FFFAF0
+$ifi not "%gp_lc_29%"=="black"                     $setglobal gp_hexmedcol_29 000000
+$label gpxyzlabel_after_hexmedcol_29
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_29%" notitle, \'/;
+);
+
+If(gp_count eq 30,
+$if setglobal gp_hexmedcol_30                      $goto gpxyzlabel_after_hexmedcol_30
+$ifi     "%gp_lc_30%"=="black"                     $setglobal gp_hexmedcol_30 FFFAF0
+$ifi not "%gp_lc_30%"=="black"                     $setglobal gp_hexmedcol_30 000000
+$label gpxyzlabel_after_hexmedcol_30
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_hexmedcol_30%" notitle, \'/;
+);
+
+* Insert Auto Code 7a0 produced by make_345678_linestyle.gms - end
+
 $label gpxyzlabel_after_median_to_whisker
 
  gp_input.nw = 6;
@@ -8721,7 +8958,7 @@ gp_whiskerposition(%gp_scen%,%gp_obsv_1%)
 %gp_data_string%.lw = 0;
 loop(%gp_obsv_1%,
 put %gp_data_string%, '"',%gp_obsv_1%.TL,'"',;
-put %gp_data_string%, gp_obsvcount(%gp_obsv_1%);
+put %gp_data_string%, @25 gp_obsvcount(%gp_obsv_1%);
 $if not a%2==a   put %gp_data_string%, zerovalue;
 $if not a%3==a   put %gp_data_string%, zerovalue;
 $if not a%4==a   put %gp_data_string%, zerovalue;
@@ -8730,7 +8967,7 @@ $if not a%6==a   put %gp_data_string%, zerovalue;
 $if not a%7==a   put %gp_data_string%, zerovalue;
 Put /; );
 %gp_data_string%.tw = 16;
-%gp_data_string%.lw = 16;   
+%gp_data_string%.lw = 16;
 * Different Data Index Blocks need to be separated by 2 empty lines!
 PUT / /;
 
@@ -8745,7 +8982,7 @@ loop(%gp_scen%,
 %gp_data_string%.tw = 1;
 %gp_data_string%.lw = 0;
 $ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, '"',%gp_obsv_1%.tl,'"';
-$ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, gp_whiskerposition(%gp_scen%,%gp_obsv_1%);
+$ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, @25 gp_whiskerposition(%gp_scen%,%gp_obsv_1%);
 %gp_data_string%.tw = 16;
 %gp_data_string%.lw = 16;
 

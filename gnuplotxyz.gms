@@ -4976,9 +4976,15 @@ $label gpxyzlabel_after_lwidth_general_assign_30
 Put ', \' /;
 
 * Median plotting for whiskers
+
+$if not setglobal gp_mediancolor_hexadecimal       $setglobal gp_mediancolor_hexadecimal 000000
+$ifi "%gp_mediancolor_hexadecimal%" == "no"        $setglobal gp_mediancolor_hexadecimal 000000
+
+
+
 $ifi not "%gp_style%" == "whiskerbars"             $goto gpxyzlabel_after_median_to_whisker
   put  ' "gnuplot%gp_multiplot_count%.dat" index ',(gp_count-1):0:0;
-  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#A9A9A9" notitle, \' /;
+  put  ' using 2:5:5:5:5 with candlesticks lt -1 lw 2 fc rgb "#%gp_mediancolor_hexadecimal%" notitle, \' /;
 $label gpxyzlabel_after_median_to_whisker
 
  gp_input.nw = 6;
@@ -8712,6 +8718,7 @@ gp_whiskerposition(%gp_scen%,%gp_obsv_1%)
  - (card(%gp_scen%)-1) * (%gp_boxwidth% +%gp_boxgap%)/2;
 
 %gp_data_string%.tw = 1;
+%gp_data_string%.lw = 0;
 loop(%gp_obsv_1%,
 put %gp_data_string%, '"',%gp_obsv_1%.TL,'"',;
 put %gp_data_string%, gp_obsvcount(%gp_obsv_1%);
@@ -8722,7 +8729,8 @@ $if not a%5==a   put %gp_data_string%, zerovalue;
 $if not a%6==a   put %gp_data_string%, zerovalue;
 $if not a%7==a   put %gp_data_string%, zerovalue;
 Put /; );
-%gp_data_string%.tw = 16; 
+%gp_data_string%.tw = 16;
+%gp_data_string%.lw = 16;   
 * Different Data Index Blocks need to be separated by 2 empty lines!
 PUT / /;
 
@@ -8735,9 +8743,11 @@ loop(%gp_scen%,
   loop(%gp_obsv_1%,
 
 %gp_data_string%.tw = 1;
+%gp_data_string%.lw = 0;
 $ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, '"',%gp_obsv_1%.tl,'"';
 $ifi "%gp_style%"=="whiskerbars"  put %gp_data_string%, gp_whiskerposition(%gp_scen%,%gp_obsv_1%);
 %gp_data_string%.tw = 16;
+%gp_data_string%.lw = 16;
 
     gp_count = gp_count + 1;
     if(     ((gp_supzer eq 0) and ((gp_count - gp__0(%gp_scen%)) lt 0)
